@@ -17,8 +17,8 @@ const Header = () => {
                         </div>
 
                         <div>
-                            <a className="header__nav-link">Prisijungti</a>
-                            <a className="header__nav-link">Atsijungti </a>
+                            <a className="header__nav-link" href="/#">Prisijungti</a>
+                            <a className="header__nav-link" href="/#">Atsijungti </a>
                         </div>
                     </div>
                 </div>
