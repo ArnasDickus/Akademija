@@ -1,0 +1,39 @@
+/* 768px */
+// Taken from my old css.
+@mixin atSmall {
+  @media (min-width: 48em) {
+    @content;
+  }
+}
+/* 1024px */
+@mixin atMedium {
+  @media (min-width: 64em) {
+    @content;
+  }
+}
+/* 1366px */
+@mixin atLarge {
+  @media (min-width: 83.375em) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin Laptop {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+// Get in touch special mixin
+
+@mixin GetInTouch {
+  @media (max-width: 550px) {
+    @content;
+  }
+}

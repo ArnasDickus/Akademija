@@ -1,0 +1,42 @@
+@import "../../baseScss/global/variables";
+@import "../../baseScss/global/mixins";
+
+.header {
+  border-bottom: 1px solid $headerBorder;
+}
+
+.mobileTitle {
+  display: none;
+
+  @include tablet {
+    display: inline-block;
+  }
+}
+
+.wrapper {
+    margin-right: auto;
+    margin-left:  auto;
+    max-width: 1200px;
+    padding: 20px 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.navLink {
+  color: $mainBlue;
+  font-weight: 700;
+  padding-right: 30px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+@include tablet {
+  .row {
+    display: none;
+  }
+}
