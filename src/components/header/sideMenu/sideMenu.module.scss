@@ -1,0 +1,27 @@
+@import '../../../baseScss/global/variables';
+
+.sideMenu {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.navLink {
+  color: $mainBlue;
+  border-bottom: 1px solid $headerBorder;
+
+  font-weight: 400;
+  cursor: pointer;
+  padding: 10px 30px 20px 10px;
+
+    &:hover {
+      text-decoration: underline;
+      font-weight: 700;
+    }
+}
+
+.card {
+  
+  display: flex;
+  flex-direction: column;
+}
