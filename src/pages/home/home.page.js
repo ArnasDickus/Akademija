@@ -1,9 +1,13 @@
 import React from 'react';
 import './home.styles.scss';
+import Hero from "./sections/hero.section";
 
 const Home = () => {
     return (
-        <h1>Pagrindinis puslapis</h1>
+        <div>
+           <Hero />
+        </div>
+
     )
 }
 
