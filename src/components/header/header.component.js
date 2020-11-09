@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './header.module.scss';
 import { Link } from "react-router-dom";
 import Hamburger from "./hamburger/hamburger.component";
+import SideMenu from "./sideMenu/sideMenu";
 
 
 class Header extends React.Component {
@@ -13,14 +14,22 @@ class Header extends React.Component {
         }
     }
 
-    ToggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
+    toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
     closeSideMenu = () => this.setState({ menuOpen: false });
 
     render () {
+        const { menuOpen } = this.state;
+        console.log(menuOpen);
+
         return (
             <div className={classes.header}>
                 <div className={classes.wrapper}>
-                    <Hamburger />
+                    <Hamburger menuOpen={this.toggleMenu} />
+                    { menuOpen ? (
+                        <SideMenu />
+                    ) : (
+                        ""
+                    )}
 
                     <div className={classes.row}>
                         <div>

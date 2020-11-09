@@ -13,8 +13,9 @@ class Hamburger extends Component {
     }
     handleClick = () => {
         this.setState({ HamburgerOpen: !this.state.HamburgerOpen });
-        // this.props.menuOpen();
+        this.props.menuOpen();
     };
+
     render() {
         const { HamburgerOpen } = this.state;
         return (
