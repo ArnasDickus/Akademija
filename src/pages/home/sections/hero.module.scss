@@ -1,3 +1,6 @@
+@import '../../../baseScss/global/mixins';
+
+
 .container {
   position: relative;
   text-align: center;
@@ -12,6 +15,33 @@
 }
 
 .img {
+  filter: brightness(50%);
   width: 100%;
-  max-height: 100vh;
+  max-height: 871px;
+}
+
+.title {
+  font-size: 42px;
+
+  @include tablet {
+    font-size: 30px;
+  }
+
+  @include GetInTouch {
+    font-size: 20px;
+  }
+
+
+}
+
+.subtitle {
+  font-size: 35px;
+
+  @include tablet {
+    font-size: 20px;
+  }
+
+  @include GetInTouch {
+    font-size: 10px;
+  }
 }

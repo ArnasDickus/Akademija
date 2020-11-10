@@ -1,19 +1,19 @@
 /* 768px */
 // Taken from my old css.
 @mixin atSmall {
-  @media (min-width: 48em) {
+  @media (max-width: 48em) {
     @content;
   }
 }
 /* 1024px */
 @mixin atMedium {
-  @media (min-width: 64em) {
+  @media (max-width: 64em) {
     @content;
   }
 }
 /* 1366px */
 @mixin atLarge {
-  @media (min-width: 83.375em) {
+  @media (max-width: 83.375em) {
     @content;
   }
 }
