@@ -11,7 +11,7 @@ const SideMenu = () => {
                     <a className={classes.navLink} href="/#">Atsijungti </a>
                 </div>
 
-                <div className={classes.card}>
+                <div className={classes.card2}>
                     <Link className={classes.navLink} to="/courses">Kursai</Link>
                     <Link className={classes.navLink} to="/">Akademija</Link>
                 </div>

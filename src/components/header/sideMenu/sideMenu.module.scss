@@ -4,10 +4,11 @@
   display: flex;
   flex-direction: column;
   text-align: left;
+  background-color: #FAFAFA;
 }
 
 .navLink {
-  color: $mainBlue;
+  color: #0a2a66;
   border-bottom: 1px solid $headerBorder;
 
   font-weight: 400;
@@ -17,11 +18,19 @@
     &:hover {
       text-decoration: underline;
       font-weight: 700;
+      color: $mainBlue;
     }
 }
 
 .card {
-  
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
+}
+
+.card2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  background-color: #ffffff;
 }
