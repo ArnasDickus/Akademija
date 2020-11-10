@@ -8,7 +8,7 @@
 .mobileTitle {
   display: none;
 
-  @include tablet {
+  @include atMedium {
     display: inline-block;
   }
 }
@@ -33,7 +33,7 @@
   cursor: pointer;
 }
 
-@include tablet {
+@include atMedium {
   .row {
     display: none;
   }

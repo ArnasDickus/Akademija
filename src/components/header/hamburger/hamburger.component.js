@@ -31,4 +31,3 @@ class Hamburger extends Component {
 }
 
 export default Hamburger;
-

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import classes from './whyWorks.module.scss';
 
 const WhyWorks = () => {

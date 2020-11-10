@@ -15,8 +15,6 @@ const SideMenu = () => {
                     <Link className={classes.navLink} to="/courses">Kursai</Link>
                     <Link className={classes.navLink} to="/">Akademija</Link>
                 </div>
-
-
             </div>
         </aside>
     );

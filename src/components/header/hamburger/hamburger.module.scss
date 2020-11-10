@@ -5,7 +5,7 @@
   display: none;
 
 
-  @include tablet {
+  @include atMedium {
     color: $mainBlue;
     text-align: right;
     padding-right: 10px;

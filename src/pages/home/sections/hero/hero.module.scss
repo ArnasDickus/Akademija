@@ -1,6 +1,5 @@
 @import '../../../../baseScss/global/mixins';
 
-
 .container {
   position: relative;
   text-align: center;
@@ -23,7 +22,7 @@
 .title {
   font-size: 42px;
 
-  @include tablet {
+  @include atMedium {
     font-size: 30px;
   }
 
@@ -37,7 +36,7 @@
 .subtitle {
   font-size: 35px;
 
-  @include tablet {
+  @include atMedium {
     font-size: 20px;
   }
 

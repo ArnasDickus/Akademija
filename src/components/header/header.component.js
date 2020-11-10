@@ -19,7 +19,6 @@ class Header extends React.Component {
 
     render () {
         const { menuOpen } = this.state;
-        console.log(menuOpen);
 
         return (
             <div className={classes.header}>
@@ -50,6 +49,5 @@ class Header extends React.Component {
         )
     }
 }
-
 
 export default Header;
