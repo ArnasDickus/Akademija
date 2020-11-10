@@ -1,0 +1,24 @@
+.container {
+  padding-top: 20px;
+  background-color: #F7F5F4;
+}
+
+.title {
+  text-align: center;
+  font-size: 44px;
+  font-weight: 600;
+  color: #21242c;
+  margin-top: 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper {
+  margin-right: auto;
+  margin-left:  auto;
+  max-width: 1200px;
+  padding: 20px 10px;
+}

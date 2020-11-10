@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroImage from '../../../assets/hero.jpg';
+import HeroImage from '../../../../assets/hero.jpg';
 import classes from './hero.module.scss';
 
 
