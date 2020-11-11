@@ -40,8 +40,9 @@ class Header extends React.Component {
                         </div>
 
                         <div>
-                            <a className={classes.navLink} href="/#">Prisijungti</a>
-                            <a className={classes.navLink} href="/#">Atsijungti </a>
+                            <Link className={classes.navLink} to="/login">Prisijungti</Link>
+                            <Link className={classes.navLink} to="/register">Registruotis</Link>
+                            {/*<Link className={classes.navLink} href="/#">Atsijungti </Link>*/}
                         </div>
                     </div>
                 </div>
