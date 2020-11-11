@@ -6,6 +6,7 @@ import Courses from "./pages/courses/courses.page";
 import Footer from "./components/footer/footer.component";
 import Login from "./pages/login/login.page";
 import Register from "./pages/register/register.page";
+import classes from './App.module.scss';
 
 class App extends React.Component  {
   constructor(props) {
@@ -17,14 +18,16 @@ class App extends React.Component  {
   }
   render() {
     return (
-    <div>
+    <div className={classes.site}>
         <Header />
-            <Switch>
-                <Route path="/" exact={true} component={Home}  />
-                <Route path="/courses" component={Courses} />
-                <Route path="/login" component={Login}/>
-                <Route path="/register" component={Register}/>
-            </Switch>
+            <div className={classes.siteContent}>
+                <Switch>
+                    <Route path="/" exact={true} component={Home}  />
+                    <Route path="/courses" component={Courses} />
+                    <Route path="/login" component={Login}/>
+                    <Route path="/register" component={Register}/>
+                </Switch>
+            </div>
         <Footer />
     </div>
     )
