@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from "./components/header/header.component";
-import { Switch, Route} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Home from "./pages/home/home.page";
 import Courses from "./pages/courses/courses.page";
 import Footer from "./components/footer/footer.component";

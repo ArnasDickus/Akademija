@@ -1,5 +1,7 @@
 import React from 'react';
 import classes from './login.module.scss';
+import FormInput from "../../components/form-input/form-input.component";
+import CustomButton from "../../components/custom-button/custom-button.component";
 
 class Login extends React.Component {
     constructor(props) {
@@ -11,10 +13,40 @@ class Login extends React.Component {
         }
     }
 
+    handleSubmit = event =>  {
+        event.preventDefault();
+    }
+
+    handleChange = event => {
+        const {value, name} = event.target;
+        this.setState({[name]: value});
+    }
+
     render () {
         return (
-            <div>
-                Sign In page.
+            <div className={classes.signIn}>
+                <h2 className={classes.title}>I already have an account</h2>
+                <span>Sign in with your email and password</span>
+
+                <form onSubmit={this.handleSubmit}>
+                    <FormInput
+                        name="email"
+                        value={this.state.email}
+                        handleChange={this.handleChange}
+                        label="email"
+                        required />
+
+                    <FormInput name="password"
+                               type="password"
+                               value={this.state.password}
+                               handleChange={this.handleChange}
+                               label="password"
+                               required />
+                    <div className={classes.buttons}>
+                        <CustomButton type="submit"> Sign In </CustomButton>
+                        <CustomButton type="button" isGoogleSignIn> Sign In with Google </CustomButton>
+                    </div>
+                </form>
             </div>
         )
     }
