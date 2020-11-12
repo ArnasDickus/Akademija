@@ -1,11 +1,15 @@
+@import '../../baseScss/global/mixins';
+
 .loginRegister{
   width: 850px;
   display: flex;
   justify-content: space-between;
   margin: 30px auto;
 
-  @media screen and (max-width: 950px) {
+  @include atMedium() {
     display: block;
     width: inherit;
+    margin-right: 50px;
+    margin-left: 50px;
   }
 }

@@ -24,9 +24,9 @@ class Login extends React.Component {
 
     render () {
         return (
-            <div className={classes.signIn}>
-                <h2 className={classes.title}>I already have an account</h2>
-                <span>Sign in with your email and password</span>
+            <div className={classes.login}>
+                <h2 className={classes.title}>Turi prisijungimą</h2>
+                <span>Prisijunk čia.</span>
 
                 <form onSubmit={this.handleSubmit}>
                     <FormInput

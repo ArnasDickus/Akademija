@@ -1,7 +1,14 @@
-.sign-in {
+@import '../../baseScss/global/mixins';
+
+.login {
   width: 380px;
   display: flex;
   flex-direction: column;
+
+  @include atMedium() {
+    width: 100%;
+  }
+}
 
   .title {
     margin: 10px 0;
@@ -10,5 +17,10 @@
   .buttons {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+
+    @include atVerySmall() {
+      margin-top: 10px;
+    }
   }
-}
+
