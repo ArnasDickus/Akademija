@@ -7,8 +7,8 @@ const SideMenu = () => {
         <aside>
             <div className={classes.sideMenu}>
                 <div className={classes.card}>
-                    <a className={classes.navLink} href="/#">Prisijungti</a>
-                    <a className={classes.navLink} href="/#">Atsijungti </a>
+                    <Link className={classes.navLink} to="/login-register">Prisijungti</Link>
+                    {/*<Link className={classes.navLink} href="/#">Atsijungti </Link>*/}
                 </div>
 
                 <div className={classes.card2}>
