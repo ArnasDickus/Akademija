@@ -3,14 +3,17 @@ import Header from "./components/header/header.component";
 import { Switch, Route } from 'react-router-dom';
 import Home from "./pages/home/home.page";
 import Courses from "./pages/courses/courses.page";
+import Login from "./pages/login/login.page";
+import Register from "./pages/register/register.page";
 import Footer from "./components/footer/footer.component";
 import classes from './App.module.scss';
-import LoginRegister from "./pages/login-register/login-register.page";
+
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "./redux/user/user.selector";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { connect } from 'react-redux';
+
 
 class App extends React.Component  {
   constructor(props) {
@@ -52,7 +55,8 @@ class App extends React.Component  {
                 <Switch>
                     <Route path="/" exact={true} component={Home}  />
                     <Route path="/courses" component={Courses} />
-                    <Route path="/login-register" component={LoginRegister}/>
+                    <Route path="/login" component={Login}/>
+                    <Route path="/register" component={Register}/>
                 </Switch>
             </div>
         <Footer />

@@ -46,8 +46,11 @@ class Header extends React.Component {
                         <div>
                             {
                                 this.props.currentUser
-                                    ? <div className={classes.navLink} onClick={() => auth.signOut()}>Atsijungti</div>
-                                    : <Link className={classes.navLink} to="/login-register">Prisijungti</Link>
+                                ?   <div className={classes.navLink} onClick={() => auth.signOut()}>Atsijungti</div>
+                                :   <div>
+                                        <Link className={classes.navLink} to="/login">Prisijungti</Link>
+                                        <Link className={classes.navLink} to="/register">Registruotis</Link>
+                                    </div>
                             }
                         </div>
                     </div>
