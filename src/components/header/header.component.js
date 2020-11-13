@@ -3,6 +3,7 @@ import classes from './header.module.scss';
 import { Link } from "react-router-dom";
 import Hamburger from "./hamburger/hamburger.component";
 import SideMenu from "./sideMenu/sideMenu";
+import { auth } from '../../firebase/firebase.utils';
 
 
 class Header extends React.Component {
@@ -40,9 +41,11 @@ class Header extends React.Component {
                         </div>
 
                         <div>
-                            <Link className={classes.navLink} to="/login-register">Prisijungti</Link>
-                            {/*<Link className={classes.navLink} to="/register">Registruotis</Link>*/}
-                            {/*<Link className={classes.navLink} href="/#">Atsijungti </Link>*/}
+                            {
+                                this.props.currentUser
+                                    ? <div className={classes.navLink} onClick={() => auth.signOut()}>Atsijungti</div>
+                                    : <Link className={classes.navLink} to="/login-register">Prisijungti</Link>
+                            }
                         </div>
                     </div>
                 </div>
