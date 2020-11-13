@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './register.module.scss';
 import FormInput from "../../components/form-input/form-input.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
+import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 
 class Register extends React.Component {
     constructor(props) {
@@ -15,9 +16,28 @@ class Register extends React.Component {
         }
     }
 
-    handleSubmit = event => {
-        // const { displayName, email, password, confirmPassword } = this.state;
+    handleSubmit = async event => {
+        const { displayName, email, password, confirmPassword } = this.state;
         event.preventDefault();
+
+        if (password !== confirmPassword) {
+            alert("Passwords don't match");
+            return;
+        }
+        
+        try {
+            const { user } = await auth.createUserWithEmailAndPassword(email, password);
+            await createUserProfileDocument(user, {displayName})
+
+            this.setState({
+                displayName: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
+            });
+        } catch(error) {
+            console.log(error);
+        }
     }
 
     handleChange = event => {
