@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from "./components/header/header.component";
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from "./pages/home/home.page";
 import Courses from "./pages/courses/courses.page";
 import Login from "./pages/login/login.page";
@@ -55,8 +55,10 @@ class App extends React.Component  {
                 <Switch>
                     <Route path="/" exact={true} component={Home}  />
                     <Route path="/courses" component={Courses} />
-                    <Route path="/login" component={Login}/>
-                    <Route path="/register" component={Register}/>
+                    <Route path="/login" render={() => this.props.currentUser
+                        ? (<Redirect to={"/"} /> ) : (<Login />)}/>
+                    <Route path="/register" render={() => this.props.currentUser
+                        ? (<Redirect to={"/"} /> ) : (<Register />)}/>
                 </Switch>
             </div>
         <Footer />

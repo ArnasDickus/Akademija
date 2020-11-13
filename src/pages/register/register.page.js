@@ -30,48 +30,50 @@ class Register extends React.Component {
 
         return (
             <div className={classes.register}>
-                <h2 className={classes.title}>Neturi prisijungimo? </h2>
-                <span>Registracija</span>
+                <div className={classes.wrapper}>
+                    <h2 className={classes.title}>Neturi prisijungimo? </h2>
+                    <span>Registracija</span>
 
-                <form onSubmit={this.handleSubmit}>
-                    <FormInput
-                        type="text"
-                        name="displayName"
-                        value={displayName}
-                        onChange={this.handleChange}
-                        label="Display Name"
-                        required>
-                    </FormInput>
+                    <form onSubmit={this.handleSubmit}>
+                        <FormInput
+                            type="text"
+                            name="displayName"
+                            value={displayName}
+                            onChange={this.handleChange}
+                            label="Display Name"
+                            required>
+                        </FormInput>
 
-                    <FormInput
-                        type="email"
-                        name="email"
-                        value={email}
-                        onChange={this.handleChange}
-                        label="Email"
-                        required>
-                    </FormInput>
+                        <FormInput
+                            type="email"
+                            name="email"
+                            value={email}
+                            onChange={this.handleChange}
+                            label="Email"
+                            required>
+                        </FormInput>
 
-                    <FormInput
-                        type="password"
-                        name="password"
-                        value={password}
-                        onChange={this.handleChange}
-                        label="Password"
-                        required>
-                    </FormInput>
+                        <FormInput
+                            type="password"
+                            name="password"
+                            value={password}
+                            onChange={this.handleChange}
+                            label="Password"
+                            required>
+                        </FormInput>
 
-                    <FormInput
-                        type="password"
-                        name="confirmPassword"
-                        value={confirmPassword}
-                        onChange={this.handleChange}
-                        label="ConfirmPassword"
-                        required>
-                    </FormInput>
+                        <FormInput
+                            type="password"
+                            name="confirmPassword"
+                            value={confirmPassword}
+                            onChange={this.handleChange}
+                            label="ConfirmPassword"
+                            required>
+                        </FormInput>
 
-                    <CustomButton type="submit">SIGN UP</CustomButton>
-                </form>
+                        <CustomButton type="submit">Registruotis</CustomButton>
+                    </form>
+                </div>
             </div>
         )
     }

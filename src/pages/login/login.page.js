@@ -26,28 +26,30 @@ class Login extends React.Component {
     render () {
         return (
             <div className={classes.login}>
-                <h2 className={classes.title}>Turi prisijungimą</h2>
-                <span>Prisijunk čia.</span>
+                <div className={classes.wrapper}>
+                    <h2 className={classes.title}>Turi prisijungimą</h2>
+                    <span>Prisijunk čia.</span>
 
-                <form onSubmit={this.handleSubmit}>
-                    <FormInput
-                        name="email"
-                        value={this.state.email}
-                        handleChange={this.handleChange}
-                        label="email"
-                        required />
+                    <form onSubmit={this.handleSubmit}>
+                        <FormInput
+                            name="email"
+                            value={this.state.email}
+                            handleChange={this.handleChange}
+                            label="email"
+                            required />
 
-                    <FormInput name="password"
-                               type="password"
-                               value={this.state.password}
-                               handleChange={this.handleChange}
-                               label="password"
-                               required />
-                    <div className={classes.buttons}>
-                        <CustomButton type="submit"> Sign In </CustomButton>
-                        <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn> Sign In with Google </CustomButton>
-                    </div>
-                </form>
+                        <FormInput name="password"
+                                   type="password"
+                                   value={this.state.password}
+                                   handleChange={this.handleChange}
+                                   label="password"
+                                   required />
+                        <div className={classes.buttons}>
+                            <CustomButton type="submit"> Prisijungti </CustomButton>
+                            <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn> Prisijungti su "Google" </CustomButton>
+                        </div>
+                    </form>
+                </div>
             </div>
         )
     }
