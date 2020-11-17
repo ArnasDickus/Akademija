@@ -6,6 +6,7 @@ import Courses from "./pages/courses/courses.page";
 import Login from "./pages/login/login.page";
 import Register from "./pages/register/register.page";
 import Footer from "./components/footer/footer.component";
+import ForgotPasswordPage from "./pages/forgot-password/forgot-password.page";
 import classes from './App.module.scss';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
@@ -51,6 +52,7 @@ class App extends React.Component  {
                         ? (<Redirect to={"/"} /> ) : (<Login />)}/>
                     <Route path="/register" render={() => this.props.currentUser
                         ? (<Redirect to={"/"} /> ) : (<Register />)}/>
+                    <Route path="/forgot-password" component={ ForgotPasswordPage } />
                 </Switch>
             </div>
         <Footer />

@@ -1,3 +1,4 @@
+@import '../../baseScss/global/variables';
 @import '../../baseScss/global/mixins';
 
 .login {
@@ -30,4 +31,14 @@
       margin-top: 10px;
     }
   }
+
+.linkContainer {
+  padding-top: 20px;
+}
+
+.link {
+  font-size: 15px;
+  font-weight: 600;
+  color: $mainBlue;
+}
 

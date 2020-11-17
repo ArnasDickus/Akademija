@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './register.module.scss';
 import FormInput from "../../components/form-input/form-input.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+import { auth, createUserProfileDocument, sendEmailVerification } from "../../firebase/firebase.utils";
 
 class Register extends React.Component {
     constructor(props) {
@@ -27,7 +27,8 @@ class Register extends React.Component {
         
         try {
             const { user } = await auth.createUserWithEmailAndPassword(email, password);
-            await createUserProfileDocument(user, {displayName})
+            await createUserProfileDocument(user, {displayName});
+            sendEmailVerification();
 
             this.setState({
                 displayName: '',

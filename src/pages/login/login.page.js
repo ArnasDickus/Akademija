@@ -3,6 +3,7 @@ import classes from './login.module.scss';
 import FormInput from "../../components/form-input/form-input.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
+import { Link } from "react-router-dom";
 
 class Login extends React.Component {
     constructor(props) {
@@ -54,7 +55,13 @@ class Login extends React.Component {
                                    required />
                         <div className={classes.buttons}>
                             <CustomButton type="submit"> Prisijungti </CustomButton>
-                            <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn> Prisijungti su "Google" </CustomButton>
+                            <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
+                                Prisijungti su "Google"
+                            </CustomButton>
+                        </div>
+
+                        <div className={classes.linkContainer}>
+                            <Link className={classes.link}  to="forgot-password">Pamiršai slaptažodį?</Link>
                         </div>
                     </form>
                 </div>
