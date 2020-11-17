@@ -13,6 +13,7 @@ import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "./redux/user/user.selector";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { connect } from 'react-redux';
+import ForgotPasswordPage from "./pages/forgot-password/forgot-password.page";
 
 class App extends React.Component  {
   unsubscribeFromAuth = undefined;
@@ -51,6 +52,7 @@ class App extends React.Component  {
                         ? (<Redirect to={"/"} /> ) : (<Login />)}/>
                     <Route path="/register" render={() => this.props.currentUser
                         ? (<Redirect to={"/"} /> ) : (<Register />)}/>
+                    <Route path="/forgot-password" component={ ForgotPasswordPage } />
                 </Switch>
             </div>
         <Footer />
