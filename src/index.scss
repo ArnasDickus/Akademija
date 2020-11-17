@@ -13,3 +13,10 @@ code {
 a {
   text-decoration: none;
 }
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}

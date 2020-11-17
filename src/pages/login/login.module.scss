@@ -1,0 +1,33 @@
+@import '../../baseScss/global/mixins';
+
+.login {
+  display: flex;
+  flex-direction: column;
+
+  @include atMedium() {
+    width: 100%;
+  }
+}
+
+.wrapper {
+  margin-right: auto;
+  margin-left:  auto;
+  width: 100%;
+  max-width: 840px;
+  padding: 20px 10px;
+}
+
+  .title {
+    margin: 10px 0;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @include atVerySmall() {
+      margin-top: 10px;
+    }
+  }
+
