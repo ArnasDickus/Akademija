@@ -26,7 +26,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return;
 
     const userRef = firestore.doc(`users/${userAuth.uid}`);
-
     const snapShot = await userRef.get();
 
     if (!snapShot.exists) {
@@ -46,6 +45,29 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
     return userRef;
 };
+
+export const sendEmailVerification = () => {
+    const user = firebase.auth().currentUser;
+
+    user.sendEmailVerification().then(() => {
+        console.log('email sent');
+    }).catch(function(error) {
+        console.log('Something went wrong', error);
+    })
+}
+
+
+export const createUserWithEmailAndPassword = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            console.log(user.emailVerified);
+            console.log('User signed in')
+        } else {
+            console.log('User is not signed in')
+        }
+    })
+}
+
 
 export default firebase;
 
