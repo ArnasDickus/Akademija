@@ -14,15 +14,7 @@ import { selectCurrentUser } from "./redux/user/user.selector";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { connect } from 'react-redux';
 
-
 class App extends React.Component  {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentUser: null
-    }
-  }
   unsubscribeFromAuth = undefined;
 
     componentDidMount() {
