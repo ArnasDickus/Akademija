@@ -8,7 +8,7 @@ import Register from "./pages/register/register.page";
 import Footer from "./components/footer/footer.component";
 import classes from './App.module.scss';
 
-import { auth, createUserProfileDocument, createUserWithEmailAndPassword } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "./redux/user/user.selector";
 import { setCurrentUser } from "./redux/user/user.actions";
@@ -18,7 +18,6 @@ class App extends React.Component  {
   unsubscribeFromAuth = undefined;
 
     componentDidMount() {
-        createUserWithEmailAndPassword()
         const { setCurrentUser } = this.props;
 
         this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {

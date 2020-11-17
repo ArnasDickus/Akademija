@@ -48,6 +48,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 export const sendEmailVerification = () => {
     const user = firebase.auth().currentUser;
+    firebase.auth().languageCode = document.documentElement.lang;
 
     user.sendEmailVerification().then(() => {
         console.log('email sent');
@@ -55,19 +56,6 @@ export const sendEmailVerification = () => {
         console.log('Something went wrong', error);
     })
 }
-
-
-export const createUserWithEmailAndPassword = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            console.log(user.emailVerified);
-            console.log('User signed in')
-        } else {
-            console.log('User is not signed in')
-        }
-    })
-}
-
 
 export default firebase;
 
