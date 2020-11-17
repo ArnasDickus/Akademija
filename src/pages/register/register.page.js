@@ -30,7 +30,6 @@ class Register extends React.Component {
             await createUserProfileDocument(user, {displayName});
             sendEmailVerification();
 
-
             this.setState({
                 displayName: '',
                 email: '',

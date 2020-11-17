@@ -50,9 +50,6 @@ class ForgotPasswordPage extends React.Component {
             </div>
         )
     }
-
-
 }
-
 
 export default ForgotPasswordPage;

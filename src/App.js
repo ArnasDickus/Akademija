@@ -6,6 +6,7 @@ import Courses from "./pages/courses/courses.page";
 import Login from "./pages/login/login.page";
 import Register from "./pages/register/register.page";
 import Footer from "./components/footer/footer.component";
+import ForgotPasswordPage from "./pages/forgot-password/forgot-password.page";
 import classes from './App.module.scss';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
@@ -13,7 +14,6 @@ import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "./redux/user/user.selector";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { connect } from 'react-redux';
-import ForgotPasswordPage from "./pages/forgot-password/forgot-password.page";
 
 class App extends React.Component  {
   unsubscribeFromAuth = undefined;

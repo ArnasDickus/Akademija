@@ -55,7 +55,6 @@ class Login extends React.Component {
                                    required />
                         <div className={classes.buttons}>
                             <CustomButton type="submit"> Prisijungti </CustomButton>
-
                             <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
                                 Prisijungti su "Google"
                             </CustomButton>
