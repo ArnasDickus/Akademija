@@ -4,7 +4,7 @@ import CustomButton from "../../components/custom-button/custom-button.component
 import { auth, createUserProfileDocument, sendEmailVerification } from "../../firebase/firebase.utils";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
-import TextInput from "../../components/text-input/text-input.component";
+import TextInput from "../../components/form-input/form-input.component";
 import ErrorComponent from "../../components/error-component/error-component";
 
 const Register = () => {
