@@ -11,6 +11,10 @@ const ErrorComponent = ({errorType}) => {
         case 'auth/too-many-requests':
             errorMessage = 'Vartotojas laikinai užblokuotas pamėginkite po 5 minučių';
             break;
+        case 'auth/email-already-in-use':
+            errorMessage = 'Šis emailas jau yra naudojamas'
+            break;
+
         default:
         errorMessage = 'Nežinoma klaida'
     }

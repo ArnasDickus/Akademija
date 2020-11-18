@@ -1,103 +1,90 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './register.module.scss';
-import FormInput from "../../components/form-input/form-input.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import { auth, createUserProfileDocument, sendEmailVerification } from "../../firebase/firebase.utils";
+import * as Yup from "yup";
+import { Form, Formik } from "formik";
+import TextInput from "../../components/text-input/text-input.component";
+import ErrorComponent from "../../components/error-component/error-component";
 
-class Register extends React.Component {
-    constructor(props) {
-        super(props);
+const Register = () => {
+    const [errorType, setErrorType] = useState('');
+    const [hasError, setHasError] = useState(false);
 
-        this.state = {
-            displayName: '',
-            email: '',
-            password: '',
-            confirmPassword: ''
-        }
-    }
+    return (
+        <div className={classes.register}>
+            <div className={classes.wrapper}>
+                <h2 className={classes.title}>Neturi prisijungimo? </h2>
+                <span>Registracija</span>
 
-    handleSubmit = async event => {
-        const { displayName, email, password, confirmPassword } = this.state;
-        event.preventDefault();
+                <Formik
+                    initialValues={{
+                        displayName: '',
+                        email: '',
+                        password: '',
+                        confirmPassword: ''
+                    }}
 
-        if (password !== confirmPassword) {
-            alert("Passwords don't match");
-            return;
-        }
-        
-        try {
-            const { user } = await auth.createUserWithEmailAndPassword(email, password);
-            await createUserProfileDocument(user, {displayName});
-            sendEmailVerification();
+                    validationSchema={Yup.object({
+                        displayName: Yup.string()
+                            .required('Required'),
+                        email: Yup.string()
+                            .email('Invalid email address')
+                            .required('Required'),
+                        password: Yup.string()
+                            .min(6, 'Password should be at least 6 characters')
+                            .required('Required'),
+                        confirmPassword: Yup.string()
+                            .oneOf([Yup.ref('password'), null], "Passwords don't match")
+                            .required('Confirm Password is required'),
+                    })}
 
-            this.setState({
-                displayName: '',
-                email: '',
-                password: '',
-                confirmPassword: ''
-            });
-        } catch(error) {
-            console.log(error);
-        }
-    }
+                    onSubmit= { async (values) => {
+                            const { displayName, email, password } = values
 
-    handleChange = event => {
-        const {name, value} = event.target;
-        this.setState({[name]: value});
-    }
+                            try {
+                                const { user } = await auth.createUserWithEmailAndPassword(email, password);
+                                await createUserProfileDocument(user, {displayName});
+                                sendEmailVerification();
 
-    render() {
-        const { displayName, email, password, confirmPassword } = this.state;
+                            } catch(error) {
+                                setErrorType(error.code)
+                                setHasError(true);
+                                // TODO Add better authentication
+                                console.log(error);
+                            }
+                        }
+                    }>
 
-        return (
-            <div className={classes.register}>
-                <div className={classes.wrapper}>
-                    <h2 className={classes.title}>Neturi prisijungimo? </h2>
-                    <span>Registracija</span>
-
-                    <form onSubmit={this.handleSubmit}>
-                        <FormInput
-                            type="text"
-                            name="displayName"
-                            value={displayName}
-                            onChange={this.handleChange}
+                    <Form>
+                        <TextInput
                             label="Display Name"
-                            required>
-                        </FormInput>
+                            name="displayName"
+                            type="text"/>
 
-                        <FormInput
-                            type="email"
-                            name="email"
-                            value={email}
-                            onChange={this.handleChange}
+                        <TextInput
                             label="Email"
-                            required>
-                        </FormInput>
+                            name="email"
+                            type="email"/>
 
-                        <FormInput
-                            type="password"
-                            name="password"
-                            value={password}
-                            onChange={this.handleChange}
+                        <TextInput
                             label="Password"
-                            required>
-                        </FormInput>
+                            name="password"
+                            type="password"/>
 
-                        <FormInput
-                            type="password"
+                        <TextInput
+                            label="Confirm Password"
                             name="confirmPassword"
-                            value={confirmPassword}
-                            onChange={this.handleChange}
-                            label="ConfirmPassword"
-                            required>
-                        </FormInput>
+                            type="password"/>
+
+                        { hasError && <ErrorComponent errorType={errorType} /> }
 
                         <CustomButton type="submit">Registruotis</CustomButton>
-                    </form>
-                </div>
+                    </Form>
+                </Formik>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default Register;
