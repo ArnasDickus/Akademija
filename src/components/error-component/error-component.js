@@ -14,6 +14,9 @@ const ErrorComponent = ({errorType}) => {
         case 'auth/email-already-in-use':
             errorMessage = 'Šis emailas jau yra naudojamas'
             break;
+        case 'auth/user-not-found':
+            errorMessage = 'El paštas nerastas';
+            break;
 
         default:
         errorMessage = 'Nežinoma klaida'

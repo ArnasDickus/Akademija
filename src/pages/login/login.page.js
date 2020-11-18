@@ -38,7 +38,6 @@ const LoginPage = () => {
                             await auth.signInWithEmailAndPassword(email, password);
                         } catch (error) {
                             setErrorType(error.code)
-                            console.log(error);
                             setHasError(true);
                         }
                     }}>

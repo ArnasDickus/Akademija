@@ -50,8 +50,6 @@ const Register = () => {
                             } catch(error) {
                                 setErrorType(error.code)
                                 setHasError(true);
-                                // TODO Add better authentication
-                                console.log(error);
                             }
                         }
                     }>
