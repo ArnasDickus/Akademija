@@ -1,58 +1,59 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './login.module.scss';
-import FormInput from "../../components/form-input/form-input.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 import { Link } from "react-router-dom";
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+import FormInput from "../../components/form-input/form-input.component";
+import ErrorComponent from "../../components/error-message/error-message.component";
 
-class Login extends React.Component {
-    constructor(props) {
-        super(props);
+const LoginPage = () => {
+    const [errorType, setErrorType] = useState('');
+    const [hasError, setHasError] = useState(false);
 
-        this.state = {
-            email: '',
-            password: '',
-        }
-    }
+    return (
+        <div className={classes.login}>
+            <div className={classes.wrapper}>
+                <h2 className={classes.title}>Turi prisijungimą</h2>
+                <span>Prisijunk čia.</span>
 
-    handleSubmit = async event =>  {
-        event.preventDefault();
-        const { email, password} = this.state;
+                <Formik
+                    initialValues={{
+                        email: '',
+                        password: '',
+                    }}
+                    validationSchema={Yup.object({
+                        password: Yup.string()
+                            .min(6, 'Password should be at least 6 characters')
+                            .required('Required'),
+                        email: Yup.string()
+                            .email('Invalid email address')
+                            .required('Required'),
+                    })}
+                    onSubmit= {async (values) => {
+                        setHasError(false);
+                        const { email, password } = values
+                        try {
+                            await auth.signInWithEmailAndPassword(email, password);
+                        } catch (error) {
+                            setErrorType(error.code)
+                            setHasError(true);
+                        }
+                    }}>
 
-        try {
-            await auth.signInWithEmailAndPassword(email, password);
-            this.setState({email: '', password: ''});
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    handleChange = async event => {
-        const {value, name} = event.target;
-        this.setState({[name]: value});
-    }
-
-    render () {
-        return (
-            <div className={classes.login}>
-                <div className={classes.wrapper}>
-                    <h2 className={classes.title}>Turi prisijungimą</h2>
-                    <span>Prisijunk čia.</span>
-
-                    <form onSubmit={this.handleSubmit}>
+                    <Form>
                         <FormInput
+                            label="Email Address"
                             name="email"
-                            value={this.state.email}
-                            handleChange={this.handleChange}
-                            label="email"
-                            required />
+                            type="email"/>
+                        <FormInput
+                            label="Password"
+                            name="password"
+                            type="password"/>
 
-                        <FormInput name="password"
-                                   type="password"
-                                   value={this.state.password}
-                                   handleChange={this.handleChange}
-                                   label="password"
-                                   required />
+                        { hasError && <ErrorComponent errorType={errorType} /> }
+
                         <div className={classes.buttons}>
                             <CustomButton type="submit"> Prisijungti </CustomButton>
                             <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
@@ -63,11 +64,11 @@ class Login extends React.Component {
                         <div className={classes.linkContainer}>
                             <Link className={classes.link}  to="forgot-password">Pamiršai slaptažodį?</Link>
                         </div>
-                    </form>
-                </div>
+                    </Form>
+                </Formik>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
-export default Login;
+export default LoginPage;

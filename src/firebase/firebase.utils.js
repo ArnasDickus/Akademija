@@ -51,7 +51,6 @@ export const sendEmailVerification = () => {
     firebase.auth().languageCode = document.documentElement.lang;
 
     user.sendEmailVerification().then(() => {
-        console.log('email sent');
     }).catch(function(error) {
         console.log('Something went wrong', error);
     })
