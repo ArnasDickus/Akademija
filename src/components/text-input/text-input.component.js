@@ -8,7 +8,7 @@ const TextInput = ({ label, ...props }) => {
         <div className={classes.group}>
             <input className={classes.formInput} {...field} {...props} />
             {meta.touched && meta.error ? (
-                <div className="error">{meta.error}</div>
+                <div className={classes.error}>{meta.error}</div>
             ) : null}
 
             { label ? (<label
