@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import FormInput from "../../components/form-input/form-input.component";
-import ErrorComponent from "../../components/error-component/error-component";
+import ErrorComponent from "../../components/error-message/error-message.component";
 
 const LoginPage = () => {
     const [errorType, setErrorType] = useState('');

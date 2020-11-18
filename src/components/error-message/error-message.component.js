@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './error-component.module.scss';
+import classes from './error-message.module.scss';
 
-const ErrorComponent = ({errorType}) => {
+const ErrorMessage = ({ errorType }) => {
     let errorMessage = '';
 
     switch (errorType) {
@@ -29,4 +29,4 @@ const ErrorComponent = ({errorType}) => {
         )
 }
 
-export default ErrorComponent;
+export default ErrorMessage;

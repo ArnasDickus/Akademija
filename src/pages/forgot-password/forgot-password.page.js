@@ -5,8 +5,8 @@ import { auth } from "../../firebase/firebase.utils";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import FormInput from "../../components/form-input/form-input.component";
-import ErrorComponent from "../../components/error-component/error-component";
-import SuccessComponent from "../../components/success-component/success-component";
+import ErrorComponent from "../../components/error-message/error-message.component";
+import SuccessComponent from "../../components/success-message/success-message.component";
 
 const ForgotPasswordPage = () => {
     const [errorType, setErrorType] = useState('');

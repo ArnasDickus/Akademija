@@ -5,7 +5,7 @@ import { auth, createUserProfileDocument, sendEmailVerification } from "../../fi
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import FormInput from "../../components/form-input/form-input.component";
-import ErrorComponent from "../../components/error-component/error-component";
+import ErrorComponent from "../../components/error-message/error-message.component";
 
 const Register = () => {
     const [errorType, setErrorType] = useState('');

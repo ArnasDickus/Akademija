@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './succes.module.scss';
+import classes from './success-message.module.scss';
 
 const SuccessComponent = ({ children }) => {
     return (
