@@ -63,13 +63,11 @@ class Login extends React.Component {
                             label="Email Address"
                             name="email"
                             type="email"
-                            placeholder="jane@formik.com"
                         />
                         <TextInput
                             label="Password"
                             name="password"
                             type="password"
-                            placeholder="Jane"
                         />
 
                         <button type="submit">Submit</button>

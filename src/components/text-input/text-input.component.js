@@ -1,20 +1,23 @@
 import React from 'react';
 import { useField } from 'formik';
+import classes from './text-input.module.scss';
 
 const TextInput = ({ label, ...props }) => {
-    // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-    // which we can spread on <input>. We can use field meta to show an error
-    // message if the field is invalid and it has been touched (i.e. visited)
     const [field, meta] = useField(props);
     return (
-        <>
-            <label htmlFor={props.id || props.name}>{label}</label>
-            <input className="text-input" {...field} {...props} />
+        <div className={classes.group}>
+            <input className={classes.formInput} {...field} {...props} />
             {meta.touched && meta.error ? (
                 <div className="error">{meta.error}</div>
             ) : null}
-        </>
+
+            { label ? (<label
+                className={`${field.value.length ? `${classes.shrink}` : ''} 
+                ${classes.formInputLabel}`}>{label}</label>)
+                : null}
+        </div>
     );
+
 };
 
 export default TextInput;
