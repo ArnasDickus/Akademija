@@ -4,7 +4,7 @@ import CustomButton from "../../components/custom-button/custom-button.component
 import { auth } from "../../firebase/firebase.utils";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
-import TextInput from "../../components/form-input/form-input.component";
+import FormInput from "../../components/form-input/form-input.component";
 import ErrorComponent from "../../components/error-component/error-component";
 import SuccessComponent from "../../components/success-component/success-component";
 
@@ -42,7 +42,7 @@ const ForgotPasswordPage = () => {
                     }}>
 
                     <Form>
-                        <TextInput
+                        <FormInput
                             label="Email Address"
                             name="email"
                             type="email"/>

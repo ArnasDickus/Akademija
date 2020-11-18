@@ -2,7 +2,7 @@ import React from 'react';
 import { useField } from 'formik';
 import classes from './form-input.module.scss';
 
-const TextInput = ({ label, ...props }) => {
+const FormInput = ({ label, ...props }) => {
     const [field, meta] = useField(props);
     return (
         <div className={classes.group}>
@@ -20,4 +20,4 @@ const TextInput = ({ label, ...props }) => {
 
 };
 
-export default TextInput;
+export default FormInput;

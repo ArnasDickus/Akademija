@@ -5,7 +5,7 @@ import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 import { Link } from "react-router-dom";
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import TextInput from "../../components/form-input/form-input.component";
+import FormInput from "../../components/form-input/form-input.component";
 import ErrorComponent from "../../components/error-component/error-component";
 
 const LoginPage = () => {
@@ -43,11 +43,11 @@ const LoginPage = () => {
                     }}>
 
                     <Form>
-                        <TextInput
+                        <FormInput
                             label="Email Address"
                             name="email"
                             type="email"/>
-                        <TextInput
+                        <FormInput
                             label="Password"
                             name="password"
                             type="password"/>

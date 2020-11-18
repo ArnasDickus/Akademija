@@ -4,7 +4,7 @@ import CustomButton from "../../components/custom-button/custom-button.component
 import { auth, createUserProfileDocument, sendEmailVerification } from "../../firebase/firebase.utils";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
-import TextInput from "../../components/form-input/form-input.component";
+import FormInput from "../../components/form-input/form-input.component";
 import ErrorComponent from "../../components/error-component/error-component";
 
 const Register = () => {
@@ -55,22 +55,22 @@ const Register = () => {
                     }>
 
                     <Form>
-                        <TextInput
+                        <FormInput
                             label="Display Name"
                             name="displayName"
                             type="text"/>
 
-                        <TextInput
+                        <FormInput
                             label="Email"
                             name="email"
                             type="email"/>
 
-                        <TextInput
+                        <FormInput
                             label="Password"
                             name="password"
                             type="password"/>
 
-                        <TextInput
+                        <FormInput
                             label="Confirm Password"
                             name="confirmPassword"
                             type="password"/>
