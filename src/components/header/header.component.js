@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './header.module.scss';
 import { Link } from "react-router-dom";
 import Hamburger from "./hamburger/hamburger.component";
@@ -7,59 +7,61 @@ import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user.selector";
-import LanguageSwitch from "./language-switch/language-switch.component";
+import { ReactComponent as LTSvg } from "../../assets/lt.svg";
+import { ReactComponent as GBSvg } from "../../assets/gb.svg";
+import { useTranslation } from "react-i18next";
 
+const Header = (props) => {
+    const [menu, openMenu] = useState(false);
 
-class Header extends React.Component {
-    constructor(props) {
-        super(props);
+    const { i18n } = useTranslation();
+    const changeLanguage = lng => {
+        i18n.changeLanguage(lng);
+    };
 
-        this.state = {
-            menuOpen: false
-        }
-    }
+    return (
+        <div className={classes.header}>
+            <div className={classes.wrapper}>
+                <Hamburger menuOpen={() => openMenu(!menu)} />
+                { menu ? (
+                    <SideMenu />
+                ) : (
+                    ""
+                )}
 
-    toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
-    closeSideMenu = () => this.setState({ menuOpen: false });
+                <div className={classes.row}>
+                    <div>
+                        <Link className={classes.navLink} to="/courses">Kursai</Link>
+                    </div>
 
-    render () {
-        const { menuOpen } = this.state;
+                    <div>
+                        <Link className={classes.navLink} to="/">Akademija</Link>
+                    </div>
 
-        return (
-            <div className={classes.header}>
-                <div className={classes.wrapper}>
-                    <Hamburger menuOpen={this.toggleMenu} />
-                    { menuOpen ? (
-                        <SideMenu />
-                    ) : (
-                        ""
-                    )}
+                    <div className={classes.navLink}>
+                        {
+                            props.currentUser
+                                ?   <div  onClick={() => auth.signOut()}>Atsijungti</div>
 
-                    <div className={classes.row}>
-                        <div>
-                            <Link className={classes.navLink} to="/courses">Kursai</Link>
-                        </div>
-
-                        <div>
-                            <Link className={classes.navLink} to="/">Akademija</Link>
-                        </div>
-
-                        <div>
-                            {
-                                this.props.currentUser
-                                ?   <div className={classes.navLink} onClick={() => auth.signOut()}>Atsijungti</div>
-                                :   <div>
+                                :   <React.Fragment>
                                         <Link className={classes.navLink} to="/login">Prisijungti</Link>
                                         <Link className={classes.navLink} to="/register">Registruotis</Link>
-                                    </div>
-                            }
-                        </div>
-                        <LanguageSwitch />
+                                    </React.Fragment>
+                        }
+
+                        <span className={classes.paddingR}>
+                            <LTSvg  width="40px" height="20px" onClick={() => changeLanguage('lt')} />
+                        </span>
+
+                        <span>
+                            <GBSvg width="40px" height="20px" onClick={() => changeLanguage('en')} />
+                        </span>
                     </div>
+
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 const mapStateToProps = createStructuredSelector({

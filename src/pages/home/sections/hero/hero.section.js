@@ -4,11 +4,7 @@ import classes from './hero.module.scss';
 import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
-    const { t, i18n } = useTranslation();
-
-    const changeLanguage = lng => {
-        i18n.changeLanguage(lng);
-    };
+    const { t } = useTranslation();
 
     return (
             <div className={classes.container}>
