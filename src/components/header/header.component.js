@@ -5,8 +5,9 @@ import Hamburger from "./hamburger/hamburger.component";
 import SideMenu from "./sideMenu/sideMenu";
 import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
-import {createStructuredSelector} from "reselect";
-import {selectCurrentUser} from "../../redux/user/user.selector";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../../redux/user/user.selector";
+import LanguageSwitch from "./language-switch/language-switch.component";
 
 
 class Header extends React.Component {
@@ -53,6 +54,7 @@ class Header extends React.Component {
                                     </div>
                             }
                         </div>
+                        <LanguageSwitch />
                     </div>
                 </div>
             </div>
