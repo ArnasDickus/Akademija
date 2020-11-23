@@ -12,15 +12,11 @@ const Hero = () => {
 
                 <div className={classes.textContainer}>
                     <h1 className={classes.title}>
-                        Ruoštis egzaminui niekada nevėlu.
+                        {t('heroPage.title')}
                     </h1>
-                    <p className={classes.subtitle}>Mes esame ne pelno siekianti organizacija
-                        su misija pateikti nemokamą, išsilavinimą visiems visur
+                    <p className={classes.subtitle}>
+                        {t('heroPage.subtitle')}
                     </p>
-
-                    <h1>{t('title')}</h1>
-
-
                 </div>
             </div>
     )

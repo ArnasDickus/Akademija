@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next";
 const Header = (props) => {
     const [menu, openMenu] = useState(false);
 
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const changeLanguage = lng => {
         i18n.changeLanguage(lng);
     };
@@ -31,21 +31,21 @@ const Header = (props) => {
 
                 <div className={classes.row}>
                     <div>
-                        <Link className={classes.navLink} to="/courses">Kursai</Link>
+                        <Link className={classes.navLink} to="/courses">{t('header.courses')}</Link>
                     </div>
 
                     <div>
-                        <Link className={classes.navLink} to="/">Akademija</Link>
+                        <Link className={classes.navLink} to="/">{t('header.academy')}</Link>
                     </div>
 
                     <div className={classes.navLink}>
                         {
                             props.currentUser
-                                ?   <div  onClick={() => auth.signOut()}>Atsijungti</div>
+                                ?   <div  onClick={() => auth.signOut()}>{t('header.logout')}</div>
 
                                 :   <React.Fragment>
-                                        <Link className={classes.navLink} to="/login">Prisijungti</Link>
-                                        <Link className={classes.navLink} to="/register">Registruotis</Link>
+                                        <Link className={classes.navLink} to="/login">{t('header.login')}</Link>
+                                        <Link className={classes.navLink} to="/register">{t('header.register')}</Link>
                                     </React.Fragment>
                         }
 

@@ -1,7 +1,47 @@
 {
-  "title": "Welcome to react using react-i18next EN",
-  "description": {
-    "part1": "To get started, edit <1>src/App.js</1> and save to reload. EN",
-    "part2": "Switch language between english and german using buttons above. EN"
+  "header": {
+    "courses": "Courses",
+    "academy": "Academy",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout"
+  },
+
+  "heroPage": {
+    "title": "Prepare for exams.",
+    "subtitle": "We’re a nonprofit with the mission to provide a free, world-class education for anyone, anywhere."
+  },
+
+  "whyWorks": {
+    "title": "Why academy works?",
+    "reason1": "Reason 1",
+    "reason2": "Reason 2",
+    "reason3": "Reason 3"
+  },
+
+  "login": {
+    "title": "Do you have account?",
+    "subtitle": "Login here.",
+    "emailLabel": "Email Address",
+    "passwordLabel": "Password",
+    "login": "Login",
+    "loginGoogle": "Login with 'Google'",
+    "forgotPassword": "Forgot password"
+  },
+
+  "errorMessage": {
+    "wrongPassword": "Wrong password",
+    "userBlocked": "User blocked for 5 minutes",
+    "emailInUse": "Email is already in use",
+    "emailNotFound": "Email not found",
+    "unknownError": "Unknown Error",
+    "passwordMin": "Password should be at least 6 characters",
+    "required": "Required",
+    "invalidEmail": "Invalid email address"
+  },
+
+
+  "footer": {
+    "copyright": "Copyright"
   }
 }

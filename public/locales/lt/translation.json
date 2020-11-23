@@ -1,7 +1,47 @@
 {
-  "title": "Welcome to react using react-i18next LT",
-  "description": {
-    "part1": "To get started, edit <1>src/App.js</1> and save to reload. LT",
-    "part2": "Switch language between english and german using buttons above. LT"
+  "header": {
+    "courses": "Kursai",
+    "academy": "Akademija",
+    "login": "Prisijungti",
+    "register": "Registruotis",
+    "logout": "Atsijungti"
+  },
+
+  "heroPage": {
+    "title": "Ruoštis egzaminui niekada nevėlu.",
+    "subtitle": "Mes esame ne pelno siekianti organizacija su misija pateikti nemokamą, išsilavinimą visiems visur"
+  },
+
+  "whyWorks": {
+    "title": "Kodėl akademija veikia",
+    "reason1": "Priežastis 1",
+    "reason2": "Priežastis 2",
+    "reason3": "Priežastis 3"
+  },
+
+  "login": {
+    "title": "Turi prisijungimą?",
+    "subtitle": "Prisijunk čia.",
+    "emailLabel": "El. paštas",
+    "passwordLabel": "Slaptažodis",
+    "login": "Prisijungti",
+    "loginGoogle": "Prisijungti su 'Google'",
+    "forgotPassword": "Pamiršai slaptažodį?"
+  },
+
+  "errorMessage": {
+    "wrongPassword": "Neteisingas slaptažodis",
+    "userBlocked": "Vartotojas laikinai užblokuotas pamėginkite po 5 minučių",
+    "emailInUse": "El. paštas jau naudojamas",
+    "emailNotFound": "El. paštas nerastas",
+    "unknownError": "Nežinoma klaida.",
+    "passwordMin": "Slaptažodis turi turėti bent 6 simbolius.",
+    "required": "Privaloma.",
+    "invalidEmail": "Neteisingas el. paštas."
+
+  },
+
+  "footer": {
+    "copyright": "Autorinės teisės saugomos"
   }
 }
