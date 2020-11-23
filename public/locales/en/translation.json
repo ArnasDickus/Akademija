@@ -19,14 +19,24 @@
     "reason3": "Reason 3"
   },
 
+  "courses": {
+    "allCourses": "All Courses"
+  },
+
   "login": {
     "title": "Do you have account?",
     "subtitle": "Login here.",
     "emailLabel": "Email Address",
     "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm password",
     "login": "Login",
     "loginGoogle": "Login with 'Google'",
-    "forgotPassword": "Forgot password"
+    "forgotPassword": "Forgot password",
+    "emailSendSuccess": "Email sent successfully",
+    "resetPassword": "Reset password",
+    "cantLogin": "Don't have access?",
+    "register": "Register",
+    "displayName": "Display name"
   },
 
   "errorMessage": {
@@ -37,7 +47,8 @@
     "unknownError": "Unknown Error",
     "passwordMin": "Password should be at least 6 characters",
     "required": "Required",
-    "invalidEmail": "Invalid email address"
+    "invalidEmail": "Invalid email address",
+    "passwordsNoMatch": "Passwords don't match"
   },
 
 

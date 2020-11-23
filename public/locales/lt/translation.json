@@ -19,14 +19,24 @@
     "reason3": "Priežastis 3"
   },
 
+  "courses": {
+    "allCourses": "Visi kursai"
+  },
+
   "login": {
     "title": "Turi prisijungimą?",
     "subtitle": "Prisijunk čia.",
     "emailLabel": "El. paštas",
     "passwordLabel": "Slaptažodis",
+    "confirmPasswordLabel": "Pakartoti slaptažodį",
     "login": "Prisijungti",
     "loginGoogle": "Prisijungti su 'Google'",
-    "forgotPassword": "Pamiršai slaptažodį?"
+    "forgotPassword": "Pamiršai slaptažodį?",
+    "emailSendSuccess": "Laiškas išsiųstas sėkmingai",
+    "resetPassword": "Atstatyti slaptažodį",
+    "cantLogin": "Neturi prisijungimo",
+    "register": "Registruokis",
+    "displayName": "Slapyvardis"
   },
 
   "errorMessage": {
@@ -37,8 +47,8 @@
     "unknownError": "Nežinoma klaida.",
     "passwordMin": "Slaptažodis turi turėti bent 6 simbolius.",
     "required": "Privaloma.",
-    "invalidEmail": "Neteisingas el. paštas."
-
+    "invalidEmail": "Neteisingas el. paštas.",
+    "passwordsNoMatch": "Slaptažodžiai nesutampa"
   },
 
   "footer": {
