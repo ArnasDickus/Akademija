@@ -3,7 +3,7 @@ import HeroImage from '../../../../assets/hero.jpg';
 import classes from './hero.module.scss';
 import { useTranslation } from 'react-i18next';
 
-const Hero = () => {
+const Hero: React.FC = () => {
     const { t } = useTranslation();
 
     return (

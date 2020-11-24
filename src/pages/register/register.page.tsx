@@ -8,7 +8,7 @@ import FormInput from "../../components/form-input/form-input.component";
 import ErrorComponent from "../../components/error-message/error-message.component";
 import { useTranslation } from "react-i18next";
 
-const Register = () => {
+const Register: React.FC = () => {
     const [errorType, setErrorType] = useState('');
     const [hasError, setHasError] = useState(false);
     const { t, i18n } = useTranslation();
@@ -37,7 +37,7 @@ const Register = () => {
                             .min(6, i18n.t('errorMessage.passwordMin'))
                             .required(i18n.t('errorMessage.required')),
                         confirmPassword: Yup.string()
-                            .oneOf([Yup.ref('password'), null], i18n.t('errorMessage.passwordsNoMatch'))
+                            .oneOf([Yup.ref('password'), undefined], i18n.t('errorMessage.passwordsNoMatch'))
                             .required(i18n.t('errorMessage.required')),
                     })}
 

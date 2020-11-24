@@ -2,7 +2,13 @@ import React from 'react';
 import { useField } from 'formik';
 import classes from './form-input.module.scss';
 
-const FormInput = ({ label, ...props }) => {
+interface Props {
+    label: string
+    name: string
+    type: string
+}
+
+const FormInput: React.FC<Props> = ({ label, ...props }) => {
     const [field, meta] = useField(props);
     return (
         <div className={classes.group}>

@@ -2,7 +2,7 @@ import React from 'react';
 import './courses.styles';
 import { useTranslation } from "react-i18next";
 
-const Courses = () => {
+const Courses: React.FC = () => {
     const { t } = useTranslation();
 
     return (

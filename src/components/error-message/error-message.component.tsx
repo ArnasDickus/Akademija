@@ -1,22 +1,27 @@
 import React from 'react';
 import classes from './error-message.module.scss';
 import { useTranslation } from "react-i18next";
+import { ErrorMessagesEnum } from "../../core/enums/error-messages.enum";
 
-const ErrorMessage = ({ errorType }) => {
+interface Props  {
+    errorType: string;
+}
+
+const ErrorMessage: React.FC<Props> = ({ errorType }) => {
     const { i18n } = useTranslation();
     let errorMessage = '';
 
     switch (errorType) {
-        case 'auth/wrong-password':
+        case ErrorMessagesEnum.WRONG_PASSWORD:
             errorMessage = i18n.t('errorMessage.wrongPassword');
             break;
-        case 'auth/too-many-requests':
+        case ErrorMessagesEnum.MANY_REQUESTS:
             errorMessage = i18n.t('errorMessage.userBlocked');
             break;
-        case 'auth/email-already-in-use':
+        case ErrorMessagesEnum.EMAIL_IN_USE:
             errorMessage = i18n.t('errorMessage.emailInUse');
             break;
-        case 'auth/user-not-found':
+        case ErrorMessagesEnum.USER_NOT_FOUND:
             errorMessage = i18n.t('errorMessage.emailNotFound');
             break;
 
