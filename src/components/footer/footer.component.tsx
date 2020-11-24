@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './footer.module.scss';
 import { useTranslation } from "react-i18next";
 
-const Footer = () => {
+const Footer: React.FC = () => {
     const { t } = useTranslation();
 
     return (

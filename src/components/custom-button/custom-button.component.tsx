@@ -1,7 +1,12 @@
 import React from 'react';
 import classes from './custom-button.module.scss';
 
-const CustomButton = ({
+interface Props {
+    isGoogleSignIn: string,
+    inverted: string;
+}
+
+const CustomButton: React.FC<Props> = ({
       children,
       isGoogleSignIn,
       inverted,
