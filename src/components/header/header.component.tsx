@@ -10,12 +10,17 @@ import { selectCurrentUser } from "../../redux/user/user.selector";
 import { ReactComponent as LTSvg } from "../../assets/lt.svg";
 import { ReactComponent as GBSvg } from "../../assets/gb.svg";
 import { useTranslation } from "react-i18next";
+import currentUserInterface from "../../core/interfaces/currentUser.interface";
 
-const Header = (props) => {
+interface Props {
+    currentUser: currentUserInterface;
+}
+
+const Header: React.FC<Props> = (props) => {
     const [menu, openMenu] = useState(false);
     const { t, i18n } = useTranslation();
 
-    const changeLanguage = lng => {
+    const changeLanguage = (lng: string): void => {
         i18n.changeLanguage(lng);
     };
 

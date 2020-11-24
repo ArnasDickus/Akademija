@@ -4,11 +4,15 @@ import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTranslation } from "react-i18next";
 
-const Hamburger = (props) => {
+interface Props {
+    menuOpen: () => void;
+}
+
+const Hamburger: React.FC<Props> = (props) => {
     const [hamburger, openHamburger] = useState(false);
     const { t } = useTranslation();
 
-    const handleClick = () => {
+    const handleClick = (): void => {
         openHamburger(!hamburger)
         props.menuOpen();
     }

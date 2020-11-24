@@ -8,11 +8,16 @@ import { auth } from "../../../firebase/firebase.utils";
 import { useTranslation } from "react-i18next";
 import { ReactComponent as LTSvg } from "../../../assets/lt.svg";
 import { ReactComponent as GBSvg } from "../../../assets/gb.svg";
+import currentUserInterface from "../../../core/interfaces/currentUser.interface";
 
-const SideMenu = ({ currentUser }) => {
+interface Props {
+    currentUser: currentUserInterface;
+}
+
+const SideMenu: React.FC<Props> = ({ currentUser }) => {
     const { t, i18n } = useTranslation();
 
-    const changeLanguage = lng => {
+    const changeLanguage = (lng: string) => {
         i18n.changeLanguage(lng);
     };
 
