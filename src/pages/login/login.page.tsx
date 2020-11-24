@@ -8,6 +8,7 @@ import * as Yup from 'yup';
 import FormInput from "../../components/form-input/form-input.component";
 import ErrorComponent from "../../components/error-message/error-message.component";
 import { useTranslation } from "react-i18next";
+import AllRoutesEnum from "../../core/enums/allRoutes.enum";
 
 const LoginPage: React.FC = () => {
     const [errorType, setErrorType] = useState('');
@@ -64,7 +65,7 @@ const LoginPage: React.FC = () => {
                         </div>
 
                         <div className={classes.linkContainer}>
-                            <Link className={classes.link}  to="forgot-password">{t('login.forgotPassword')}</Link>
+                            <Link className={classes.link}  to={`${AllRoutesEnum.FORGOT_PASSWORD}`}>{t('login.forgotPassword')}</Link>
                         </div>
                     </Form>
                 </Formik>

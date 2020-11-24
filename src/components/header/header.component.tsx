@@ -11,6 +11,8 @@ import { ReactComponent as LTSvg } from "../../assets/lt.svg";
 import { ReactComponent as GBSvg } from "../../assets/gb.svg";
 import { useTranslation } from "react-i18next";
 import currentUserInterface from "../../core/interfaces/currentUser.interface";
+import AllRoutesEnum from "../../core/enums/allRoutes.enum";
+import LanguagesEnum from "../../core/enums/languages.enum";
 
 interface Props {
     currentUser: currentUserInterface;
@@ -36,7 +38,7 @@ const Header: React.FC<Props> = (props) => {
 
                 <div className={classes.row}>
                     <div>
-                        <Link className={classes.navLink} to="/courses">{t('header.courses')}</Link>
+                        <Link className={classes.navLink} to={`/${AllRoutesEnum.COURSES}`}>{t('header.courses')}</Link>
                     </div>
 
                     <div>
@@ -49,17 +51,22 @@ const Header: React.FC<Props> = (props) => {
                                 ?   <div  onClick={() => auth.signOut()}>{t('header.logout')}</div>
 
                                 :   <React.Fragment>
-                                        <Link className={classes.navLink} to="/login">{t('header.login')}</Link>
-                                        <Link className={classes.navLink} to="/register">{t('header.register')}</Link>
+                                        <Link className={classes.navLink} to={`/${AllRoutesEnum.LOGIN}`}>
+                                            {t('header.login')}
+                                        </Link>
+
+                                        <Link className={classes.navLink} to={`/${AllRoutesEnum.REGISTER}`}>
+                                            {t('header.register')}
+                                        </Link>
                                     </React.Fragment>
                         }
 
                         <span className={classes.paddingR}>
-                            <LTSvg  width="40px" height="20px" onClick={() => changeLanguage('lt')} />
+                            <LTSvg  width="40px" height="20px" onClick={() => changeLanguage(LanguagesEnum.LT)} />
                         </span>
 
                         <span>
-                            <GBSvg width="40px" height="20px" onClick={() => changeLanguage('en')} />
+                            <GBSvg width="40px" height="20px" onClick={() => changeLanguage(LanguagesEnum.EN)} />
                         </span>
                     </div>
                 </div>
