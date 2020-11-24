@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import { ReactComponent as LTSvg } from "../../../assets/lt.svg";
 import { ReactComponent as GBSvg } from "../../../assets/gb.svg";
 
-const SideMenu = ({currentUser}) => {
+const SideMenu = ({ currentUser }) => {
     const { t, i18n } = useTranslation();
 
     const changeLanguage = lng => {
@@ -44,8 +44,6 @@ const SideMenu = ({currentUser}) => {
                         <GBSvg width="40px" height="20px" onClick={() => changeLanguage('en')} />
                     </span>
                 </div>
-
-
             </div>
         </aside>
     );

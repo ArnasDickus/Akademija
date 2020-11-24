@@ -13,8 +13,8 @@ import { useTranslation } from "react-i18next";
 
 const Header = (props) => {
     const [menu, openMenu] = useState(false);
-
     const { t, i18n } = useTranslation();
+
     const changeLanguage = lng => {
         i18n.changeLanguage(lng);
     };
@@ -57,7 +57,6 @@ const Header = (props) => {
                             <GBSvg width="40px" height="20px" onClick={() => changeLanguage('en')} />
                         </span>
                     </div>
-
                 </div>
             </div>
         </div>

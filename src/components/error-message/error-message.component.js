@@ -8,7 +8,6 @@ const ErrorMessage = ({ errorType }) => {
 
     switch (errorType) {
         case 'auth/wrong-password':
-
             errorMessage = i18n.t('errorMessage.wrongPassword');
             break;
         case 'auth/too-many-requests':
