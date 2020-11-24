@@ -8,7 +8,6 @@ interface Props  {
 }
 
 const ErrorMessage: React.FC<Props> = ({ errorType }) => {
-    console.log(errorType);
     const { i18n } = useTranslation();
     let errorMessage = '';
 

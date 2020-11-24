@@ -9,7 +9,7 @@ import ErrorComponent from "../../components/error-message/error-message.compone
 import SuccessComponent from "../../components/success-message/success-message.component";
 import { useTranslation } from "react-i18next";
 
-const ForgotPasswordPage = () => {
+const ForgotPasswordPage: React.FC = () => {
     const [errorType, setErrorType] = useState('');
     const [hasSuccess, setHasSuccess] = useState(false);
     const [hasError, setHasError] = useState(false);

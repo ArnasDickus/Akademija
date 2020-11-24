@@ -2,8 +2,10 @@ import React from 'react';
 import classes from './custom-button.module.scss';
 
 interface Props {
-    isGoogleSignIn: string,
-    inverted: string;
+    isGoogleSignIn?: boolean,
+    inverted?: string;
+    type?: "button" | "submit" | "reset" | undefined;
+    onClick?: any
 }
 
 const CustomButton: React.FC<Props> = ({

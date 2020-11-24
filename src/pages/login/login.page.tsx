@@ -9,7 +9,7 @@ import FormInput from "../../components/form-input/form-input.component";
 import ErrorComponent from "../../components/error-message/error-message.component";
 import { useTranslation } from "react-i18next";
 
-const LoginPage = () => {
+const LoginPage: React.FC = () => {
     const [errorType, setErrorType] = useState('');
     const [hasError, setHasError] = useState(false);
     const { t, i18n } = useTranslation();
