@@ -1,9 +1,12 @@
 import React from 'react';
 import './courses.styles';
+import { useTranslation } from "react-i18next";
 
 const Courses = () => {
+    const { t } = useTranslation();
+
     return (
-        <h1>Visi kursai</h1>
+        <h1>{t('courses.allCourses')}</h1>
     )
 }
 

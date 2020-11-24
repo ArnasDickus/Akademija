@@ -1,33 +1,28 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import classes from "./hamburger.module.scss";
 import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslation } from "react-i18next";
 
-class Hamburger extends Component {
-    constructor(props) {
-        super(props);
+const Hamburger = (props) => {
+    const [hamburger, openHamburger] = useState(false);
+    const { t } = useTranslation();
 
-        this.state = {
-            HamburgerOpen: false
-        };
+    const handleClick = () => {
+        openHamburger(!hamburger)
+        props.menuOpen();
     }
-    handleClick = () => {
-        this.setState({ HamburgerOpen: !this.state.HamburgerOpen });
-        this.props.menuOpen();
-    };
 
-    render() {
-        const { HamburgerOpen } = this.state;
-        return (
-           <div className={classes.hamburger}>
-               <span className={classes.title}>Akademija</span>
-               {
-                   HamburgerOpen ? <FontAwesomeIcon onClick={this.handleClick} icon={faTimes}/>
-                       : <FontAwesomeIcon onClick={this.handleClick} icon={faBars}/>
-               }
-           </div>
-        );
-    }
+    return (
+        <div className={classes.hamburger}>
+            <span className={classes.title}>{t('header.academy')}</span>
+            {
+                hamburger ?
+                <FontAwesomeIcon onClick={ handleClick } icon={ faTimes } />
+                : <FontAwesomeIcon onClick={ handleClick } icon={ faBars }/>
+            }
+        </div>
+    )
 }
 
 export default Hamburger;

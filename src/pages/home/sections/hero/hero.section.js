@@ -1,18 +1,21 @@
 import React from 'react';
 import HeroImage from '../../../../assets/hero.jpg';
 import classes from './hero.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+    const { t } = useTranslation();
+
     return (
             <div className={classes.container}>
                 <img className={classes.img} src={HeroImage} alt="" />
 
                 <div className={classes.textContainer}>
                     <h1 className={classes.title}>
-                        Ruoštis egzaminui niekada nevėlu.
+                        {t('heroPage.title')}
                     </h1>
-                    <p className={classes.subtitle}>Mes esame ne pelno siekianti organizacija
-                        su misija pateikti nemokamą, išsilavinimą visiems visur
+                    <p className={classes.subtitle}>
+                        {t('heroPage.subtitle')}
                     </p>
                 </div>
             </div>

@@ -1,63 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './header.module.scss';
 import { Link } from "react-router-dom";
 import Hamburger from "./hamburger/hamburger.component";
 import SideMenu from "./sideMenu/sideMenu";
 import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
-import {createStructuredSelector} from "reselect";
-import {selectCurrentUser} from "../../redux/user/user.selector";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../../redux/user/user.selector";
+import { ReactComponent as LTSvg } from "../../assets/lt.svg";
+import { ReactComponent as GBSvg } from "../../assets/gb.svg";
+import { useTranslation } from "react-i18next";
 
+const Header = (props) => {
+    const [menu, openMenu] = useState(false);
+    const { t, i18n } = useTranslation();
 
-class Header extends React.Component {
-    constructor(props) {
-        super(props);
+    const changeLanguage = lng => {
+        i18n.changeLanguage(lng);
+    };
 
-        this.state = {
-            menuOpen: false
-        }
-    }
+    return (
+        <div className={classes.header}>
+            <div className={classes.wrapper}>
+                <Hamburger menuOpen={() => openMenu(!menu)} />
+                { menu ? (
+                    <SideMenu />
+                ) : (
+                    ""
+                )}
 
-    toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
-    closeSideMenu = () => this.setState({ menuOpen: false });
+                <div className={classes.row}>
+                    <div>
+                        <Link className={classes.navLink} to="/courses">{t('header.courses')}</Link>
+                    </div>
 
-    render () {
-        const { menuOpen } = this.state;
+                    <div>
+                        <Link className={classes.navLink} to="/">{t('header.academy')}</Link>
+                    </div>
 
-        return (
-            <div className={classes.header}>
-                <div className={classes.wrapper}>
-                    <Hamburger menuOpen={this.toggleMenu} />
-                    { menuOpen ? (
-                        <SideMenu />
-                    ) : (
-                        ""
-                    )}
+                    <div className={classes.navLink}>
+                        {
+                            props.currentUser
+                                ?   <div  onClick={() => auth.signOut()}>{t('header.logout')}</div>
 
-                    <div className={classes.row}>
-                        <div>
-                            <Link className={classes.navLink} to="/courses">Kursai</Link>
-                        </div>
+                                :   <React.Fragment>
+                                        <Link className={classes.navLink} to="/login">{t('header.login')}</Link>
+                                        <Link className={classes.navLink} to="/register">{t('header.register')}</Link>
+                                    </React.Fragment>
+                        }
 
-                        <div>
-                            <Link className={classes.navLink} to="/">Akademija</Link>
-                        </div>
+                        <span className={classes.paddingR}>
+                            <LTSvg  width="40px" height="20px" onClick={() => changeLanguage('lt')} />
+                        </span>
 
-                        <div>
-                            {
-                                this.props.currentUser
-                                ?   <div className={classes.navLink} onClick={() => auth.signOut()}>Atsijungti</div>
-                                :   <div>
-                                        <Link className={classes.navLink} to="/login">Prisijungti</Link>
-                                        <Link className={classes.navLink} to="/register">Registruotis</Link>
-                                    </div>
-                            }
-                        </div>
+                        <span>
+                            <GBSvg width="40px" height="20px" onClick={() => changeLanguage('en')} />
+                        </span>
                     </div>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 const mapStateToProps = createStructuredSelector({

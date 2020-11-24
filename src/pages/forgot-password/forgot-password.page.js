@@ -7,16 +7,18 @@ import { Form, Formik } from "formik";
 import FormInput from "../../components/form-input/form-input.component";
 import ErrorComponent from "../../components/error-message/error-message.component";
 import SuccessComponent from "../../components/success-message/success-message.component";
+import { useTranslation } from "react-i18next";
 
 const ForgotPasswordPage = () => {
     const [errorType, setErrorType] = useState('');
     const [hasSuccess, setHasSuccess] = useState(false);
     const [hasError, setHasError] = useState(false);
+    const { t, i18n } = useTranslation();
 
     return (
         <div className={classes.forgotPassword}>
             <div className={classes.wrapper}>
-                <h2 className={classes.title}>Pamiršai slaptažodį?</h2>
+                <h2 className={classes.title}>{t('login.forgotPassword')}</h2>
 
                 <Formik
                     initialValues={{
@@ -24,8 +26,8 @@ const ForgotPasswordPage = () => {
                     }}
                     validationSchema={Yup.object({
                         email: Yup.string()
-                            .email('Invalid email address')
-                            .required('Required'),
+                            .email(i18n.t('errorMessage.invalidEmail'))
+                            .required(i18n.t('errorMessage.required')),
                     })}
                     onSubmit= {async (values) => {
                         const  { email } = values;
@@ -43,13 +45,13 @@ const ForgotPasswordPage = () => {
 
                     <Form>
                         <FormInput
-                            label="Email Address"
+                            label={t('login.emailLabel')}
                             name="email"
                             type="email"/>
 
                         { hasError && <ErrorComponent errorType={errorType} /> }
-                        { hasSuccess && <SuccessComponent >Laiškas išsiųstas sėkmingai</SuccessComponent>}
-                        <CustomButton type="submit"> Atstatyti slaptažodį </CustomButton>
+                        { hasSuccess && <SuccessComponent>{t('login.emailSendSuccess')}</SuccessComponent>}
+                        <CustomButton type="submit">{t('login.resetPassword')} </CustomButton>
                     </Form>
                 </Formik>
             </div>

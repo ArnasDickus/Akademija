@@ -1,22 +1,25 @@
 import React from 'react';
 import classes from './whyWorks.module.scss';
+import { useTranslation } from "react-i18next";
 
 const WhyWorks = () => {
+    const { t } = useTranslation();
+
     return (
         <div className={classes.container}>
-            <h2 className={classes.title}>Kodėl Akademija veikia?</h2>
+            <h2 className={classes.title}>{t('whyWorks.title')}</h2>
             <div className={classes.wrapper}>
                 <div className={classes.row}>
                     <div>
-                        <p>Priežastis 1</p>
+                        <p>{t('whyWorks.reason1')}</p>
                     </div>
 
                     <div>
-                        <p>Priežastis 2</p>
+                        <p>{t('whyWorks.reason2')}</p>
                     </div>
 
                     <div>
-                        <p>Priežastis 3</p>
+                        <p>{t('whyWorks.reason3')}</p>
                     </div>
                 </div>
             </div>

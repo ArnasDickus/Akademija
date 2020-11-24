@@ -7,16 +7,18 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import FormInput from "../../components/form-input/form-input.component";
 import ErrorComponent from "../../components/error-message/error-message.component";
+import { useTranslation } from "react-i18next";
 
 const LoginPage = () => {
     const [errorType, setErrorType] = useState('');
     const [hasError, setHasError] = useState(false);
+    const { t, i18n } = useTranslation();
 
     return (
         <div className={classes.login}>
             <div className={classes.wrapper}>
-                <h2 className={classes.title}>Turi prisijungimą</h2>
-                <span>Prisijunk čia.</span>
+                <h2 className={classes.title}>{t('login.title')}</h2>
+                <span>{t('login.subtitle')}</span>
 
                 <Formik
                     initialValues={{
@@ -25,11 +27,11 @@ const LoginPage = () => {
                     }}
                     validationSchema={Yup.object({
                         password: Yup.string()
-                            .min(6, 'Password should be at least 6 characters')
-                            .required('Required'),
+                            .min(6, i18n.t('errorMessage.passwordMin'))
+                            .required(i18n.t('errorMessage.required')),
                         email: Yup.string()
-                            .email('Invalid email address')
-                            .required('Required'),
+                            .email(i18n.t('errorMessage.invalidEmail'))
+                            .required(i18n.t('errorMessage.required')),
                     })}
                     onSubmit= {async (values) => {
                         setHasError(false);
@@ -44,25 +46,25 @@ const LoginPage = () => {
 
                     <Form>
                         <FormInput
-                            label="Email Address"
+                            label={t('login.emailLabel')}
                             name="email"
                             type="email"/>
                         <FormInput
-                            label="Password"
+                            label={t('login.passwordLabel')}
                             name="password"
                             type="password"/>
 
                         { hasError && <ErrorComponent errorType={errorType} /> }
 
                         <div className={classes.buttons}>
-                            <CustomButton type="submit"> Prisijungti </CustomButton>
+                            <CustomButton type="submit"> {t('login.login')} </CustomButton>
                             <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
-                                Prisijungti su "Google"
+                                {t('login.loginGoogle')}
                             </CustomButton>
                         </div>
 
                         <div className={classes.linkContainer}>
-                            <Link className={classes.link}  to="forgot-password">Pamiršai slaptažodį?</Link>
+                            <Link className={classes.link}  to="forgot-password">{t('login.forgotPassword')}</Link>
                         </div>
                     </Form>
                 </Formik>

@@ -6,16 +6,18 @@ import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import FormInput from "../../components/form-input/form-input.component";
 import ErrorComponent from "../../components/error-message/error-message.component";
+import { useTranslation } from "react-i18next";
 
 const Register = () => {
     const [errorType, setErrorType] = useState('');
     const [hasError, setHasError] = useState(false);
+    const { t, i18n } = useTranslation();
 
     return (
         <div className={classes.register}>
             <div className={classes.wrapper}>
-                <h2 className={classes.title}>Neturi prisijungimo? </h2>
-                <span>Registracija</span>
+                <h2 className={classes.title}>{t('login.cantLogin')} </h2>
+                <span>{t('login.register')}</span>
 
                 <Formik
                     initialValues={{
@@ -27,16 +29,16 @@ const Register = () => {
 
                     validationSchema={Yup.object({
                         displayName: Yup.string()
-                            .required('Required'),
+                            .required(i18n.t('errorMessage.required')),
                         email: Yup.string()
-                            .email('Invalid email address')
-                            .required('Required'),
+                            .email(i18n.t('errorMessage.invalidEmail'))
+                            .required(i18n.t('errorMessage.required')),
                         password: Yup.string()
-                            .min(6, 'Password should be at least 6 characters')
-                            .required('Required'),
+                            .min(6, i18n.t('errorMessage.passwordMin'))
+                            .required(i18n.t('errorMessage.required')),
                         confirmPassword: Yup.string()
-                            .oneOf([Yup.ref('password'), null], "Passwords don't match")
-                            .required('Confirm Password is required'),
+                            .oneOf([Yup.ref('password'), null], i18n.t('errorMessage.passwordsNoMatch'))
+                            .required(i18n.t('errorMessage.required')),
                     })}
 
                     onSubmit= { async (values) => {
@@ -56,28 +58,28 @@ const Register = () => {
 
                     <Form>
                         <FormInput
-                            label="Display Name"
+                            label={t('login.displayName')}
                             name="displayName"
                             type="text"/>
 
                         <FormInput
-                            label="Email"
+                            label={t('login.emailLabel')}
                             name="email"
                             type="email"/>
 
                         <FormInput
-                            label="Password"
+                            label={t('login.passwordLabel')}
                             name="password"
                             type="password"/>
 
                         <FormInput
-                            label="Confirm Password"
+                            label={t('login.confirmPasswordLabel')}
                             name="confirmPassword"
                             type="password"/>
 
                         { hasError && <ErrorComponent errorType={errorType} /> }
 
-                        <CustomButton type="submit">Registruotis</CustomButton>
+                        <CustomButton type="submit">{t('login.register')}</CustomButton>
                     </Form>
                 </Formik>
             </div>
