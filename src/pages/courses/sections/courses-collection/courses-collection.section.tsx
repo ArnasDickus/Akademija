@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 interface Props {
     title: string,
     lessons: { id: string, title: string }[]
-
 }
 
 const CourseCollections: React.FC<Props> = ({ title, lessons }) => {
