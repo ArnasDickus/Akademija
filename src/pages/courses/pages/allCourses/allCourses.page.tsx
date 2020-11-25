@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from "react-i18next";
 import CourseCollections from "../../sections/courses-collection/courses-collection.section";
-
+import classes from './allCourses.module.scss';
 
 const mathPreK = [
     {
@@ -45,7 +45,7 @@ const AllCourses: React.FC = () => {
     const { t } = useTranslation();
 
     return (
-        <div>
+        <div className={classes.wrapper}>
             <h1>{t('courses.allCourses')}</h1>
 
             <CourseCollections

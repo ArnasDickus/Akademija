@@ -1,8 +1,13 @@
 @import '../../../../baseScss/global/variables';
+@import '../../../../baseScss/global/mixins';
 
 .row {
   display: flex;
   margin-bottom: 20px;
+
+  @include atSmall() {
+    display: block;
+  }
 }
 
 .courseCollections {
@@ -18,4 +23,8 @@
 
 .root {
   margin-right: 20px;
+
+  @include atSmall() {
+    margin-bottom: 20px;
+  }
 }
