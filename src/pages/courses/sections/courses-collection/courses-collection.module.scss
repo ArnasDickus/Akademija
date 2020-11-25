@@ -1,3 +1,5 @@
+@import '../../../../baseScss/global/variables';
+
 .row {
   display: flex;
   margin-bottom: 20px;
@@ -5,6 +7,13 @@
 
 .courseCollections {
   margin-bottom: 50px;
+}
+
+.title {
+  color: $mainBlue;
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
 }
 
 .root {
