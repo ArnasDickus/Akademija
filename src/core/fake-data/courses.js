@@ -1,9 +1,9 @@
-export const Courses = [
+export const Categories = [
     {
         title: 'Math: Pre-K - 8th Grade',
         id: '1',
         url: 'k-8-grades',
-        subjects: [
+        courses: [
             {
                 id: '1',
                 title: 'Up to 1st Grade (Khan kids)'
@@ -27,7 +27,7 @@ export const Courses = [
         title: 'Math: High School & College',
         id: '2',
         url: 'math',
-        subjects: [
+        courses: [
             {
                 id: '1',
                 title: 'Algebra'

@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from "react-i18next";
 import CourseCollections from "../../sections/courses-collection/courses-collection.section";
 import classes from './allCourses.module.scss';
-import { Courses } from "../../../../core/fake-data/courses";
+import { Categories } from "../../../../core/fake-data/courses";
 
 const AllCourses: React.FC = () => {
     const { t } = useTranslation();
@@ -13,12 +13,12 @@ const AllCourses: React.FC = () => {
 
             <div>
                 {
-                    Courses.map(course => (
+                    Categories.map(category => (
                         <CourseCollections
-                            title={course.title}
-                            key={course.id}
-                            courses={course.subjects}
-                            url={course.url}/>
+                            title={category.title}
+                            key={category.id}
+                            courses={category.courses}
+                            url={category.url}/>
                     ))
                 }
             </div>

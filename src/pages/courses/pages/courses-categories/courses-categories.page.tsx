@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Courses } from '../../../../core/fake-data/courses';
+import { Categories } from '../../../../core/fake-data/courses';
 
 
 const CoursesCategories: React.FC = () => {
@@ -13,10 +13,25 @@ const CoursesCategories: React.FC = () => {
         const fullUrl = window.location.href;
         const segments = new URL(fullUrl).pathname.split('/');
         const id = segments.pop() || segments.pop();
+        const courses = Categories;
+
+
+        for (let course of courses ) {
+            if (course.url === id) {
+            const singleCourse = course;
+            }
+        }
+        console.log(id);
+        console.log(courses);
+
+
     }
 
     return (
         <div>
+            {/*{*/}
+            {/*    singleCourse.map()*/}
+            {/*}*/}
             <h1>Math course</h1>
         </div>
     )
