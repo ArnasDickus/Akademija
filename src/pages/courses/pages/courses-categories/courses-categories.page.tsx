@@ -1,44 +1,38 @@
-import React, { useEffect } from 'react';
-import { Categories } from '../../../../core/fake-data/courses';
-
+import React, {useEffect, useState} from 'react';
+import {Categories} from '../../../../core/fake-data/categories';
 
 const CoursesCategories: React.FC = () => {
-
+    const [singleCategory, setSingleCategory]: any = useState([])
 
     useEffect(() => {
-        fetchData()
-    }, []);
-
-    const fetchData = () =>  {
         const fullUrl = window.location.href;
         const segments = new URL(fullUrl).pathname.split('/');
         const id = segments.pop() || segments.pop();
-        const courses = Categories;
 
-
-        for (let course of courses ) {
-            if (course.url === id) {
-            const singleCourse = course;
+        for (let category of Categories ) {
+            if (category.url === id) {
+                setSingleCategory(category);
+                console.log(singleCategory)
             }
         }
-        console.log(id);
-        console.log(courses);
+    }, [singleCategory]);
 
-
-    }
 
     return (
         <div>
-            {/*{*/}
-            {/*    singleCourse.map()*/}
-            {/*}*/}
-            <h1>Math course</h1>
+            {
+                singleCategory !== [] ? (
+                    <div>
+                        <h2>  {singleCategory.title}</h2>
+                        <div>
+                        {/*     Create additional component */}
+                        </div>
+
+                    </div>
+                ) : ''
+            }
         </div>
     )
 }
 
 export default CoursesCategories;
-
-// Lets think this through:
-// When clicking on course I get course url. Example k-8-grades.
-// I could take that url and match it with fake data.
