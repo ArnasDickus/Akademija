@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import currentUserInterface from "../../core/interfaces/currentUser.interface";
 import AllRoutesEnum from "../../core/enums/allRoutes.enum";
 import LanguagesEnum from "../../core/enums/languages.enum";
+import wrapper from '../../baseScss/components/wrapper.module.scss';
 
 interface Props {
     currentUser: currentUserInterface;
@@ -28,7 +29,7 @@ const Header: React.FC<Props> = (props) => {
 
     return (
         <div className={classes.header}>
-            <div className={classes.wrapper}>
+            <div className={wrapper.headerWrapper}>
                 <Hamburger menuOpen={() => openMenu(!menu)} />
                 { menu ? (
                     <SideMenu />

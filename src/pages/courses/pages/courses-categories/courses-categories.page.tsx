@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Categories} from '../../../../core/fake-data/categories';
+import { Categories } from '../../../../core/fake-data/categories';
+import CategoryTitle from "../../../../components/category-title/category-title";
 
 const CoursesCategories: React.FC = () => {
     const [singleCategory, setSingleCategory]: any = useState([])
@@ -23,7 +24,11 @@ const CoursesCategories: React.FC = () => {
             {
                 singleCategory !== [] ? (
                     <div>
-                        <h2>  {singleCategory.title}</h2>
+                        <div>
+
+                        </div>
+                        <CategoryTitle title={singleCategory.title} />
+
                         <div>
                         {/*     Create additional component */}
                         </div>
