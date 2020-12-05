@@ -21,7 +21,6 @@ const CoursesCategories: React.FC = () => {
         }
     }, [singleCategory]);
 
-
     return (
         <div>
             {
@@ -44,7 +43,6 @@ const CoursesCategories: React.FC = () => {
                     </div>
                 ) : ''
             }
-
         </div>
     )
 }

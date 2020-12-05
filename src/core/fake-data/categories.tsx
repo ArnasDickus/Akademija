@@ -1,6 +1,5 @@
 import { CategoriesInterface } from "../interfaces/categories.interface";
 
-
 export const Categories: CategoriesInterface[] = [
     {
         title: 'Math: Pre-K - 8th Grade',

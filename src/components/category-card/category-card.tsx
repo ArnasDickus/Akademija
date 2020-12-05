@@ -14,36 +14,34 @@ const CategoryCard: React.FC<CoursesInterface> = ({ title, description, img, url
     const currentRoute = useLocation().pathname;
 
     return (
-        <div>
-            <NavLink to={`${currentRoute}/${url}`}>
-                <Card className={classes.card}>
-                    <div className={classes.row}>
-                        <div className={classes.col}>
-                            <CardActionArea>
-                                <CardMedia
-                                    className={classes.image}
-                                    image={coursesImg}
-                                    title={title}
-                                />
-                            </CardActionArea>
-                        </div>
-
-                        <div className={classes.colText}>
-                            <CardActionArea>
-                                    <CardContent>
-                                        <Typography gutterBottom variant="h5" component="h2">
-                                            { title }
-                                        </Typography>
-                                        <Typography variant="body2" color="textSecondary" component="p">
-                                            {description}
-                                        </Typography>
-                                    </CardContent>
-                            </CardActionArea>
-                        </div>
+        <NavLink to={`${currentRoute}/${url}`}>
+            <Card className={classes.card}>
+                <div className={classes.row}>
+                    <div className={classes.col}>
+                        <CardActionArea>
+                            <CardMedia
+                                className={classes.image}
+                                image={coursesImg}
+                                title={title}
+                            />
+                        </CardActionArea>
                     </div>
-                </Card>
-            </NavLink>
-        </div>
+
+                    <div className={classes.colText}>
+                        <CardActionArea>
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        { title }
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        {description}
+                                    </Typography>
+                                </CardContent>
+                        </CardActionArea>
+                    </div>
+                </div>
+            </Card>
+        </NavLink>
     )
 }
 
