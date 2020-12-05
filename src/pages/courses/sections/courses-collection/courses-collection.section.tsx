@@ -6,18 +6,14 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { NavLink } from "react-router-dom";
 import AllRoutesEnum from "../../../../core/enums/allRoutes.enum";
+import {CategoriesInterface} from "../../../../core/interfaces/categories.interface";
 
-interface Props {
-    title: string,
-    courses: { id: string, title: string }[]
-    url: string;
-}
 
-const CourseCollections: React.FC<Props> = ({ title, courses, url }) => {
+const CourseCollections: React.FC<CategoriesInterface> = ({ title, courses, url }) => {
     return (
         <div className={classes.courseCollections}>
             <p className={classes.title}>
-                <NavLink to={`${AllRoutesEnum.COURSES}/${url}`}>{ title }</NavLink>
+                <NavLink to={`/${AllRoutesEnum.COURSES}/${url}`}>{ title }</NavLink>
             </p>
             <div className={classes.row}>
                 { courses.map(course => (

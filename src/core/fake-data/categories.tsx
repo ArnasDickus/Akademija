@@ -1,4 +1,4 @@
-import {CategoriesInterface} from "../interfaces/categories.interface";
+import { CategoriesInterface } from "../interfaces/categories.interface";
 
 
 export const Categories: CategoriesInterface[] = [
@@ -9,19 +9,28 @@ export const Categories: CategoriesInterface[] = [
         courses: [
             {
                 id: '1',
-                title: 'Up to 1st Grade (Khan kids)'
+                title: 'Up to 1st Grade (Khan kids)',
+                description: 'Learn how to count',
+                img: '../../assets/course-placeholder.jpg',
             },
             {
                 id: '2',
-                title: '2nd Grade'
+                title: '2nd Grade',
+                description: 'Learn how to count',
+                img: '../../assets/course-placeholder.jpg',
+
             },
             {
                 id: '3',
-                title: '3rd Grade'
+                title: '3rd Grade',
+                description: 'Learn how to count',
+                img: '../../assets/course-placeholder.jpg',
             },
             {
                 id: '4',
-                title: '4th Grade'
+                title: '4th Grade',
+                description: 'Learn how to count',
+                img: '../../assets/course-placeholder.jpg',
             },
         ]
     },
@@ -33,19 +42,27 @@ export const Categories: CategoriesInterface[] = [
         courses: [
             {
                 id: '1',
-                title: 'Algebra'
+                title: 'Algebra',
+                description: 'Learn how to count',
+                img: '../../assets/course-placeholder.jpg'
             },
             {
                 id: '2',
-                title: 'Geometry'
+                title: 'Geometry',
+                description: 'Learn how to count',
+                img: '../../assets/course-placeholder.jpg'
             },
             {
                 id: '3',
-                title: 'Algebra2'
+                title: 'Algebra2',
+                description: 'Learn how to count',
+                img: '../../assets/course-placeholder.jpg'
             },
             {
                 id: '4',
-                title: 'Trigonometry'
+                title: 'Trigonometry',
+                description: 'Learn how to count',
+                img: '../../assets/course-placeholder.jpg'
             },
         ]
     },

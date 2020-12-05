@@ -1,7 +1,22 @@
-.row {
-  display: flex;
+
+.card {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.col {
-  width: auto;
+.row {
+  display: flex;
+  max-width: 100%;
+}
+
+.colText {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+
+}
+
+.image {
+  width: 260px;
+  height: 145px;
 }

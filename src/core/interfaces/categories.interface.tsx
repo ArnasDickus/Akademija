@@ -1,14 +1,14 @@
 export interface CategoriesInterface {
     title: string;
-    id: string;
+    id?: string;
     url: string;
-    courses: {
-        id: string;
-        title: string;
-    }[];
+    courses: CoursesInterface[];
 }
 
 export interface CoursesInterface {
-    id: string;
+    id?: string;
     title: string;
+    description: string;
+    img: string;
 }
+

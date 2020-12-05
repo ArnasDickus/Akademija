@@ -9,14 +9,14 @@ const CoursesCategories: React.FC = () => {
     const [singleCategory, setSingleCategory] = useState<CategoriesInterface>([] as any);
 
     useEffect(() => {
+        const categories = Categories;
         const fullUrl = window.location.href;
         const segments = new URL(fullUrl).pathname.split('/');
         const id = segments.pop() || segments.pop();
 
-        for (let category of Categories ) {
+        for (let category of categories ) {
             if (category.url === id) {
                 setSingleCategory(category);
-                console.log(singleCategory)
             }
         }
     }, [singleCategory]);
@@ -25,22 +25,25 @@ const CoursesCategories: React.FC = () => {
     return (
         <div>
             {
-                singleCategory.courses !== [] ? (
+                singleCategory.courses !== []  ? (
                     <div>
                         <CategoryTitle title={singleCategory.title} />
 
                         <div className={wrapper.headerWrapper}>
-                            {/*{*/}
-                            {/*    singleCategory.courses.map((course: CoursesInterface) => (*/}
-                            {/*        <CategoryCard title={course.title} key={course.id} />*/}
-                            {/*        )*/}
-                            {/*    )*/}
-                            {/*}*/}
-
+                            { singleCategory.courses?.length > 0 && singleCategory.courses?.map((course: CoursesInterface) => (
+                                <React.Fragment key={course.id}>
+                                    <CategoryCard
+                                        title={course.title}
+                                        description={course.description}
+                                        img={course.img} />
+                                </React.Fragment>
+                                )
+                            )}
                         </div>
                     </div>
                 ) : ''
             }
+
         </div>
     )
 }
