@@ -12,12 +12,14 @@ export const Categories: CategoriesInterface[] = [
                 title: 'Up to 1st Grade (Khan kids)',
                 description: 'Learn how to count',
                 img: '../../assets/course-placeholder.jpg',
+                url: 'early-math'
             },
             {
                 id: '2',
                 title: '2nd Grade',
                 description: 'Learn how to count',
                 img: '../../assets/course-placeholder.jpg',
+                url: 'cc-2nd-grade-math'
 
             },
             {
@@ -25,12 +27,14 @@ export const Categories: CategoriesInterface[] = [
                 title: '3rd Grade',
                 description: 'Learn how to count',
                 img: '../../assets/course-placeholder.jpg',
+                url: 'cc-3nd-grade-math'
             },
             {
                 id: '4',
                 title: '4th Grade',
                 description: 'Learn how to count',
                 img: '../../assets/course-placeholder.jpg',
+                url: 'cc-4th-grade-math'
             },
         ]
     },
@@ -44,25 +48,29 @@ export const Categories: CategoriesInterface[] = [
                 id: '1',
                 title: 'Algebra',
                 description: 'Learn how to count',
-                img: '../../assets/course-placeholder.jpg'
+                img: '../../assets/course-placeholder.jpg',
+                url: 'algebra'
             },
             {
                 id: '2',
                 title: 'Geometry',
                 description: 'Learn how to count',
-                img: '../../assets/course-placeholder.jpg'
+                img: '../../assets/course-placeholder.jpg',
+                url: 'geometry'
             },
             {
                 id: '3',
                 title: 'Algebra2',
                 description: 'Learn how to count',
-                img: '../../assets/course-placeholder.jpg'
+                img: '../../assets/course-placeholder.jpg',
+                url: 'algebra2'
             },
             {
                 id: '4',
                 title: 'Trigonometry',
                 description: 'Learn how to count',
-                img: '../../assets/course-placeholder.jpg'
+                img: '../../assets/course-placeholder.jpg',
+                url: 'trigonometry'
             },
         ]
     },

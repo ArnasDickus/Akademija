@@ -5,15 +5,16 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { NavLink } from "react-router-dom";
-import AllRoutesEnum from "../../../../core/enums/allRoutes.enum";
-import {CategoriesInterface} from "../../../../core/interfaces/categories.interface";
-
+import { CategoriesInterface } from "../../../../core/interfaces/categories.interface";
+import { useLocation } from "react-router-dom";
 
 const CourseCollections: React.FC<CategoriesInterface> = ({ title, courses, url }) => {
+    const currentRoute = useLocation().pathname;
+
     return (
         <div className={classes.courseCollections}>
             <p className={classes.title}>
-                <NavLink to={`/${AllRoutesEnum.COURSES}/${url}`}>{ title }</NavLink>
+                <NavLink to={`${currentRoute}/${url}`}>{ title }</NavLink>
             </p>
             <div className={classes.row}>
                 { courses.map(course => (

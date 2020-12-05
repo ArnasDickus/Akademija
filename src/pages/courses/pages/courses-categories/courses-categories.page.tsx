@@ -35,7 +35,8 @@ const CoursesCategories: React.FC = () => {
                                     <CategoryCard
                                         title={course.title}
                                         description={course.description}
-                                        img={course.img} />
+                                        img={course.img}
+                                        url={course.url} />
                                 </React.Fragment>
                                 )
                             )}

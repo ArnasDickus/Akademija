@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import CourseCollections from "../../sections/courses-collection/courses-collection.section";
 import classes from './allCourses.module.scss';
 import { Categories } from "../../../../core/fake-data/categories";
-import {CategoriesInterface} from "../../../../core/interfaces/categories.interface";
+import { CategoriesInterface } from "../../../../core/interfaces/categories.interface";
 
 const AllCourses: React.FC = () => {
     const { t } = useTranslation();
