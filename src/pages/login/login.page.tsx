@@ -9,6 +9,7 @@ import FormInput from "../../components/form-input/form-input.component";
 import ErrorComponent from "../../components/error-message/error-message.component";
 import { useTranslation } from "react-i18next";
 import AllRoutesEnum from "../../core/enums/allRoutes.enum";
+import wrapper from '../../baseScss/components/wrapper.module.scss';
 
 const LoginPage: React.FC = () => {
     const [errorType, setErrorType] = useState('');
@@ -17,7 +18,7 @@ const LoginPage: React.FC = () => {
 
     return (
         <div className={classes.login}>
-            <div className={classes.wrapper}>
+            <div className={wrapper.authWrapper}>
                 <h2 className={classes.title}>{t('login.title')}</h2>
                 <span>{t('login.subtitle')}</span>
 

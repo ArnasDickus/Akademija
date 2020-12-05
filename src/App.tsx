@@ -54,7 +54,7 @@ class App extends React.Component<any>  {
                     <Route path="/" exact={true} component={Home}  />
                     <Route exact path={`/${AllRoutesEnum.COURSES}`} component={AllCourses} />
                     <Route exact path={`/${AllRoutesEnum.COURSES}/:id`} component={CoursesCategories} />
-                    <Route exact path={`/${AllRoutesEnum.COURSES}/:id/:math`} component={SingleCourse} />
+                    <Route exact path={`/${AllRoutesEnum.COURSES}/:id/:id`} component={SingleCourse} />
 
                     <Route path={`/${AllRoutesEnum.LOGIN}`} render={() => this.props.currentUser
                         ? (<Redirect to={"/"} /> ) : (<Login />)}/>

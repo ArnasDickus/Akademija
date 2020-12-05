@@ -8,6 +8,7 @@ import FormInput from "../../components/form-input/form-input.component";
 import ErrorComponent from "../../components/error-message/error-message.component";
 import SuccessComponent from "../../components/success-message/success-message.component";
 import { useTranslation } from "react-i18next";
+import wrapper from '../../baseScss/components/wrapper.module.scss';
 
 const ForgotPasswordPage: React.FC = () => {
     const [errorType, setErrorType] = useState('');
@@ -17,7 +18,7 @@ const ForgotPasswordPage: React.FC = () => {
 
     return (
         <div className={classes.forgotPassword}>
-            <div className={classes.wrapper}>
+            <div className={wrapper.authWrapper}>
                 <h2 className={classes.title}>{t('login.forgotPassword')}</h2>
 
                 <Formik

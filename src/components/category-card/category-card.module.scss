@@ -1,0 +1,29 @@
+@import '../../baseScss/global/mixins';
+
+.card {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.row {
+  display: flex;
+  max-width: 100%;
+}
+
+.colText {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+
+}
+
+.image {
+  width: 260px;
+  height: 145px;
+
+  @include atMedium(){
+    width: 100px;
+    height: 100px;
+
+  }
+}
