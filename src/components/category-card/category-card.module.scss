@@ -1,4 +1,4 @@
-@import '../../baseScss/global/mixins';
+@import 'src/baseScss/global/mixins';
 
 .card {
   padding-top: 10px;
@@ -21,7 +21,7 @@
   width: 260px;
   height: 145px;
 
-  @include atMedium(){
+  @include atMedium() {
     width: 100px;
     height: 100px;
 
