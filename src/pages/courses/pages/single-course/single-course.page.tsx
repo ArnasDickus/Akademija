@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleCourse = () => {
+const SingleCourse: React.FC = () => {
 
     return (
         <div>
