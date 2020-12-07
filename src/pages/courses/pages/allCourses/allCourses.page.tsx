@@ -1,12 +1,12 @@
 import React from 'react';
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import CourseCollections from "../../sections/courses-collection/courses-collection.section";
 import wrapper from 'baseScss/components/wrapper.module.scss';
-import { Categories } from "../../../../core/fake-data/categories";
-import { CategoriesInterface } from "../../../../core/interfaces/categories.interface";
+import {Categories} from "../../../../core/fake-data/categories";
+import {CategoriesInterface} from "../../../../core/interfaces/categories.interface";
 
 const AllCourses: React.FC = () => {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     return (
         <div className={wrapper.headerWrapper}>
