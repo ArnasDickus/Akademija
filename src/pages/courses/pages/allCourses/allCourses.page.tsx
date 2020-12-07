@@ -1,15 +1,15 @@
 import React from 'react';
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import CourseCollections from "../../sections/courses-collection/courses-collection.section";
-import classes from './allCourses.module.scss';
-import { Categories } from "../../../../core/fake-data/categories";
-import { CategoriesInterface } from "../../../../core/interfaces/categories.interface";
+import wrapper from 'baseScss/components/wrapper.module.scss';
+import {Categories} from "../../../../core/fake-data/categories";
+import {CategoriesInterface} from "../../../../core/interfaces/categories.interface";
 
 const AllCourses: React.FC = () => {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     return (
-        <div className={classes.wrapper}>
+        <div className={wrapper.headerWrapper}>
             <h1>{t('courses.allCourses')}</h1>
 
             <div>

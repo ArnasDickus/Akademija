@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import classes from './register.module.scss';
-import CustomButton from "../../components/custom-button/custom-button.component";
-import { auth, createUserProfileDocument, sendEmailVerification } from "../../firebase/firebase.utils";
+import CustomButton from "components/custom-button/custom-button.component";
+import {auth, createUserProfileDocument, sendEmailVerification} from "firebase/firebase.utils";
 import * as Yup from "yup";
-import { Form, Formik } from "formik";
-import FormInput from "../../components/form-input/form-input.component";
-import ErrorComponent from "../../components/error-message/error-message.component";
-import { useTranslation } from "react-i18next";
-import wrapper from '../../baseScss/components/wrapper.module.scss';
+import {Form, Formik} from "formik";
+import FormInput from "components/form-input/form-input.component";
+import ErrorComponent from "components/error-message/error-message.component";
+import {useTranslation} from "react-i18next";
+import wrapper from 'baseScss/components/wrapper.module.scss';
 
 const Register: React.FC = () => {
     const [errorType, setErrorType] = useState('');
     const [hasError, setHasError] = useState(false);
-    const { t, i18n } = useTranslation();
+    const {t, i18n} = useTranslation();
 
     return (
         <div className={classes.register}>
@@ -42,19 +42,19 @@ const Register: React.FC = () => {
                             .required(i18n.t('errorMessage.required')),
                     })}
 
-                    onSubmit= { async (values) => {
-                            const { displayName, email, password } = values
+                    onSubmit={async (values) => {
+                        const {displayName, email, password} = values
 
-                            try {
-                                const { user } = await auth.createUserWithEmailAndPassword(email, password);
-                                await createUserProfileDocument(user, {displayName});
-                                sendEmailVerification();
+                        try {
+                            const {user} = await auth.createUserWithEmailAndPassword(email, password);
+                            await createUserProfileDocument(user, {displayName});
+                            sendEmailVerification();
 
-                            } catch(error) {
-                                setErrorType(error.code)
-                                setHasError(true);
-                            }
+                        } catch (error) {
+                            setErrorType(error.code)
+                            setHasError(true);
                         }
+                    }
                     }>
 
                     <Form>
@@ -78,7 +78,7 @@ const Register: React.FC = () => {
                             name="confirmPassword"
                             type="password"/>
 
-                        { hasError && <ErrorComponent errorType={errorType} /> }
+                        {hasError && <ErrorComponent errorType={errorType}/>}
 
                         <CustomButton type="submit">{t('login.register')}</CustomButton>
                     </Form>

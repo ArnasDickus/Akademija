@@ -1,14 +1,14 @@
 import React from 'react';
 import classes from './error-message.module.scss';
-import { useTranslation } from "react-i18next";
-import { ErrorMessagesEnum } from "../../core/enums/error-messages.enum";
+import {useTranslation} from "react-i18next";
+import {ErrorMessagesEnum} from "core/enums/error-messages.enum";
 
-interface Props  {
+interface Props {
     errorType: string;
 }
 
-const ErrorMessage: React.FC<Props> = ({ errorType }) => {
-    const { i18n } = useTranslation();
+const ErrorMessage: React.FC<Props> = ({errorType}) => {
+    const {i18n} = useTranslation();
     let errorMessage = '';
 
     switch (errorType) {
@@ -26,14 +26,14 @@ const ErrorMessage: React.FC<Props> = ({ errorType }) => {
             break;
 
         default:
-        errorMessage = i18n.t('errorMessage.unknownError');
+            errorMessage = i18n.t('errorMessage.unknownError');
     }
 
     return (
         <p className={classes.error}>
-            { errorMessage }
+            {errorMessage}
         </p>
-        )
+    )
 }
 
 export default ErrorMessage;

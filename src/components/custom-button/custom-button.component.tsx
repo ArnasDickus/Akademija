@@ -9,17 +9,17 @@ interface Props {
 }
 
 const CustomButton: React.FC<Props> = ({
-      children,
-      isGoogleSignIn,
-      inverted,
-      ...otherProps
-  }) => (
+                                           children,
+                                           isGoogleSignIn,
+                                           inverted,
+                                           ...otherProps
+                                       }) => (
     <button
         className={`${inverted ? `${classes.inverted}` : ''} ${
             isGoogleSignIn ? `${classes.googleSignIn}` : ''
         } ${classes.customButton}`}
         {...otherProps}>
-            {children}
+        {children}
     </button>
 );
 
