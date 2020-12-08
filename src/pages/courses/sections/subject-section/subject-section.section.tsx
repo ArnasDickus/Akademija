@@ -5,7 +5,7 @@ import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Checkbox from '@material-ui/core/Checkbox';
 import {CourseSectionInterface} from "../../../../core/interfaces/categories.interface";
 
-const SubjectSections: React.FC<CourseSectionInterface> = ({ title, url }) => {
+const SubjectSections: React.FC<CourseSectionInterface> = ({ title, lessons }) => {
     const [menu, toggleMenu] = useState(false);
 
     const handleClick = () => {

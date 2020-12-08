@@ -18,6 +18,12 @@ export interface CoursesInterface {
 export interface CourseSectionInterface {
     id?: string;
     title: string;
+    lessons: LessonsInterface[]
+}
+
+export interface LessonsInterface {
+    id?: string;
+    title: string;
     url: string;
 }
 

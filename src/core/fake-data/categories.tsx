@@ -16,12 +16,34 @@ export const Categories: CategoriesInterface[] = [
                     {
                         id: '1',
                         title: 'Introduction',
-                        url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s'
+                        lessons: [
+                            {
+                                id: '1',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '2',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     },
                     {
                         id: '2',
                         title: 'Math 1',
-                        url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw'
+                        lessons: [
+                            {
+                                id: '3e2723',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '4a148c',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     }
                 ]
             },
@@ -35,12 +57,34 @@ export const Categories: CategoriesInterface[] = [
                     {
                         id: '3',
                         title: 'Introduction 2nd grade',
-                        url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s'
+                        lessons: [
+                            {
+                                id: '4fc3f7',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '101',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     },
                     {
                         id: '4',
                         title: 'Math 2',
-                        url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw'
+                        lessons: [
+                            {
+                                id: '4fc3f71',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '1012',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     }
                 ]
 
@@ -55,12 +99,34 @@ export const Categories: CategoriesInterface[] = [
                     {
                         id: '5',
                         title: 'Introduction 3nd grade',
-                        url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s'
+                        lessons: [
+                            {
+                                id: '4fc3f271',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '10121',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     },
                     {
                         id: '6',
                         title: 'Math 3',
-                        url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw'
+                        lessons: [
+                            {
+                                id: '4fc3f713',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '10121',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     }
                 ]
             },
@@ -74,12 +140,34 @@ export const Categories: CategoriesInterface[] = [
                     {
                         id: '7',
                         title: 'Introduction 4nd grade',
-                        url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s'
+                        lessons: [
+                            {
+                                id: '4fc3f7134',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '101221',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     },
                     {
                         id: '8',
                         title: 'Math 4',
-                        url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw'
+                        lessons: [
+                            {
+                                id: '4fc3f71311',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '101231',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     }
                 ]
             },
@@ -101,12 +189,34 @@ export const Categories: CategoriesInterface[] = [
                     {
                         id: '9',
                         title: 'Introduction Algebra',
-                        url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s'
+                        lessons: [
+                            {
+                                id: '4fc3f713211',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '1012131',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     },
                     {
                         id: '10',
                         title: 'Algebra 1',
-                        url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw'
+                        lessons: [
+                            {
+                                id: '4fc43f71311',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '1011131',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     }
                 ]
             },
@@ -120,12 +230,34 @@ export const Categories: CategoriesInterface[] = [
                     {
                         id: '11',
                         title: 'Introduction Geometry',
-                        url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s'
+                        lessons: [
+                            {
+                                id: '4fc4334f71311',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '1011123131',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     },
                     {
                         id: '12',
                         title: 'Geometry 1',
-                        url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw'
+                        lessons: [
+                            {
+                                id: '41212fc43f71311',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '4342011131',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     }
                 ]
             },
@@ -139,12 +271,34 @@ export const Categories: CategoriesInterface[] = [
                     {
                         id: '13',
                         title: 'Introduction Algebra2',
-                        url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s'
+                        lessons: [
+                            {
+                                id: '4fc454643f71311',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '10164561131',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     },
                     {
                         id: '14',
                         title: 'Algebra2',
-                        url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw'
+                        lessons: [
+                            {
+                                id: '4fc436456f71311',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '101164645131',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     }
                 ]
             },
@@ -158,12 +312,34 @@ export const Categories: CategoriesInterface[] = [
                     {
                         id: '15',
                         title: 'Introduction Trigonometry',
-                        url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s'
+                        lessons: [
+                            {
+                                id: '4fc43f43534571311',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '101242341131',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     },
                     {
                         id: '16',
                         title: 'Trigonometry2',
-                        url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw'
+                        lessons: [
+                            {
+                                id: '4fc43f32423471311',
+                                title: 'React Concepts',
+                                url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
+                            },
+                            {
+                                id: '1011424324131',
+                                title: 'The Birth of React.js',
+                                url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
+                            }
+                        ]
                     }
                 ]
             },
