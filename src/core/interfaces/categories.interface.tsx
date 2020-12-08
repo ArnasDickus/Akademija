@@ -11,11 +11,12 @@ export interface CoursesInterface {
     description: string;
     img: string;
     url: string;
-    sections?: CourseSection[];
+    sections?: CourseSectionInterface[];
 }
 
 
-export interface CourseSection {
+export interface CourseSectionInterface {
+    id?: string;
     title: string;
     url: string;
 }
