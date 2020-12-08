@@ -9,7 +9,6 @@ import {CourseSectionInterface, CoursesInterface} from "core/interfaces/categori
 
 const SingleCourse: React.FC = () => {
     const [singleSection, setSingleSection] = useState<CoursesInterface>([] as any);
-    const [sectionId, setSectionId] = useState<any>('');
     const [url, setUrl] = useState<string>('');
     const [options] = useState<any>({
         width: '1430',
@@ -30,13 +29,10 @@ const SingleCourse: React.FC = () => {
             for (let j = 0; j < Categories[i].courses.length; j++) {
                 if (Categories[i].courses[j].url === id) {
                     setSingleSection(Categories[i].courses[j]);
-                    setSectionId(Categories[i].courses[j].id);
-                    console.log(sectionId);
-                    // console.log(singleSection);
                 }
             }
         }
-    }, [singleSection, sectionId]);
+    }, [singleSection]);
     // TODO For some reason string is considered array. Typescript error.
     const changeVideo = (url: string | string[]): void => {
         if (typeof url === "string") {
@@ -77,7 +73,6 @@ const SingleCourse: React.FC = () => {
                                                 lessons={section.lessons}
                                                 // @ts-ignore
                                                 passUrl={(url: string) => changeVideo(url)}
-                                                sectionId={sectionId}
 
                                             />
                                         </React.Fragment>

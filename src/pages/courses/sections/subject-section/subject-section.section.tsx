@@ -10,24 +10,21 @@ interface Props {
     title: string;
     lessons: LessonsInterface[];
     passUrl: any;
-    sectionId: string;
 }
 
-const SubjectSections: React.FC<Props> = ({ id, title, lessons, passUrl, sectionId }) => {
+const SubjectSections: React.FC<Props> = ({ id, title, lessons, passUrl }) => {
     const [menu, toggleMenu] = useState(false);
     const [lessonId, setLessonId] = useState('');
-    const [sectionId2, setSectionId] = useState('');
 
     const handleClick = () => {
         toggleMenu(!menu)
     }
 
-    const selectLesson = (id: string, sectionId: string) => {
+    const selectLesson = (id: string) => {
         setLessonId(id);
-        setSectionId(sectionId2);
         console.log(id);
-        console.log(sectionId, 'section id');
     }
+
 
 
     return (
@@ -54,7 +51,7 @@ const SubjectSections: React.FC<Props> = ({ id, title, lessons, passUrl, section
                     (
                         lessons.map((lesson) => (
                             // TODO Fix ts-ignore issues.
-                            <div className={`${classes.dropdown} ${lesson.id === lessonId && sectionId2 === id
+                            <div className={`${classes.dropdown} ${lesson.id === lessonId
                                 ? `${classes.activeLesson}` : ''}`} key={lesson.id}
                                 // @ts-ignore
                                  onClick={() => passUrl(lesson.url)}>
