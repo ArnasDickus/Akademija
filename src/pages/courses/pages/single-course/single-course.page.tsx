@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import YouTube from 'react-youtube';
 import classes from './single-course.module.scss';
-import {CategoriesInterface} from "../../../../core/interfaces/categories.interface";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import SubjectSections from "../../sections/subject-section/subject-section.section";
@@ -12,13 +11,9 @@ const SingleCourse: React.FC = () => {
         height: '647',
         playerVars: {
             'autoplay': 1,
-            'controls': 0,
-            'autohide':1,
-            'wmode':'opaque',
-            'origin':'http://localhost:3000' }
+            'origin':'http://localhost:3000'
+        }
     })
-
-
 
     return (
         <div>

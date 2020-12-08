@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import classes from './subject-section.module.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
-import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const SubjectSections = () => {
     const [menu, toggleMenu] = useState(false);
@@ -29,14 +29,23 @@ const SubjectSections = () => {
                     </div>
                 </div>
             </div>
-            <Checkbox
-                value="checkedA"
-                inputProps={{ 'aria-label': 'Checkbox A' }}
-            />
-            <p>React Concepts</p>
-            <p>2min</p>
-        </React.Fragment>
 
+            {
+                menu ?
+                    (
+                        <div className={classes.dropdown}>
+                            <div className={classes.rowDropdown}>
+                                <Checkbox
+                                    value="checkedA"
+                                    inputProps={{'aria-label': 'Checkbox A'}}
+                                />
+                                <span>React Concepts</span>
+                            </div>
+                            <span className={classes.time}>2 min</span>
+                        </div>
+                    ) : ''
+            }
+        </React.Fragment>
     )
 }
 
