@@ -5,9 +5,8 @@ import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Checkbox from '@material-ui/core/Checkbox';
 import {CourseSectionInterface} from "../../../../core/interfaces/categories.interface";
 
-const SubjectSections: React.FC<CourseSectionInterface> = ({ title, lessons }) => {
+const SubjectSections: React.FC<CourseSectionInterface> = ({ title, lessons, passUrl }) => {
     const [menu, toggleMenu] = useState(false);
-    console.log(lessons);
 
     const handleClick = () => {
         toggleMenu(!menu)
@@ -36,7 +35,9 @@ const SubjectSections: React.FC<CourseSectionInterface> = ({ title, lessons }) =
                 menu ?
                     (
                         lessons.map((lesson) => (
-                            <div className={classes.dropdown} key={lesson.id}>
+                            // TODO Fix ts-ignore issues.
+                            // @ts-ignore
+                            <div className={classes.dropdown} key={lesson.id} onClick={() => passUrl(lesson.url)}>
                                 <div className={classes.rowDropdown}>
                                     <Checkbox
                                         value="checkedA"

@@ -9,7 +9,8 @@ import {CourseSectionInterface, CoursesInterface} from "core/interfaces/categori
 
 const SingleCourse: React.FC = () => {
     const [singleSection, setSingleSection] = useState<CoursesInterface>([] as any);
-    const [options,] = useState<any>({
+    const [url, setUrl] = useState<string>('');
+    const [options] = useState<any>({
         width: '1430',
         height: '647',
         playerVars: {
@@ -33,13 +34,20 @@ const SingleCourse: React.FC = () => {
             }
         }
     }, [singleSection]);
-
+    // TODO For some reason string is considered array. Typescript error.
+    const changeVideo = (url: string | string[]): void => {
+        if (typeof url === "string") {
+            url = url.split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+            url = (url[2] !== undefined) ? url[2].split(/[^0-9a-z_-]/i)[0] : url[0];
+            setUrl(url);
+        }
+    }
 
     return (
         <div>
             <div className={classes.row}>
                 <div>
-                    <YouTube videoId="0pThnRneDjw" opts={options} />
+                    <YouTube videoId={url} opts={options} />
                 </div>
 
                 <div className={classes.content}>
@@ -58,7 +66,12 @@ const SingleCourse: React.FC = () => {
                                     singleSection.sections?.length > 0 && singleSection.sections?.map
                                     ((section: CourseSectionInterface) => (
                                             <React.Fragment key={section.id}>
-                                                <SubjectSections title={section.title} lessons={section.lessons}/>
+                                                <SubjectSections
+                                                    title={section.title}
+                                                    lessons={section.lessons}
+                                                    // @ts-ignore
+                                                    passUrl={(url:string) => changeVideo(url)}
+                                                />
                                             </React.Fragment>
                                         ))}
 

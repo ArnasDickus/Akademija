@@ -18,7 +18,8 @@ export interface CoursesInterface {
 export interface CourseSectionInterface {
     id?: string;
     title: string;
-    lessons: LessonsInterface[]
+    lessons: LessonsInterface[],
+    passUrl?: string
 }
 
 export interface LessonsInterface {
