@@ -7,6 +7,7 @@ import {CourseSectionInterface} from "../../../../core/interfaces/categories.int
 
 const SubjectSections: React.FC<CourseSectionInterface> = ({ title, lessons }) => {
     const [menu, toggleMenu] = useState(false);
+    console.log(lessons);
 
     const handleClick = () => {
         toggleMenu(!menu)
@@ -34,16 +35,18 @@ const SubjectSections: React.FC<CourseSectionInterface> = ({ title, lessons }) =
             {
                 menu ?
                     (
-                        <div className={classes.dropdown}>
-                            <div className={classes.rowDropdown}>
-                                <Checkbox
-                                    value="checkedA"
-                                    inputProps={{'aria-label': 'Checkbox A'}}
-                                />
-                                <span>React Concepts</span>
+                        lessons.map((lesson) => (
+                            <div className={classes.dropdown} key={lesson.id}>
+                                <div className={classes.rowDropdown}>
+                                    <Checkbox
+                                        value="checkedA"
+                                        inputProps={{'aria-label': 'Checkbox A'}}
+                                    />
+                                    <span>{lesson.title}</span>
+                                </div>
+                                <span className={classes.time}>2 min</span>
                             </div>
-                            <span className={classes.time}>2 min</span>
-                        </div>
+                        ))
                     ) : ''
             }
         </React.Fragment>
