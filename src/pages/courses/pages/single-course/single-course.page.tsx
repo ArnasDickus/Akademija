@@ -65,18 +65,6 @@ const SingleCourse: React.FC = () => {
                             </div>
                         ) : ''
                     }
-
-
-
-
-
-                    {/*{singleSection!.sections!.length > 0 && singleSection.sections*/}
-                    {/*    ?.map((section: CourseSectionInterface) => (*/}
-                    {/*    <React.Fragment key={section.id}>*/}
-                    {/*        <h2>Hello world</h2>*/}
-                    {/*    </React.Fragment>*/}
-                    {/*))}*/}
-
                 </div>
             </div>
         </div>
@@ -84,9 +72,3 @@ const SingleCourse: React.FC = () => {
 }
 
 export default SingleCourse;
-
-// Strategy:
-// SubjectSections need to be loop throught.
-// Search for url k-8 grades. Get 1 and search for url early-math get one.
-// When I click on different SubjectSection Video Id changes.
-//
