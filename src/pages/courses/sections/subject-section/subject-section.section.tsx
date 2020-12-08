@@ -3,8 +3,9 @@ import classes from './subject-section.module.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Checkbox from '@material-ui/core/Checkbox';
+import {CourseSectionInterface} from "../../../../core/interfaces/categories.interface";
 
-const SubjectSections = () => {
+const SubjectSections: React.FC<CourseSectionInterface> = ({ title, url }) => {
     const [menu, toggleMenu] = useState(false);
 
     const handleClick = () => {
@@ -16,7 +17,7 @@ const SubjectSections = () => {
             <div onClick={handleClick} className={classes.subjectSections}>
                 <div className={classes.row}>
                     <div>
-                        <h5 className={classes.title}>Section 1 Introduction</h5>
+                        <h5 className={classes.title}>{ title }</h5>
                         <p className={classes.subtitles}>3/3 | 7min</p>
                     </div>
 

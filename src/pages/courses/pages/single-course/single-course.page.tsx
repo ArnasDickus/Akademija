@@ -58,7 +58,7 @@ const SingleCourse: React.FC = () => {
                                     singleSection.sections?.length > 0 && singleSection.sections?.map
                                     ((section: CourseSectionInterface) => (
                                             <React.Fragment key={section.id}>
-                                                <SubjectSections />
+                                                <SubjectSections title={section.title} url={section.url}/>
                                             </React.Fragment>
                                         ))}
 
