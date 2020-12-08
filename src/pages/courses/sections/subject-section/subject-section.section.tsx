@@ -3,14 +3,32 @@ import classes from './subject-section.module.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Checkbox from '@material-ui/core/Checkbox';
-import {CourseSectionInterface} from "../../../../core/interfaces/categories.interface";
+import {LessonsInterface} from "../../../../core/interfaces/categories.interface";
 
-const SubjectSections: React.FC<CourseSectionInterface> = ({ title, lessons, passUrl }) => {
+interface Props {
+    id: string;
+    title: string;
+    lessons: LessonsInterface[];
+    passUrl: any;
+    sectionId: string;
+}
+
+const SubjectSections: React.FC<Props> = ({ id, title, lessons, passUrl, sectionId }) => {
     const [menu, toggleMenu] = useState(false);
+    const [lessonId, setLessonId] = useState('');
+    const [sectionId2, setSectionId] = useState('');
 
     const handleClick = () => {
         toggleMenu(!menu)
     }
+
+    const selectLesson = (id: string, sectionId: string) => {
+        setLessonId(id);
+        setSectionId(sectionId2);
+        console.log(id);
+        console.log(sectionId, 'section id');
+    }
+
 
     return (
         <React.Fragment>
@@ -36,9 +54,12 @@ const SubjectSections: React.FC<CourseSectionInterface> = ({ title, lessons, pas
                     (
                         lessons.map((lesson) => (
                             // TODO Fix ts-ignore issues.
-                            // @ts-ignore
-                            <div className={classes.dropdown} key={lesson.id} onClick={() => passUrl(lesson.url)}>
-                                <div className={classes.rowDropdown}>
+                            <div className={`${classes.dropdown} ${lesson.id === lessonId && sectionId2 === id
+                                ? `${classes.activeLesson}` : ''}`} key={lesson.id}
+                                // @ts-ignore
+                                 onClick={() => passUrl(lesson.url)}>
+                                {/*  @ts-ignore  */}
+                                <div className={classes.rowDropdown} onClick={() => selectLesson(lesson.id, id)}>
                                     <Checkbox
                                         value="checkedA"
                                         inputProps={{'aria-label': 'Checkbox A'}}

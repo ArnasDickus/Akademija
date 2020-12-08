@@ -14,32 +14,32 @@ export const Categories: CategoriesInterface[] = [
                 url: 'early-math',
                 sections: [
                     {
-                        id: '1',
+                        id: 'sectionIDIntro',
                         title: 'Introduction',
                         lessons: [
                             {
-                                id: '1',
+                                id: 'sdgdshghg',
                                 title: 'React Concepts',
                                 url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
                             },
                             {
-                                id: '2',
+                                id: 'kghjskgfj;g',
                                 title: 'The Birth of React.js',
                                 url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
                             }
                         ]
                     },
                     {
-                        id: '2',
+                        id: 'sectionIdMath',
                         title: 'Math 1',
                         lessons: [
                             {
-                                id: '3e2723',
+                                id: 'safdafadfafdfaf',
                                 title: 'React Concepts',
                                 url: 'https://www.youtube.com/watch?v=NO7_jgzVgbc&t=6284s',
                             },
                             {
-                                id: '4a148c',
+                                id: '4a14afafsaffdafafd8c',
                                 title: 'The Birth of React.js',
                                 url: 'https://www.youtube.com/watch?v=Zh3Yz3PiXZw',
                             }
