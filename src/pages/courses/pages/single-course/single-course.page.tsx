@@ -4,6 +4,7 @@ import classes from './single-course.module.scss';
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import SubjectSections from "../../sections/subject-section/subject-section.section";
+import {Categories} from 'core/fake-data/categories';
 
 const SingleCourse: React.FC = () => {
     const [options,] = useState<any>({

@@ -11,5 +11,12 @@ export interface CoursesInterface {
     description: string;
     img: string;
     url: string;
+    sections?: CourseSection[];
+}
+
+
+export interface CourseSection {
+    title: string;
+    url: string;
 }
 
