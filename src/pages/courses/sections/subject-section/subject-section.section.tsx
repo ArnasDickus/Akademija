@@ -3,7 +3,7 @@ import classes from './subject-section.module.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Checkbox from '@material-ui/core/Checkbox';
-import {LessonsInterface} from "../../../../core/interfaces/categories.interface";
+import {LessonsInterface} from "core/interfaces/categories.interface";
 
 interface Props {
     id: string;
@@ -13,6 +13,7 @@ interface Props {
 }
 
 const SubjectSections: React.FC<Props> = ({ id, title, lessons, passUrl }) => {
+    console.log(lessons);
     const [menu, toggleMenu] = useState(false);
     const [lessonId, setLessonId] = useState('');
 
@@ -50,13 +51,10 @@ const SubjectSections: React.FC<Props> = ({ id, title, lessons, passUrl }) => {
                 menu ?
                     (
                         lessons.map((lesson) => (
-                            // TODO Fix ts-ignore issues.
                             <div className={`${classes.dropdown} ${lesson.id === lessonId
                                 ? `${classes.activeLesson}` : ''}`} key={lesson.id}
-                                // @ts-ignore
                                  onClick={() => passUrl(lesson.url)}>
-                                {/*  @ts-ignore  */}
-                                <div className={classes.rowDropdown} onClick={() => selectLesson(lesson.id, id)}>
+                                <div className={classes.rowDropdown} onClick={() => selectLesson(lesson.id || '')}>
                                     <Checkbox
                                         value="checkedA"
                                         inputProps={{'aria-label': 'Checkbox A'}}
