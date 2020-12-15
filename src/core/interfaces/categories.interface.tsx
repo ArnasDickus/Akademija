@@ -1,5 +1,5 @@
 export interface CategoriesInterface {
-    id?: string;
+    id: string;
     title: string;
     url: string;
     courses: CoursesInterface[];
@@ -11,7 +11,7 @@ export interface CoursesInterface {
     description: string;
     img: string;
     url: string;
-    sections?: CourseSectionInterface[];
+    sections: CourseSectionInterface[];
 }
 
 

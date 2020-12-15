@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import YouTube from 'react-youtube';
-import classes from './single-course.module.scss';
+import classes from './sections.module.scss';
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import SubjectSections from "../../sections/subject-section/subject-section.section";
 import {Categories} from 'core/fake-data/categories';
 import {CourseSectionInterface, CoursesInterface} from "core/interfaces/categories.interface";
 
-const SingleCourse: React.FC = () => {
-    const [singleSection, setSingleSection] = useState<CoursesInterface>([] as any);
+const SectionPage: React.FC = () => {
+    const [singleCourse, setSingleCourse] = useState<CoursesInterface>([] as any);
     const [url, setUrl] = useState<string>('');
     const [options] = useState<any>({
         width: '1430',
@@ -28,11 +28,12 @@ const SingleCourse: React.FC = () => {
         for (let i = 0; i < Categories.length; i++) {
             for (let j = 0; j < Categories[i].courses.length; j++) {
                 if (Categories[i].courses[j].url === id) {
-                    setSingleSection(Categories[i].courses[j]);
+                    setSingleCourse(Categories[i].courses[j]);
+                    console.log(singleCourse);
                 }
             }
         }
-    }, [singleSection]);
+    }, [singleCourse]);
 
     // const changeVideo = (videoUrl: string): void => {
     //     console.log(url);
@@ -56,22 +57,18 @@ const SingleCourse: React.FC = () => {
                         </div>
                     </div>
                     {
-                        singleSection.sections !== [] ? (
-                            <div>
-                                {
-                                    // TODO fix Typescript bug
-                                    // @ts-ignore
-                                    singleSection.sections?.length > 0 && singleSection.sections?.map
-                                    ((section: CourseSectionInterface) => (
-                                        <React.Fragment key={section.id}>
-                                            <SubjectSections
-                                                title={section.title}
-                                                lessons={section.lessons}
-                                            />
-                                        </React.Fragment>
-                                    ))}
-                            </div>
-                        ) : ''
+                        <div>
+                            {
+                                singleCourse.sections?.length && singleCourse.sections.map
+                                ((section: CourseSectionInterface) => (
+                                    <React.Fragment key={section.id}>
+                                        <SubjectSections
+                                            title={section.title}
+                                            lessons={section.lessons}
+                                        />
+                                    </React.Fragment>
+                                ))}
+                        </div>
                     }
                 </div>
             </div>
@@ -79,4 +76,4 @@ const SingleCourse: React.FC = () => {
     )
 }
 
-export default SingleCourse;
+export default SectionPage;

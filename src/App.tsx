@@ -15,9 +15,9 @@ import {setCurrentUser} from "./redux/user/user.actions";
 import {connect} from 'react-redux';
 import {Unsubscribe} from "redux";
 import AllRoutesEnum from "./core/enums/allRoutes.enum";
-import AllCourses from "./pages/courses/pages/allCourses/allCourses.page";
-import CoursesCategories from "./pages/courses/pages/courses-categories/courses-categories.page";
-import SingleCourse from "./pages/courses/pages/single-course/single-course.page";
+import CategoriesPage from "./pages/courses/pages/categories/categories.page";
+import CoursesPage from "./pages/courses/pages/courses/courses.page";
+import SectionPage from "./pages/courses/pages/sections/sections.page";
 
 class App extends React.Component<any> {
     unsubscribeFromAuth: Unsubscribe | undefined;
@@ -52,9 +52,9 @@ class App extends React.Component<any> {
                 <div className={classes.siteContent}>
                     <Switch>
                         <Route path="/" exact={true} component={Home}/>
-                        <Route exact path={`/${AllRoutesEnum.COURSES}`} component={AllCourses}/>
-                        <Route exact path={`/${AllRoutesEnum.COURSES}/:id`} component={CoursesCategories}/>
-                        <Route exact path={`/${AllRoutesEnum.COURSES}/:id/:id`} component={SingleCourse}/>
+                        <Route exact path={`/${AllRoutesEnum.COURSES}`} component={CategoriesPage}/>
+                        <Route exact path={`/${AllRoutesEnum.COURSES}/:id`} component={CoursesPage}/>
+                        <Route exact path={`/${AllRoutesEnum.COURSES}/:id/:id`} component={SectionPage}/>
 
                         <Route path={`/${AllRoutesEnum.LOGIN}`} render={() => this.props.currentUser
                             ? (<Redirect to={"/"}/>) : (<Login/>)}/>

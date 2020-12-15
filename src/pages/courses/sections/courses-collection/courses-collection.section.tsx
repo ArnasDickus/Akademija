@@ -8,7 +8,7 @@ import {NavLink} from "react-router-dom";
 import {CategoriesInterface} from "core/interfaces/categories.interface";
 import {useLocation} from "react-router-dom";
 
-const CourseCollections: React.FC<CategoriesInterface> = ({title, courses, url}) => {
+const CourseCollections: React.FC<CategoriesInterface> = ({ title, courses, url, }) => {
     const currentRoute = useLocation().pathname;
 
     return (
