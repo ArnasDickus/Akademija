@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import SubjectSections from "../../sections/subject-section/subject-section.section";
 import {Categories} from 'core/fake-data/categories';
 import {CourseSectionInterface, CoursesInterface} from "core/interfaces/categories.interface";
+// TODO Remove TS-ignore
 // @ts-ignore
 import getVideoId from 'get-video-id';
 
@@ -41,12 +42,10 @@ const SectionPage: React.FC = () => {
 
     }, [singleCourse]);
 
-    // const changeVideo = (videoUrl: string): void => {
-    //     console.log(url);
-    //     videoUrl = url.split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
-    //     videoUrl = (url[2] !== undefined) ? url[2].split(/[^0-9a-z_-]/i)[0] : url[0];
-    //     setUrl(url);
-    // }
+    const changeVideo = (videoUrl: string): void => {
+        const idOnly = getVideoId(videoUrl).id;
+        setUrl(idOnly)
+    }
 
     return (
         <div>
@@ -71,6 +70,7 @@ const SectionPage: React.FC = () => {
                                         <SubjectSections
                                             title={section.title}
                                             lessons={section.lessons}
+                                            onUrlUpdate={(url: string) => changeVideo(url)}
                                         />
                                     </React.Fragment>
                                 ))}

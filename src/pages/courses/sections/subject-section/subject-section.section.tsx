@@ -6,7 +6,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import {CourseSectionInterface} from "core/interfaces/categories.interface";
 
 
-const SubjectSections: React.FC<CourseSectionInterface> = ({title, lessons}) => {
+const SubjectSections: React.FC<CourseSectionInterface> = ({title, lessons, onUrlUpdate}) => {
     const [menu, toggleMenu] = useState(false);
     const [lessonId] = useState('');
 
@@ -14,9 +14,7 @@ const SubjectSections: React.FC<CourseSectionInterface> = ({title, lessons}) => 
         toggleMenu(!menu)
     }
 
-    const passUrl = (url: string) => {
-        console.log(url);
-    }
+
 
     return (
         <React.Fragment>
@@ -43,7 +41,7 @@ const SubjectSections: React.FC<CourseSectionInterface> = ({title, lessons}) => 
                         lessons.map((lesson) => (
                             <div className={`${classes.dropdown} ${lesson.id === lessonId
                                 ? `${classes.activeLesson}` : ''}`} key={lesson.id}
-                                 onClick={() => passUrl(lesson.url)}>
+                                 onClick={() => onUrlUpdate(lesson.url)}>
                                 <div className={classes.rowDropdown}>
                                     <Checkbox
                                         value="checkedA"
