@@ -33,16 +33,14 @@ const SingleCourse: React.FC = () => {
             }
         }
     }, [singleSection]);
-    // TODO For some reason string is considered array. Typescript error.
-    const changeVideo = (url: string | string[]): void => {
-        if (typeof url === "string") {
-            url = url.split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
-            url = (url[2] !== undefined) ? url[2].split(/[^0-9a-z_-]/i)[0] : url[0];
-            setUrl(url);
-        }
-    }
 
-    // @ts-ignore
+    // const changeVideo = (videoUrl: string): void => {
+    //     console.log(url);
+    //     videoUrl = url.split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+    //     videoUrl = (url[2] !== undefined) ? url[2].split(/[^0-9a-z_-]/i)[0] : url[0];
+    //     setUrl(url);
+    // }
+
     return (
         <div>
             <div className={classes.row}>
@@ -67,13 +65,8 @@ const SingleCourse: React.FC = () => {
                                     ((section: CourseSectionInterface) => (
                                         <React.Fragment key={section.id}>
                                             <SubjectSections
-                                                // @ts-ignore
-                                                id={section.id}
                                                 title={section.title}
                                                 lessons={section.lessons}
-                                                // @ts-ignore
-                                                passUrl={(url: string) => changeVideo(url)}
-
                                             />
                                         </React.Fragment>
                                     ))}

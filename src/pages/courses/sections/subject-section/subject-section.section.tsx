@@ -6,14 +6,11 @@ import Checkbox from '@material-ui/core/Checkbox';
 import {LessonsInterface} from "core/interfaces/categories.interface";
 
 interface Props {
-    id: string;
     title: string;
     lessons: LessonsInterface[];
-    passUrl: any;
 }
 
-const SubjectSections: React.FC<Props> = ({ id, title, lessons, passUrl }) => {
-    console.log(lessons);
+const SubjectSections: React.FC<Props> = ({  title, lessons }) => {
     const [menu, toggleMenu] = useState(false);
     const [lessonId, setLessonId] = useState('');
 
@@ -21,12 +18,9 @@ const SubjectSections: React.FC<Props> = ({ id, title, lessons, passUrl }) => {
         toggleMenu(!menu)
     }
 
-    const selectLesson = (id: string) => {
-        setLessonId(id);
-        console.log(id);
+    const passUrl = (url: string) => {
+        console.log(url);
     }
-
-
 
     return (
         <React.Fragment>
@@ -54,7 +48,7 @@ const SubjectSections: React.FC<Props> = ({ id, title, lessons, passUrl }) => {
                             <div className={`${classes.dropdown} ${lesson.id === lessonId
                                 ? `${classes.activeLesson}` : ''}`} key={lesson.id}
                                  onClick={() => passUrl(lesson.url)}>
-                                <div className={classes.rowDropdown} onClick={() => selectLesson(lesson.id || '')}>
+                                <div className={classes.rowDropdown}>
                                     <Checkbox
                                         value="checkedA"
                                         inputProps={{'aria-label': 'Checkbox A'}}
