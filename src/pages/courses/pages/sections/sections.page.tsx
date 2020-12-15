@@ -68,6 +68,7 @@ const SectionPage: React.FC = () => {
                                 ((section: CourseSectionInterface) => (
                                     <React.Fragment key={section.id}>
                                         <SubjectSections
+                                            id={section.id}
                                             title={section.title}
                                             lessons={section.lessons}
                                             onUrlUpdate={(url: string) => changeVideo(url)}

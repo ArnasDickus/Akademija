@@ -6,15 +6,34 @@ import Checkbox from '@material-ui/core/Checkbox';
 import {CourseSectionInterface} from "core/interfaces/categories.interface";
 
 
-const SubjectSections: React.FC<CourseSectionInterface> = ({title, lessons, onUrlUpdate}) => {
+const SubjectSections: React.FC<CourseSectionInterface> = ({ id, title, lessons, onUrlUpdate}) => {
     const [menu, toggleMenu] = useState(false);
-    const [lessonId] = useState('');
+    const [sectionId, setSectionId] = useState('');
+    const [lessonId, setLessonId] = useState('');
 
     const handleClick = () => {
         toggleMenu(!menu)
     }
 
+    const selectLesson = (lessonId: string, currentSectionId: string ) => {
+        setLessonId(lessonId);
 
+        console.log(currentSectionId);
+
+
+
+        // console.log(sectionId);
+        // console.log(currentSectionId);
+        // setLessonId(lessonId);
+        //
+        // if(sectionId.length === 0) {
+        //     console.log('return stop');
+        //     return setSectionId(currentSectionId);
+        // } else if (sectionId !== currentSectionId) {
+        //     setSectionId(currentSectionId);
+        // }
+
+    }
 
     return (
         <React.Fragment>
@@ -42,7 +61,7 @@ const SubjectSections: React.FC<CourseSectionInterface> = ({title, lessons, onUr
                             <div className={`${classes.dropdown} ${lesson.id === lessonId
                                 ? `${classes.activeLesson}` : ''}`} key={lesson.id}
                                  onClick={() => onUrlUpdate(lesson.url)}>
-                                <div className={classes.rowDropdown}>
+                                <div onClick={() => selectLesson(lesson.id || '', id || '')} className={classes.rowDropdown}>
                                     <Checkbox
                                         value="checkedA"
                                         inputProps={{'aria-label': 'Checkbox A'}}
