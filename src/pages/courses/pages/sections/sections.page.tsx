@@ -6,6 +6,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import SubjectSections from "../../sections/subject-section/subject-section.section";
 import {Categories} from 'core/fake-data/categories';
 import {CourseSectionInterface, CoursesInterface} from "core/interfaces/categories.interface";
+// @ts-ignore
+import getVideoId from 'get-video-id';
 
 const SectionPage: React.FC = () => {
     const [singleCourse, setSingleCourse] = useState<CoursesInterface>([] as any);
@@ -29,10 +31,14 @@ const SectionPage: React.FC = () => {
             for (let j = 0; j < Categories[i].courses.length; j++) {
                 if (Categories[i].courses[j].url === id) {
                     setSingleCourse(Categories[i].courses[j]);
-                    console.log(singleCourse);
+
+                    if (singleCourse?.sections?.length) {
+                        setUrl(getVideoId(singleCourse.sections[0].lessons[0].url).id);
+                    }
                 }
             }
         }
+
     }, [singleCourse]);
 
     // const changeVideo = (videoUrl: string): void => {
