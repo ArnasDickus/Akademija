@@ -14,7 +14,6 @@ export interface CoursesInterface {
     sections: CourseSectionInterface[];
 }
 
-
 export interface CourseSectionInterface {
     id: string;
     title: string;

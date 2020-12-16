@@ -17,7 +17,6 @@ const CoursesPage: React.FC = () => {
         for (let category of categories) {
             if (category.url === id) {
                 setSingleCategory(category);
-                console.log(singleCategory);
             }
         }
     }, [singleCategory]);
