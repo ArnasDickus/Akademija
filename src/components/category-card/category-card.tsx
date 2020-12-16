@@ -10,7 +10,7 @@ import {CoursesInterface} from "core/interfaces/categories.interface";
 import {NavLink} from "react-router-dom";
 import {useLocation} from "react-router-dom";
 
-const CategoryCard: React.FC<CoursesInterface> = ({title, description, img, url}) => {
+const CoursesCard: React.FC<CoursesInterface> = ({title, description, img, url}) => {
     const currentRoute = useLocation().pathname;
 
     return (
@@ -45,4 +45,4 @@ const CategoryCard: React.FC<CoursesInterface> = ({title, description, img, url}
     )
 }
 
-export default CategoryCard;
+export default CoursesCard;

@@ -1,6 +1,6 @@
 export interface CategoriesInterface {
+    id: string;
     title: string;
-    id?: string;
     url: string;
     courses: CoursesInterface[];
 }
@@ -10,6 +10,20 @@ export interface CoursesInterface {
     title: string;
     description: string;
     img: string;
+    url: string;
+    sections: CourseSectionInterface[];
+}
+
+export interface CourseSectionInterface {
+    id: string;
+    title: string;
+    onUrlUpdate?: any;
+    lessons: LessonsInterface[],
+}
+
+export interface LessonsInterface {
+    id?: string;
+    title: string;
     url: string;
 }
 

@@ -1,0 +1,30 @@
+@import 'src/baseScss/global/variables';
+
+.row {
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.textRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border: 1px solid #dedfe0;
+  background-color: #fff;
+}
+
+.courseContent {
+  color: #000000;
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+.xIcon {
+  cursor: pointer;
+  padding-right: 15px;
+}

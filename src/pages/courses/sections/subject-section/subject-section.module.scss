@@ -1,0 +1,51 @@
+.subjectSections {
+  background-color: #f7f8fa;
+  padding: 5px 20px 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #F2F3F5;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.title {
+  font-size: 15px;
+  color: #29303b;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.subtitles {
+  margin-top: 0;
+  font-size: 12px;
+  color: #29303b;
+}
+
+.dropdown {
+  cursor: pointer;
+  padding-bottom: 10px;
+  background-color: #fff;
+
+  &:hover {
+    background-color: #F2F3F5;
+  }
+}
+
+.rowDropdown {
+  display: flex;
+  align-items: center;
+}
+
+.activeLesson {
+  background-color: #D4E9EE;
+}
+
+.time {
+  padding-left: 43px;
+}
