@@ -15,8 +15,6 @@ const SectionPage: React.FC = () => {
     const [url, setUrl] = useState<string>('');
     const [oldSectionId, setOldSectionId] = useState<string>('');
     const [options] = useState<any>({
-        width: '1430',
-        height: '647',
         playerVars: {
             'autoplay': 1,
             'origin': 'http://localhost:3000'
@@ -52,8 +50,8 @@ const SectionPage: React.FC = () => {
     return (
         <div>
             <div className={classes.row}>
-                <div>
-                    <YouTube videoId={url} opts={options}/>
+                <div className={classes.youtubePlayerContainer}>
+                    <YouTube className={classes.youtubePlayer} videoId={url} opts={options}/>
                 </div>
 
                 <div className={classes.content}>
