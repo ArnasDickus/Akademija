@@ -6,22 +6,22 @@ import Checkbox from '@material-ui/core/Checkbox';
 import {CourseSectionInterface} from "core/interfaces/categories.interface";
 
 
-const SubjectSections: React.FC<CourseSectionInterface> = ({ id, title, lessons, onUrlUpdate}) => {
+const SubjectSections: React.FC<CourseSectionInterface> = ({
+                                                               id,
+                                                               title,
+                                                               lessons,
+                                                               onUrlUpdate,
+                                                               oldId}) => {
     const [menu, toggleMenu] = useState(false);
-    // const [sectionId, setSectionId] = useState('');
     const [lessonId, setLessonId] = useState('');
 
     const handleClick = () => {
         toggleMenu(!menu)
     }
 
-    const selectLesson = (lessonId: string, currentSectionId: string ) => {
-        // if(!sectionId.length) {
-        //     console.log('first click');
-        //     setSectionId(currentSectionId);
-        // } else if(sectionId !== id) {
-        //     console.log('not equal')
-        // }
+
+    const handleLessonClick = (lessonUrl: string, lessonId: string, currentSectionId: string) => {
+        onUrlUpdate(lessonUrl, currentSectionId)
         setLessonId(lessonId);
     }
 
@@ -48,10 +48,10 @@ const SubjectSections: React.FC<CourseSectionInterface> = ({ id, title, lessons,
                 menu ?
                     (
                         lessons.map((lesson) => (
-                            <div className={`${classes.dropdown} ${lesson.id === lessonId
+                            <div className={`${classes.dropdown} ${lesson.id === lessonId && oldId === id
                                 ? `${classes.activeLesson}` : ''}`} key={lesson.id}
-                                 onClick={() => onUrlUpdate(lesson.url)}>
-                                <div onClick={() => selectLesson(lesson.id || '', id || '')} className={classes.rowDropdown}>
+                                 onClick={() => handleLessonClick(lesson.url, lesson.id || '', id || '')}>
+                                <div className={classes.rowDropdown}>
                                     <Checkbox
                                         value="checkedA"
                                         inputProps={{'aria-label': 'Checkbox A'}}

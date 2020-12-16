@@ -13,9 +13,8 @@ import getVideoId from 'get-video-id';
 const SectionPage: React.FC = () => {
     const [singleCourse, setSingleCourse] = useState<CoursesInterface>([] as any);
     const [url, setUrl] = useState<string>('');
+    const [oldSectionId, setOldSectionId] = useState<string>('');
     const [options] = useState<any>({
-        width: '1430',
-        height: '647',
         playerVars: {
             'autoplay': 1,
             'origin': 'http://localhost:3000'
@@ -42,7 +41,8 @@ const SectionPage: React.FC = () => {
 
     }, [singleCourse]);
 
-    const changeVideo = (videoUrl: string): void => {
+    const changeVideo = (videoUrl: string, oldId: string): void => {
+        setOldSectionId(oldId);
         const idOnly = getVideoId(videoUrl).id;
         setUrl(idOnly)
     }
@@ -50,8 +50,8 @@ const SectionPage: React.FC = () => {
     return (
         <div>
             <div className={classes.row}>
-                <div>
-                    <YouTube videoId={url} opts={options}/>
+                <div className={classes.youtubePlayerContainer}>
+                    <YouTube className={classes.youtubePlayer} videoId={url} opts={options}/>
                 </div>
 
                 <div className={classes.content}>
@@ -71,7 +71,8 @@ const SectionPage: React.FC = () => {
                                             id={section.id}
                                             title={section.title}
                                             lessons={section.lessons}
-                                            onUrlUpdate={(url: string) => changeVideo(url)}
+                                            onUrlUpdate={(url: string, oldId: string) => changeVideo(url, oldId )}
+                                            oldId={oldSectionId}
                                         />
                                     </React.Fragment>
                                 ))}
