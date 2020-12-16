@@ -18,6 +18,7 @@ export interface CourseSectionInterface {
     id: string;
     title: string;
     onUrlUpdate?: any;
+    oldId?: any;
     lessons: LessonsInterface[],
 }
 
