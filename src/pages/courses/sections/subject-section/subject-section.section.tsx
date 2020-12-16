@@ -8,7 +8,7 @@ import {CourseSectionInterface} from "core/interfaces/categories.interface";
 
 const SubjectSections: React.FC<CourseSectionInterface> = ({ id, title, lessons, onUrlUpdate}) => {
     const [menu, toggleMenu] = useState(false);
-    const [sectionId, setSectionId] = useState('');
+    // const [sectionId, setSectionId] = useState('');
     const [lessonId, setLessonId] = useState('');
 
     const handleClick = () => {
@@ -16,23 +16,13 @@ const SubjectSections: React.FC<CourseSectionInterface> = ({ id, title, lessons,
     }
 
     const selectLesson = (lessonId: string, currentSectionId: string ) => {
-        setLessonId(lessonId);
-
-        console.log(currentSectionId);
-
-
-
-        // console.log(sectionId);
-        // console.log(currentSectionId);
-        // setLessonId(lessonId);
-        //
-        // if(sectionId.length === 0) {
-        //     console.log('return stop');
-        //     return setSectionId(currentSectionId);
-        // } else if (sectionId !== currentSectionId) {
+        // if(!sectionId.length) {
+        //     console.log('first click');
         //     setSectionId(currentSectionId);
+        // } else if(sectionId !== id) {
+        //     console.log('not equal')
         // }
-
+        setLessonId(lessonId);
     }
 
     return (
