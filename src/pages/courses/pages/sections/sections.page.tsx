@@ -9,6 +9,7 @@ import {CourseSectionInterface, CoursesInterface} from "core/interfaces/categori
 // TODO Remove TS-ignore
 // @ts-ignore
 import getVideoId from 'get-video-id';
+import Carousel from "../../sections/carousel/carousel.section";
 
 const SectionPage: React.FC = () => {
     const [singleCourse, setSingleCourse] = useState<CoursesInterface>([] as any);
@@ -50,9 +51,16 @@ const SectionPage: React.FC = () => {
     return (
         <div>
             <div className={classes.row}>
-                <div className={classes.youtubePlayerContainer}>
-                    <YouTube className={classes.youtubePlayer} videoId={url} opts={options}/>
+                <div className={classes.videoSide}>
+                    <div className={classes.youtubePlayerContainer}>
+                        <YouTube className={classes.youtubePlayer} videoId={url} opts={options}/>
+                    </div>
+
+                    <Carousel />
                 </div>
+
+
+
 
                 <div className={classes.content}>
                     <div className={classes.textRow}>
