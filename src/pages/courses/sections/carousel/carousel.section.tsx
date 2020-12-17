@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
+import Tab from '@material-ui/core/Tab'
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import SearchBar from "components/ui/search-bar/search-bar.component";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -24,7 +26,7 @@ function TabPanel(props: TabPanelProps) {
         >
             {value === index && (
                 <Box p={3}>
-                    <Typography>{children}</Typography>
+                    {children}
                 </Box>
             )}
         </div>
@@ -55,14 +57,14 @@ const Carousel: React.FC = () => {
                     indicatorColor="primary"
                     textColor="primary">
 
-                    <Tab label="Search" {...a11yProps(0)} />
+                    <Tab label={<FontAwesomeIcon icon={faSearch} />} {...a11yProps(0)} />
 
                     <Tab label="Overview" {...a11yProps(1)} />
                     <Tab label="Q&A" {...a11yProps(2)} />
                 </Tabs>
             </Paper>
             <TabPanel value={value} index={0}>
-                Item One
+                <SearchBar />
             </TabPanel>
             <TabPanel value={value} index={1}>
                 Item Two
