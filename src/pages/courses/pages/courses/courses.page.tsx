@@ -34,6 +34,7 @@ const CoursesPage: React.FC = () => {
                                     <React.Fragment key={course.id}>
                                         <CoursesCard
                                             title={course.title}
+                                            about={course.about}
                                             description={course.description}
                                             img={course.img}
                                             url={course.url}

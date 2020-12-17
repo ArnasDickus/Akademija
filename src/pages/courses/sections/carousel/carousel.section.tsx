@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import SearchBar from "components/ui/search-bar/search-bar.component";
+import CourseOverview from "components/course-overview/course-overview";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -67,7 +68,7 @@ const Carousel: React.FC = () => {
                 <SearchBar />
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
+                <CourseOverview />
             </TabPanel>
             <TabPanel value={value} index={2}>
                 Item Three
