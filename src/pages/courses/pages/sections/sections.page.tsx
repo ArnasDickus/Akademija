@@ -9,8 +9,11 @@ import {CourseSectionInterface, CoursesInterface} from "core/interfaces/categori
 // TODO Remove TS-ignore
 // @ts-ignore
 import getVideoId from 'get-video-id';
+import Carousel from "../../sections/carousel/carousel.section";
+import {connect} from 'react-redux';
+import {setCurrentOverview} from "redux/overview/overview.actions";
 
-const SectionPage: React.FC = () => {
+const SectionPage: React.FC<any> = (props) => {
     const [singleCourse, setSingleCourse] = useState<CoursesInterface>([] as any);
     const [url, setUrl] = useState<string>('');
     const [oldSectionId, setOldSectionId] = useState<string>('');
@@ -31,6 +34,7 @@ const SectionPage: React.FC = () => {
             for (let j = 0; j < Categories[i].courses.length; j++) {
                 if (Categories[i].courses[j].url === id) {
                     setSingleCourse(Categories[i].courses[j]);
+                    props.setCurrentOverview(singleCourse);
 
                     if (singleCourse?.sections?.length) {
                         setUrl(getVideoId(singleCourse.sections[0].lessons[0].url).id);
@@ -39,7 +43,7 @@ const SectionPage: React.FC = () => {
             }
         }
 
-    }, [singleCourse]);
+    }, [singleCourse, props]);
 
     const changeVideo = (videoUrl: string, oldId: string): void => {
         setOldSectionId(oldId);
@@ -50,8 +54,12 @@ const SectionPage: React.FC = () => {
     return (
         <div>
             <div className={classes.row}>
-                <div className={classes.youtubePlayerContainer}>
-                    <YouTube className={classes.youtubePlayer} videoId={url} opts={options}/>
+                <div className={classes.videoSide}>
+                    <div className={classes.youtubePlayerContainer}>
+                        <YouTube className={classes.youtubePlayer} videoId={url} opts={options}/>
+                    </div>
+
+                    <Carousel />
                 </div>
 
                 <div className={classes.content}>
@@ -84,4 +92,8 @@ const SectionPage: React.FC = () => {
     )
 }
 
-export default SectionPage;
+const mapDispatchToProps = (dispatch: any) => ({
+    setCurrentOverview: (overview: any) => dispatch(setCurrentOverview(overview))
+})
+
+export default connect(null, mapDispatchToProps)(SectionPage);

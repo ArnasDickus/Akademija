@@ -9,7 +9,8 @@ export const Categories: CategoriesInterface[] = [
             {
                 id: '1',
                 title: 'Up to 1st Grade (Khan kids)',
-                description: 'Learn how to count',
+                about: 'Learn how to count',
+                description: 'Using the latest counting methods learn how to count',
                 img: '../../assets/course-placeholder.jpg',
                 url: 'early-math',
                 sections: [
@@ -50,6 +51,7 @@ export const Categories: CategoriesInterface[] = [
             {
                 id: '2',
                 title: '2nd Grade',
+                about: 'Learn how to count423',
                 description: 'Learn how to count',
                 img: '../../assets/course-placeholder.jpg',
                 url: 'cc-2nd-grade-math',
@@ -92,6 +94,7 @@ export const Categories: CategoriesInterface[] = [
             {
                 id: '3',
                 title: '3rd Grade',
+                about: 'Learn how to count33',
                 description: 'Learn how to count',
                 img: '../../assets/course-placeholder.jpg',
                 url: 'cc-3nd-grade-math',
@@ -133,6 +136,7 @@ export const Categories: CategoriesInterface[] = [
             {
                 id: '4',
                 title: '4th Grade',
+                about: 'Learn how to count2',
                 description: 'Learn how to count',
                 img: '../../assets/course-placeholder.jpg',
                 url: 'cc-4th-grade-math',
@@ -182,6 +186,7 @@ export const Categories: CategoriesInterface[] = [
             {
                 id: '1',
                 title: 'Algebra',
+                about: 'Learn how to count222',
                 description: 'Learn how to count',
                 img: '../../assets/course-placeholder.jpg',
                 url: 'algebra',
@@ -223,6 +228,7 @@ export const Categories: CategoriesInterface[] = [
             {
                 id: '2',
                 title: 'Geometry',
+                about: 'Learn how to count321313',
                 description: 'Learn how to count',
                 img: '../../assets/course-placeholder.jpg',
                 url: 'geometry',
@@ -264,6 +270,7 @@ export const Categories: CategoriesInterface[] = [
             {
                 id: '3',
                 title: 'Algebra2',
+                about: 'Learn how t3232o count',
                 description: 'Learn how to count',
                 img: '../../assets/course-placeholder.jpg',
                 url: 'algebra2',
@@ -305,6 +312,7 @@ export const Categories: CategoriesInterface[] = [
             {
                 id: '4',
                 title: 'Trigonometry',
+                about: 'Learn how to count1321313',
                 description: 'Learn how to count',
                 img: '../../assets/course-placeholder.jpg',
                 url: 'trigonometry',

@@ -40,14 +40,9 @@
 
 .youtubePlayerContainer {
   position: relative;
-  width: 75%;
-  min-height: 300px;
   overflow: hidden;
-  padding-top: 30%;
-
-  @include atMedium() {
-    width: 100%;
-  }
+  padding-top: 40%;
+  min-height: 300px;
 }
 
 .youtubePlayer {
@@ -58,4 +53,11 @@
   right: 0;
   width: 100%;
   height: 100%;
+}
+
+.videoSide {
+  width: 75%;
+  @include atMedium() {
+    width: 100%;
+  }
 }

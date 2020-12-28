@@ -8,6 +8,7 @@ export interface CategoriesInterface {
 export interface CoursesInterface {
     id?: string;
     title: string;
+    about: string;
     description: string;
     img: string;
     url: string;
