@@ -7,6 +7,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import SearchBar from "components/ui/search-bar/search-bar.component";
 import CourseOverview from "components/course-overview/course-overview";
+import CourseQuestionsAnswers from "components/course-q&a/courseQ&A";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -71,7 +72,7 @@ const Carousel: React.FC = () => {
                 <CourseOverview />
             </TabPanel>
             <TabPanel value={value} index={2}>
-                Item Three
+                <CourseQuestionsAnswers />
             </TabPanel>
         </div>
     )
