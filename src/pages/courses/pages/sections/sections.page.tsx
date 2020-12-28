@@ -10,11 +10,10 @@ import {CourseSectionInterface, CoursesInterface} from "core/interfaces/categori
 // @ts-ignore
 import getVideoId from 'get-video-id';
 import Carousel from "../../sections/carousel/carousel.section";
-import {createStructuredSelector} from "reselect";
 import {connect} from 'react-redux';
-import { selectOverviewData } from "redux/overview/overview.selector";
+import {setCurrentOverview} from "redux/overview/overview.actions";
 
-const SectionPage: React.FC = () => {
+const SectionPage: React.FC = (props) => {
     const [singleCourse, setSingleCourse] = useState<CoursesInterface>([] as any);
     const [url, setUrl] = useState<string>('');
     const [oldSectionId, setOldSectionId] = useState<string>('');
@@ -36,6 +35,8 @@ const SectionPage: React.FC = () => {
                 if (Categories[i].courses[j].url === id) {
                     setSingleCourse(Categories[i].courses[j]);
                     console.log(singleCourse);
+                    // @ts-ignore
+                    props.setCurrentOverview(singleCourse);
 
                     if (singleCourse?.sections?.length) {
                         setUrl(getVideoId(singleCourse.sections[0].lessons[0].url).id);
@@ -44,7 +45,7 @@ const SectionPage: React.FC = () => {
             }
         }
 
-    }, [singleCourse]);
+    }, [singleCourse, props]);
 
     const changeVideo = (videoUrl: string, oldId: string): void => {
         setOldSectionId(oldId);
@@ -62,9 +63,6 @@ const SectionPage: React.FC = () => {
 
                     <Carousel />
                 </div>
-
-
-
 
                 <div className={classes.content}>
                     <div className={classes.textRow}>
@@ -96,9 +94,10 @@ const SectionPage: React.FC = () => {
     )
 }
 
-const mapStateToProps = createStructuredSelector({
-    singleCourse: selectOverviewData
+// Provide action which would store the data.
+const mapDispatchToProps = (dispatch: any) => ({
+    setCurrentOverview: (overview: any) => dispatch(setCurrentOverview(overview))
 })
 
 
-export default connect(mapStateToProps, null)(SectionPage);
+export default connect(null, mapDispatchToProps)(SectionPage);

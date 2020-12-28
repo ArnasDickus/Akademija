@@ -1,25 +1,31 @@
 import React, {useEffect} from 'react';
 import classes from './course-overview.module.scss';
-import {setCurrentOverview} from "../../redux/overview/overview.actions";
+import { selectOverviewData } from "redux/overview/overview.selector";
 import {connect} from 'react-redux';
+import {createStructuredSelector} from "reselect";
 
-const CourseOverview = (props: any) => {
+const CourseOverview: React.FC = (props) => {
+    // @ts-ignore
+    const {overview} = props;
+    console.log(overview);
+
     useEffect(() => {
-      const {setCurrentOverview} = props;
-      console.log(setCurrentOverview);
+
     })
 
     return (
         <div className={classes.overview}>
             <p>Course Overview</p>
+            {overview.overviewData.about}
+            {overview.overviewData.description}
 
         </div>
     )
 }
 
-const mapDispatchToProps = (dispatch: any) => ({
-    setCurrentOverview: (overview: any) => dispatch(setCurrentOverview(overview))
+const mapStateToProps = createStructuredSelector({
+    overview: selectOverviewData,
 })
 
-export default connect(null, mapDispatchToProps)(CourseOverview);
+export default connect(mapStateToProps, null)(CourseOverview);
 
