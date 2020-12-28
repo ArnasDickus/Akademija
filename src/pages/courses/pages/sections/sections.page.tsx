@@ -13,7 +13,7 @@ import Carousel from "../../sections/carousel/carousel.section";
 import {connect} from 'react-redux';
 import {setCurrentOverview} from "redux/overview/overview.actions";
 
-const SectionPage: React.FC = (props) => {
+const SectionPage: React.FC<any> = (props) => {
     const [singleCourse, setSingleCourse] = useState<CoursesInterface>([] as any);
     const [url, setUrl] = useState<string>('');
     const [oldSectionId, setOldSectionId] = useState<string>('');
@@ -34,8 +34,6 @@ const SectionPage: React.FC = (props) => {
             for (let j = 0; j < Categories[i].courses.length; j++) {
                 if (Categories[i].courses[j].url === id) {
                     setSingleCourse(Categories[i].courses[j]);
-                    console.log(singleCourse);
-                    // @ts-ignore
                     props.setCurrentOverview(singleCourse);
 
                     if (singleCourse?.sections?.length) {
@@ -94,10 +92,8 @@ const SectionPage: React.FC = (props) => {
     )
 }
 
-// Provide action which would store the data.
 const mapDispatchToProps = (dispatch: any) => ({
     setCurrentOverview: (overview: any) => dispatch(setCurrentOverview(overview))
 })
-
 
 export default connect(null, mapDispatchToProps)(SectionPage);

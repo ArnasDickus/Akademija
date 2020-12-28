@@ -1,3 +1,5 @@
+@import 'src/baseScss/global/mixins';
+
 .overview {
   text-align: center;
 }
@@ -10,8 +12,16 @@
 .row {
   display: flex;
   justify-content: space-between;
+
+  @include atSmall(){
+    flex-direction: column;
+  }
 }
 
 .descriptionTitle {
   padding-right: 90px;
+
+  @include atSmall(){
+    padding-right: 0;
+  }
 }

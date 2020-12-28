@@ -17,5 +17,4 @@ const overviewReducer = (state = INITIAL_STATE, action) => {
     }
 }
 
-
 export default overviewReducer;

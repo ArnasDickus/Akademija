@@ -11,8 +11,8 @@ import CourseQuestionsAnswers from "components/course-q&a/courseQ&A";
 
 interface TabPanelProps {
     children?: React.ReactNode;
-    index: any;
-    value: any;
+    index: number;
+    value: number;
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -55,12 +55,10 @@ const Carousel: React.FC = () => {
                 <Tabs
                     value={value}
                     onChange={handleChange}
-                    aria-label="simple tabs example"
                     indicatorColor="primary"
                     textColor="primary">
 
                     <Tab label={<FontAwesomeIcon icon={faSearch} />} {...a11yProps(0)} />
-
                     <Tab label="Overview" {...a11yProps(1)} />
                     <Tab label="Q&A" {...a11yProps(2)} />
                 </Tabs>
@@ -68,9 +66,11 @@ const Carousel: React.FC = () => {
             <TabPanel value={value} index={0}>
                 <SearchBar />
             </TabPanel>
+
             <TabPanel value={value} index={1}>
                 <CourseOverview />
             </TabPanel>
+
             <TabPanel value={value} index={2}>
                 <CourseQuestionsAnswers />
             </TabPanel>
