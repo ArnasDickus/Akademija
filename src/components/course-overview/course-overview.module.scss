@@ -1,3 +1,17 @@
 .overview {
   text-align: center;
 }
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.descriptionTitle {
+  padding-right: 90px;
+}

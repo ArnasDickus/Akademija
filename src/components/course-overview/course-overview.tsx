@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import classes from './course-overview.module.scss';
+import wrapper from 'baseScss/components/wrapper.module.scss';
 import { selectOverviewData } from "redux/overview/overview.selector";
 import {connect} from 'react-redux';
 import {createStructuredSelector} from "reselect";
@@ -7,17 +8,16 @@ import {createStructuredSelector} from "reselect";
 const CourseOverview: React.FC = (props) => {
     // @ts-ignore
     const {overview} = props;
-    console.log(overview);
-
-    useEffect(() => {
-
-    })
 
     return (
-        <div className={classes.overview}>
-            <p>Course Overview</p>
-            {overview.overviewData.about}
-            {overview.overviewData.description}
+        <div className={wrapper.overviewWrapper}>
+            <p className={classes.title}>Course Overview</p>
+            <p>{overview.overviewData.about}</p>
+            <hr />
+            <div className={classes.row}>
+                <p className={classes.descriptionTitle}>Description</p>
+                <p>{overview.overviewData.description}</p>
+            </div>
 
         </div>
     )
