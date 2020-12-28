@@ -1,11 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import classes from './course-overview.module.scss';
+import {setCurrentOverview} from "../../redux/overview/overview.actions";
+import {connect} from 'react-redux';
 
-const CourseOverview = () => {
+const CourseOverview = (props: any) => {
+    useEffect(() => {
+      const {setCurrentOverview} = props;
+      console.log(setCurrentOverview);
+    })
+
     return (
-        <div>
+        <div className={classes.overview}>
             <p>Course Overview</p>
+
         </div>
     )
 }
 
-export default CourseOverview;
+const mapDispatchToProps = (dispatch: any) => ({
+    setCurrentOverview: (overview: any) => dispatch(setCurrentOverview(overview))
+})
+
+export default connect(null, mapDispatchToProps)(CourseOverview);
+

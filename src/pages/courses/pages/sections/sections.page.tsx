@@ -10,6 +10,9 @@ import {CourseSectionInterface, CoursesInterface} from "core/interfaces/categori
 // @ts-ignore
 import getVideoId from 'get-video-id';
 import Carousel from "../../sections/carousel/carousel.section";
+import {createStructuredSelector} from "reselect";
+import {connect} from 'react-redux';
+import { selectOverviewData } from "redux/overview/overview.selector";
 
 const SectionPage: React.FC = () => {
     const [singleCourse, setSingleCourse] = useState<CoursesInterface>([] as any);
@@ -32,6 +35,7 @@ const SectionPage: React.FC = () => {
             for (let j = 0; j < Categories[i].courses.length; j++) {
                 if (Categories[i].courses[j].url === id) {
                     setSingleCourse(Categories[i].courses[j]);
+                    console.log(singleCourse);
 
                     if (singleCourse?.sections?.length) {
                         setUrl(getVideoId(singleCourse.sections[0].lessons[0].url).id);
@@ -92,4 +96,9 @@ const SectionPage: React.FC = () => {
     )
 }
 
-export default SectionPage;
+const mapStateToProps = createStructuredSelector({
+    singleCourse: selectOverviewData
+})
+
+
+export default connect(mapStateToProps, null)(SectionPage);
