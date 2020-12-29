@@ -1,4 +1,4 @@
-interface currentUserInterface {
+type currentUserInterface = {
     displayName: string;
     email: string;
 }

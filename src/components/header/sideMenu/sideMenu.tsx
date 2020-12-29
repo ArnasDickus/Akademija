@@ -1,5 +1,4 @@
 import React from "react";
-import classes from './sideMenu.module.scss';
 import {Link} from "react-router-dom";
 import {createStructuredSelector} from "reselect";
 import {selectCurrentUser} from "redux/user/user.selector";
@@ -12,7 +11,9 @@ import currentUserInterface from "core/interfaces/currentUser.interface";
 import LanguagesEnum from "core/enums/languages.enum";
 import AllRoutesEnum from "core/enums/allRoutes.enum";
 
-interface Props {
+import classes from './sideMenu.module.scss';
+
+type Props = {
     currentUser: currentUserInterface;
 }
 
@@ -45,11 +46,11 @@ const SideMenu: React.FC<Props> = ({currentUser}) => {
 
                 <div className={classes.svgContainer}>
                     <span className={classes.paddingR}>
-                        <LTSvg width="40px" height="20px" onClick={() => changeLanguage(LanguagesEnum.LT)}/>
+                        <LTSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.LT)}/>
                     </span>
 
                     <span>
-                        <GBSvg width="40px" height="20px" onClick={() => changeLanguage(LanguagesEnum.EN)}/>
+                        <GBSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.EN)}/>
                     </span>
                 </div>
             </div>

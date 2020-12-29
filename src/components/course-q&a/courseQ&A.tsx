@@ -1,5 +1,6 @@
 import React from 'react';
 import wrapper from 'baseScss/components/wrapper.module.scss';
+
 import SearchBar from "../ui/search-bar/search-bar.component";
 
 const CourseQuestionsAnswers: React.FC = () => {

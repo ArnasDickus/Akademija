@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
-import classes from './header.module.scss';
 import {Link} from "react-router-dom";
-import Hamburger from "./hamburger/hamburger.component";
-import SideMenu from "./sideMenu/sideMenu";
 import {auth} from 'firebase/firebase.utils';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from "reselect";
@@ -15,7 +12,11 @@ import AllRoutesEnum from "core/enums/allRoutes.enum";
 import LanguagesEnum from "core/enums/languages.enum";
 import wrapper from 'baseScss/components/wrapper.module.scss';
 
-interface Props {
+import SideMenu from "./sideMenu/sideMenu";
+import Hamburger from "./hamburger/hamburger.component";
+import classes from './header.module.scss';
+
+type Props = {
     currentUser: currentUserInterface;
 }
 
@@ -63,11 +64,11 @@ const Header: React.FC<Props> = (props) => {
                         }
 
                         <span className={classes.paddingR}>
-                            <LTSvg width="40px" height="20px" onClick={() => changeLanguage(LanguagesEnum.LT)}/>
+                            <LTSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.LT)}/>
                         </span>
 
                         <span>
-                            <GBSvg width="40px" height="20px" onClick={() => changeLanguage(LanguagesEnum.EN)}/>
+                            <GBSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.EN)}/>
                         </span>
                     </div>
                 </div>

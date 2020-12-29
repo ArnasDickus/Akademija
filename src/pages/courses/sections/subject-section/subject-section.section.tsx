@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import classes from './subject-section.module.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Checkbox from '@material-ui/core/Checkbox';
 import {CourseSectionInterface} from "core/interfaces/categories.interface";
+
+import classes from './subject-section.module.scss';
 
 
 const SubjectSections: React.FC<CourseSectionInterface> = ({
@@ -27,7 +28,7 @@ const SubjectSections: React.FC<CourseSectionInterface> = ({
 
     return (
         <React.Fragment>
-            <div onClick={handleClick} className={classes.subjectSections}>
+            <div className={classes.subjectSections} onClick={handleClick}>
                 <div className={classes.row}>
                     <div>
                         <h5 className={classes.title}>{title}</h5>
@@ -48,13 +49,13 @@ const SubjectSections: React.FC<CourseSectionInterface> = ({
                 menu ?
                     (
                         lessons.map((lesson) => (
-                            <div className={`${classes.dropdown} ${lesson.id === lessonId && oldId === id
-                                ? `${classes.activeLesson}` : ''}`} key={lesson.id}
+                            <div key={lesson.id} className={`${classes.dropdown} ${lesson.id === lessonId && oldId === id
+                                ? `${classes.activeLesson}` : ''}`}
                                  onClick={() => handleLessonClick(lesson.url, lesson.id || '', id || '')}>
                                 <div className={classes.rowDropdown}>
                                     <Checkbox
-                                        value="checkedA"
                                         inputProps={{'aria-label': 'Checkbox A'}}
+                                        value="checkedA"
                                     />
                                     <span>{lesson.title}</span>
                                 </div>

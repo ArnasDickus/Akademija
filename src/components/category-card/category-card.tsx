@@ -1,5 +1,4 @@
 import React from 'react';
-import classes from './category-card.module.scss';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,6 +8,8 @@ import coursesImg from 'assets/course-placeholder.jpg';
 import {CoursesInterface} from "core/interfaces/categories.interface";
 import {NavLink} from "react-router-dom";
 import {useLocation} from "react-router-dom";
+
+import classes from './category-card.module.scss';
 
 const CoursesCard: React.FC<CoursesInterface> = ({title, description, img, url}) => {
     const currentRoute = useLocation().pathname;
@@ -30,10 +31,10 @@ const CoursesCard: React.FC<CoursesInterface> = ({title, description, img, url})
                     <div className={classes.colText}>
                         <CardActionArea>
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2">
+                                <Typography component="h2" variant="h5" gutterBottom>
                                     {title}
                                 </Typography>
-                                <Typography variant="body2" color="textSecondary" component="p">
+                                <Typography color="textSecondary" component="p" variant="body2">
                                     {description}
                                 </Typography>
                             </CardContent>

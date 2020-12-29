@@ -1,9 +1,10 @@
 import React, {PropsWithChildren} from 'react';
-import classes from './course-overview.module.scss';
 import wrapper from 'baseScss/components/wrapper.module.scss';
 import { selectOverviewData } from "redux/overview/overview.selector";
 import {connect} from 'react-redux';
 import {createStructuredSelector} from "reselect";
+
+import classes from './course-overview.module.scss';
 
 const CourseOverview: React.FC<PropsWithChildren<any>> = (props) => {
     const {overview} = props;

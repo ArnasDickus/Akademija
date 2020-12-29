@@ -1,19 +1,19 @@
 import React from 'react';
-import Header from "./components/header/header.component";
 import {Switch, Route, Redirect} from 'react-router-dom';
+import {createStructuredSelector} from "reselect";
+import {connect} from 'react-redux';
+import {Unsubscribe} from "redux";
+
+import Header from "./components/header/header.component";
 import Home from "./pages/home/home.page";
 import Login from "./pages/login/login.page";
 import Register from "./pages/register/register.page";
 import Footer from "./components/footer/footer.component";
 import ForgotPasswordPage from "./pages/forgot-password/forgot-password.page";
 import classes from './App.module.scss';
-
 import {auth, createUserProfileDocument} from './firebase/firebase.utils';
-import {createStructuredSelector} from "reselect";
 import {selectCurrentUser} from "./redux/user/user.selector";
 import {setCurrentUser} from "./redux/user/user.actions";
-import {connect} from 'react-redux';
-import {Unsubscribe} from "redux";
 import AllRoutesEnum from "./core/enums/allRoutes.enum";
 import CategoriesPage from "./pages/courses/pages/categories/categories.page";
 import CoursesPage from "./pages/courses/pages/courses/courses.page";
@@ -51,16 +51,16 @@ class App extends React.Component<any> {
                 <Header/>
                 <div className={classes.siteContent}>
                     <Switch>
-                        <Route path="/" exact={true} component={Home}/>
-                        <Route exact path={`/${AllRoutesEnum.COURSES}`} component={CategoriesPage}/>
-                        <Route exact path={`/${AllRoutesEnum.COURSES}/:id`} component={CoursesPage}/>
-                        <Route exact path={`/${AllRoutesEnum.COURSES}/:id/:id`} component={SectionPage}/>
+                        <Route component={Home} path="/" exact/>
+                        <Route component={CategoriesPage} path={`/${AllRoutesEnum.COURSES}`} exact/>
+                        <Route component={CoursesPage} path={`/${AllRoutesEnum.COURSES}/:id`} exact/>
+                        <Route component={SectionPage} path={`/${AllRoutesEnum.COURSES}/:id/:id`} exact/>
 
                         <Route path={`/${AllRoutesEnum.LOGIN}`} render={() => this.props.currentUser
-                            ? (<Redirect to={"/"}/>) : (<Login/>)}/>
+                            ? (<Redirect to="/"/>) : (<Login/>)}/>
                         <Route path={`/${AllRoutesEnum.REGISTER}`} render={() => this.props.currentUser
-                            ? (<Redirect to={"/"}/>) : (<Register/>)}/>
-                        <Route path={`/${AllRoutesEnum.FORGOT_PASSWORD}`} component={ForgotPasswordPage}/>
+                            ? (<Redirect to="/"/>) : (<Register/>)}/>
+                        <Route component={ForgotPasswordPage} path={`/${AllRoutesEnum.FORGOT_PASSWORD}`}/>
                     </Switch>
                 </div>
                 <Footer/>

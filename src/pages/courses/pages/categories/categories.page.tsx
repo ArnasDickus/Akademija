@@ -1,9 +1,10 @@
 import React from 'react';
 import {useTranslation} from "react-i18next";
-import CourseCollections from "../../sections/courses-collection/courses-collection.section";
 import wrapper from 'baseScss/components/wrapper.module.scss';
 import {Categories} from "core/fake-data/categories";
 import {CategoriesInterface} from "core/interfaces/categories.interface";
+
+import CourseCollections from "../../sections/courses-collection/courses-collection.section";
 
 const CategoriesPage: React.FC = () => {
     const {t} = useTranslation();
@@ -17,9 +18,9 @@ const CategoriesPage: React.FC = () => {
                     Categories.map((category: CategoriesInterface) => (
                         <CourseCollections
                             key={category.id}
+                            courses={category.courses}
                             id={category.id}
                             title={category.title}
-                            courses={category.courses}
                             url={category.url}/>
                     ))
                 }

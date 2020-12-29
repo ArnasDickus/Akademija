@@ -9,7 +9,7 @@ import SearchBar from "components/ui/search-bar/search-bar.component";
 import CourseOverview from "components/course-overview/course-overview";
 import CourseQuestionsAnswers from "components/course-q&a/courseQ&A";
 
-interface TabPanelProps {
+type TabPanelProps = {
     children?: React.ReactNode;
     index: number;
     value: number;
@@ -20,10 +20,10 @@ function TabPanel(props: TabPanelProps) {
 
     return (
         <div
-            role="tabpanel"
+            aria-labelledby={`simple-tab-${index}`}
             hidden={value !== index}
             id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
+            role="tabpanel"
             {...other}
         >
             {value === index && (
@@ -53,25 +53,25 @@ const Carousel: React.FC = () => {
         <div>
             <Paper>
                 <Tabs
-                    value={value}
-                    onChange={handleChange}
                     indicatorColor="primary"
-                    textColor="primary">
+                    textColor="primary"
+                    value={value}
+                    onChange={handleChange}>
 
                     <Tab label={<FontAwesomeIcon icon={faSearch} />} {...a11yProps(0)} />
                     <Tab label="Overview" {...a11yProps(1)} />
                     <Tab label="Q&A" {...a11yProps(2)} />
                 </Tabs>
             </Paper>
-            <TabPanel value={value} index={0}>
+            <TabPanel index={0} value={value}>
                 <SearchBar />
             </TabPanel>
 
-            <TabPanel value={value} index={1}>
+            <TabPanel index={1} value={value}>
                 <CourseOverview />
             </TabPanel>
 
-            <TabPanel value={value} index={2}>
+            <TabPanel index={2} value={value}>
                 <CourseQuestionsAnswers />
             </TabPanel>
         </div>

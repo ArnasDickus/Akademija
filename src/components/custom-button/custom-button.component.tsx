@@ -1,7 +1,8 @@
 import React from 'react';
+
 import classes from './custom-button.module.scss';
 
-interface Props {
+type Props = {
     isGoogleSignIn?: boolean,
     inverted?: string;
     type?: "button" | "submit" | "reset" | undefined;

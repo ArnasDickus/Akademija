@@ -1,11 +1,11 @@
-export interface CategoriesInterface {
+export type CategoriesInterface = {
     id: string;
     title: string;
     url: string;
     courses: CoursesInterface[];
 }
 
-export interface CoursesInterface {
+export type CoursesInterface = {
     id?: string;
     title: string;
     about: string;
@@ -15,7 +15,7 @@ export interface CoursesInterface {
     sections: CourseSectionInterface[];
 }
 
-export interface CourseSectionInterface {
+export type CourseSectionInterface = {
     id: string;
     title: string;
     onUrlUpdate?: any;
@@ -23,7 +23,7 @@ export interface CourseSectionInterface {
     lessons: LessonsInterface[],
 }
 
-export interface LessonsInterface {
+export type LessonsInterface = {
     id?: string;
     title: string;
     url: string;

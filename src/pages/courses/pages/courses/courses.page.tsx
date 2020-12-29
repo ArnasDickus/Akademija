@@ -14,7 +14,7 @@ const CoursesPage: React.FC = () => {
         const segments = new URL(fullUrl).pathname.split('/');
         const id = segments.pop() || segments.pop();
 
-        for (let category of categories) {
+        for (const category of categories) {
             if (category.url === id) {
                 setSingleCategory(category);
             }
@@ -33,12 +33,12 @@ const CoursesPage: React.FC = () => {
                             {singleCategory.courses?.length && singleCategory.courses.map((course: CoursesInterface) => (
                                     <React.Fragment key={course.id}>
                                         <CoursesCard
-                                            title={course.title}
                                             about={course.about}
                                             description={course.description}
                                             img={course.img}
-                                            url={course.url}
                                             sections={course.sections}
+                                            title={course.title}
+                                            url={course.url}
                                         />
                                     </React.Fragment>
                                 )

@@ -1,17 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import YouTube from 'react-youtube';
-import classes from './sections.module.scss';
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import SubjectSections from "../../sections/subject-section/subject-section.section";
 import {Categories} from 'core/fake-data/categories';
 import {CourseSectionInterface, CoursesInterface} from "core/interfaces/categories.interface";
 // TODO Remove TS-ignore
 // @ts-ignore
 import getVideoId from 'get-video-id';
-import Carousel from "../../sections/carousel/carousel.section";
 import {connect} from 'react-redux';
 import {setCurrentOverview} from "redux/overview/overview.actions";
+
+import Carousel from "../../sections/carousel/carousel.section";
+import SubjectSections from "../../sections/subject-section/subject-section.section";
+
+import classes from './sections.module.scss';
 
 const SectionPage: React.FC<any> = (props) => {
     const [singleCourse, setSingleCourse] = useState<CoursesInterface>([] as any);
@@ -56,7 +58,7 @@ const SectionPage: React.FC<any> = (props) => {
             <div className={classes.row}>
                 <div className={classes.videoSide}>
                     <div className={classes.youtubePlayerContainer}>
-                        <YouTube className={classes.youtubePlayer} videoId={url} opts={options}/>
+                        <YouTube className={classes.youtubePlayer} opts={options} videoId={url}/>
                     </div>
 
                     <Carousel />
@@ -69,23 +71,21 @@ const SectionPage: React.FC<any> = (props) => {
                             <FontAwesomeIcon icon={faTimes}/>
                         </div>
                     </div>
-                    {
-                        <div>
+                    <div>
                             {
                                 singleCourse.sections?.length && singleCourse.sections.map
                                 ((section: CourseSectionInterface) => (
                                     <React.Fragment key={section.id}>
                                         <SubjectSections
                                             id={section.id}
-                                            title={section.title}
                                             lessons={section.lessons}
-                                            onUrlUpdate={(url: string, oldId: string) => changeVideo(url, oldId )}
                                             oldId={oldSectionId}
+                                            title={section.title}
+                                            onUrlUpdate={(url: string, oldId: string) => changeVideo(url, oldId )}
                                         />
                                     </React.Fragment>
                                 ))}
                         </div>
-                    }
                 </div>
             </div>
         </div>

@@ -1,9 +1,10 @@
 import React from 'react';
-import classes from './error-message.module.scss';
 import {useTranslation} from "react-i18next";
 import {ErrorMessagesEnum} from "core/enums/error-messages.enum";
 
-interface Props {
+import classes from './error-message.module.scss';
+
+type Props = {
     errorType: string;
 }
 

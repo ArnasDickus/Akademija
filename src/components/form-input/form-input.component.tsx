@@ -1,8 +1,9 @@
 import React from 'react';
 import {useField} from 'formik';
+
 import classes from './form-input.module.scss';
 
-interface Props {
+type Props = {
     label: string
     name: string
     type: string
@@ -10,6 +11,7 @@ interface Props {
 
 const FormInput: React.FC<Props> = ({label, ...props}) => {
     const [field, meta] = useField(props);
+
     return (
         <div className={classes.group}>
             <input className={classes.formInput} {...field} {...props} />

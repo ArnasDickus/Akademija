@@ -1,6 +1,7 @@
 import React from 'react';
-import classes from './footer.module.scss';
 import {useTranslation} from "react-i18next";
+
+import classes from './footer.module.scss';
 
 const Footer: React.FC = () => {
     const {t} = useTranslation();

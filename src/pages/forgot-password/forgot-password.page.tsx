@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import classes from './forgot-password.module.scss';
 import CustomButton from "components/custom-button/custom-button.component";
 import {auth} from "firebase/firebase.utils";
 import * as Yup from "yup";
@@ -9,6 +8,8 @@ import ErrorComponent from "components/error-message/error-message.component";
 import SuccessComponent from "components/success-message/success-message.component";
 import {useTranslation} from "react-i18next";
 import wrapper from 'baseScss/components/wrapper.module.scss';
+
+import classes from './forgot-password.module.scss';
 
 const ForgotPasswordPage: React.FC = () => {
     const [errorType, setErrorType] = useState('');
