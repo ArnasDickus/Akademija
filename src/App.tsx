@@ -3,7 +3,6 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 import {createStructuredSelector} from "reselect";
 import {connect} from 'react-redux';
 import {Unsubscribe} from "redux";
-import {CurrentUserType} from 'core/types/redux.types';
 import {FirebaseUserType} from 'core/types/firebase.types';
 
 import Header from "./components/header/header.component";
@@ -24,7 +23,7 @@ import SectionPage from "./pages/courses/pages/sections/sections.page";
 
 type Props = {
     currentUser: null | FirebaseUserType
-    setCurrentUser: CurrentUserType
+    setCurrentUser: any
 }
 
 class App extends React.Component<Props> {
@@ -35,7 +34,7 @@ class App extends React.Component<Props> {
 
         this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
             if (userAuth) {
-                const userRef: any = await createUserProfileDocument(userAuth);
+                const userRef: React.RefObject<T> = await createUserProfileDocument(userAuth);
 
                 userRef.onSnapshot((snapShot: { id: string; data: () => any; }) => {
                     this.props.setCurrentUser({

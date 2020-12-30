@@ -4,7 +4,7 @@ import {InputAdornment, TextField} from "@material-ui/core";
 
 import classes from './search-bar.module.scss';
 
-const SearchBar = () => {
+const SearchBar = (): JSX.Element => {
     return (
         <div className={classes.container}>
             <TextField InputProps={{

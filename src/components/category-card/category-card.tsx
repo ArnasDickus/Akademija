@@ -5,13 +5,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import coursesImg from 'assets/course-placeholder.jpg';
-import {CoursesInterface} from "core/types/categories.types";
+import {CoursesType} from "core/types/categories.types";
 import {NavLink} from "react-router-dom";
 import {useLocation} from "react-router-dom";
 
 import classes from './category-card.module.scss';
 
-const CoursesCard: React.FC<CoursesInterface> = ({title, description, img, url}) => {
+const CoursesCard: React.FC<CoursesType> = ({title, img, description, url}) => {
     const currentRoute = useLocation().pathname;
 
     return (
@@ -26,6 +26,7 @@ const CoursesCard: React.FC<CoursesInterface> = ({title, description, img, url})
                                 title={title}
                             />
                         </CardActionArea>
+                         <p>{img}</p>
                     </div>
 
                     <div className={classes.colText}>

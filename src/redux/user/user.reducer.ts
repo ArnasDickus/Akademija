@@ -1,12 +1,13 @@
-import {firebaseUserInterface} from 'core/types/firebaseInterface';
-import { setCurrentUserInterface } from 'core/types/redux.types';
+import {FirebaseUserType} from 'core/types/firebase.types';
+import {ReduxCurrentUserType} from 'core/types/redux.types';
+
 import { userActionTypes } from "./user.types";
 
-const INITIAL_STATE: firebaseUserInterface = {
+const INITIAL_STATE: FirebaseUserType = {
     currentUser: null
 }
 
-const userReducer = (state = INITIAL_STATE, action: setCurrentUserInterface): firebaseUserInterface => {
+const userReducer = (state = INITIAL_STATE, action: ReduxCurrentUserType): FirebaseUserType => {
     switch (action.type) {
         case userActionTypes.SET_CURRENT_USER:
             return {

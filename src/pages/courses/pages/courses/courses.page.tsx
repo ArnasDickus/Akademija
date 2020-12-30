@@ -6,7 +6,7 @@ import wrapper from 'baseScss/components/wrapper.module.scss';
 import {CategoriesType, CoursesType} from 'core/types/categories.types'
 
 const CoursesPage: React.FC = () => {
-    const [singleCategory, setSingleCategory] = useState<CategoriesType>([] as any);
+    const [singleCategory, setSingleCategory] = useState<CategoriesType | []>([]);
 
     useEffect(() => {
         const categories = Categories;
