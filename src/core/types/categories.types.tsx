@@ -1,29 +1,29 @@
-export type CategoriesInterface = {
+export type CategoriesType = {
     id: string;
     title: string;
     url: string;
-    courses: CoursesInterface[];
+    courses: CoursesType[];
 }
 
-export type CoursesInterface = {
+export type CoursesType = {
     id?: string;
     title: string;
     about: string;
     description: string;
     img: string;
     url: string;
-    sections: CourseSectionInterface[];
+    sections: CourseSectionType[];
 }
 
-export type CourseSectionInterface = {
+export type CourseSectionType = {
     id: string;
     title: string;
     onUrlUpdate?: any;
     oldId?: any;
-    lessons: LessonsInterface[],
+    lessons: LessonsType[],
 }
 
-export type LessonsInterface = {
+export type LessonsType = {
     id?: string;
     title: string;
     url: string;

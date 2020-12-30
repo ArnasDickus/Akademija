@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Checkbox from '@material-ui/core/Checkbox';
-import {CourseSectionInterface} from "core/interfaces/categories.interface";
+import {CourseSectionType} from "core/types/categories.types";
 
 import classes from './subject-section.module.scss';
 
 
-const SubjectSections: React.FC<CourseSectionInterface> = ({
+const SubjectSections: React.FC<CourseSectionType> = ({
                                                                id,
                                                                title,
                                                                lessons,

@@ -5,7 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import coursesImg from 'assets/course-placeholder.jpg';
-import {CoursesInterface} from "core/interfaces/categories.interface";
+import {CoursesInterface} from "core/types/categories.types";
 import {NavLink} from "react-router-dom";
 import {useLocation} from "react-router-dom";
 

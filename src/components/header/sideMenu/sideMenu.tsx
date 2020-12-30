@@ -7,7 +7,7 @@ import {auth} from "firebase/firebase.utils";
 import {useTranslation} from "react-i18next";
 import {ReactComponent as LTSvg} from "assets/lt.svg";
 import {ReactComponent as GBSvg} from "assets/gb.svg";
-import currentUserInterface from "core/interfaces/currentUser.interface";
+import currentUserInterface from "core/types/currentUser.types";
 import LanguagesEnum from "core/enums/languages.enum";
 import AllRoutesEnum from "core/enums/allRoutes.enum";
 

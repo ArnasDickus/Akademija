@@ -3,7 +3,8 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 import {createStructuredSelector} from "reselect";
 import {connect} from 'react-redux';
 import {Unsubscribe} from "redux";
-import {setCurrentUserInterface} from 'core/interfaces/redux.interface';
+import {CurrentUserType} from 'core/types/redux.types';
+import {FirebaseUserType} from 'core/types/firebase.types';
 
 import Header from "./components/header/header.component";
 import Home from "./pages/home/home.page";
@@ -19,11 +20,11 @@ import AllRoutesEnum from "./core/enums/allRoutes.enum";
 import CategoriesPage from "./pages/courses/pages/categories/categories.page";
 import CoursesPage from "./pages/courses/pages/courses/courses.page";
 import SectionPage from "./pages/courses/pages/sections/sections.page";
-import {firebaseUserInterface} from './core/interfaces/firebaseInterface';
+
 
 type Props = {
-    currentUser: null | firebaseUserInterface
-    setCurrentUser: setCurrentUserInterface
+    currentUser: null | FirebaseUserType
+    setCurrentUser: CurrentUserType
 }
 
 class App extends React.Component<Props> {
@@ -81,7 +82,7 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispatchToProps = (dispatch: any) => ({
-    setCurrentUser: (user: firebaseUserInterface) => dispatch(setCurrentUser(user))
+    setCurrentUser: (user: FirebaseUserType) => dispatch(setCurrentUser(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,4 +1,4 @@
-import { CategoriesInterface } from "../interfaces/categories.interface";
+import { CategoriesInterface } from "../types/categories.types";
 
 export const Categories: CategoriesInterface[] = [
     {

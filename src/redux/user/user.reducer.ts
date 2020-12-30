@@ -1,5 +1,5 @@
-import {firebaseUserInterface} from 'core/interfaces/firebaseInterface';
-import { setCurrentUserInterface } from 'core/interfaces/redux.interface';
+import {firebaseUserInterface} from 'core/types/firebaseInterface';
+import { setCurrentUserInterface } from 'core/types/redux.types';
 import { userActionTypes } from "./user.types";
 
 const INITIAL_STATE: firebaseUserInterface = {

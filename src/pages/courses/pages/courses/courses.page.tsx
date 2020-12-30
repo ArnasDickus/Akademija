@@ -3,10 +3,10 @@ import {Categories} from 'core/fake-data/categories';
 import CategoryTitle from "components/category-title/category-title";
 import CoursesCard from "components/category-card/category-card";
 import wrapper from 'baseScss/components/wrapper.module.scss';
-import {CategoriesInterface, CoursesInterface} from 'core/interfaces/categories.interface'
+import {CategoriesType, CoursesType} from 'core/types/categories.types'
 
 const CoursesPage: React.FC = () => {
-    const [singleCategory, setSingleCategory] = useState<CategoriesInterface>([] as any);
+    const [singleCategory, setSingleCategory] = useState<CategoriesType>([] as any);
 
     useEffect(() => {
         const categories = Categories;
@@ -30,7 +30,7 @@ const CoursesPage: React.FC = () => {
                         <CategoryTitle title={singleCategory.title}/>
 
                         <div className={wrapper.headerWrapper}>
-                            {singleCategory.courses?.length && singleCategory.courses.map((course: CoursesInterface) => (
+                            {singleCategory.courses?.length && singleCategory.courses.map((course: CoursesType) => (
                                     <React.Fragment key={course.id}>
                                         <CoursesCard
                                             about={course.about}

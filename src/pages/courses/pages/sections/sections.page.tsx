@@ -3,7 +3,7 @@ import YouTube from 'react-youtube';
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Categories} from 'core/fake-data/categories';
-import {CourseSectionInterface, CoursesInterface} from "core/interfaces/categories.interface";
+import {CourseSectionType, CoursesType} from "core/types/categories.types";
 // TODO Remove TS-ignore
 // @ts-ignore
 import getVideoId from 'get-video-id';
@@ -16,7 +16,7 @@ import SubjectSections from "../../sections/subject-section/subject-section.sect
 import classes from './sections.module.scss';
 
 const SectionPage: React.FC<any> = (props) => {
-    const [singleCourse, setSingleCourse] = useState<CoursesInterface>([] as any);
+    const [singleCourse, setSingleCourse] = useState<CoursesType>([] as any);
     const [url, setUrl] = useState<string>('');
     const [oldSectionId, setOldSectionId] = useState<string>('');
     const [options] = useState<any>({
@@ -74,7 +74,7 @@ const SectionPage: React.FC<any> = (props) => {
                     <div>
                             {
                                 singleCourse.sections?.length && singleCourse.sections.map
-                                ((section: CourseSectionInterface) => (
+                                ((section: CourseSectionType) => (
                                     <React.Fragment key={section.id}>
                                         <SubjectSections
                                             id={section.id}

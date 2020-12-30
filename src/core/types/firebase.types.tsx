@@ -1,5 +1,5 @@
 import firebase from "firebase/app";
 
-export type firebaseUserInterface = {
+export type FirebaseUserType = {
     currentUser: firebase.User | null;
 } 

@@ -4,12 +4,12 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import {NavLink} from "react-router-dom";
-import {CategoriesInterface} from "core/interfaces/categories.interface";
+import {CategoriesType} from "core/types/categories.types";
 import {useLocation} from "react-router-dom";
 
 import classes from './courses-collection.module.scss';
 
-const CourseCollections: React.FC<CategoriesInterface> = ({ title, courses, url, }) => {
+const CourseCollections: React.FC<CategoriesType> = ({ title, courses, url, }) => {
     const currentRoute = useLocation().pathname;
 
     return (

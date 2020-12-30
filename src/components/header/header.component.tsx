@@ -7,7 +7,7 @@ import {selectCurrentUser} from "redux/user/user.selector";
 import {ReactComponent as LTSvg} from "assets/lt.svg";
 import {ReactComponent as GBSvg} from "assets/gb.svg";
 import {useTranslation} from "react-i18next";
-import currentUserInterface from "core/interfaces/currentUser.interface";
+import currentUserInterface from "core/types/currentUser.types";
 import AllRoutesEnum from "core/enums/allRoutes.enum";
 import LanguagesEnum from "core/enums/languages.enum";
 import wrapper from 'baseScss/components/wrapper.module.scss';

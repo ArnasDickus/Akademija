@@ -2,7 +2,7 @@ import React from 'react';
 import {useTranslation} from "react-i18next";
 import wrapper from 'baseScss/components/wrapper.module.scss';
 import {Categories} from "core/fake-data/categories";
-import {CategoriesInterface} from "core/interfaces/categories.interface";
+import {CategoriesType} from "core/types/categories.types";
 
 import CourseCollections from "../../sections/courses-collection/courses-collection.section";
 
@@ -15,7 +15,7 @@ const CategoriesPage: React.FC = () => {
 
             <div>
                 {
-                    Categories.map((category: CategoriesInterface) => (
+                    Categories.map((category: CategoriesType) => (
                         <CourseCollections
                             key={category.id}
                             courses={category.courses}
