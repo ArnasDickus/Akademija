@@ -5,7 +5,6 @@ import {BrowserRouter} from "react-router-dom";
 // import {Provider} from "react-redux";
 
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 // import {store} from "./redux/store";
 import './i18n';
 
@@ -22,4 +21,3 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
-reportWebVitals();
