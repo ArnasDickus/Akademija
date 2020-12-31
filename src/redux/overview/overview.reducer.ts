@@ -1,10 +1,15 @@
+import {CoursesType} from 'core/types/categories.types';
+import {ReduxOverviewType} from 'core/types/redux.types';
+
 import { overviewTypes } from "./overview.types";
 
-const INITIAL_STATE = {
+type OverviewDataType = {overviewData: CoursesType | null};
+
+const INITIAL_STATE: OverviewDataType = {
     overviewData: null
 }
 
-const overviewReducer = (state = INITIAL_STATE, action) => {
+const overviewReducer = (state = INITIAL_STATE, action: ReduxOverviewType): OverviewDataType => {
     switch (action.type) {
         case overviewTypes.SET_OVERVIEW_DATA:
             return {
