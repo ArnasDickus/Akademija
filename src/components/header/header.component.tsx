@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
-import {auth} from 'firebase/firebase.utils';
-import {connect} from 'react-redux';
-import {createStructuredSelector} from "reselect";
-import {selectCurrentUser} from "redux/user/user.selector";
+// import {auth} from 'firebase/firebase.utils';
+// import {connect} from 'react-redux';
+// import {createStructuredSelector} from "reselect";
+// import {selectCurrentUser} from "redux/user/user.selector";
 import {ReactComponent as LTSvg} from "assets/lt.svg";
 import {ReactComponent as GBSvg} from "assets/gb.svg";
 import {useTranslation} from "react-i18next";
-import currentUserInterface from "core/types/currentUser.types";
+// import {CurrentUserType} from "core/types/currentUser.types";
 import AllRoutesEnum from "core/enums/allRoutes.enum";
 import LanguagesEnum from "core/enums/languages.enum";
 import wrapper from 'baseScss/components/wrapper.module.scss';
@@ -16,11 +16,11 @@ import SideMenu from "./sideMenu/sideMenu";
 import Hamburger from "./hamburger/hamburger.component";
 import classes from './header.module.scss';
 
-type Props = {
-    currentUser: currentUserInterface;
-}
+// type Props = {
+//     currentUser: CurrentUserType;
+// }
 
-const Header: React.FC<Props> = (props) => {
+const Header: React.FC = () => {
     const [menu, openMenu] = useState(false);
     const {t, i18n} = useTranslation();
 
@@ -48,7 +48,7 @@ const Header: React.FC<Props> = (props) => {
                     </div>
 
                     <div className={classes.navLink}>
-                        {
+                        {/* {
                             props.currentUser
                                 ? <div onClick={() => auth.signOut()}>{t('header.logout')}</div>
 
@@ -61,7 +61,7 @@ const Header: React.FC<Props> = (props) => {
                                         {t('header.register')}
                                     </Link>
                                 </React.Fragment>
-                        }
+                        } */}
 
                         <span className={classes.paddingR}>
                             <LTSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.LT)}/>
@@ -77,8 +77,9 @@ const Header: React.FC<Props> = (props) => {
     )
 }
 
-const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser,
-})
+// const mapStateToProps = createStructuredSelector({
+//     currentUser: selectCurrentUser,
+// })
 
-export default connect(mapStateToProps)(Header);
+// export default connect(mapStateToProps)(Header);
+export default Header;

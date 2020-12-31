@@ -1,30 +1,30 @@
-import React, {PropsWithChildren} from 'react';
+import React from 'react';
 import wrapper from 'baseScss/components/wrapper.module.scss';
-import { selectOverviewData } from "redux/overview/overview.selector";
-import {connect} from 'react-redux';
-import {createStructuredSelector} from "reselect";
+// import { selectOverviewData } from "redux/overview/overview.selector";
+// import {connect} from 'react-redux';
+// import {createStructuredSelector} from "reselect";
 
 import classes from './course-overview.module.scss';
 
-const CourseOverview: React.FC<PropsWithChildren<any>> = (props) => {
-    const {overview} = props;
+const CourseOverview: React.FC = () => {
+    // const {overview} = props;
 
     return (
         <div className={wrapper.overviewWrapper}>
             <p className={classes.title}>Course Overview</p>
-            <p>{overview.overviewData.about}</p>
+            {/* <p>{overview.overviewData.about}</p> */}
             <hr />
             <div className={classes.row}>
                 <p className={classes.descriptionTitle}>Description</p>
-                <p>{overview.overviewData.description}</p>
+                {/* <p>{overview.overviewData.description}</p> */}
             </div>
         </div>
     )
 }
 
-const mapStateToProps = createStructuredSelector({
-    overview: selectOverviewData,
-})
+// const mapStateToProps = createStructuredSelector({
+//     overview: selectOverviewData,
+// })
 
-export default connect(mapStateToProps, null)(CourseOverview);
-
+// export default connect(mapStateToProps, null)(CourseOverview);
+export default CourseOverview;

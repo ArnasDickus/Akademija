@@ -19,43 +19,44 @@ export const firestore = firebase.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 
-export const createUserProfileDocument = async (userAuth, additionalData) => {
-    if (!userAuth) return;
+// export const createUserProfileDocument = async (userAuth, additionalData) => {
+//     if (!userAuth) return;
 
-    const userRef = firestore.doc(`users/${userAuth.uid}`);
-    const snapShot = await userRef.get();
+//     const userRef = firestore.doc(`users/${userAuth.uid}`);
+//     const snapShot = await userRef.get();
 
-    if (!snapShot.exists) {
-        const { displayName, email } = userAuth;
-        const createdAt = new Date();
+//     if (!snapShot.exists) {
+//         const { displayName, email } = userAuth;
+//         const createdAt = new Date();
 
-        try {
-            await userRef.set({
-                displayName,
-                email,
-                createdAt,
-                ...additionalData
-            });
-        } catch (error) {
-            console.log('error creating user', error.message);
-        }
-    }
+//         try {
+//             await userRef.set({
+//                 displayName,
+//                 email,
+//                 createdAt,
+//                 ...additionalData
+//             });
+//         } catch (error) {
+//             console.log('error creating user', error.message);
+//         }
+//     }
 
-    return userRef;
-};
+//     return userRef;
+// };
 
-export const sendEmailVerification = () => {
-    const user = firebase.auth().currentUser;
-    firebase.auth().languageCode = document.documentElement.lang;
+// export const sendEmailVerification = () => {
+//     const user = firebase.auth().currentUser;
+//     firebase.auth().languageCode = document.documentElement.lang;
 
-    user.sendEmailVerification().then(() => {
-    }).catch(function(error) {
-        console.log('Something went wrong', error);
-    })
-}
+//     user.sendEmailVerification().then(() => {
+//     }).catch(function(error) {
+//         console.log('Something went wrong', error);
+//     })
+// }
 
 export default firebase;
 

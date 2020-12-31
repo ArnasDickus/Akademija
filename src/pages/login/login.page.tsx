@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import CustomButton from "components/custom-button/custom-button.component";
-import {auth, signInWithGoogle} from "firebase/firebase.utils";
+import {auth} from "firebase/firebase.utils";
 import {Link} from "react-router-dom";
 import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
@@ -62,9 +62,9 @@ const LoginPage: React.FC = () => {
 
                         <div className={classes.buttons}>
                             <CustomButton type="submit"> {t('login.login')} </CustomButton>
-                            <CustomButton type="button" isGoogleSignIn onClick={signInWithGoogle}>
+                            {/* <CustomButton type="button" isGoogleSignIn onClick={signInWithGoogle}>
                                 {t('login.loginGoogle')}
-                            </CustomButton>
+                            </CustomButton> */}
                         </div>
 
                         <div className={classes.linkContainer}>

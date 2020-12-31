@@ -18,8 +18,7 @@ export type CoursesType = {
 export type CourseSectionType = {
     id: string;
     title: string;
-    onUrlUpdate?: any;
-    oldId?: any;
+    oldId?: string;
     lessons: LessonsType[],
 }
 

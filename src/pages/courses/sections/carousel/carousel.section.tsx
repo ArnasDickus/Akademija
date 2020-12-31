@@ -35,7 +35,7 @@ function TabPanel(props: TabPanelProps) {
     );
 }
 
-function a11yProps(index: any) {
+function a11yProps(index: number) {
     return {
         id: `simple-tab-${index}`,
         'aria-controls': `simple-tabpanel-${index}`,
@@ -45,7 +45,7 @@ function a11yProps(index: any) {
 const Carousel: React.FC = () => {
     const [value, setValue] = useState(0);
 
-    const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    const handleChange = (event: React.ChangeEvent<unknown>, newValue: number) => {
         setValue(newValue);
     };
 

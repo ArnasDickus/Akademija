@@ -1,23 +1,23 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {createStructuredSelector} from "reselect";
-import {selectCurrentUser} from "redux/user/user.selector";
-import {connect} from 'react-redux';
-import {auth} from "firebase/firebase.utils";
+// import {createStructuredSelector} from "reselect";
+// import {selectCurrentUser} from "redux/user/user.selector";
+// import {connect} from 'react-redux';
+// import {auth} from "firebase/firebase.utils";
 import {useTranslation} from "react-i18next";
 import {ReactComponent as LTSvg} from "assets/lt.svg";
 import {ReactComponent as GBSvg} from "assets/gb.svg";
-import currentUserInterface from "core/types/currentUser.types";
+// import {CurrentUserType} from "core/types/currentUser.types";
 import LanguagesEnum from "core/enums/languages.enum";
 import AllRoutesEnum from "core/enums/allRoutes.enum";
 
 import classes from './sideMenu.module.scss';
 
-type Props = {
-    currentUser: currentUserInterface;
-}
+// type Props = {
+//     currentUser: CurrentUserType;
+// }
 
-const SideMenu: React.FC<Props> = ({currentUser}) => {
+const SideMenu: React.FC = () => {
     const {t, i18n} = useTranslation();
 
     const changeLanguage = (lng: string) => {
@@ -27,7 +27,7 @@ const SideMenu: React.FC<Props> = ({currentUser}) => {
     return (
         <aside>
             <div className={classes.sideMenu}>
-                {
+                {/* {
                     currentUser
                         ? <div className={classes.card}>
                             <div className={classes.navLink} onClick={() => auth.signOut()}>{t('header.logout')}</div>
@@ -38,7 +38,7 @@ const SideMenu: React.FC<Props> = ({currentUser}) => {
                             <Link className={classes.navLink}
                                   to={`/${AllRoutesEnum.REGISTER}`}>{t('header.register')}</Link>
                         </div>
-                }
+                } */}
                 <div className={classes.card2}>
                     <Link className={classes.navLink} to={`${AllRoutesEnum.COURSES}`}>{t('header.courses')}</Link>
                     <Link className={classes.navLink} to="/">{t('header.academy')}</Link>
@@ -58,8 +58,9 @@ const SideMenu: React.FC<Props> = ({currentUser}) => {
     );
 };
 
-const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser,
-})
+// const mapStateToProps = createStructuredSelector({
+//     currentUser: selectCurrentUser,
+// })
 
-export default connect(mapStateToProps)(SideMenu);
+// export default connect(mapStateToProps)(SideMenu);
+export default SideMenu;

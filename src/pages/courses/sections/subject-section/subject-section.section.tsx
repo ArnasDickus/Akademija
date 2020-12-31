@@ -6,8 +6,9 @@ import {CourseSectionType} from "core/types/categories.types";
 
 import classes from './subject-section.module.scss';
 
+type Props = CourseSectionType & {onUrlUpdate: (url: string, oldId: string) => void};
 
-const SubjectSections: React.FC<CourseSectionType> = ({
+const SubjectSections: React.FC<Props> = ({
                                                                id,
                                                                title,
                                                                lessons,

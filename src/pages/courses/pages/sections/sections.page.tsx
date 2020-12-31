@@ -4,22 +4,26 @@ import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Categories} from 'core/fake-data/categories';
 import {CourseSectionType, CoursesType} from "core/types/categories.types";
+import {Options as YoutubeOptions} from 'react-youtube'; 
 // TODO Remove TS-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import getVideoId from 'get-video-id';
-import {connect} from 'react-redux';
-import {setCurrentOverview} from "redux/overview/overview.actions";
+import {RouteComponentProps} from 'react-router-dom';
+// import {connect} from 'react-redux';
+// import {setCurrentOverview} from "redux/overview/overview.actions";
 
 import Carousel from "../../sections/carousel/carousel.section";
 import SubjectSections from "../../sections/subject-section/subject-section.section";
 
 import classes from './sections.module.scss';
 
-const SectionPage: React.FC<any> = (props) => {
+const SectionPage: React.FC<RouteComponentProps> = (props) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [singleCourse, setSingleCourse] = useState<CoursesType>([] as any);
     const [url, setUrl] = useState<string>('');
     const [oldSectionId, setOldSectionId] = useState<string>('');
-    const [options] = useState<any>({
+    const [options] = useState<YoutubeOptions>({
         playerVars: {
             'autoplay': 1,
             'origin': 'http://localhost:3000'
@@ -36,7 +40,7 @@ const SectionPage: React.FC<any> = (props) => {
             for (let j = 0; j < Categories[i].courses.length; j++) {
                 if (Categories[i].courses[j].url === id) {
                     setSingleCourse(Categories[i].courses[j]);
-                    props.setCurrentOverview(singleCourse);
+                    // props.setCurrentOverview(singleCourse);
 
                     if (singleCourse?.sections?.length) {
                         setUrl(getVideoId(singleCourse.sections[0].lessons[0].url).id);
@@ -92,8 +96,10 @@ const SectionPage: React.FC<any> = (props) => {
     )
 }
 
-const mapDispatchToProps = (dispatch: any) => ({
-    setCurrentOverview: (overview: any) => dispatch(setCurrentOverview(overview))
-})
+// const mapDispatchToProps = (dispatch: any) => ({
+//     setCurrentOverview: (overview: any) => dispatch(setCurrentOverview(overview))
+// })
 
-export default connect(null, mapDispatchToProps)(SectionPage);
+// export default connect(null, mapDispatchToProps)(SectionPage);
+
+export default SectionPage;
