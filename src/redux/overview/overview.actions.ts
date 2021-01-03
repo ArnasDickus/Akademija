@@ -1,7 +1,6 @@
 import {CoursesType} from 'core/types/categories.types';
-import {ReduxOverviewType} from 'core/types/redux.types';
 
-import { overviewTypes } from "./overview.types";
+import { overviewTypes, ReduxOverviewType } from "./overview.types";
 
 
 export const setCurrentOverview = (overview: CoursesType): ReduxOverviewType => ({

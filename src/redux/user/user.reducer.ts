@@ -1,7 +1,4 @@
-import {FirebaseUserType} from 'core/types/firebase.types';
-import {ReduxCurrentUserType} from 'core/types/redux.types';
-
-import { userActionTypes } from "./user.types";
+import { userActionTypes, FirebaseUserType, ReduxCurrentUserType } from "./user.types";
 
 const INITIAL_STATE: FirebaseUserType = {
     currentUser: null
