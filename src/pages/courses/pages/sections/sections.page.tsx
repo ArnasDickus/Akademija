@@ -1,23 +1,29 @@
 import React, {useState, useEffect} from 'react';
 import YouTube from 'react-youtube';
-import classes from './sections.module.scss';
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import SubjectSections from "../../sections/subject-section/subject-section.section";
 import {Categories} from 'core/fake-data/categories';
-import {CourseSectionInterface, CoursesInterface} from "core/interfaces/categories.interface";
+import {CourseSectionType, CoursesType} from "core/types/categories.types";
+import {Options as YoutubeOptions} from 'react-youtube'; 
 // TODO Remove TS-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import getVideoId from 'get-video-id';
-import Carousel from "../../sections/carousel/carousel.section";
 import {connect} from 'react-redux';
 import {setCurrentOverview} from "redux/overview/overview.actions";
 
+import Carousel from "../../sections/carousel/carousel.section";
+import SubjectSections from "../../sections/subject-section/subject-section.section";
+
+import classes from './sections.module.scss';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SectionPage: React.FC<any> = (props) => {
-    const [singleCourse, setSingleCourse] = useState<CoursesInterface>([] as any);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const [singleCourse, setSingleCourse] = useState<CoursesType>([] as any);
     const [url, setUrl] = useState<string>('');
     const [oldSectionId, setOldSectionId] = useState<string>('');
-    const [options] = useState<any>({
+    const [options] = useState<YoutubeOptions>({
         playerVars: {
             'autoplay': 1,
             'origin': 'http://localhost:3000'
@@ -56,7 +62,7 @@ const SectionPage: React.FC<any> = (props) => {
             <div className={classes.row}>
                 <div className={classes.videoSide}>
                     <div className={classes.youtubePlayerContainer}>
-                        <YouTube className={classes.youtubePlayer} videoId={url} opts={options}/>
+                        <YouTube className={classes.youtubePlayer} opts={options} videoId={url}/>
                     </div>
 
                     <Carousel />
@@ -69,30 +75,30 @@ const SectionPage: React.FC<any> = (props) => {
                             <FontAwesomeIcon icon={faTimes}/>
                         </div>
                     </div>
-                    {
-                        <div>
+                    <div>
                             {
                                 singleCourse.sections?.length && singleCourse.sections.map
-                                ((section: CourseSectionInterface) => (
+                                ((section: CourseSectionType) => (
                                     <React.Fragment key={section.id}>
                                         <SubjectSections
                                             id={section.id}
-                                            title={section.title}
                                             lessons={section.lessons}
-                                            onUrlUpdate={(url: string, oldId: string) => changeVideo(url, oldId )}
                                             oldId={oldSectionId}
+                                            title={section.title}
+                                            onUrlUpdate={(url: string, oldId: string) => changeVideo(url, oldId )}
                                         />
                                     </React.Fragment>
                                 ))}
                         </div>
-                    }
                 </div>
             </div>
         </div>
     )
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mapDispatchToProps = (dispatch: any) => ({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setCurrentOverview: (overview: any) => dispatch(setCurrentOverview(overview))
 })
 

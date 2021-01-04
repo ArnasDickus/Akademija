@@ -1,8 +1,9 @@
 import React from 'react';
-import classes from './category-title.module.scss';
 import wrapper from 'baseScss/components/wrapper.module.scss';
 
-interface Props {
+import classes from './category-title.module.scss';
+
+type Props = {
     title: string;
 }
 

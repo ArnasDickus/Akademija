@@ -1,6 +1,7 @@
 import React from 'react';
-import classes from './whyWorks.module.scss';
 import {useTranslation} from "react-i18next";
+
+import classes from './whyWorks.module.scss';
 
 const WhyWorks: React.FC = () => {
     const {t} = useTranslation();

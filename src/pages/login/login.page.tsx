@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import classes from './login.module.scss';
 import CustomButton from "components/custom-button/custom-button.component";
-import {auth, signInWithGoogle} from "firebase/firebase.utils";
+import {auth} from "firebase/firebase.utils";
 import {Link} from "react-router-dom";
 import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
@@ -10,6 +9,8 @@ import ErrorComponent from "components/error-message/error-message.component";
 import {useTranslation} from "react-i18next";
 import AllRoutesEnum from "core/enums/allRoutes.enum";
 import wrapper from 'baseScss/components/wrapper.module.scss';
+
+import classes from './login.module.scss';
 
 const LoginPage: React.FC = () => {
     const [errorType, setErrorType] = useState('');
@@ -38,6 +39,7 @@ const LoginPage: React.FC = () => {
                     onSubmit={async (values) => {
                         setHasError(false);
                         const {email, password} = values
+
                         try {
                             await auth.signInWithEmailAndPassword(email, password);
                         } catch (error) {
@@ -60,9 +62,9 @@ const LoginPage: React.FC = () => {
 
                         <div className={classes.buttons}>
                             <CustomButton type="submit"> {t('login.login')} </CustomButton>
-                            <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
+                            {/* <CustomButton type="button" isGoogleSignIn onClick={signInWithGoogle}>
                                 {t('login.loginGoogle')}
-                            </CustomButton>
+                            </CustomButton> */}
                         </div>
 
                         <div className={classes.linkContainer}>

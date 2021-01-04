@@ -1,10 +1,11 @@
 import React, {useState} from "react";
-import classes from "./hamburger.module.scss";
 import {faTimes, faBars} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useTranslation} from "react-i18next";
 
-interface Props {
+import classes from "./hamburger.module.scss";
+
+type Props = {
     menuOpen: () => void;
 }
 
@@ -22,8 +23,8 @@ const Hamburger: React.FC<Props> = (props) => {
             <span className={classes.title}>{t('header.academy')}</span>
             {
                 hamburger ?
-                    <FontAwesomeIcon onClick={handleClick} icon={faTimes}/>
-                    : <FontAwesomeIcon onClick={handleClick} icon={faBars}/>
+                    <FontAwesomeIcon icon={faTimes} onClick={handleClick}/>
+                    : <FontAwesomeIcon icon={faBars} onClick={handleClick}/>
             }
         </div>
     )

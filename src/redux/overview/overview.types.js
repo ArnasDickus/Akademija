@@ -1,4 +1,0 @@
-export const overviewTypes = {
-    GET_OVERVIEW_DATA: 'GET_OVERVIEW_DATA',
-    SET_OVERVIEW_DATA: 'SET_OVERVIEW_DATA'
-}

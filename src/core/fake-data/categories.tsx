@@ -1,6 +1,6 @@
-import { CategoriesInterface } from "../interfaces/categories.interface";
+import { CategoriesType } from "../types/categories.types";
 
-export const Categories: CategoriesInterface[] = [
+export const Categories: CategoriesType[] = [
     {
         title: 'Math: Pre-K - 8th Grade',
         id: '1',

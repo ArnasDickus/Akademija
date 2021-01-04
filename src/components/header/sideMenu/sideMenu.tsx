@@ -1,5 +1,4 @@
 import React from "react";
-import classes from './sideMenu.module.scss';
 import {Link} from "react-router-dom";
 import {createStructuredSelector} from "reselect";
 import {selectCurrentUser} from "redux/user/user.selector";
@@ -8,15 +7,13 @@ import {auth} from "firebase/firebase.utils";
 import {useTranslation} from "react-i18next";
 import {ReactComponent as LTSvg} from "assets/lt.svg";
 import {ReactComponent as GBSvg} from "assets/gb.svg";
-import currentUserInterface from "core/interfaces/currentUser.interface";
 import LanguagesEnum from "core/enums/languages.enum";
 import AllRoutesEnum from "core/enums/allRoutes.enum";
 
-interface Props {
-    currentUser: currentUserInterface;
-}
+import classes from './sideMenu.module.scss';
 
-const SideMenu: React.FC<Props> = ({currentUser}) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const SideMenu: React.FC<any> = ({currentUser}) => {
     const {t, i18n} = useTranslation();
 
     const changeLanguage = (lng: string) => {
@@ -45,11 +42,11 @@ const SideMenu: React.FC<Props> = ({currentUser}) => {
 
                 <div className={classes.svgContainer}>
                     <span className={classes.paddingR}>
-                        <LTSvg width="40px" height="20px" onClick={() => changeLanguage(LanguagesEnum.LT)}/>
+                        <LTSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.LT)}/>
                     </span>
 
                     <span>
-                        <GBSvg width="40px" height="20px" onClick={() => changeLanguage(LanguagesEnum.EN)}/>
+                        <GBSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.EN)}/>
                     </span>
                 </div>
             </div>
@@ -57,7 +54,8 @@ const SideMenu: React.FC<Props> = ({currentUser}) => {
     );
 };
 
-const mapStateToProps = createStructuredSelector({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const mapStateToProps = createStructuredSelector<any, any>({
     currentUser: selectCurrentUser,
 })
 

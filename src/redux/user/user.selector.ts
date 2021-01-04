@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 
-const selectUser = state => state.user;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const selectUser = (state: { user: any; }) => state.user;
 
 export const selectCurrentUser = createSelector(
     [selectUser],

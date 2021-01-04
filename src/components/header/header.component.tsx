@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
-import classes from './header.module.scss';
 import {Link} from "react-router-dom";
-import Hamburger from "./hamburger/hamburger.component";
-import SideMenu from "./sideMenu/sideMenu";
 import {auth} from 'firebase/firebase.utils';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from "reselect";
@@ -10,16 +7,16 @@ import {selectCurrentUser} from "redux/user/user.selector";
 import {ReactComponent as LTSvg} from "assets/lt.svg";
 import {ReactComponent as GBSvg} from "assets/gb.svg";
 import {useTranslation} from "react-i18next";
-import currentUserInterface from "core/interfaces/currentUser.interface";
 import AllRoutesEnum from "core/enums/allRoutes.enum";
 import LanguagesEnum from "core/enums/languages.enum";
 import wrapper from 'baseScss/components/wrapper.module.scss';
 
-interface Props {
-    currentUser: currentUserInterface;
-}
+import SideMenu from "./sideMenu/sideMenu";
+import Hamburger from "./hamburger/hamburger.component";
+import classes from './header.module.scss';
 
-const Header: React.FC<Props> = (props) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Header: React.FC<any> = (props) => {
     const [menu, openMenu] = useState(false);
     const {t, i18n} = useTranslation();
 
@@ -63,11 +60,11 @@ const Header: React.FC<Props> = (props) => {
                         }
 
                         <span className={classes.paddingR}>
-                            <LTSvg width="40px" height="20px" onClick={() => changeLanguage(LanguagesEnum.LT)}/>
+                            <LTSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.LT)}/>
                         </span>
 
                         <span>
-                            <GBSvg width="40px" height="20px" onClick={() => changeLanguage(LanguagesEnum.EN)}/>
+                            <GBSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.EN)}/>
                         </span>
                     </div>
                 </div>
@@ -76,7 +73,8 @@ const Header: React.FC<Props> = (props) => {
     )
 }
 
-const mapStateToProps = createStructuredSelector({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const mapStateToProps = createStructuredSelector<any, any>({
     currentUser: selectCurrentUser,
 })
 
