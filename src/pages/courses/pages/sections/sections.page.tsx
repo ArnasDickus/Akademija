@@ -9,16 +9,16 @@ import {Options as YoutubeOptions} from 'react-youtube';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import getVideoId from 'get-video-id';
-import {RouteComponentProps} from 'react-router-dom';
-// import {connect} from 'react-redux';
-// import {setCurrentOverview} from "redux/overview/overview.actions";
+import {connect} from 'react-redux';
+import {setCurrentOverview} from "redux/overview/overview.actions";
 
 import Carousel from "../../sections/carousel/carousel.section";
 import SubjectSections from "../../sections/subject-section/subject-section.section";
 
 import classes from './sections.module.scss';
 
-const SectionPage: React.FC<RouteComponentProps> = (props) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const SectionPage: React.FC<any> = (props) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [singleCourse, setSingleCourse] = useState<CoursesType>([] as any);
     const [url, setUrl] = useState<string>('');
@@ -40,7 +40,7 @@ const SectionPage: React.FC<RouteComponentProps> = (props) => {
             for (let j = 0; j < Categories[i].courses.length; j++) {
                 if (Categories[i].courses[j].url === id) {
                     setSingleCourse(Categories[i].courses[j]);
-                    // props.setCurrentOverview(singleCourse);
+                    props.setCurrentOverview(singleCourse);
 
                     if (singleCourse?.sections?.length) {
                         setUrl(getVideoId(singleCourse.sections[0].lessons[0].url).id);
@@ -96,10 +96,10 @@ const SectionPage: React.FC<RouteComponentProps> = (props) => {
     )
 }
 
-// const mapDispatchToProps = (dispatch: any) => ({
-//     setCurrentOverview: (overview: any) => dispatch(setCurrentOverview(overview))
-// })
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const mapDispatchToProps = (dispatch: any) => ({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    setCurrentOverview: (overview: any) => dispatch(setCurrentOverview(overview))
+})
 
-// export default connect(null, mapDispatchToProps)(SectionPage);
-
-export default SectionPage;
+export default connect(null, mapDispatchToProps)(SectionPage);

@@ -26,7 +26,8 @@ const CoursesCard: React.FC<CoursesType> = ({title, img, description, url}) => {
                                 title={title}
                             />
                         </CardActionArea>
-                         <p>{img}</p>
+                        {/* TODO Add image link to card media. */}
+                         <p className={classes.hide}>{img}</p>
                     </div>
 
                     <div className={classes.colText}>
