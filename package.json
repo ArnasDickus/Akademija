@@ -55,7 +55,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.2.1"
   },
-  "scripts": {
+    "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
