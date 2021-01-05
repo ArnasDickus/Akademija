@@ -1,62 +1,98 @@
-import React from "react";
-import {Link} from "react-router-dom";
-import {createStructuredSelector} from "reselect";
-import {selectCurrentUser} from "redux/user/user.selector";
-import {connect} from 'react-redux';
-import {auth} from "firebase/firebase.utils";
-import {useTranslation} from "react-i18next";
-import {ReactComponent as LTSvg} from "assets/lt.svg";
-import {ReactComponent as GBSvg} from "assets/gb.svg";
-import LanguagesEnum from "core/enums/languages.enum";
-import AllRoutesEnum from "core/enums/allRoutes.enum";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from 'redux/user/user.selector';
+import { connect } from 'react-redux';
+import { auth } from 'firebase/firebase.utils';
+import { useTranslation } from 'react-i18next';
+import { ReactComponent as LTSvg } from 'assets/lt.svg';
+import { ReactComponent as GBSvg } from 'assets/gb.svg';
+import LanguagesEnum from 'core/enums/languages.enum';
+import AllRoutesEnum from 'core/enums/allRoutes.enum';
 
 import classes from './sideMenu.module.scss';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const SideMenu: React.FC<any> = ({currentUser}) => {
-    const {t, i18n} = useTranslation();
+type Props = {
+  menuOpen: () => void;
+  hamburgerOpen: () => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  currentUser?: any;
+};
 
-    const changeLanguage = (lng: string) => {
-        i18n.changeLanguage(lng);
-    };
+const SideMenu: React.FC<Props> = (props) => {
+  const { t, i18n } = useTranslation();
 
-    return (
-        <aside>
-            <div className={classes.sideMenu}>
-                {
-                    currentUser
-                        ? <div className={classes.card}>
-                            <div className={classes.navLink} onClick={() => auth.signOut()}>{t('header.logout')}</div>
-                        </div>
+  const changeLanguage = (lng: string): void => {
+    i18n.changeLanguage(lng);
+  };
 
-                        : <div className={classes.card}>
-                            <Link className={classes.navLink} to={`/${AllRoutesEnum.LOGIN}`}>{t('header.login')}</Link>
-                            <Link className={classes.navLink}
-                                  to={`/${AllRoutesEnum.REGISTER}`}>{t('header.register')}</Link>
-                        </div>
-                }
-                <div className={classes.card2}>
-                    <Link className={classes.navLink} to={`${AllRoutesEnum.COURSES}`}>{t('header.courses')}</Link>
-                    <Link className={classes.navLink} to="/">{t('header.academy')}</Link>
-                </div>
+  const closeMenu = () => {
+    props.menuOpen();
+    props.hamburgerOpen();
+  };
 
-                <div className={classes.svgContainer}>
-                    <span className={classes.paddingR}>
-                        <LTSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.LT)}/>
-                    </span>
+  const logOut = () => {
+    auth.signOut();
+    closeMenu();
+  };
 
-                    <span>
-                        <GBSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.EN)}/>
-                    </span>
-                </div>
+  return (
+    <aside>
+      <div className={classes.sideMenu}>
+        {props.currentUser ? (
+          <div className={classes.card}>
+            <div className={classes.navLink} onClick={() => logOut()}>
+              {t('header.logout')}
             </div>
-        </aside>
-    );
+          </div>
+        ) : (
+          <div className={classes.card}>
+            <Link
+              className={classes.navLink}
+              to={`/${AllRoutesEnum.LOGIN}`}
+              onClick={() => closeMenu()}
+            >
+              {t('header.login')}
+            </Link>
+            <Link
+              className={classes.navLink}
+              to={`/${AllRoutesEnum.REGISTER}`}
+              onClick={() => closeMenu()}
+            >
+              {t('header.register')}
+            </Link>
+          </div>
+        )}
+        <div className={classes.card2}>
+          <Link
+            className={classes.navLink}
+            to={`${AllRoutesEnum.COURSES}`}
+            onClick={() => closeMenu()}
+          >
+            {t('header.courses')}
+          </Link>
+          <Link className={classes.navLink} to="/" onClick={() => closeMenu()}>
+            {t('header.academy')}
+          </Link>
+        </div>
+
+        <div className={classes.svgContainer}>
+          <span className={classes.paddingR}>
+            <LTSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.LT)} />
+          </span>
+
+          <span>
+            <GBSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.EN)} />
+          </span>
+        </div>
+      </div>
+    </aside>
+  );
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mapStateToProps = createStructuredSelector<any, any>({
-    currentUser: selectCurrentUser,
-})
+  currentUser: selectCurrentUser,
+});
 
 export default connect(mapStateToProps)(SideMenu);
