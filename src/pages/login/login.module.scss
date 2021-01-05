@@ -1,0 +1,36 @@
+@import 'src/baseScss/global/variables';
+@import 'src/baseScss/global/mixins';
+
+.login {
+  display: flex;
+  flex-direction: column;
+
+  @include atMedium() {
+    width: 100%;
+  }
+}
+
+  .title {
+    margin: 10px 0;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @include atVerySmall() {
+      margin-top: 10px;
+    }
+  }
+
+.linkContainer {
+  padding-top: 20px;
+}
+
+.link {
+  font-size: 15px;
+  font-weight: 600;
+  color: $mainBlue;
+}
+

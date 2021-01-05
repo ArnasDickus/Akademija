@@ -1,0 +1,41 @@
+@import './variables';
+
+@mixin GetInTouch {
+  @media (max-width: 550px) {
+    @content;
+  }
+}
+
+// 464px;
+@mixin atVerySmall {
+  @media (max-width: 29em) {
+    @content;
+  }
+}
+
+/* 768px */
+// Taken from my old css.
+@mixin atSmall {
+  @media (max-width: 48em) {
+    @content;
+  }
+}
+/* 1024px */
+@mixin atMedium {
+  @media (max-width: 64em) {
+    @content;
+  }
+}
+/* 1366px */
+@mixin atLarge {
+  @media (max-width: 83.375em) {
+    @content;
+  }
+}
+
+// FormInput mixin.
+@mixin shrinkLabel {
+  top: -14px;
+  font-size: 12px;
+  color: $formInputMain;
+}

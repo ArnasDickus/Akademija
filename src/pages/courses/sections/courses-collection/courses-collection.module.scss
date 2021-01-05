@@ -1,0 +1,30 @@
+@import 'src/baseScss/global/variables';
+@import 'src/baseScss/global/mixins';
+
+.row {
+  display: flex;
+  margin-bottom: 20px;
+
+  @include atSmall() {
+    display: block;
+  }
+}
+
+.courseCollections {
+  margin-bottom: 50px;
+}
+
+.title {
+  color: $mainBlue;
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.root {
+  margin-right: 20px;
+
+  @include atSmall() {
+    margin-bottom: 20px;
+  }
+}

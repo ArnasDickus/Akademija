@@ -1,0 +1,14 @@
+@import 'src/baseScss/global/variables';
+
+.footer {
+  background-color: $footerBG;
+  padding-bottom: 2.625rem;
+  padding-top: 2.625rem;
+}
+
+.text {
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0;
+}
