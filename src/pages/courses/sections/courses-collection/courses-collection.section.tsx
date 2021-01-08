@@ -34,15 +34,6 @@ const CourseCollections: React.FC<CategoriesType> = ({ title, courses, url }) =>
               </CardContent>
             </CardActionArea>
           </Card>
-          // <Card key={course.id} className={classes.root}>
-          //     <CardActionArea>
-          //         <CardContent>
-          //             <Typography component="h2" variant="h5" gutterBottom>
-          //                 {course.title}
-          //             </Typography>
-          //         </CardContent>
-          //     </CardActionArea>
-          // </Card>
         ))}
       </div>
     </div>
