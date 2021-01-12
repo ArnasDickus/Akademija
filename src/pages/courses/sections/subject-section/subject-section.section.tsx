@@ -6,9 +6,19 @@ import { CourseSectionType } from 'core/types/categories.types';
 
 import classes from './subject-section.module.scss';
 
-type Props = CourseSectionType & { onUrlUpdate: (url: string, oldId: string) => void };
+type Props = CourseSectionType & { onLessonUpdate: (url: string, oldId: string) => void } & {
+  onTestUpdate: (oldId: string) => void;
+};
 
-const SubjectSections: React.FC<Props> = ({ id, title, lessons, tests, onUrlUpdate, oldId }) => {
+const SubjectSections: React.FC<Props> = ({
+  id,
+  title,
+  lessons,
+  tests,
+  onLessonUpdate,
+  onTestUpdate,
+  oldId,
+}) => {
   const [menu, toggleMenu] = useState(false);
   const [isLessonSelected, selectLesson] = useState(false);
   const [lessonId, setLessonId] = useState('');
@@ -20,13 +30,13 @@ const SubjectSections: React.FC<Props> = ({ id, title, lessons, tests, onUrlUpda
 
   const handleLessonClick = (lessonUrl: string, lessonId: string, currentSectionId: string) => {
     selectLesson(true);
-    onUrlUpdate(lessonUrl, currentSectionId);
+    onLessonUpdate(lessonUrl, currentSectionId);
     setLessonId(lessonId);
   };
 
   const handleTestClick = (testUrl: string, testId: string, currentSectionId: string) => {
     selectLesson(false);
-    onUrlUpdate(testUrl, currentSectionId);
+    onTestUpdate(currentSectionId);
     setTestId(testId);
   };
 

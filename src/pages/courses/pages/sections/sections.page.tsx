@@ -11,6 +11,7 @@ import { Options as YoutubeOptions } from 'react-youtube';
 import getVideoId from 'get-video-id';
 import { connect } from 'react-redux';
 import { setCurrentOverview } from 'redux/overview/overview.actions';
+import PracticeTests from 'components/practice-tests/practice-tests.component';
 
 import Carousel from '../../sections/carousel/carousel.section';
 import SubjectSections from '../../sections/subject-section/subject-section.section';
@@ -21,6 +22,7 @@ import classes from './sections.module.scss';
 const SectionPage: React.FC<any> = (props) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [singleCourse, setSingleCourse] = useState<CoursesType>([] as any);
+  const [showPracticeTest, setShowPracticeTest] = useState(false);
   const [url, setUrl] = useState<string>('');
   const [oldSectionId, setOldSectionId] = useState<string>('');
   const [options] = useState<YoutubeOptions>({
@@ -51,19 +53,28 @@ const SectionPage: React.FC<any> = (props) => {
   }, [singleCourse, props]);
 
   const changeVideo = (videoUrl: string, oldId: string): void => {
+    setShowPracticeTest(false);
     setOldSectionId(oldId);
     const idOnly = getVideoId(videoUrl).id;
     setUrl(idOnly);
+  };
+
+  const changeTest = (oldId: string): void => {
+    setShowPracticeTest(true);
+    setOldSectionId(oldId);
   };
 
   return (
     <div>
       <div className={classes.row}>
         <div className={classes.videoSide}>
-          <div className={classes.youtubePlayerContainer}>
-            <YouTube className={classes.youtubePlayer} opts={options} videoId={url} />
-          </div>
-
+          {!showPracticeTest ? (
+            <div className={classes.youtubePlayerContainer}>
+              <YouTube className={classes.youtubePlayer} opts={options} videoId={url} />
+            </div>
+          ) : (
+            <PracticeTests />
+          )}
           <Carousel />
         </div>
 
@@ -84,7 +95,8 @@ const SectionPage: React.FC<any> = (props) => {
                     oldId={oldSectionId}
                     tests={section.tests}
                     title={section.title}
-                    onUrlUpdate={(url: string, oldId: string) => changeVideo(url, oldId)}
+                    onLessonUpdate={(url: string, oldId: string) => changeVideo(url, oldId)}
+                    onTestUpdate={(oldId: string) => changeTest(oldId)}
                   />
                 </React.Fragment>
               ))}
