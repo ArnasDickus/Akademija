@@ -25,6 +25,12 @@ const SectionPage: React.FC<any> = (props) => {
   const [showPracticeTest, setShowPracticeTest] = useState(false);
   const [url, setUrl] = useState<string>('');
   const [oldSectionId, setOldSectionId] = useState<string>('');
+  const [currentTestData, setCurrentTestData] = useState({
+    id: '',
+    title: '',
+    description: '',
+    question: '',
+  });
   const [options] = useState<YoutubeOptions>({
     playerVars: {
       autoplay: 1,
@@ -52,16 +58,31 @@ const SectionPage: React.FC<any> = (props) => {
     }
   }, [singleCourse, props]);
 
-  const changeVideo = (videoUrl: string, oldId: string): void => {
+  const changeVideo = (videoUrl: string, previousSectionId: string): void => {
     setShowPracticeTest(false);
-    setOldSectionId(oldId);
+    setOldSectionId(previousSectionId);
     const idOnly = getVideoId(videoUrl).id;
     setUrl(idOnly);
   };
 
-  const changeTest = (oldId: string): void => {
+  const changeTest = (
+    previousSectionId: string,
+    testId: string,
+    testTitle: string,
+    testDescription: string,
+    testQuestion: string,
+  ): void => {
+    // TODO fix currentTestData not saving data first time.
+    setCurrentTestData({
+      ...currentTestData,
+      id: testId,
+      title: testTitle,
+      description: testDescription,
+      question: testQuestion,
+    });
+
     setShowPracticeTest(true);
-    setOldSectionId(oldId);
+    setOldSectionId(previousSectionId);
   };
 
   return (
@@ -92,11 +113,27 @@ const SectionPage: React.FC<any> = (props) => {
                   <SubjectSections
                     id={section.id}
                     lessons={section.lessons}
-                    oldId={oldSectionId}
+                    previousSectionId={oldSectionId}
                     tests={section.tests}
                     title={section.title}
-                    onLessonUpdate={(url: string, oldId: string) => changeVideo(url, oldId)}
-                    onTestUpdate={(oldId: string) => changeTest(oldId)}
+                    onLessonUpdate={(url: string, previousSectionId: string) =>
+                      changeVideo(url, previousSectionId)
+                    }
+                    onTestUpdate={(
+                      previousSectionId: string,
+                      testId: string,
+                      testTitle: string,
+                      testDescription: string,
+                      testQuestion: string,
+                    ) =>
+                      changeTest(
+                        previousSectionId,
+                        testId,
+                        testTitle,
+                        testDescription,
+                        testQuestion,
+                      )
+                    }
                   />
                 </React.Fragment>
               ))}
@@ -106,6 +143,9 @@ const SectionPage: React.FC<any> = (props) => {
     </div>
   );
 };
+//  testTitle: string,
+//     testDescription: string,
+//     testQuestion: string
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mapDispatchToProps = (dispatch: any) => ({

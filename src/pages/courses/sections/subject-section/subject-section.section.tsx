@@ -6,8 +6,16 @@ import { CourseSectionType } from 'core/types/categories.types';
 
 import classes from './subject-section.module.scss';
 
-type Props = CourseSectionType & { onLessonUpdate: (url: string, oldId: string) => void } & {
-  onTestUpdate: (oldId: string) => void;
+type Props = CourseSectionType & {
+  onLessonUpdate: (url: string, previousSectionId: string) => void;
+} & {
+  onTestUpdate: (
+    previousSectionId: string,
+    testId: string,
+    testTitle: string,
+    testDescription: string,
+    testQuestion: string,
+  ) => void;
 };
 
 const SubjectSections: React.FC<Props> = ({
@@ -17,7 +25,7 @@ const SubjectSections: React.FC<Props> = ({
   tests,
   onLessonUpdate,
   onTestUpdate,
-  oldId,
+  previousSectionId,
 }) => {
   const [menu, toggleMenu] = useState(false);
   const [isLessonSelected, selectLesson] = useState(false);
@@ -34,9 +42,15 @@ const SubjectSections: React.FC<Props> = ({
     setLessonId(lessonId);
   };
 
-  const handleTestClick = (testUrl: string, testId: string, currentSectionId: string) => {
+  const handleTestClick = (
+    testId: string,
+    currentSectionId: string,
+    testTitle: string,
+    testDescription: string,
+    testQuestion: string,
+  ) => {
     selectLesson(false);
-    onTestUpdate(currentSectionId);
+    onTestUpdate(currentSectionId, testId, testTitle, testDescription, testQuestion);
     setTestId(testId);
   };
 
@@ -60,7 +74,7 @@ const SubjectSections: React.FC<Props> = ({
             <div
               key={lesson.id}
               className={`${classes.dropdown} ${
-                isLessonSelected && lesson.id === lessonId && oldId === id
+                isLessonSelected && lesson.id === lessonId && previousSectionId === id
                   ? `${classes.activeLesson}`
                   : ''
               }`}
@@ -81,11 +95,19 @@ const SubjectSections: React.FC<Props> = ({
             <div
               key={test.id}
               className={`${classes.dropdown} ${
-                !isLessonSelected && test.id === testId && oldId === id
+                !isLessonSelected && test.id === testId && previousSectionId === id
                   ? `${classes.activeLesson}`
                   : ''
               }`}
-              onClick={() => handleTestClick(test.url, test.id || '', id || '')}
+              onClick={() =>
+                handleTestClick(
+                  test.id || '',
+                  id || '',
+                  test.title,
+                  test?.description,
+                  test.question,
+                )
+              }
             >
               <div className={classes.rowDropdown}>
                 <Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} value="checkedA" />
