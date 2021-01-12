@@ -10,15 +10,24 @@ type Props = CourseSectionType & { onUrlUpdate: (url: string, oldId: string) => 
 
 const SubjectSections: React.FC<Props> = ({ id, title, lessons, tests, onUrlUpdate, oldId }) => {
   const [menu, toggleMenu] = useState(false);
+  const [isLessonSelected, selectLesson] = useState(false);
   const [lessonId, setLessonId] = useState('');
+  const [testId, setTestId] = useState('');
 
   const handleClick = () => {
     toggleMenu(!menu);
   };
 
   const handleLessonClick = (lessonUrl: string, lessonId: string, currentSectionId: string) => {
+    selectLesson(true);
     onUrlUpdate(lessonUrl, currentSectionId);
     setLessonId(lessonId);
+  };
+
+  const handleTestClick = (testUrl: string, testId: string, currentSectionId: string) => {
+    selectLesson(false);
+    onUrlUpdate(testUrl, currentSectionId);
+    setTestId(testId);
   };
 
   return (
@@ -41,7 +50,9 @@ const SubjectSections: React.FC<Props> = ({ id, title, lessons, tests, onUrlUpda
             <div
               key={lesson.id}
               className={`${classes.dropdown} ${
-                lesson.id === lessonId && oldId === id ? `${classes.activeLesson}` : ''
+                isLessonSelected && lesson.id === lessonId && oldId === id
+                  ? `${classes.activeLesson}`
+                  : ''
               }`}
               onClick={() => handleLessonClick(lesson.url, lesson.id || '', id || '')}
             >
@@ -60,9 +71,11 @@ const SubjectSections: React.FC<Props> = ({ id, title, lessons, tests, onUrlUpda
             <div
               key={test.id}
               className={`${classes.dropdown} ${
-                test.id === lessonId && oldId === id ? `${classes.activeLesson}` : ''
+                !isLessonSelected && test.id === testId && oldId === id
+                  ? `${classes.activeLesson}`
+                  : ''
               }`}
-              onClick={() => handleLessonClick(test.url, test.id || '', id || '')}
+              onClick={() => handleTestClick(test.url, test.id || '', id || '')}
             >
               <div className={classes.rowDropdown}>
                 <Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} value="checkedA" />
