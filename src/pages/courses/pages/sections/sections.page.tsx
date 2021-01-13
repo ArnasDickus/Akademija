@@ -31,6 +31,7 @@ const SectionPage: React.FC<any> = (props) => {
     description: '',
     question: '',
   });
+
   const [options] = useState<YoutubeOptions>({
     playerVars: {
       autoplay: 1,
@@ -72,7 +73,8 @@ const SectionPage: React.FC<any> = (props) => {
     testDescription: string,
     testQuestion: string,
   ): void => {
-    // TODO fix currentTestData not saving data first time.
+    setShowPracticeTest(true);
+    setOldSectionId(previousSectionId);
     setCurrentTestData({
       ...currentTestData,
       id: testId,
@@ -80,9 +82,6 @@ const SectionPage: React.FC<any> = (props) => {
       description: testDescription,
       question: testQuestion,
     });
-
-    setShowPracticeTest(true);
-    setOldSectionId(previousSectionId);
   };
 
   return (
@@ -94,7 +93,7 @@ const SectionPage: React.FC<any> = (props) => {
               <YouTube className={classes.youtubePlayer} opts={options} videoId={url} />
             </div>
           ) : (
-            <PracticeTests />
+            <PracticeTests testData={currentTestData} />
           )}
           <Carousel />
         </div>
@@ -125,15 +124,15 @@ const SectionPage: React.FC<any> = (props) => {
                       testTitle: string,
                       testDescription: string,
                       testQuestion: string,
-                    ) =>
+                    ) => {
                       changeTest(
                         previousSectionId,
                         testId,
                         testTitle,
                         testDescription,
                         testQuestion,
-                      )
-                    }
+                      );
+                    }}
                   />
                 </React.Fragment>
               ))}
@@ -143,9 +142,6 @@ const SectionPage: React.FC<any> = (props) => {
     </div>
   );
 };
-//  testTitle: string,
-//     testDescription: string,
-//     testQuestion: string
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mapDispatchToProps = (dispatch: any) => ({
