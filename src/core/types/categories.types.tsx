@@ -19,12 +19,21 @@ export type CoursesType = {
 export type CourseSectionType = {
   id: string;
   title: string;
-  oldId?: string;
+  previousSectionId?: string;
   lessons: LessonsType[];
+  tests?: TestsType[];
 };
 
 export type LessonsType = {
   id?: string;
   title: string;
   url: string;
+};
+
+export type TestsType = {
+  id: string;
+  title: string;
+  description: string;
+  question: string;
+  correctAnswerAmount: number;
 };

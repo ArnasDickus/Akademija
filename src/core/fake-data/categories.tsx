@@ -8,9 +8,8 @@ export const Categories: CategoriesType[] = [
     courses: [
       {
         id: '1',
-        title: 'Up to 1st Grade',
-        about:
-          'Learn how to count, Learn how to count, Learn how to count, Learn how to count, Learn how to count',
+        title: 'Up to 1st Grade (Khan kids)',
+        about: 'Learn how to count',
         description: 'Using the latest counting methods learn how to count',
         img: '../../assets/course-placeholder.jpg',
         url: 'early-math',
@@ -30,6 +29,22 @@ export const Categories: CategoriesType[] = [
                 url: 'https://www.youtube.com/watch?v=4_TKJ2mJbe8',
               },
             ],
+            tests: [
+              {
+                id: 'fafdaf',
+                title: 'Test 1',
+                description: 'Solve test 1',
+                question: 'Select the decimal that is equivalent to 11/41',
+                correctAnswerAmount: 1,
+              },
+              {
+                id: 'fafdafdsad',
+                title: 'Test 2',
+                description: 'Solve test 2',
+                question: 'Select the decimalfdfsdf that is equivalent to 11/41',
+                correctAnswerAmount: 1,
+              },
+            ],
           },
           {
             id: 'sectionIdMath',
@@ -44,6 +59,22 @@ export const Categories: CategoriesType[] = [
                 id: '4a14afafsaffdafafd8c',
                 title: 'The Flotsam Tavern',
                 url: 'https://www.youtube.com/watch?v=u0Bm8LYgN7M',
+              },
+            ],
+            tests: [
+              {
+                id: 'faffdfsdaf',
+                title: 'Test 3',
+                description: 'Solve test 3',
+                question: 'Select the dedsadsadcimal that is equivalent to 11/41',
+                correctAnswerAmount: 1,
+              },
+              {
+                id: 'faffdfgfdfgsdaf',
+                title: 'Test 4',
+                description: 'Solve tefdfsdst 1',
+                question: 'Select the decidsdsdmal that is equivalent to 11/41',
+                correctAnswerAmount: 1,
               },
             ],
           },
