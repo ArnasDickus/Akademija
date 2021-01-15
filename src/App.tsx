@@ -60,7 +60,6 @@ class App extends React.Component<any> {
           <Switch>
             <Route component={Home} path="/" exact />
             <Route component={CategoriesPage} path={`/${AllRoutesEnum.COURSES}`} exact />
-            <Route component={CategoriesPage} path={`/${AllRoutesEnum.COURSES}`} exact />
             <Route component={CoursesPage} path={`/${AllRoutesEnum.COURSES}/:a`} exact />
             <Route
               component={SectionRedirectPage}
