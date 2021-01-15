@@ -19,6 +19,7 @@ import AllRoutesEnum from './core/enums/allRoutes.enum';
 import CategoriesPage from './pages/courses/pages/categories/categories.page';
 import CoursesPage from './pages/courses/pages/courses/courses.page';
 import SectionPage from './pages/courses/pages/sections/sections.page';
+import SectionRedirectPage from './pages/courses/pages/section-redirect/section-redirect.page';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 class App extends React.Component<any> {
@@ -59,13 +60,14 @@ class App extends React.Component<any> {
           <Switch>
             <Route component={Home} path="/" exact />
             <Route component={CategoriesPage} path={`/${AllRoutesEnum.COURSES}`} exact />
-            <Route component={CoursesPage} path={`/${AllRoutesEnum.COURSES}/:id`} exact />
-            <Redirect
-              from={`/${AllRoutesEnum.COURSES}/:a/:b/`}
-              to={`/${AllRoutesEnum.COURSES}/:a/:b/videoId`}
+            <Route component={CategoriesPage} path={`/${AllRoutesEnum.COURSES}`} exact />
+            <Route component={CoursesPage} path={`/${AllRoutesEnum.COURSES}/:a`} exact />
+            <Route
+              component={SectionRedirectPage}
+              path={`/${AllRoutesEnum.COURSES}/:a/:b/`}
               exact
             />
-            <Route component={SectionPage} path={`/${AllRoutesEnum.COURSES}/:a/:b/videoId`} exact />
+            <Route component={SectionPage} path={`/${AllRoutesEnum.COURSES}/:a/:b/:id`} exact />
             <Route
               path={`/${AllRoutesEnum.LOGIN}`}
               render={() => (this.props.currentUser ? <Redirect to="/" /> : <Login />)}
