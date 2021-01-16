@@ -39,21 +39,37 @@ const SectionPage: React.FC<any> = (props) => {
     },
   });
 
-  useEffect(() => {
+  const getUrlVideoId = (): string => {
     const fullUrl = window.location.href;
     const segments = new URL(fullUrl).pathname.split('/');
     const id = segments.pop() || segments.pop();
 
+    if (id) {
+      return id;
+    }
+
+    return '';
+  };
+
+  const getCourseUrl = (): string => {
+    // https://css-tricks.com/snippets/javascript/get-url-and-url-parts-in-javascript/
+    const urlToArray = window.location.pathname.split('/');
+    const courseUrl = urlToArray[urlToArray.length - 2];
+
+    return courseUrl;
+  };
+
+  useEffect(() => {
+    const videoId = getUrlVideoId();
+    setUrl(videoId);
+    const courseUrl = getCourseUrl();
+
     // TODO Rewrite to improve performance https://www.bigocheatsheet.com/
     for (let i = 0; i < Categories.length; i++) {
       for (let j = 0; j < Categories[i].courses.length; j++) {
-        if (Categories[i].courses[j].url === id) {
+        if (Categories[i].courses[j].url === courseUrl) {
           setSingleCourse(Categories[i].courses[j]);
           props.setCurrentOverview(singleCourse);
-
-          if (singleCourse?.sections?.length) {
-            setUrl(getVideoId(singleCourse.sections[0].lessons[0].url).id);
-          }
         }
       }
     }
