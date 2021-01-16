@@ -30,6 +30,8 @@ type Props = CourseSectionType & {
     testQuestion: string,
   ) => void;
 } & {
+  onInitialLessonUrlUpdate: (lessonId: string, currentSectionId: string) => void;
+} & {
   initialUrl: string;
   initialTestLoad: boolean;
 };
@@ -56,7 +58,6 @@ const SubjectSections: React.FC<Props> = ({
   const handleInitialLesson = () => {
     tests?.forEach((test) => {
       if (test.id === initialUrl) {
-        console.log(test);
         selectLesson(false);
         setTestId(initialUrl);
         onInitialTestUrlUpdate('', test.id, test.title, test.description, test.question);

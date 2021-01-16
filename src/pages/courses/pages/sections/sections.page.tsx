@@ -94,7 +94,10 @@ const SectionPage: React.FC<any> = (props) => {
   ): void => {
     if (previousSectionId === '') {
       setInitialTestLoad(true);
+    } else {
+      setInitialTestLoad(false);
     }
+
     setShowPracticeTest(true);
     setOldSectionId(previousSectionId);
     setCurrentTestData({
@@ -139,6 +142,9 @@ const SectionPage: React.FC<any> = (props) => {
                     previousSectionId={oldSectionId}
                     tests={section.tests}
                     title={section.title}
+                    onInitialLessonUrlUpdate={(url: string, previousSectionId: string) =>
+                      changeVideo(url, previousSectionId)
+                    }
                     onInitialTestUrlUpdate={(
                       previousSectionId: string,
                       testId: string,
