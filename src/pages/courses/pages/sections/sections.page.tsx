@@ -31,6 +31,7 @@ const SectionPage: React.FC<any> = (props) => {
     description: '',
     question: '',
   });
+  const [initialLessonUrl, setInitialLessonUrl] = useState('');
 
   const [options] = useState<YoutubeOptions>({
     playerVars: {
@@ -63,6 +64,7 @@ const SectionPage: React.FC<any> = (props) => {
     const videoId = getUrlVideoId();
     setUrl(videoId);
     const courseUrl = getCourseUrl();
+    setInitialLessonUrl(videoId);
 
     // TODO Rewrite to improve performance https://www.bigocheatsheet.com/
     for (let i = 0; i < Categories.length; i++) {
@@ -127,6 +129,7 @@ const SectionPage: React.FC<any> = (props) => {
                 <React.Fragment key={section.id}>
                   <SubjectSections
                     id={section.id}
+                    initialLessonUrl={initialLessonUrl}
                     lessons={section.lessons}
                     previousSectionId={oldSectionId}
                     tests={section.tests}

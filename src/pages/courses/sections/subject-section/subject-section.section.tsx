@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -16,6 +16,8 @@ type Props = CourseSectionType & {
     testDescription: string,
     testQuestion: string,
   ) => void;
+} & {
+  initialLessonUrl: string;
 };
 
 const SubjectSections: React.FC<Props> = ({
@@ -23,6 +25,7 @@ const SubjectSections: React.FC<Props> = ({
   title,
   lessons,
   tests,
+  initialLessonUrl,
   onLessonUpdate,
   onTestUpdate,
   previousSectionId,
@@ -32,6 +35,10 @@ const SubjectSections: React.FC<Props> = ({
   const [lessonId, setLessonId] = useState('');
   const [testId, setTestId] = useState('');
 
+  useEffect(() => {
+    console.log(initialLessonUrl);
+    setLessonId(initialLessonUrl);
+  });
   const handleClick = () => {
     toggleMenu(!menu);
   };
