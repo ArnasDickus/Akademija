@@ -3,6 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import Checkbox from '@material-ui/core/Checkbox';
 import { CourseSectionType } from 'core/types/categories.types';
+// TODO Remove TS-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import getVideoId from 'get-video-id';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import classes from './subject-section.module.scss';
 
@@ -17,7 +22,16 @@ type Props = CourseSectionType & {
     testQuestion: string,
   ) => void;
 } & {
-  initialLessonUrl: string;
+  onInitialTestUrlUpdate: (
+    previousSectionId: string,
+    testId: string,
+    testTitle: string,
+    testDescription: string,
+    testQuestion: string,
+  ) => void;
+} & {
+  initialUrl: string;
+  initialTestLoad: boolean;
 };
 
 const SubjectSections: React.FC<Props> = ({
@@ -25,28 +39,68 @@ const SubjectSections: React.FC<Props> = ({
   title,
   lessons,
   tests,
-  initialLessonUrl,
+  initialUrl,
+  initialTestLoad,
   onLessonUpdate,
   onTestUpdate,
+  onInitialTestUrlUpdate,
   previousSectionId,
 }) => {
   const [menu, toggleMenu] = useState(false);
   const [isLessonSelected, selectLesson] = useState(false);
   const [lessonId, setLessonId] = useState('');
   const [testId, setTestId] = useState('');
+  const history = useHistory();
+  const location = useLocation();
+
+  const handleInitialLesson = () => {
+    tests?.forEach((test) => {
+      if (test.id === initialUrl) {
+        console.log(test);
+        selectLesson(false);
+        setTestId(initialUrl);
+        onInitialTestUrlUpdate('', test.id, test.title, test.description, test.question);
+      }
+    });
+
+    lessons.forEach((lesson) => {
+      if (getVideoId(lesson.url).id === initialUrl) {
+        selectLesson(true);
+        setLessonId(lesson.id);
+      }
+    });
+  };
 
   useEffect(() => {
-    console.log(initialLessonUrl);
-    setLessonId(initialLessonUrl);
-  });
+    handleInitialLesson();
+  }, []);
   const handleClick = () => {
     toggleMenu(!menu);
+  };
+
+  const changeUrlToLesson = (lessonUrl: string) => {
+    const baseurl = location.pathname.replace(new RegExp('(.*/)[^/]+$'), '$1');
+
+    const shortUrl = getVideoId(lessonUrl).id;
+
+    history.push({
+      pathname: `${baseurl}${shortUrl}`,
+    });
+  };
+
+  const changeUrlToTest = (testId: string) => {
+    const baseurl = location.pathname.replace(new RegExp('(.*/)[^/]+$'), '$1');
+
+    history.push({
+      pathname: `${baseurl}${testId}`,
+    });
   };
 
   const handleLessonClick = (lessonUrl: string, lessonId: string, currentSectionId: string) => {
     selectLesson(true);
     onLessonUpdate(lessonUrl, currentSectionId);
     setLessonId(lessonId);
+    changeUrlToLesson(lessonUrl);
   };
 
   const handleTestClick = (
@@ -59,6 +113,7 @@ const SubjectSections: React.FC<Props> = ({
     selectLesson(false);
     onTestUpdate(currentSectionId, testId, testTitle, testDescription, testQuestion);
     setTestId(testId);
+    changeUrlToTest(testId);
   };
 
   return (
@@ -81,9 +136,7 @@ const SubjectSections: React.FC<Props> = ({
             <div
               key={lesson.id}
               className={`${classes.dropdown} ${
-                isLessonSelected && lesson.id === lessonId && previousSectionId === id
-                  ? `${classes.activeLesson}`
-                  : ''
+                isLessonSelected && lesson.id === lessonId ? `${classes.activeLesson}` : ''
               }`}
               onClick={() => handleLessonClick(lesson.url, lesson.id || '', id || '')}
             >
@@ -102,7 +155,9 @@ const SubjectSections: React.FC<Props> = ({
             <div
               key={test.id}
               className={`${classes.dropdown} ${
-                !isLessonSelected && test.id === testId && previousSectionId === id
+                !isLessonSelected &&
+                test.id === testId &&
+                (previousSectionId === id || initialTestLoad)
                   ? `${classes.activeLesson}`
                   : ''
               }`}

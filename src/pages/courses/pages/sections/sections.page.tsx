@@ -31,7 +31,8 @@ const SectionPage: React.FC<any> = (props) => {
     description: '',
     question: '',
   });
-  const [initialLessonUrl, setInitialLessonUrl] = useState('');
+  const [initialUrl, setInitialUrl] = useState('');
+  const [initialTestLoad, setInitialTestLoad] = useState(false);
 
   const [options] = useState<YoutubeOptions>({
     playerVars: {
@@ -64,7 +65,7 @@ const SectionPage: React.FC<any> = (props) => {
     const videoId = getUrlVideoId();
     setUrl(videoId);
     const courseUrl = getCourseUrl();
-    setInitialLessonUrl(videoId);
+    setInitialUrl(videoId);
 
     // TODO Rewrite to improve performance https://www.bigocheatsheet.com/
     for (let i = 0; i < Categories.length; i++) {
@@ -91,6 +92,9 @@ const SectionPage: React.FC<any> = (props) => {
     testDescription: string,
     testQuestion: string,
   ): void => {
+    if (previousSectionId === '') {
+      setInitialTestLoad(true);
+    }
     setShowPracticeTest(true);
     setOldSectionId(previousSectionId);
     setCurrentTestData({
@@ -129,11 +133,27 @@ const SectionPage: React.FC<any> = (props) => {
                 <React.Fragment key={section.id}>
                   <SubjectSections
                     id={section.id}
-                    initialLessonUrl={initialLessonUrl}
+                    initialTestLoad={initialTestLoad}
+                    initialUrl={initialUrl}
                     lessons={section.lessons}
                     previousSectionId={oldSectionId}
                     tests={section.tests}
                     title={section.title}
+                    onInitialTestUrlUpdate={(
+                      previousSectionId: string,
+                      testId: string,
+                      testTitle: string,
+                      testDescription: string,
+                      testQuestion: string,
+                    ) => {
+                      changeTest(
+                        previousSectionId,
+                        testId,
+                        testTitle,
+                        testDescription,
+                        testQuestion,
+                      );
+                    }}
                     onLessonUpdate={(url: string, previousSectionId: string) =>
                       changeVideo(url, previousSectionId)
                     }

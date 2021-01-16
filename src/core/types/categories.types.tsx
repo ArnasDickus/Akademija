@@ -25,7 +25,7 @@ export type CourseSectionType = {
 };
 
 export type LessonsType = {
-  id?: string;
+  id: string;
   title: string;
   url: string;
 };
