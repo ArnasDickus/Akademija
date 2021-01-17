@@ -31,6 +31,9 @@ const SectionPage: React.FC<any> = (props) => {
     description: '',
     question: '',
   });
+  const [initialUrl, setInitialUrl] = useState('');
+  const [initialTestLoad, setInitialTestLoad] = useState(false);
+  const [initialLessonLoad, setInitialLessonLoad] = useState(false);
 
   const [options] = useState<YoutubeOptions>({
     playerVars: {
@@ -39,27 +42,50 @@ const SectionPage: React.FC<any> = (props) => {
     },
   });
 
-  useEffect(() => {
+  const getUrlVideoId = (): string => {
     const fullUrl = window.location.href;
     const segments = new URL(fullUrl).pathname.split('/');
     const id = segments.pop() || segments.pop();
 
+    if (id) {
+      return id;
+    }
+
+    return '';
+  };
+
+  const getCourseUrl = (): string => {
+    // https://css-tricks.com/snippets/javascript/get-url-and-url-parts-in-javascript/
+    const urlToArray = window.location.pathname.split('/');
+    const courseUrl = urlToArray[urlToArray.length - 2];
+
+    return courseUrl;
+  };
+
+  useEffect(() => {
+    const videoId = getUrlVideoId();
+    setUrl(videoId);
+    const courseUrl = getCourseUrl();
+    setInitialUrl(videoId);
+
     // TODO Rewrite to improve performance https://www.bigocheatsheet.com/
     for (let i = 0; i < Categories.length; i++) {
       for (let j = 0; j < Categories[i].courses.length; j++) {
-        if (Categories[i].courses[j].url === id) {
+        if (Categories[i].courses[j].url === courseUrl) {
           setSingleCourse(Categories[i].courses[j]);
           props.setCurrentOverview(singleCourse);
-
-          if (singleCourse?.sections?.length) {
-            setUrl(getVideoId(singleCourse.sections[0].lessons[0].url).id);
-          }
         }
       }
     }
   }, [singleCourse, props]);
 
   const changeVideo = (videoUrl: string, previousSectionId: string): void => {
+    if (previousSectionId === '') {
+      setInitialLessonLoad(true);
+    } else {
+      setInitialLessonLoad(false);
+    }
+
     setShowPracticeTest(false);
     setOldSectionId(previousSectionId);
     const idOnly = getVideoId(videoUrl).id;
@@ -73,6 +99,12 @@ const SectionPage: React.FC<any> = (props) => {
     testDescription: string,
     testQuestion: string,
   ): void => {
+    if (previousSectionId === '') {
+      setInitialTestLoad(true);
+    } else {
+      setInitialTestLoad(false);
+    }
+
     setShowPracticeTest(true);
     setOldSectionId(previousSectionId);
     setCurrentTestData({
@@ -111,10 +143,31 @@ const SectionPage: React.FC<any> = (props) => {
                 <React.Fragment key={section.id}>
                   <SubjectSections
                     id={section.id}
+                    initialLessonLoad={initialLessonLoad}
+                    initialTestLoad={initialTestLoad}
+                    initialUrl={initialUrl}
                     lessons={section.lessons}
                     previousSectionId={oldSectionId}
                     tests={section.tests}
                     title={section.title}
+                    onInitialLessonUrlUpdate={(url: string, previousSectionId: string) =>
+                      changeVideo(url, previousSectionId)
+                    }
+                    onInitialTestUrlUpdate={(
+                      previousSectionId: string,
+                      testId: string,
+                      testTitle: string,
+                      testDescription: string,
+                      testQuestion: string,
+                    ) => {
+                      changeTest(
+                        previousSectionId,
+                        testId,
+                        testTitle,
+                        testDescription,
+                        testQuestion,
+                      );
+                    }}
                     onLessonUpdate={(url: string, previousSectionId: string) =>
                       changeVideo(url, previousSectionId)
                     }

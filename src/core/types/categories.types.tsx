@@ -1,6 +1,7 @@
 export type CategoriesType = {
   id: string;
   title: string;
+  img?: string;
   url: string;
   courses: CoursesType[];
 };
@@ -24,7 +25,7 @@ export type CourseSectionType = {
 };
 
 export type LessonsType = {
-  id?: string;
+  id: string;
   title: string;
   url: string;
 };
