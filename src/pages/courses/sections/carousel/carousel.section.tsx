@@ -57,6 +57,9 @@ const Carousel: React.FC = () => {
       setValue(1);
     } else if (location.hash === AllRoutesEnum.QAHASH) {
       setValue(2);
+    } else if (location.hash === '') {
+      history.push({ hash: AllRoutesEnum.OVERVIEWHASH });
+      setValue(1);
     }
   };
 
