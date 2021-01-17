@@ -6,7 +6,8 @@
   margin-bottom: 20px;
 
   @include atSmall() {
-    display: block;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -22,9 +23,43 @@
 }
 
 .root {
+  width: 100%;
+  height: 100%;
   margin-right: 20px;
 
   @include atSmall() {
     margin-bottom: 20px;
   }
+  
+  button {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.actionArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 300px;
+}
+
+.media {
+  width: 100%;
+  height: 130px;
+
+  @include atMedium() {
+    width: 100%;
+    height: 100px;
+  }
+
+  @include atSmall() {
+    width: 100%;
+    height: 100px;
+  }
+}
+
+.content {
+  width: 100%;
 }
