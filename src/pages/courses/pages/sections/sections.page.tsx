@@ -81,7 +81,6 @@ const SectionPage: React.FC<any> = (props) => {
 
   const changeVideo = (videoUrl: string, previousSectionId: string): void => {
     if (previousSectionId === '') {
-      console.log('initial load');
       setInitialLessonLoad(true);
     } else {
       setInitialLessonLoad(false);
