@@ -33,6 +33,7 @@ const SectionPage: React.FC<any> = (props) => {
   });
   const [initialUrl, setInitialUrl] = useState('');
   const [initialTestLoad, setInitialTestLoad] = useState(false);
+  const [initialLessonLoad, setInitialLessonLoad] = useState(false);
 
   const [options] = useState<YoutubeOptions>({
     playerVars: {
@@ -79,6 +80,13 @@ const SectionPage: React.FC<any> = (props) => {
   }, [singleCourse, props]);
 
   const changeVideo = (videoUrl: string, previousSectionId: string): void => {
+    if (previousSectionId === '') {
+      console.log('initial load');
+      setInitialLessonLoad(true);
+    } else {
+      setInitialLessonLoad(false);
+    }
+
     setShowPracticeTest(false);
     setOldSectionId(previousSectionId);
     const idOnly = getVideoId(videoUrl).id;
@@ -136,6 +144,7 @@ const SectionPage: React.FC<any> = (props) => {
                 <React.Fragment key={section.id}>
                   <SubjectSections
                     id={section.id}
+                    initialLessonLoad={initialLessonLoad}
                     initialTestLoad={initialTestLoad}
                     initialUrl={initialUrl}
                     lessons={section.lessons}

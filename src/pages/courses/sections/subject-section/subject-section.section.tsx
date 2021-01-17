@@ -34,6 +34,7 @@ type Props = CourseSectionType & {
 } & {
   initialUrl: string;
   initialTestLoad: boolean;
+  initialLessonLoad: boolean;
 };
 
 const SubjectSections: React.FC<Props> = ({
@@ -43,7 +44,9 @@ const SubjectSections: React.FC<Props> = ({
   tests,
   initialUrl,
   initialTestLoad,
+  initialLessonLoad,
   onLessonUpdate,
+  onInitialLessonUrlUpdate,
   onTestUpdate,
   onInitialTestUrlUpdate,
   previousSectionId,
@@ -68,6 +71,7 @@ const SubjectSections: React.FC<Props> = ({
       if (getVideoId(lesson.url).id === initialUrl) {
         selectLesson(true);
         setLessonId(lesson.id);
+        onInitialLessonUrlUpdate(lesson.url, '');
       }
     });
   };
@@ -137,7 +141,11 @@ const SubjectSections: React.FC<Props> = ({
             <div
               key={lesson.id}
               className={`${classes.dropdown} ${
-                isLessonSelected && lesson.id === lessonId ? `${classes.activeLesson}` : ''
+                isLessonSelected &&
+                lesson.id === lessonId &&
+                (previousSectionId === id || initialLessonLoad)
+                  ? `${classes.activeLesson}`
+                  : ''
               }`}
               onClick={() => handleLessonClick(lesson.url, lesson.id || '', id || '')}
             >
