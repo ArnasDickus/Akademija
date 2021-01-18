@@ -41,15 +41,25 @@
 
 .rowDropdown {
   display: flex;
-  align-items: center;
+  align-items: baseline;
 }
+
 
 .activeLesson {
   background-color: #D4E9EE;
 }
 
+.textContainer {
+  padding-top: 10px;
+}
+
+.listItemTitle {
+  padding-bottom: 10px;
+  margin: 0;
+}
+
 .time {
-  padding-left: 43px;
+  margin: 0;
 }
 
 .practiceTitle {
@@ -60,3 +70,5 @@
   color: $subjectSectionText;
   font-weight: bold;
 }
+
+

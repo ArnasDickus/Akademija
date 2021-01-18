@@ -147,13 +147,19 @@ const SubjectSections: React.FC<Props> = ({
                   ? `${classes.activeLesson}`
                   : ''
               }`}
-              onClick={() => handleLessonClick(lesson.url, lesson.id || '', id || '')}
             >
               <div className={classes.rowDropdown}>
-                <Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} value="checkedA" />
-                <span>{lesson.title}</span>
+                <label>
+                  <Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} value="checkedA" />
+                </label>
+                <div
+                  className={classes.textContainer}
+                  onClick={() => handleLessonClick(lesson.url, lesson.id || '', id || '')}
+                >
+                  <p className={classes.listItemTitle}>{lesson.title}</p>
+                  <p className={classes.time}>2 min</p>
+                </div>
               </div>
-              <span className={classes.time}>2 min</span>
             </div>
           ))
         : ''}
@@ -170,21 +176,27 @@ const SubjectSections: React.FC<Props> = ({
                   ? `${classes.activeLesson}`
                   : ''
               }`}
-              onClick={() =>
-                handleTestClick(
-                  test.id || '',
-                  id || '',
-                  test.title,
-                  test?.description,
-                  test.question,
-                )
-              }
             >
               <div className={classes.rowDropdown}>
-                <Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} value="checkedA" />
-                <span>{test.title}</span>
+                <label>
+                  <Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} value="checkedA" />
+                </label>
+                <div
+                  className={classes.textContainer}
+                  onClick={() =>
+                    handleTestClick(
+                      test.id || '',
+                      id || '',
+                      test.title,
+                      test?.description,
+                      test.question,
+                    )
+                  }
+                >
+                  <p className={classes.listItemTitle}>{test.title}</p>
+                  <p className={classes.time}>2 min</p>
+                </div>
               </div>
-              <span className={classes.time}>2 min</span>
             </div>
           ))
         : ''}
