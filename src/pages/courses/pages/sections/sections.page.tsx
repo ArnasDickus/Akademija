@@ -77,7 +77,7 @@ const SectionPage: React.FC<any> = (props) => {
         }
       }
     }
-  }, [singleCourse, props]);
+  }, [singleCourse]);
 
   const changeVideo = (videoUrl: string, previousSectionId: string): void => {
     if (previousSectionId === '') {
