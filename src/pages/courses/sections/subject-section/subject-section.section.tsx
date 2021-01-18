@@ -8,6 +8,7 @@ import { CourseSectionType } from 'core/types/categories.types';
 // @ts-ignore
 import getVideoId from 'get-video-id';
 import { useHistory, useLocation } from 'react-router-dom';
+import AllRoutesEnum from 'core/enums/allRoutes.enum';
 
 import classes from './subject-section.module.scss';
 
@@ -88,17 +89,43 @@ const SubjectSections: React.FC<Props> = ({
 
     const shortUrl = getVideoId(lessonUrl).id;
 
-    history.push({
-      pathname: `${baseurl}${shortUrl}`,
-    });
+    if (location.hash === AllRoutesEnum.SEARCHHASH) {
+      history.push({
+        pathname: `${baseurl}${shortUrl}`,
+        hash: AllRoutesEnum.SEARCHHASH,
+      });
+    } else if (location.hash === AllRoutesEnum.OVERVIEWHASH) {
+      history.push({
+        pathname: `${baseurl}${shortUrl}`,
+        hash: AllRoutesEnum.OVERVIEWHASH,
+      });
+    } else if (location.hash === AllRoutesEnum.QAHASH) {
+      history.push({
+        pathname: `${baseurl}${shortUrl}`,
+        hash: AllRoutesEnum.QAHASH,
+      });
+    }
   };
 
   const changeUrlToTest = (testId: string) => {
     const baseurl = location.pathname.replace(new RegExp('(.*/)[^/]+$'), '$1');
 
-    history.push({
-      pathname: `${baseurl}${testId}`,
-    });
+    if (location.hash === AllRoutesEnum.SEARCHHASH) {
+      history.push({
+        pathname: `${baseurl}${testId}`,
+        hash: AllRoutesEnum.SEARCHHASH,
+      });
+    } else if (location.hash === AllRoutesEnum.OVERVIEWHASH) {
+      history.push({
+        pathname: `${baseurl}${testId}`,
+        hash: AllRoutesEnum.OVERVIEWHASH,
+      });
+    } else if (location.hash === AllRoutesEnum.QAHASH) {
+      history.push({
+        pathname: `${baseurl}${testId}`,
+        hash: AllRoutesEnum.QAHASH,
+      });
+    }
   };
 
   const handleLessonClick = (lessonUrl: string, lessonId: string, currentSectionId: string) => {
