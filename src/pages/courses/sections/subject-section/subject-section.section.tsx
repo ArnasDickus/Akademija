@@ -82,6 +82,7 @@ const SubjectSections: React.FC<Props> = ({
   useEffect(() => {
     handleInitialLesson();
   }, []);
+
   const handleClick = () => {
     toggleMenu(!menu);
   };
