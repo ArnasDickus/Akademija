@@ -8,6 +8,9 @@ import { CourseSectionType } from 'core/types/categories.types';
 // @ts-ignore
 import getVideoId from 'get-video-id';
 import { useHistory, useLocation } from 'react-router-dom';
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
+import AllRoutesEnum from 'core/enums/allRoutes.enum';
 
 import classes from './subject-section.module.scss';
 
@@ -79,6 +82,7 @@ const SubjectSections: React.FC<Props> = ({
   useEffect(() => {
     handleInitialLesson();
   }, []);
+
   const handleClick = () => {
     toggleMenu(!menu);
   };
@@ -88,17 +92,43 @@ const SubjectSections: React.FC<Props> = ({
 
     const shortUrl = getVideoId(lessonUrl).id;
 
-    history.push({
-      pathname: `${baseurl}${shortUrl}`,
-    });
+    if (location.hash === AllRoutesEnum.SEARCHHASH) {
+      history.push({
+        pathname: `${baseurl}${shortUrl}`,
+        hash: AllRoutesEnum.SEARCHHASH,
+      });
+    } else if (location.hash === AllRoutesEnum.OVERVIEWHASH) {
+      history.push({
+        pathname: `${baseurl}${shortUrl}`,
+        hash: AllRoutesEnum.OVERVIEWHASH,
+      });
+    } else if (location.hash === AllRoutesEnum.QAHASH) {
+      history.push({
+        pathname: `${baseurl}${shortUrl}`,
+        hash: AllRoutesEnum.QAHASH,
+      });
+    }
   };
 
   const changeUrlToTest = (testId: string) => {
     const baseurl = location.pathname.replace(new RegExp('(.*/)[^/]+$'), '$1');
 
-    history.push({
-      pathname: `${baseurl}${testId}`,
-    });
+    if (location.hash === AllRoutesEnum.SEARCHHASH) {
+      history.push({
+        pathname: `${baseurl}${testId}`,
+        hash: AllRoutesEnum.SEARCHHASH,
+      });
+    } else if (location.hash === AllRoutesEnum.OVERVIEWHASH) {
+      history.push({
+        pathname: `${baseurl}${testId}`,
+        hash: AllRoutesEnum.OVERVIEWHASH,
+      });
+    } else if (location.hash === AllRoutesEnum.QAHASH) {
+      history.push({
+        pathname: `${baseurl}${testId}`,
+        hash: AllRoutesEnum.QAHASH,
+      });
+    }
   };
 
   const handleLessonClick = (lessonUrl: string, lessonId: string, currentSectionId: string) => {
@@ -147,13 +177,21 @@ const SubjectSections: React.FC<Props> = ({
                   ? `${classes.activeLesson}`
                   : ''
               }`}
-              onClick={() => handleLessonClick(lesson.url, lesson.id || '', id || '')}
             >
               <div className={classes.rowDropdown}>
-                <Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} value="checkedA" />
-                <span>{lesson.title}</span>
+                <label>
+                  <Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} value="checkedA" />
+                </label>
+                <div
+                  className={classes.textContainer}
+                  onClick={() => handleLessonClick(lesson.url, lesson.id || '', id || '')}
+                >
+                  <p className={classes.listItemTitle}>{lesson.title}</p>
+                  <p className={classes.time}>
+                    <PlayCircleFilledIcon className={classes.icon} /> 2 min
+                  </p>
+                </div>
               </div>
-              <span className={classes.time}>2 min</span>
             </div>
           ))
         : ''}
@@ -170,21 +208,29 @@ const SubjectSections: React.FC<Props> = ({
                   ? `${classes.activeLesson}`
                   : ''
               }`}
-              onClick={() =>
-                handleTestClick(
-                  test.id || '',
-                  id || '',
-                  test.title,
-                  test?.description,
-                  test.question,
-                )
-              }
             >
               <div className={classes.rowDropdown}>
-                <Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} value="checkedA" />
-                <span>{test.title}</span>
+                <label>
+                  <Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} value="checkedA" />
+                </label>
+                <div
+                  className={classes.textContainer}
+                  onClick={() =>
+                    handleTestClick(
+                      test.id || '',
+                      id || '',
+                      test.title,
+                      test?.description,
+                      test.question,
+                    )
+                  }
+                >
+                  <p className={classes.listItemTitle}>{test.title}</p>
+                  <p className={classes.time}>
+                    <InsertDriveFileIcon className={classes.icon} />2 min
+                  </p>
+                </div>
               </div>
-              <span className={classes.time}>2 min</span>
             </div>
           ))
         : ''}

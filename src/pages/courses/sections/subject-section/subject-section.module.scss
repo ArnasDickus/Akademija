@@ -31,7 +31,6 @@
 
 .dropdown {
   cursor: pointer;
-  padding-bottom: 10px;
   background-color: #fff;
 
   &:hover {
@@ -41,15 +40,29 @@
 
 .rowDropdown {
   display: flex;
-  align-items: center;
+  align-items: baseline;
 }
+
 
 .activeLesson {
   background-color: #D4E9EE;
 }
 
+.textContainer {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.listItemTitle {
+  padding-bottom: 10px;
+  margin: 0;
+}
+
 .time {
-  padding-left: 43px;
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
 .practiceTitle {
@@ -60,3 +73,10 @@
   color: $subjectSectionText;
   font-weight: bold;
 }
+
+.icon {
+  margin-right: 5px;
+  font-size: 14px !important;
+}
+
+
