@@ -8,6 +8,8 @@ import { CourseSectionType } from 'core/types/categories.types';
 // @ts-ignore
 import getVideoId from 'get-video-id';
 import { useHistory, useLocation } from 'react-router-dom';
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import AllRoutesEnum from 'core/enums/allRoutes.enum';
 
 import classes from './subject-section.module.scss';
@@ -184,7 +186,9 @@ const SubjectSections: React.FC<Props> = ({
                   onClick={() => handleLessonClick(lesson.url, lesson.id || '', id || '')}
                 >
                   <p className={classes.listItemTitle}>{lesson.title}</p>
-                  <p className={classes.time}>2 min</p>
+                  <p className={classes.time}>
+                    <PlayCircleFilledIcon className={classes.icon} /> 2 min
+                  </p>
                 </div>
               </div>
             </div>
@@ -221,7 +225,9 @@ const SubjectSections: React.FC<Props> = ({
                   }
                 >
                   <p className={classes.listItemTitle}>{test.title}</p>
-                  <p className={classes.time}>2 min</p>
+                  <p className={classes.time}>
+                    <InsertDriveFileIcon className={classes.icon} />2 min
+                  </p>
                 </div>
               </div>
             </div>

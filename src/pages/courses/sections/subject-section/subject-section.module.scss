@@ -60,6 +60,8 @@
 }
 
 .time {
+  display: flex;
+  align-items: center;
   margin: 0;
 }
 
@@ -70,6 +72,11 @@
   font-size: 15px;
   color: $subjectSectionText;
   font-weight: bold;
+}
+
+.icon {
+  margin-right: 5px;
+  font-size: 14px;
 }
 
 
