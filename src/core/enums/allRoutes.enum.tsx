@@ -6,6 +6,8 @@ enum AllRoutesEnum {
   OVERVIEWHASH = '#overview',
   SEARCHHASH = '#search',
   QAHASH = '#Q&A',
+  PROFILE = 'profile',
+  SETTINGS = 'settings',
 }
 
 export default AllRoutesEnum;

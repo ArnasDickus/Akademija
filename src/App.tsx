@@ -20,6 +20,8 @@ import CategoriesPage from './pages/courses/pages/categories/categories.page';
 import CoursesPage from './pages/courses/pages/courses/courses.page';
 import SectionPage from './pages/courses/pages/sections/sections.page';
 import SectionRedirectPage from './pages/courses/pages/section-redirect/section-redirect.page';
+import LearnerHome from './pages/learner-home/learner-home';
+import ProfileSettings from './pages/profile-settings/profile-settings';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 class App extends React.Component<any> {
@@ -76,6 +78,8 @@ class App extends React.Component<any> {
               render={() => (this.props.currentUser ? <Redirect to="/" /> : <Register />)}
             />
             <Route component={ForgotPasswordPage} path={`/${AllRoutesEnum.FORGOT_PASSWORD}`} />
+            <Route component={LearnerHome} path={`/${AllRoutesEnum.PROFILE}`} />
+            <Route component={ProfileSettings} path={`/${AllRoutesEnum.SETTINGS}`} />
           </Switch>
         </div>
         <Footer />

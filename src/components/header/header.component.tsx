@@ -11,6 +11,7 @@ import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import LanguagesEnum from 'core/enums/languages.enum';
 import wrapper from 'baseScss/components/wrapper.module.scss';
 
+import HeaderDropdown from './header-dropdown/header-dropdown';
 import SideMenu from './sideMenu/sideMenu';
 import Hamburger from './hamburger/hamburger.component';
 import classes from './header.module.scss';
@@ -58,6 +59,8 @@ const Header: React.FC<any> = (props) => {
                 <span className={classes.navLink} onClick={() => auth.signOut()}>
                   {t('header.logout')}
                 </span>
+
+                <HeaderDropdown />
 
                 <span className={classes.paddingR}>
                   <LTSvg
