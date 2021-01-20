@@ -60,7 +60,13 @@ class App extends React.Component<any> {
         <Header />
         <div className={classes.siteContent}>
           <Switch>
-            <Route component={Home} path="/" exact />
+            <Route
+              path="/"
+              render={() =>
+                this.props.currentUser ? <Redirect to={`/${AllRoutesEnum.PROFILE}`} /> : <Home />
+              }
+              exact
+            />
             <Route component={CategoriesPage} path={`/${AllRoutesEnum.COURSES}`} exact />
             <Route component={CoursesPage} path={`/${AllRoutesEnum.COURSES}/:a`} exact />
             <Route
@@ -71,15 +77,50 @@ class App extends React.Component<any> {
             <Route component={SectionPage} path={`/${AllRoutesEnum.COURSES}/:a/:b/:id`} exact />
             <Route
               path={`/${AllRoutesEnum.LOGIN}`}
-              render={() => (this.props.currentUser ? <Redirect to="/" /> : <Login />)}
+              render={() =>
+                this.props.currentUser ? <Redirect to={`/${AllRoutesEnum.PROFILE}`} /> : <Login />
+              }
             />
             <Route
               path={`/${AllRoutesEnum.REGISTER}`}
-              render={() => (this.props.currentUser ? <Redirect to="/" /> : <Register />)}
+              render={() =>
+                this.props.currentUser ? (
+                  <Redirect to={`/${AllRoutesEnum.PROFILE}`} />
+                ) : (
+                  <Register />
+                )
+              }
             />
-            <Route component={ForgotPasswordPage} path={`/${AllRoutesEnum.FORGOT_PASSWORD}`} />
-            <Route component={LearnerHome} path={`/${AllRoutesEnum.PROFILE}`} />
-            <Route component={ProfileSettings} path={`/${AllRoutesEnum.SETTINGS}`} />
+            <Route
+              path={`/${AllRoutesEnum.FORGOT_PASSWORD}`}
+              render={() =>
+                this.props.currentUser ? (
+                  <Redirect to={`/${AllRoutesEnum.PROFILE}`} />
+                ) : (
+                  <ForgotPasswordPage />
+                )
+              }
+            />
+            <Route
+              path={`/${AllRoutesEnum.PROFILE}`}
+              render={() =>
+                !this.props.currentUser ? (
+                  <Redirect to={`/${AllRoutesEnum.PROFILE}`} />
+                ) : (
+                  <LearnerHome />
+                )
+              }
+            />
+            <Route
+              path={`/${AllRoutesEnum.SETTINGS}`}
+              render={() =>
+                !this.props.currentUser ? (
+                  <Redirect to={`/${AllRoutesEnum.PROFILE}`} />
+                ) : (
+                  <ProfileSettings />
+                )
+              }
+            />
           </Switch>
         </div>
         <Footer />
