@@ -7,6 +7,12 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
+import { auth } from 'firebase/firebase.utils';
+import AllRoutesEnum from 'core/enums/allRoutes.enum';
+import { Link } from 'react-router-dom';
+
+import classesScss from './header-dropdown.module.scss';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,6 +29,7 @@ const HeaderDropdown: React.FC = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
+  const { t } = useTranslation();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -36,12 +43,17 @@ const HeaderDropdown: React.FC = () => {
     setOpen(false);
   };
 
-  function handleListKeyDown(event: React.KeyboardEvent) {
+  const handleLogOut = (event: React.MouseEvent<EventTarget>) => {
+    handleClose(event);
+    auth.signOut();
+  };
+
+  const handleListKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Tab') {
       event.preventDefault();
       setOpen(false);
     }
-  }
+  };
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
@@ -73,9 +85,19 @@ const HeaderDropdown: React.FC = () => {
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <Link className={classesScss.link} to={AllRoutesEnum.PROFILE}>
+                        Learner home
+                      </Link>
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <Link className={classesScss.link} to={AllRoutesEnum.SETTINGS}>
+                        Settings
+                      </Link>
+                    </MenuItem>
+                    <MenuItem onClick={handleLogOut}>
+                      <span className={classesScss.link}>{t('header.logout')}</span>
+                    </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
