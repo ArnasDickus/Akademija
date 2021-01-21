@@ -103,23 +103,11 @@ class App extends React.Component<any> {
             />
             <Route
               path={`/${AllRoutesEnum.PROFILE}`}
-              render={() =>
-                !this.props.currentUser ? (
-                  <Redirect to={`/${AllRoutesEnum.PROFILE}`} />
-                ) : (
-                  <LearnerHome />
-                )
-              }
+              render={() => (!this.props.currentUser ? <Redirect to="/" /> : <LearnerHome />)}
             />
             <Route
               path={`/${AllRoutesEnum.SETTINGS}`}
-              render={() =>
-                !this.props.currentUser ? (
-                  <Redirect to={`/${AllRoutesEnum.PROFILE}`} />
-                ) : (
-                  <ProfileSettings />
-                )
-              }
+              render={() => (!this.props.currentUser ? <Redirect to="/" /> : <ProfileSettings />)}
             />
           </Switch>
         </div>

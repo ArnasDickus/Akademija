@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from 'redux/user/user.selector';
 import { connect } from 'react-redux';
-import { auth } from 'firebase/firebase.utils';
 import { useTranslation } from 'react-i18next';
 import { ReactComponent as LTSvg } from 'assets/lt.svg';
 import { ReactComponent as GBSvg } from 'assets/gb.svg';
 import LanguagesEnum from 'core/enums/languages.enum';
 import AllRoutesEnum from 'core/enums/allRoutes.enum';
+
+import SideMenuList from '../side-menu-list/side-menu-list';
 
 import classes from './sideMenu.module.scss';
 
@@ -31,19 +32,25 @@ const SideMenu: React.FC<Props> = (props) => {
     props.hamburgerOpen();
   };
 
-  const logOut = () => {
-    auth.signOut();
-    closeMenu();
-  };
-
   return (
     <aside>
       <div className={classes.sideMenu}>
+        <div className={classes.card2}>
+          <Link
+            className={classes.navLink}
+            to={`${AllRoutesEnum.COURSES}`}
+            onClick={() => closeMenu()}
+          >
+            {t('header.courses')}
+          </Link>
+          <Link className={classes.navLink} to="/" onClick={() => closeMenu()}>
+            {t('header.academy')}
+          </Link>
+        </div>
+
         {props.currentUser ? (
           <div className={classes.card}>
-            <div className={classes.navLink} onClick={() => logOut()}>
-              {t('header.logout')}
-            </div>
+            <SideMenuList closeMenu={() => closeMenu()} />
           </div>
         ) : (
           <div className={classes.card}>
@@ -63,18 +70,6 @@ const SideMenu: React.FC<Props> = (props) => {
             </Link>
           </div>
         )}
-        <div className={classes.card2}>
-          <Link
-            className={classes.navLink}
-            to={`${AllRoutesEnum.COURSES}`}
-            onClick={() => closeMenu()}
-          >
-            {t('header.courses')}
-          </Link>
-          <Link className={classes.navLink} to="/" onClick={() => closeMenu()}>
-            {t('header.academy')}
-          </Link>
-        </div>
 
         <div className={classes.svgContainer}>
           <span className={classes.paddingR}>
