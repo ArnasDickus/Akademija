@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { auth } from 'firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from 'redux/user/user.selector';
@@ -11,6 +10,7 @@ import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import LanguagesEnum from 'core/enums/languages.enum';
 import wrapper from 'baseScss/components/wrapper.module.scss';
 
+import HeaderDropdown from './header-dropdown/header-dropdown';
 import SideMenu from './sideMenu/sideMenu';
 import Hamburger from './hamburger/hamburger.component';
 import classes from './header.module.scss';
@@ -55,8 +55,8 @@ const Header: React.FC<any> = (props) => {
           <div className={classes.navLink}>
             {props.currentUser ? (
               <React.Fragment>
-                <span className={classes.navLink} onClick={() => auth.signOut()}>
-                  {t('header.logout')}
+                <span className={classes.navLink}>
+                  <HeaderDropdown />
                 </span>
 
                 <span className={classes.paddingR}>
