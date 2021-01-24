@@ -22,17 +22,19 @@ const CourseCollections: React.FC<CategoriesType> = ({ title, courses, url }) =>
       <div className={classes.row}>
         {courses.map((course) => (
           <Card key={course.id} className={classes.root}>
-            <CardActionArea className={classes.actionArea}>
-              <CardMedia className={classes.media} image={coursesImg} title={course.title} />
-              <CardContent className={classes.content}>
-                <Typography component="h2" variant="h5" gutterBottom>
-                  {course.title}
-                </Typography>
-                <Typography color="textSecondary" component="p" variant="body2">
-                  {course.about}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
+            <NavLink className={classes.cardLink} to={`${currentRoute}/${url}/${course.url}`}>
+              <CardActionArea className={classes.actionArea}>
+                <CardMedia className={classes.media} image={coursesImg} title={course.title} />
+                <CardContent className={classes.content}>
+                  <Typography component="h2" variant="h5" gutterBottom>
+                    {course.title}
+                  </Typography>
+                  <Typography color="textSecondary" component="p" variant="body2">
+                    {course.about}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </NavLink>
           </Card>
         ))}
       </div>

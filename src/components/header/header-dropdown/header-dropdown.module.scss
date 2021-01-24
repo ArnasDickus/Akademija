@@ -1,0 +1,9 @@
+@import "src/baseScss/global/variables";
+
+.root {
+    display: flex;
+}
+.link {
+    font-size: 16px;
+    color: $mainBlue;
+}

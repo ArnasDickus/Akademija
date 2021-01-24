@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import YouTube from 'react-youtube';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Categories } from 'core/fake-data/categories';
 import { CourseSectionType, CoursesType } from 'core/types/categories.types';
 import { Options as YoutubeOptions } from 'react-youtube';
@@ -77,7 +75,7 @@ const SectionPage: React.FC<any> = (props) => {
         }
       }
     }
-  }, [singleCourse, props]);
+  }, [singleCourse]);
 
   const changeVideo = (videoUrl: string, previousSectionId: string): void => {
     if (previousSectionId === '') {
@@ -133,9 +131,6 @@ const SectionPage: React.FC<any> = (props) => {
         <div className={classes.content}>
           <div className={classes.textRow}>
             <p className={classes.courseContent}>Course content</p>
-            <div className={classes.xIcon}>
-              <FontAwesomeIcon icon={faTimes} />
-            </div>
           </div>
           <div>
             {singleCourse.sections?.length &&

@@ -20,6 +20,8 @@ import CategoriesPage from './pages/courses/pages/categories/categories.page';
 import CoursesPage from './pages/courses/pages/courses/courses.page';
 import SectionPage from './pages/courses/pages/sections/sections.page';
 import SectionRedirectPage from './pages/courses/pages/section-redirect/section-redirect.page';
+import LearnerHome from './pages/learner-home/learner-home';
+import ProfileSettings from './pages/profile-settings/profile-settings';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 class App extends React.Component<any> {
@@ -58,7 +60,13 @@ class App extends React.Component<any> {
         <Header />
         <div className={classes.siteContent}>
           <Switch>
-            <Route component={Home} path="/" exact />
+            <Route
+              path="/"
+              render={() =>
+                this.props.currentUser ? <Redirect to={`/${AllRoutesEnum.PROFILE}`} /> : <Home />
+              }
+              exact
+            />
             <Route component={CategoriesPage} path={`/${AllRoutesEnum.COURSES}`} exact />
             <Route component={CoursesPage} path={`/${AllRoutesEnum.COURSES}/:a`} exact />
             <Route
@@ -69,13 +77,38 @@ class App extends React.Component<any> {
             <Route component={SectionPage} path={`/${AllRoutesEnum.COURSES}/:a/:b/:id`} exact />
             <Route
               path={`/${AllRoutesEnum.LOGIN}`}
-              render={() => (this.props.currentUser ? <Redirect to="/" /> : <Login />)}
+              render={() =>
+                this.props.currentUser ? <Redirect to={`/${AllRoutesEnum.PROFILE}`} /> : <Login />
+              }
             />
             <Route
               path={`/${AllRoutesEnum.REGISTER}`}
-              render={() => (this.props.currentUser ? <Redirect to="/" /> : <Register />)}
+              render={() =>
+                this.props.currentUser ? (
+                  <Redirect to={`/${AllRoutesEnum.PROFILE}`} />
+                ) : (
+                  <Register />
+                )
+              }
             />
-            <Route component={ForgotPasswordPage} path={`/${AllRoutesEnum.FORGOT_PASSWORD}`} />
+            <Route
+              path={`/${AllRoutesEnum.FORGOT_PASSWORD}`}
+              render={() =>
+                this.props.currentUser ? (
+                  <Redirect to={`/${AllRoutesEnum.PROFILE}`} />
+                ) : (
+                  <ForgotPasswordPage />
+                )
+              }
+            />
+            <Route
+              path={`/${AllRoutesEnum.PROFILE}`}
+              render={() => (!this.props.currentUser ? <Redirect to="/" /> : <LearnerHome />)}
+            />
+            <Route
+              path={`/${AllRoutesEnum.SETTINGS}`}
+              render={() => (!this.props.currentUser ? <Redirect to="/" /> : <ProfileSettings />)}
+            />
           </Switch>
         </div>
         <Footer />
