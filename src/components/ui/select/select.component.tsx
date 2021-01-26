@@ -3,36 +3,40 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const SelectComponent: React.FC<any> = () => {
-  const [state, setState] = useState<{ age: string | number; name: string }>({
-    age: '',
-    name: 'hai',
-  });
+type Props = {
+  onGenderUpdate: (curentGender: string) => void;
+} & {
+  genderOptions: string[];
+  name: string;
+};
+
+const SelectComponent: React.FC<Props> = ({ genderOptions, name, onGenderUpdate }) => {
+  const [currentGender, setCurrentGender] = useState<string>('Male');
 
   const handleChange = (event: React.ChangeEvent<{ name?: string; value: unknown }>) => {
-    const name = event.target.name as keyof typeof state;
-    setState({
-      ...state,
-      [name]: event.target.value,
-    });
+    // const value = event.target.name as keyof typeof state;
+    setCurrentGender(event.target.value as string);
+    onGenderUpdate(currentGender);
   };
 
   return (
     <div>
       <FormControl>
-        <InputLabel htmlFor="age-native-simple">Age</InputLabel>
+        <InputLabel htmlFor="gender-native-simple">Gender</InputLabel>
         <Select
           inputProps={{
-            name: 'age',
-            id: 'age-native-simple',
+            name: { name },
+            id: 'gender-native-simple',
           }}
+          name={name}
           native
           onChange={handleChange}
         >
-          <option value={10}>Ten</option>
-          <option value={20}>Twenty</option>
-          <option value={30}>Thirty</option>
+          {genderOptions.map((category: string) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </Select>
       </FormControl>
     </div>
