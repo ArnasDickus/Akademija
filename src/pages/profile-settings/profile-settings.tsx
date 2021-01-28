@@ -71,6 +71,7 @@ const ProfileSettings: React.FC = () => {
             </Form>
           )}
         </Formik>
+        <h2>{t('profile.changeEmail')}</h2>
       </div>
     </React.Fragment>
   );
