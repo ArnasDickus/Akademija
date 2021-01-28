@@ -48,9 +48,23 @@
     "passwordMin": "Password should be at least 6 characters",
     "required": "Required",
     "invalidEmail": "Invalid email address",
-    "passwordsNoMatch": "Passwords don't match"
+    "passwordsNoMatch": "Passwords don't match",
+    "displayName": "Display name should be at least 2 characters."
   },
 
+  "profile": {
+    "profileSettings": "Profile Changes",
+    "basicsSection": "Basics",
+    "saveChanges": "Save Changes",
+    "bio": "Bio"
+  },
+
+  "gender": {
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "other": "Other"
+  },
 
   "footer": {
     "copyright": "Copyright"

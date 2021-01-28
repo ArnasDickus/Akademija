@@ -11,31 +11,28 @@ import SelectComponent from 'components/ui/select/select.component';
 import DatePicker from 'components/ui/date-picker/date-picker.component';
 import TextField from '@material-ui/core/TextField';
 
+import classes from './profile.module.scss';
+
 const ProfileSettings: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [errorType, setErrorType] = useState('');
   const [hasError, setHasError] = useState(false);
-  const genderOptions = ['Male', 'Female', 'Other'];
+  const genderOptions = [i18n.t('gender.male'), i18n.t('gender.female'), i18n.t('gender.other')];
 
   return (
     <React.Fragment>
-      <CategoryTitle title="Profile Settings" />
-      <div className={wrapper.headerWrapper}>
-        <h2>Basics</h2>
+      <CategoryTitle title={t('profile.profileSettings')} />
+      <div className={wrapper.profileSettingsWrapper}>
+        <h2>{t('profile.basicsSection')}</h2>
         <Formik
           initialValues={{
             nickName: '',
-            userName: '',
-            gender: 'Male',
+            gender: i18n.t('gender.male'),
             birthdate: '',
             bio: '',
           }}
           validationSchema={Yup.object({
-            nickName: Yup.string()
-              .min(6, i18n.t('errorMessage.passwordMin'))
-              .required(i18n.t('errorMessage.required')),
-            userName: Yup.string().required(i18n.t('errorMessage.required')),
-            // birthdate: Yup.string().required(i18n.t('errorMessage.required')),
+            nickName: Yup.string().min(2, i18n.t('errorMessage.displayName')),
           })}
           onSubmit={async (values) => {
             setHasError(false);
@@ -51,24 +48,25 @@ const ProfileSettings: React.FC = () => {
         >
           {(props) => (
             <Form>
-              <FormInput label="Nickname" name="nickName" type="text" />
-              <FormInput label="User Name" name="userName" type="text" />
-              <TextField
-                defaultValue=""
-                label="Bio"
-                name="bio"
-                rows={4}
-                variant="outlined"
-                multiline
-                onChange={(event) => props.setFieldValue('bio', event.target.value)}
-              />
+              <FormInput label={i18n.t('login.displayName')} name="nickName" type="text" />
+              <div className={classes.textField}>
+                <TextField
+                  defaultValue=""
+                  label={t('profile.bio')}
+                  name="bio"
+                  rows={4}
+                  variant="outlined"
+                  multiline
+                  onChange={(event) => props.setFieldValue('bio', event.target.value)}
+                />
+              </div>
               <SelectComponent name="gender" options={genderOptions} />
               <DatePicker FormikProps={props} label="Birthdate" name="birthdate" />
 
               {hasError && <ErrorComponent errorType={errorType} />}
 
               <div>
-                <CustomButton type="submit"> {t('login.login')} </CustomButton>
+                <CustomButton type="submit"> {t('profile.saveChanges')} </CustomButton>
               </div>
             </Form>
           )}

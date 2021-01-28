@@ -48,7 +48,22 @@
     "passwordMin": "Slaptažodis turi turėti bent 6 simbolius.",
     "required": "Privaloma.",
     "invalidEmail": "Neteisingas el. paštas.",
-    "passwordsNoMatch": "Slaptažodžiai nesutampa"
+    "passwordsNoMatch": "Slaptažodžiai nesutampa.",
+    "displayName": "Slapyvardis turi turėti bent 2 simbolius."
+  },
+
+  "profile": {
+    "profileSettings": "Profilio Nustatymai",
+    "basicsSection": "Pagrindai",
+    "saveChanges": "Išsaugoti",
+    "bio": "Biografija"
+  },
+
+  "gender": {
+    "gender": "Lytis",
+    "male": "Vyras",
+    "female": "Moteris",
+    "other": "Kita"
   },
 
   "footer": {
