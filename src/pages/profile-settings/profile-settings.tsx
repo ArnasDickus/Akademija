@@ -50,18 +50,20 @@ const ProfileSettings: React.FC = () => {
             }
           }}
         >
-          <Form>
-            <FormInput label="Nickname" name="nickName" type="text" />
-            <FormInput label="User Name" name="userName" type="text" />
-            <SelectComponent name="gender" options={genderOptions} />
-            <DatePicker />
+          {(props) => (
+            <Form>
+              <FormInput label="Nickname" name="nickName" type="text" />
+              <FormInput label="User Name" name="userName" type="text" />
+              <SelectComponent name="gender" options={genderOptions} />
+              <DatePicker FormikProps={props} label="Birthdate" name="birthdate" />
 
-            {hasError && <ErrorComponent errorType={errorType} />}
+              {hasError && <ErrorComponent errorType={errorType} />}
 
-            <div>
-              <CustomButton type="submit"> {t('login.login')} </CustomButton>
-            </div>
-          </Form>
+              <div>
+                <CustomButton type="submit"> {t('login.login')} </CustomButton>
+              </div>
+            </Form>
+          )}
         </Formik>
       </div>
     </React.Fragment>
