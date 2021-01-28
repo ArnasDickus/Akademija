@@ -9,6 +9,7 @@ import FormInput from 'components/form-input/form-input.component';
 import ErrorComponent from 'components/error-message/error-message.component';
 import SelectComponent from 'components/ui/select/select.component';
 import DatePicker from 'components/ui/date-picker/date-picker.component';
+import TextField from '@material-ui/core/TextField';
 
 const ProfileSettings: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -34,9 +35,7 @@ const ProfileSettings: React.FC = () => {
               .min(6, i18n.t('errorMessage.passwordMin'))
               .required(i18n.t('errorMessage.required')),
             userName: Yup.string().required(i18n.t('errorMessage.required')),
-            // gender: Yup.string().required(i18n.t('errorMessage.required')),
             // birthdate: Yup.string().required(i18n.t('errorMessage.required')),
-            // bio: Yup.string().required(i18n.t('errorMessage.required')),
           })}
           onSubmit={async (values) => {
             setHasError(false);
@@ -54,6 +53,15 @@ const ProfileSettings: React.FC = () => {
             <Form>
               <FormInput label="Nickname" name="nickName" type="text" />
               <FormInput label="User Name" name="userName" type="text" />
+              <TextField
+                defaultValue=""
+                label="Bio"
+                name="bio"
+                rows={4}
+                variant="outlined"
+                multiline
+                onChange={(event) => props.setFieldValue('bio', event.target.value)}
+              />
               <SelectComponent name="gender" options={genderOptions} />
               <DatePicker FormikProps={props} label="Birthdate" name="birthdate" />
 
