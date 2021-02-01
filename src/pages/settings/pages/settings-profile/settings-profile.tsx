@@ -11,9 +11,9 @@ import SelectComponent from 'components/ui/select/select.component';
 import DatePicker from 'components/ui/date-picker/date-picker.component';
 import TextField from '@material-ui/core/TextField';
 
-import classes from './profile.module.scss';
+import classes from './settings-profile.module.scss';
 
-const ProfileSettings: React.FC = () => {
+const SettingsProfile: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [errorType, setErrorType] = useState('');
   const [hasError, setHasError] = useState(false);
@@ -77,4 +77,4 @@ const ProfileSettings: React.FC = () => {
   );
 };
 
-export default ProfileSettings;
+export default SettingsProfile;

@@ -8,6 +8,10 @@ enum AllRoutesEnum {
   QAHASH = '#Q&A',
   PROFILE = 'profile',
   SETTINGS = 'settings',
+  SETTINGS_PROFILE = 'settings/profile',
+  SETTINGS_PHOTO = 'settings/photo',
+  SETTINGS_ACCOUNT = 'settings/account',
+  SETTINGS_DELETE = 'settings/delete',
 }
 
 export default AllRoutesEnum;
