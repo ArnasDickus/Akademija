@@ -2,7 +2,7 @@ import React from 'react';
 import SettingsNavbar from 'components/settings-navbar/settings-navbar';
 import SettingsProfile from 'pages/settings/pages/settings-profile/settings-profile';
 import SettingsPhoto from 'pages/settings/pages/settings-photo/settings-photo';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import wrapper from 'baseScss/components/wrapper.module.scss';
 
@@ -27,14 +27,12 @@ const SettingsTemplate: React.FC = () => {
           <div>
             <p>Settings Template</p>
             <Switch>
-              <Router>
-                <Route path={AllRoutesEnum.SETTINGS_PROFILE}>
-                  <SettingsProfile />
-                </Route>
-                <Route path={AllRoutesEnum.SETTINGS_PHOTO}>
-                  <SettingsPhoto />
-                </Route>
-              </Router>
+              <Route path={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
+                <SettingsProfile />
+              </Route>
+              <Route path={`/${AllRoutesEnum.SETTINGS_PHOTO}`}>
+                <SettingsPhoto />
+              </Route>
             </Switch>
           </div>
         </div>
