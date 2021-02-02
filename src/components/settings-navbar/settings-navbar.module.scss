@@ -1,0 +1,47 @@
+.row {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    background-color: #686F7A;
+    border-radius: 50%;
+}
+
+.accountName {
+    font-weight: bold;
+    color: #29303b;
+    font-size: 15px;
+    text-align: center;
+}
+
+.ul {
+    padding: 0;
+    margin-top: 0;
+    list-style-type: none;
+}
+
+.link {
+    color: #007791;
+    display: block;
+    padding: 3px 15px;
+}
+
+.listItem {
+    font-size: 16px;
+    font-weight: 400;
+    
+    color: #007791;
+
+    :hover {
+        color: #fff;
+        background-color: #8a92a3;
+    }
+}
+
+.avatarContainer {
+    padding: 5px 20px 10px 20px;
+}
