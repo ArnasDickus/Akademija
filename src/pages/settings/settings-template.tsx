@@ -24,8 +24,11 @@ const SettingsTemplate: React.FC = () => {
           <div>
             <SettingsNavbar />
           </div>
-          <div>
-            <p>Settings Template</p>
+          <div className={classes.content}>
+            <div className={classes.contentDescription}>
+              <h2 className={classes.title}>Profile</h2>
+              <p>Profile Description</p>
+            </div>
             <Switch>
               <Route path={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
                 <SettingsProfile />

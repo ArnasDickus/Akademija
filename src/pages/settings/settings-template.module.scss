@@ -3,5 +3,21 @@
 }
 
 .row {
+    max-width: 1100px;
     display: flex;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #29303b;
+}
+
+.contentDescription {
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.content {
+    width: 100%;
 }
