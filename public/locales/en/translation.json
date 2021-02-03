@@ -57,7 +57,16 @@
     "basicsSection": "Basics",
     "saveChanges": "Save Changes",
     "bio": "Bio",
-    "changeEmail": "Change Email"
+    "changeEmail": "Change Email",
+    "successMessage": "Data saved successfully",
+    "profileTitle": "Public profile",
+    "profileDescription": "Add information about yourself.",
+    "profilePhoto": "Photo",
+    "profilePhotoDescription": "Add a nice photo of yourself for your profile",
+    "profileAccountTitle": "Account",
+    "profileAccountDescription": "Edit your account settings and change your password here.",
+    "profileCloseAccountTitle": "Close account",
+    "profileCloseAccountDescription": "Close your account permanently."
   },
 
   "gender": {

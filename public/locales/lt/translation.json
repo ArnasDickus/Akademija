@@ -57,7 +57,16 @@
     "basicsSection": "Pagrindai",
     "saveChanges": "Išsaugoti",
     "bio": "Biografija",
-    "changeEmail": "Pakeisti El. paštą"
+    "changeEmail": "Pakeisti El. paštą",
+    "successMessage": "Duomenys sėkmingai išsaugoti",
+    "profileTitle": "Viešas profilis",
+    "profileDescription": "Parašykite informaciją apie jus.",
+    "profilePhoto": "Nuotrauka",
+    "profilePhotoDescription": "Įkelkite savo nuotrauką.",
+    "profileAccountTitle": "Paskyra",
+    "profileAccountDescription": "keisti savo paskyros nustatymus bei slaptažodį galite čia.",
+    "profileCloseAccountTitle": "Uždaryti paskyrą",
+    "profileCloseAccountDescription": "Uždaryti paskyrą visam laikui"
   },
 
   "gender": {

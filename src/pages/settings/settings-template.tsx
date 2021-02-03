@@ -1,41 +1,47 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SettingsNavbar from 'components/settings-navbar/settings-navbar';
 import SettingsProfile from 'pages/settings/pages/settings-profile/settings-profile';
 import SettingsPhoto from 'pages/settings/pages/settings-photo/settings-photo';
 import SettingsAccount from 'pages/settings/pages/settings-account/settings-account';
 import CloseAccount from 'pages/settings/pages/settings-close-account/settings-close-account';
-import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import wrapper from 'baseScss/components/wrapper.module.scss';
+import { useTranslation } from 'react-i18next';
 
 import classes from './settings-template.module.scss';
 
 const SettingsTemplate: React.FC = () => {
   const location = useLocation();
-  const history = useHistory();
+  const { i18n } = useTranslation();
+  const [headerTitle, setHeaderTitle] = useState('');
+  const [headerDescription, setHeaderDescription] = useState('');
 
   useEffect(() => {
-    const parts = location.pathname.split('/');
-    const lastSegment = parts.pop() || parts.pop();
-
-    if (lastSegment === `${AllRoutesEnum.SETTINGS}`) {
-      history.push({
-        pathname: AllRoutesEnum.SETTINGS_PROFILE,
-      });
+    if (location.pathname === `/${AllRoutesEnum.SETTINGS_PROFILE}`) {
+      setHeaderTitle(i18n.t('profile.profileTitle'));
+      setHeaderDescription(i18n.t('profile.profileDescription'));
+    } else if (location.pathname === `/${AllRoutesEnum.SETTINGS_PHOTO}`) {
+      setHeaderTitle(i18n.t('profile.profilePhoto'));
+      setHeaderDescription(i18n.t('profile.profilePhotoDescription'));
+    } else if (location.pathname === `/${AllRoutesEnum.SETTINGS_ACCOUNT}`) {
+      setHeaderTitle(i18n.t('profile.profileAccountTitle'));
+      setHeaderDescription(i18n.t('profile.profileAccountDescription'));
+    } else if (location.pathname === `/${AllRoutesEnum.SETTINGS_DELETE}`) {
+      setHeaderTitle(i18n.t('profile.profileCloseAccountTitle'));
+      setHeaderDescription(i18n.t('profile.profileCloseAccountDescription'));
     }
-  }, []);
+  }, [location, i18n.language]);
 
   return (
     <div className={classes.container}>
       <div className={wrapper.headerWrapper}>
         <div className={classes.row}>
-          <div>
-            <SettingsNavbar />
-          </div>
+          <SettingsNavbar />
           <div className={classes.content}>
             <div className={classes.contentDescription}>
-              <h2 className={classes.title}>Profile</h2>
-              <p>Profile Description</p>
+              <h2 className={classes.title}>{headerTitle}</h2>
+              <p>{headerDescription}</p>
             </div>
             <Switch>
               <Route path={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>

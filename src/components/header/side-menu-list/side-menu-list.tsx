@@ -58,7 +58,7 @@ const SideMenuList: React.FC<Props> = (props) => {
             </Link>
           </ListItem>
           <ListItem className={classes.nested} button>
-            <Link className={classesScss.navLink} to={`/${AllRoutesEnum.SETTINGS}`}>
+            <Link className={classesScss.navLink} to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
               <ListItemText primary="Settings" />
             </Link>
           </ListItem>

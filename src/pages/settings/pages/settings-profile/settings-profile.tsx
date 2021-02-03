@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import wrapper from 'baseScss/components/wrapper.module.scss';
-import CategoryTitle from 'components/category-title/category-title';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
@@ -10,6 +9,7 @@ import ErrorComponent from 'components/error-message/error-message.component';
 import SelectComponent from 'components/ui/select/select.component';
 import DatePicker from 'components/ui/date-picker/date-picker.component';
 import TextField from '@material-ui/core/TextField';
+import SuccessComponent from 'components/success-message/success-message.component';
 
 import classes from './settings-profile.module.scss';
 
@@ -17,13 +17,12 @@ const SettingsProfile: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [errorType, setErrorType] = useState('');
   const [hasError, setHasError] = useState(false);
+  const [saveSuccess, setSaveSuccess] = useState(false);
   const genderOptions = [i18n.t('gender.male'), i18n.t('gender.female'), i18n.t('gender.other')];
 
   return (
-    <React.Fragment>
-      <CategoryTitle title={t('profile.profileSettings')} />
+    <div className={classes.container}>
       <div className={wrapper.profileSettingsWrapper}>
-        <h2>{t('profile.basicsSection')}</h2>
         <Formik
           initialValues={{
             nickName: '',
@@ -36,6 +35,11 @@ const SettingsProfile: React.FC = () => {
           })}
           onSubmit={async (values) => {
             setHasError(false);
+            setSaveSuccess(true);
+
+            setTimeout(() => {
+              setSaveSuccess(false);
+            }, 3000);
 
             try {
               // eslint-disable-next-line no-console
@@ -68,12 +72,16 @@ const SettingsProfile: React.FC = () => {
               <div>
                 <CustomButton type="submit"> {t('profile.saveChanges')} </CustomButton>
               </div>
+              {saveSuccess ? (
+                <SuccessComponent>{t('profile.successMessage')}</SuccessComponent>
+              ) : (
+                ''
+              )}
             </Form>
           )}
         </Formik>
-        <h2>{t('profile.changeEmail')}</h2>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

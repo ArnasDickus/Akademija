@@ -91,7 +91,7 @@ const HeaderDropdown: React.FC = () => {
                       </Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <Link className={classesScss.link} to={`/${AllRoutesEnum.SETTINGS}`}>
+                      <Link className={classesScss.link} to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
                         Settings
                       </Link>
                     </MenuItem>
