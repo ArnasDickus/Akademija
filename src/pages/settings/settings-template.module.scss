@@ -1,0 +1,31 @@
+@import 'src/baseScss/global/variables';
+@import 'src/baseScss/global/mixins';
+
+.container {
+    background-color: #fff;
+}
+
+.row {
+    max-width: 1100px;
+    display: flex;
+    flex-direction: row;
+
+    @include atSmall() {
+        flex-direction: column;
+    }
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 700;
+    color: $subjectSectionText;
+}
+
+.contentDescription {
+    border: 1px solid $settingsBorder;
+    text-align: center;
+}
+
+.content {
+    width: 100%;
+}
