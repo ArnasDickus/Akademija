@@ -1,19 +1,28 @@
+@import 'src/baseScss/global/variables';
+@import 'src/baseScss/global/mixins';
+
 .row {
     display: flex;
     flex-direction: column;
-    border: 1px solid #DEDFE0;
+    border: 1px solid $settingsBorder;
 }
 
 .avatar {
     width: 120px;
     height: 120px;
-    background-color: #686F7A;
+    background-color: $defaultAvatarColor;
     border-radius: 50%;
+    margin: initial;
+
+    @include atSmall() {
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 .accountName {
     font-weight: bold;
-    color: #29303b;
+    color: $subjectSectionText;
     font-size: 15px;
     text-align: center;
 }
@@ -25,7 +34,7 @@
 }
 
 .link {
-    color: #007791;
+    color: $settingsLinkItem;
     display: block;
     padding: 3px 15px;
 }
@@ -34,7 +43,7 @@
     font-size: 16px;
     font-weight: 400;
     
-    color: #007791;
+    color: $settingsLinkItem;
 
     :hover {
         color: #fff;
