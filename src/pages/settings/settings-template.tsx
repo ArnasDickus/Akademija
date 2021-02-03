@@ -2,6 +2,8 @@ import React from 'react';
 import SettingsNavbar from 'components/settings-navbar/settings-navbar';
 import SettingsProfile from 'pages/settings/pages/settings-profile/settings-profile';
 import SettingsPhoto from 'pages/settings/pages/settings-photo/settings-photo';
+import SettingsAccount from 'pages/settings/pages/settings-account/settings-account';
+import CloseAccount from 'pages/settings/pages/settings-close-account/settings-close-account';
 import { Switch, Route } from 'react-router-dom';
 import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import wrapper from 'baseScss/components/wrapper.module.scss';
@@ -35,6 +37,12 @@ const SettingsTemplate: React.FC = () => {
               </Route>
               <Route path={`/${AllRoutesEnum.SETTINGS_PHOTO}`}>
                 <SettingsPhoto />
+              </Route>
+              <Route path={`/${AllRoutesEnum.SETTINGS_ACCOUNT}`}>
+                <SettingsAccount />
+              </Route>
+              <Route path={`/${AllRoutesEnum.SETTINGS_DELETE}`}>
+                <CloseAccount />
               </Route>
             </Switch>
           </div>

@@ -24,6 +24,18 @@ const SettingsNavbar: React.FC = () => {
               Photo
             </Link>
           </li>
+
+          <li className={classes.listItem}>
+            <Link className={classes.link} to={`/${AllRoutesEnum.SETTINGS_ACCOUNT}`}>
+              Account
+            </Link>
+          </li>
+
+          <li className={classes.listItem}>
+            <Link className={classes.link} to={`/${AllRoutesEnum.SETTINGS_DELETE}`}>
+              Close account
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
