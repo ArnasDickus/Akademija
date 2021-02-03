@@ -1,5 +1,7 @@
+@import 'src/baseScss/global/variables';
+
 .container {
-    border: 1px solid #DEDFE0;
+    border: 1px solid $settingsBorder;
 }
 
 .textField div {
