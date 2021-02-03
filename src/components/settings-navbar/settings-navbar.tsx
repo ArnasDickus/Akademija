@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import AllRoutesEnum from 'core/enums/allRoutes.enum';
 
 import classes from './settings-navbar.module.scss';
@@ -14,27 +14,43 @@ const SettingsNavbar: React.FC = () => {
       <div>
         <ul className={classes.ul}>
           <li className={classes.listItem}>
-            <Link className={classes.link} to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
+            <NavLink
+              activeClassName={classes.isActive}
+              className={classes.link}
+              to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}
+            >
               Profile
-            </Link>
+            </NavLink>
           </li>
 
           <li className={classes.listItem}>
-            <Link className={classes.link} to={`/${AllRoutesEnum.SETTINGS_PHOTO}`}>
+            <NavLink
+              activeClassName={classes.isActive}
+              className={classes.link}
+              to={`/${AllRoutesEnum.SETTINGS_PHOTO}`}
+            >
               Photo
-            </Link>
+            </NavLink>
           </li>
 
           <li className={classes.listItem}>
-            <Link className={classes.link} to={`/${AllRoutesEnum.SETTINGS_ACCOUNT}`}>
+            <NavLink
+              activeClassName={classes.isActive}
+              className={classes.link}
+              to={`/${AllRoutesEnum.SETTINGS_ACCOUNT}`}
+            >
               Account
-            </Link>
+            </NavLink>
           </li>
 
           <li className={classes.listItem}>
-            <Link className={classes.link} to={`/${AllRoutesEnum.SETTINGS_DELETE}`}>
+            <NavLink
+              activeClassName={classes.isActive}
+              className={classes.link}
+              to={`/${AllRoutesEnum.SETTINGS_DELETE}`}
+            >
               Close account
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

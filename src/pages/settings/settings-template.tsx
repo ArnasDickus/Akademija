@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SettingsNavbar from 'components/settings-navbar/settings-navbar';
 import SettingsProfile from 'pages/settings/pages/settings-profile/settings-profile';
 import SettingsPhoto from 'pages/settings/pages/settings-photo/settings-photo';
 import SettingsAccount from 'pages/settings/pages/settings-account/settings-account';
 import CloseAccount from 'pages/settings/pages/settings-close-account/settings-close-account';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
 import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import wrapper from 'baseScss/components/wrapper.module.scss';
 
 import classes from './settings-template.module.scss';
 
 const SettingsTemplate: React.FC = () => {
-  //  const history = useHistory();
+  const location = useLocation();
+  const history = useHistory();
 
-  //     useEffect(() => {
-  //     history.push({
-  //         pathname: AllRoutesEnum.SETTINGS_PROFILE
-  //     }, [])
-  //   });
+  useEffect(() => {
+    const parts = location.pathname.split('/');
+    const lastSegment = parts.pop() || parts.pop();
+
+    if (lastSegment === `${AllRoutesEnum.SETTINGS}`) {
+      history.push({
+        pathname: AllRoutesEnum.SETTINGS_PROFILE,
+      });
+    }
+  }, []);
 
   return (
     <div className={classes.container}>

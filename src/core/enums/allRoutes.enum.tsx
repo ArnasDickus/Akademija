@@ -6,7 +6,7 @@ enum AllRoutesEnum {
   OVERVIEWHASH = '#overview',
   SEARCHHASH = '#search',
   QAHASH = '#Q&A',
-  PROFILE = 'profile',
+  PROFILE = 'learner-home',
   SETTINGS = 'settings',
   SETTINGS_PROFILE = 'settings/profile',
   SETTINGS_PHOTO = 'settings/photo',
