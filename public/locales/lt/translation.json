@@ -4,7 +4,11 @@
     "academy": "Akademija",
     "login": "Prisijungti",
     "register": "Registruotis",
-    "logout": "Atsijungti"
+    "logout": "Atsijungti",
+    "profile": "Profilis",
+    "photo": "Nuotrauka",
+    "account": "Paskyra",
+    "closeAccount": "Uždaryti paskyra"
   },
 
   "heroPage": {

@@ -4,7 +4,11 @@
     "academy": "Academy",
     "login": "Login",
     "register": "Register",
-    "logout": "Logout"
+    "logout": "Logout",
+    "profile": "Profile",
+    "photo": "Photo",
+    "account": "Account",
+    "closeAccount": "Close account"
   },
 
   "heroPage": {

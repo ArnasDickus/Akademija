@@ -1,10 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import AllRoutesEnum from 'core/enums/allRoutes.enum';
+import { useTranslation } from 'react-i18next';
 
 import classes from './settings-navbar.module.scss';
 
 const SettingsNavbar: React.FC = () => {
+  const { i18n } = useTranslation();
+
   return (
     <div className={classes.row}>
       <div className={classes.avatarContainer}>
@@ -19,7 +22,7 @@ const SettingsNavbar: React.FC = () => {
               className={classes.link}
               to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}
             >
-              Profile
+              {i18n.t('header.profile')}
             </NavLink>
           </li>
 
@@ -29,7 +32,7 @@ const SettingsNavbar: React.FC = () => {
               className={classes.link}
               to={`/${AllRoutesEnum.SETTINGS_PHOTO}`}
             >
-              Photo
+              {i18n.t('header.photo')}
             </NavLink>
           </li>
 
@@ -39,7 +42,7 @@ const SettingsNavbar: React.FC = () => {
               className={classes.link}
               to={`/${AllRoutesEnum.SETTINGS_ACCOUNT}`}
             >
-              Account
+              {i18n.t('header.account')}
             </NavLink>
           </li>
 
@@ -49,7 +52,7 @@ const SettingsNavbar: React.FC = () => {
               className={classes.link}
               to={`/${AllRoutesEnum.SETTINGS_DELETE}`}
             >
-              Close account
+              {i18n.t('header.closeAccount')}
             </NavLink>
           </li>
         </ul>
