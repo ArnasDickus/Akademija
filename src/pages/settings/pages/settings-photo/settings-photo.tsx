@@ -14,11 +14,13 @@ const SettingsPhoto: React.FC = () => {
   const [upImg, setUpImg] = useState<string | ArrayBuffer | null>(null);
   const imgRef = useRef(null);
   const [crop, setCrop] = useState({ unit: '%', width: 30, aspect: 16 / 9 });
+  const [displayAccountIcon, setDisplayAccountIcon] = useState(true);
   const previewCanvasRef = useRef(null);
   const [completedCrop, setCompletedCrop] = useState(null);
 
   const onSelectFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
+      setDisplayAccountIcon(false);
       const reader = new FileReader();
       reader.addEventListener('load', () => setUpImg(reader.result));
       reader.readAsDataURL(event.target.files[0]);
@@ -65,13 +67,14 @@ const SettingsPhoto: React.FC = () => {
   }, [completedCrop]);
 
   return (
-    <div>
+    <div className={classes.container}>
       <div className={wrapper.profileSettingsWrapper}>
         <p>Image preview</p>
         <div className={classes.previewContainer}>
           <div className={classes.imgUpload}>
-            <AccountCircleIcon className={classes.icon} />
-            <div className={classes.imageContainer}>
+            {displayAccountIcon ? (
+              <AccountCircleIcon className={classes.icon} />
+            ) : (
               <ReactCrop
                 className={classes.image}
                 crop={crop}
@@ -80,7 +83,7 @@ const SettingsPhoto: React.FC = () => {
                 onComplete={(c: any) => setCompletedCrop(c)}
                 onImageLoaded={onLoad}
               />
-            </div>
+            )}
           </div>
           <canvas
             ref={previewCanvasRef}
