@@ -1,0 +1,24 @@
+.previewContainer {
+    padding: 18px;
+    margin-bottom: 20px;
+    border: 1px solid #CACBCC;
+}
+
+.imgUpload {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #F2F3F5;
+    padding: 2px;
+    height: auto;
+}
+
+.icon {
+    font-size: 200px !important;
+    color: #464646;
+}
+
+.image div img {
+    width: 200px;
+}
