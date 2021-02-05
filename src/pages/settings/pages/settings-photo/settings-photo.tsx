@@ -1,28 +1,33 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import wrapper from 'baseScss/components/wrapper.module.scss';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Button from '@material-ui/core/Button';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import ReactCrop from 'react-image-crop';
+import ReactCrop, { Crop } from 'react-image-crop';
 
 import classes from './settings-photo.module.scss';
 
 const SettingsPhoto: React.FC = () => {
-  const [upImg, setUpImg] = useState<string | ArrayBuffer | null>(null);
-  const imgRef = useRef(null);
-  const [crop, setCrop] = useState({ unit: '%', width: 30, aspect: 16 / 9 });
+  const [upImg, setUpImg] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const imgRef = useRef<any>(null);
+  const [crop, setCrop] = useState<Crop>({ unit: '%', width: 30, aspect: 16 / 9 });
   const [displayAccountIcon, setDisplayAccountIcon] = useState(true);
-  const previewCanvasRef = useRef(null);
-  const [completedCrop, setCompletedCrop] = useState(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const previewCanvasRef = useRef<any>(null);
+  const [completedCrop, setCompletedCrop] = useState<Crop>({
+    aspect: 1,
+    x: 1,
+    y: 1,
+    width: 1,
+    height: 1,
+    unit: 'px',
+  });
 
   const onSelectFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
       setDisplayAccountIcon(false);
       const reader = new FileReader();
-      reader.addEventListener('load', () => setUpImg(reader.result));
+      reader.addEventListener('load', () => setUpImg(reader.result as string));
       reader.readAsDataURL(event.target.files[0]);
     }
   };
@@ -32,36 +37,34 @@ const SettingsPhoto: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!completedCrop || !previewCanvasRef.current || !imgRef.current) {
-      return;
-    }
-
-    const image: any = imgRef.current;
-    const canvas: any = previewCanvasRef.current;
-    const crop: any = completedCrop;
-
-    if (image && crop && canvas) {
-      const scaleX = image?.naturalWidth / image?.width;
-      const scaleY = image?.naturalHeight / image?.height;
-      const ctx = canvas.getContext('2d');
+    if (
+      completedCrop.width &&
+      completedCrop.height &&
+      completedCrop.x &&
+      completedCrop.y &&
+      previewCanvasRef.current
+    ) {
+      const scaleX = imgRef.current?.naturalWidth / imgRef.current?.width;
+      const scaleY = imgRef.current?.naturalHeight / imgRef.current?.height;
+      const ctx = previewCanvasRef.current.getContext('2d');
       const pixelRatio = window.devicePixelRatio;
 
-      canvas.width = crop.width * pixelRatio;
-      canvas.height = crop.height * pixelRatio;
+      previewCanvasRef.current.width = completedCrop?.width * pixelRatio;
+      previewCanvasRef.current.height = completedCrop?.height * pixelRatio;
 
       ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
       ctx.imageSmoothingQuality = 'high';
 
       ctx.drawImage(
-        image,
-        crop.x * scaleX,
-        crop.y * scaleY,
-        crop.width * scaleX,
-        crop.height * scaleY,
+        imgRef.current,
+        completedCrop.x * scaleX,
+        completedCrop.y * scaleY,
+        completedCrop.width * scaleX,
+        completedCrop.height * scaleY,
         0,
         0,
-        crop.width,
-        crop.height,
+        completedCrop.width,
+        completedCrop.height,
       );
     }
   }, [completedCrop]);
@@ -79,8 +82,10 @@ const SettingsPhoto: React.FC = () => {
                 className={classes.image}
                 crop={crop}
                 src={upImg}
-                onChange={(c: any) => setCrop(c)}
-                onComplete={(c: any) => setCompletedCrop(c)}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                onChange={(event: any) => setCrop(event)}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                onComplete={(event: any) => setCompletedCrop(event)}
                 onImageLoaded={onLoad}
               />
             )}
