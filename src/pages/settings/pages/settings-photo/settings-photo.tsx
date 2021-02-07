@@ -10,7 +10,7 @@ const SettingsPhoto: React.FC = () => {
   const [upImg, setUpImg] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const imgRef = useRef<any>(null);
-  const [crop, setCrop] = useState<Crop>({ unit: '%', width: 30, aspect: 16 / 9 });
+  const [crop, setCrop] = useState<Crop>({ unit: 'px', width: 10, height: 10 });
   const [displayAccountIcon, setDisplayAccountIcon] = useState(true);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const previewCanvasRef = useRef<any>(null);
@@ -37,34 +37,35 @@ const SettingsPhoto: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (
-      completedCrop.width &&
-      completedCrop.height &&
-      completedCrop.x &&
-      completedCrop.y &&
-      previewCanvasRef.current
-    ) {
-      const scaleX = imgRef.current?.naturalWidth / imgRef.current?.width;
-      const scaleY = imgRef.current?.naturalHeight / imgRef.current?.height;
-      const ctx = previewCanvasRef.current.getContext('2d');
-      const pixelRatio = window.devicePixelRatio;
+    if (!completedCrop || !previewCanvasRef.current || !imgRef.current) {
+      return;
+    }
 
-      previewCanvasRef.current.width = completedCrop?.width * pixelRatio;
-      previewCanvasRef.current.height = completedCrop?.height * pixelRatio;
+    const image = imgRef.current;
+    const canvas = previewCanvasRef.current;
+    const crop = completedCrop;
+    const scaleX = image.naturalWidth / image.width;
+    const scaleY = image.naturalHeight / image.height;
+    const ctx = canvas.getContext('2d');
+    const pixelRatio = window.devicePixelRatio;
+
+    if (crop.width && crop.height && crop.x && crop.y && crop.width && crop.height) {
+      canvas.width = crop.width * pixelRatio;
+      canvas.height = crop.height * pixelRatio;
 
       ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
       ctx.imageSmoothingQuality = 'high';
 
       ctx.drawImage(
-        imgRef.current,
-        completedCrop.x * scaleX,
-        completedCrop.y * scaleY,
-        completedCrop.width * scaleX,
-        completedCrop.height * scaleY,
+        image,
+        crop.x * scaleX,
+        crop.y * scaleY,
+        crop.width * scaleX,
+        crop.height * scaleY,
         0,
         0,
-        completedCrop.width,
-        completedCrop.height,
+        crop.width,
+        crop.height,
       );
     }
   }, [completedCrop]);
