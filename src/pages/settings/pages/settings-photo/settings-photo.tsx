@@ -3,6 +3,7 @@ import wrapper from 'baseScss/components/wrapper.module.scss';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Button from '@material-ui/core/Button';
 import ReactCrop, { Crop } from 'react-image-crop';
+import 'react-image-crop/dist/ReactCrop.css';
 
 import classes from './settings-photo.module.scss';
 
@@ -10,18 +11,11 @@ const SettingsPhoto: React.FC = () => {
   const [upImg, setUpImg] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const imgRef = useRef<any>(null);
-  const [crop, setCrop] = useState<Crop>({ unit: 'px', width: 10, height: 10 });
+  const [crop, setCrop] = useState<Crop>({ unit: '%', width: 75, height: 100 });
   const [displayAccountIcon, setDisplayAccountIcon] = useState(true);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const previewCanvasRef = useRef<any>(null);
-  const [completedCrop, setCompletedCrop] = useState<Crop>({
-    aspect: 1,
-    x: 1,
-    y: 1,
-    width: 1,
-    height: 1,
-    unit: 'px',
-  });
+  const [completedCrop, setCompletedCrop] = useState<Crop>();
 
   const onSelectFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -91,14 +85,14 @@ const SettingsPhoto: React.FC = () => {
               />
             )}
           </div>
-          <canvas
+          {/* <canvas
             ref={previewCanvasRef}
             // Rounding is important so the canvas width and height matches/is a multiple for sharpness.
             style={{
               width: Math.round(completedCrop?.width ?? 0),
               height: Math.round(completedCrop?.height ?? 0),
             }}
-          />
+          /> */}
         </div>
         <p>Add / Change image:</p>
         <Button component="label" variant="contained">
