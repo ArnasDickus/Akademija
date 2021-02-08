@@ -43,7 +43,12 @@ const SettingsPhoto: React.FC = () => {
     const ctx = canvas.getContext('2d');
     const pixelRatio = window.devicePixelRatio;
 
-    if (crop.width && crop.height && crop.x && crop.y && crop.width && crop.height) {
+    if (
+      typeof crop.width !== 'undefined' &&
+      typeof crop.height !== 'undefined' &&
+      typeof crop.x !== 'undefined' &&
+      typeof crop.y !== 'undefined'
+    ) {
       canvas.width = crop.width * pixelRatio;
       canvas.height = crop.height * pixelRatio;
 
