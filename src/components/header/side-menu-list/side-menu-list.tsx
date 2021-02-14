@@ -53,12 +53,12 @@ const SideMenuList: React.FC<Props> = (props) => {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItem className={classes.nested} button>
-            <Link className={classesScss.navLink} to={AllRoutesEnum.PROFILE}>
+            <Link className={classesScss.navLink} to={`/${AllRoutesEnum.PROFILE}`}>
               <ListItemText primary="Learner home" />
             </Link>
           </ListItem>
           <ListItem className={classes.nested} button>
-            <Link className={classesScss.navLink} to={AllRoutesEnum.SETTINGS}>
+            <Link className={classesScss.navLink} to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
               <ListItemText primary="Settings" />
             </Link>
           </ListItem>

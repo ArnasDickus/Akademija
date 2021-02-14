@@ -21,7 +21,7 @@ import CoursesPage from './pages/courses/pages/courses/courses.page';
 import SectionPage from './pages/courses/pages/sections/sections.page';
 import SectionRedirectPage from './pages/courses/pages/section-redirect/section-redirect.page';
 import LearnerHome from './pages/learner-home/learner-home';
-import ProfileSettings from './pages/profile-settings/profile-settings';
+import SettingsTemplate from './pages/settings/settings-template';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 class App extends React.Component<any> {
@@ -107,7 +107,7 @@ class App extends React.Component<any> {
             />
             <Route
               path={`/${AllRoutesEnum.SETTINGS}`}
-              render={() => (!this.props.currentUser ? <Redirect to="/" /> : <ProfileSettings />)}
+              render={() => (!this.props.currentUser ? <Redirect to="/" /> : <SettingsTemplate />)}
             />
           </Switch>
         </div>

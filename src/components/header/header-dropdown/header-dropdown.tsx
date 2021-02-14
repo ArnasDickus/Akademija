@@ -86,12 +86,12 @@ const HeaderDropdown: React.FC = () => {
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                     <MenuItem onClick={handleClose}>
-                      <Link className={classesScss.link} to={AllRoutesEnum.PROFILE}>
+                      <Link className={classesScss.link} to={`/${AllRoutesEnum.PROFILE}`}>
                         Learner home
                       </Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <Link className={classesScss.link} to={AllRoutesEnum.SETTINGS}>
+                      <Link className={classesScss.link} to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
                         Settings
                       </Link>
                     </MenuItem>

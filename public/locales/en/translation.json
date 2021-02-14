@@ -4,7 +4,11 @@
     "academy": "Academy",
     "login": "Login",
     "register": "Register",
-    "logout": "Logout"
+    "logout": "Logout",
+    "profile": "Profile",
+    "photo": "Photo",
+    "account": "Account",
+    "closeAccount": "Close account"
   },
 
   "heroPage": {
@@ -48,9 +52,33 @@
     "passwordMin": "Password should be at least 6 characters",
     "required": "Required",
     "invalidEmail": "Invalid email address",
-    "passwordsNoMatch": "Passwords don't match"
+    "passwordsNoMatch": "Passwords don't match",
+    "displayName": "Display name should be at least 2 characters."
   },
 
+  "profile": {
+    "profileSettings": "Profile Changes",
+    "basicsSection": "Basics",
+    "saveChanges": "Save Changes",
+    "bio": "Bio",
+    "changeEmail": "Change Email",
+    "successMessage": "Data saved successfully",
+    "profileTitle": "Public profile",
+    "profileDescription": "Add information about yourself.",
+    "profilePhoto": "Photo",
+    "profilePhotoDescription": "Add a nice photo of yourself for your profile",
+    "profileAccountTitle": "Account",
+    "profileAccountDescription": "Edit your account settings and change your password here.",
+    "profileCloseAccountTitle": "Close account",
+    "profileCloseAccountDescription": "Close your account permanently."
+  },
+
+  "gender": {
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "other": "Other"
+  },
 
   "footer": {
     "copyright": "Copyright"
