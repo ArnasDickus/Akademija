@@ -1,0 +1,12 @@
+@import 'src/baseScss/global/variables';
+
+.button {
+    all: unset;
+    margin-right: 8px;
+    cursor: pointer;
+    color: $lightBlue;
+
+    &:hover {
+        background-color: $lighterBlue;
+    }
+}
