@@ -11,11 +11,11 @@ const SettingsAccount: React.FC = () => {
         <p className={classes.subtitle}>Add or remove email adresses on your accont</p>
         <p>Email addresses you added:</p>
         <div className={classes.row}>
-          <p>Email address</p>
-          <p>Primary</p>
+          <p className={classes.email}>Email address</p>
+          <p className={classes.email}>Primary</p>
         </div>
 
-        <p>Add Email Adress</p>
+        <button>Add Email Adress</button>
       </div>
     </div>
   );
