@@ -25,14 +25,14 @@ const CloseAccount: React.FC = () => {
   return (
     <div className={classes.container}>
       <div className={wrapper.profileSettingsWrapper}>
-        <p>Close Account</p>
+        <p>{i18n.t('profile.profileCloseAccountTitle')}</p>
         <p>
-          <span className={classes.warn}>Warning:</span> If you close your account, you will be
-          unsubscribed from all your 23 courses, and will lose access forever.
+          <span className={classes.warn}>{i18n.t('profile.warning')}: </span>
+          {i18n.t('profile.warnMsg')}
         </p>
         <div onClick={handleOpen}>
           <Button color="secondary" variant="contained">
-            Close Account
+            {i18n.t('profile.profileCloseAccountTitle')}
           </Button>
         </div>
 
@@ -61,7 +61,7 @@ const CloseAccount: React.FC = () => {
               >
                 {({ setFieldValue, isValid }) => (
                   <Form>
-                    <h2 className={classes.title}>Close account</h2>
+                    <h2 className={classes.title}>{i18n.t('profile.profileCloseAccountTitle')}</h2>
                     <p>{i18n.t('profile.securityMsg')}</p>
                     <TextField
                       className={classes.InputEmail}
@@ -86,7 +86,7 @@ const CloseAccount: React.FC = () => {
                         type="submit"
                         variant="contained"
                       >
-                        Close Account
+                        {i18n.t('profile.profileCloseAccountTitle')}
                       </Button>
                     </div>
                   </Form>

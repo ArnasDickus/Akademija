@@ -80,7 +80,9 @@
     "currentPassword": "Dabartinis slaptažodis",
     "cancel": "Atšaukti",
     "sendVerification": "Siųsti patvirtinimą.",
-    "checkEmail": "Pasitikrinkite el. paštą"
+    "checkEmail": "Pasitikrinkite el. paštą",
+    "warning": "Įspėjimas",
+     "warnMsg": "Jeigu uždarysi paskyra prarasi priėjimą amžiams."
   },
 
   "gender": {
