@@ -80,7 +80,9 @@
     "currentPassword": "Current Password",
     "cancel": "Cancel",
     "sendVerification": "Send verfication",
-    "checkEmail": "Check Email"
+    "checkEmail": "Check Email",
+    "warning": "Warning",
+    "warnMsg": "If you close your account, you will lose access forever."
   },
 
   "gender": {
