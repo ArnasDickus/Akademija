@@ -87,7 +87,13 @@ const SettingsAccount: React.FC = () => {
                     >
                       {i18n.t('profile.cancel')}
                     </Button>
-                    <Button color="primary" disabled={!isValid} type="submit" variant="contained">
+                    <Button
+                      className={classes.submit}
+                      color="primary"
+                      disabled={!isValid}
+                      type="submit"
+                      variant="contained"
+                    >
                       {i18n.t('profile.sendVerification')}
                     </Button>
 

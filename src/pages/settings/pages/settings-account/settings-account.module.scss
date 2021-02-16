@@ -1,4 +1,5 @@
 @import 'src/baseScss/global/variables';
+@import 'src/baseScss/global/mixins';
 
 .container {
     border: 1px solid $settingsBorder;
@@ -41,6 +42,9 @@
 
 .cancel {
     margin-right: 20px !important;
+    @include atVeryVerySmall() {
+        margin-bottom: 20px !important;
+    }
 }
 
 .invalidFeedback {

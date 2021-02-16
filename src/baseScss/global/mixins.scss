@@ -5,6 +5,12 @@
     @content;
   }
 }
+// 347px;
+@mixin atVeryVerySmall {
+  @media (max-width: 21.68em) {
+    @content;
+  }
+}
 
 // 464px;
 @mixin atVerySmall {
