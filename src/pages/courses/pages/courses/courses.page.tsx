@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Categories } from 'core/fake-data/categories';
-import CategoryTitle from 'components/category-title/category-title';
+import CategoryTitle from 'components/shared/category-title/category-title';
 import CoursesCard from 'components/category-card/category-card';
 import wrapper from 'baseScss/components/wrapper.module.scss';
 import { CoursesType } from 'core/types/categories.types';
