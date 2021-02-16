@@ -77,16 +77,10 @@ const CloseAccount: React.FC = () => {
                     />
 
                     <div className={classes.formButtons}>
-                      <Button
-                        className={classes.cancel}
-                        type="button"
-                        variant="contained"
-                        onClick={handleClose}
-                      >
+                      <Button type="button" variant="contained" onClick={handleClose}>
                         {i18n.t('profile.cancel')}
                       </Button>
                       <Button
-                        className={classes.submit}
                         color="secondary"
                         disabled={!isValid}
                         type="submit"
