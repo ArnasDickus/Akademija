@@ -27,16 +27,16 @@ const SettingsAccount: React.FC = () => {
   return (
     <div className={classes.container}>
       <div className={wrapper.profileSettingsWrapper}>
-        <h2 className={classes.title}>Email Address</h2>
-        <p className={classes.subtitle}>Add or remove email adresses on your accont</p>
-        <p>Email addresses you added:</p>
+        <h2 className={classes.title}>{i18n.t('profile.emailAddress')}</h2>
+        <p className={classes.subtitle}>{i18n.t('profile.addRemoveEmail')}</p>
+        <p>{i18n.t('profile.addedEmails')}</p>
         <div className={classes.row}>
-          <p className={classes.email}>Email address</p>
-          <p className={classes.email}>Primary</p>
+          <p className={classes.email}>{i18n.t('profile.emailAddress')}</p>
+          <p className={classes.email}>{i18n.t('profile.primary')}</p>
         </div>
         {!displayEmail ? (
           <div className={classes.buttonContainer} onClick={() => openEmail()}>
-            <ButtonLink>Add Email Address</ButtonLink>
+            <ButtonLink>{i18n.t('profile.addEmail')}</ButtonLink>
           </div>
         ) : (
           <div>
@@ -52,28 +52,26 @@ const SettingsAccount: React.FC = () => {
               })}
               onSubmit={(values) => {
                 setVerficationSent(true);
-
+                // eslint-disable-next-line no-console
+                console.log(values);
                 setTimeout(() => {
                   setVerficationSent(false);
                 }, 5000);
-                console.log(values, 'values');
               }}
             >
               {({ setFieldValue, resetForm, isValid }) => (
                 <Form className={classes.formContainer}>
                   <TextField
                     className={classes.InputEmail}
-                    label="Email address"
+                    label={i18n.t('profile.emailAddress')}
                     name="email"
                     onChange={(event) => setFieldValue('email', event.target.value)}
                   />
                   <ErrorMessage className={classes.invalidFeedback} component="div" name="email" />
-                  <p className={classes.securityWarning}>
-                    For your security, enter your password to make this change
-                  </p>
+                  <p className={classes.securityWarning}>{i18n.t('profile.securityMsg')}</p>
                   <TextField
                     className={classes.InputEmail}
-                    label="Current password"
+                    label={i18n.t('profile.currentPassword')}
                     name="password"
                     type="password"
                     onChange={(event) => setFieldValue('password', event.target.value)}
@@ -87,13 +85,13 @@ const SettingsAccount: React.FC = () => {
                       variant="contained"
                       onClick={() => toggleEmail(resetForm)}
                     >
-                      Cancel
+                      {i18n.t('profile.cancel')}
                     </Button>
                     <Button color="primary" disabled={!isValid} type="submit" variant="contained">
-                      Send verification
+                      {i18n.t('profile.sendVerification')}
                     </Button>
 
-                    {verificationSent ? <p>Check your email</p> : ''}
+                    {verificationSent ? <p>{i18n.t('profile.checkEmail')}</p> : ''}
                   </div>
                 </Form>
               )}
