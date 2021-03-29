@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { withRouter, useLocation } from 'react-router-dom';
 import { Categories } from 'core/fake-data/categories';
 import { CoursesType } from 'core/types/categories.types';
 // TODO Remove TS-ignore
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import getVideoId from 'get-video-id';
+// import getVideoId from 'get-video-id';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const SectionRedirectPage: React.FC<any> = (props) => {
+const SectionRedirectPage: React.FC<any> = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [singleCourse, setSingleCourse] = useState<CoursesType>([] as any);
-  const location = useLocation();
 
   useEffect(() => {
     const fullUrl = window.location.href;
@@ -24,10 +22,10 @@ const SectionRedirectPage: React.FC<any> = (props) => {
         if (Categories[i].courses[j].url === id) {
           setSingleCourse(Categories[i].courses[j]);
 
-          if (singleCourse?.sections?.length) {
-            const urlLinkTest = getVideoId(singleCourse.sections[0].lessons[0].url).id;
-            props.history.push(`${location.pathname}/${urlLinkTest}`);
-          }
+          // if (singleCourse?.sections?.length) {
+          //   const urlLinkTest = getVideoId(singleCourse.sections[0].lessons[0].url).id;
+          //   props.history.push(`${location.pathname}/${urlLinkTest}`);
+          // }
         }
       }
     }
@@ -36,4 +34,4 @@ const SectionRedirectPage: React.FC<any> = (props) => {
   return <React.Fragment />;
 };
 
-export default withRouter(SectionRedirectPage);
+export default SectionRedirectPage;

@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import CustomButton from 'components/shared/custom-button/custom-button.component';
 import { auth, signInWithGoogle } from 'firebase/firebase.utils';
-import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import FormInput from 'components/shared/form-input/form-input.component';
 import ErrorComponent from 'components/shared/error-message/error-message.component';
 import { useTranslation } from 'react-i18next';
-import AllRoutesEnum from 'core/enums/allRoutes.enum';
+// import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import wrapper from 'baseScss/components/wrapper.module.scss';
 
 import classes from './login.module.scss';
@@ -62,9 +61,9 @@ const LoginPage: React.FC = () => {
             </div>
 
             <div className={classes.linkContainer}>
-              <Link className={classes.link} to={`${AllRoutesEnum.FORGOT_PASSWORD}`}>
+              {/* <Link className={classes.link} to={`${AllRoutesEnum.FORGOT_PASSWORD}`}>
                 {t('login.forgotPassword')}
-              </Link>
+              </Link> */}
             </div>
           </Form>
         </Formik>

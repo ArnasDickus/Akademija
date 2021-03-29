@@ -8,9 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SearchBar from 'components/ui/search-bar/search-bar.component';
 import CourseOverview from 'components/course-overview/course-overview';
 import CourseQuestionsAnswers from 'components/course-q&a/courseQ&A';
-import { useHistory } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
-import AllRoutesEnum from 'core/enums/allRoutes.enum';
+// import AllRoutesEnum from 'core/enums/allRoutes.enum';
 
 type TabPanelProps = {
   children?: React.ReactNode;
@@ -43,24 +41,24 @@ function a11yProps(index: number) {
 
 const Carousel: React.FC = () => {
   const [value, setValue] = useState(0);
-  const location = useLocation();
-  const history = useHistory();
+  // const location = useLocation();
+  // const history = useHistory();
 
   const handleChange = (event: React.ChangeEvent<unknown>, newValue: number) => {
     setValue(newValue);
   };
 
   const matchTabToHash = () => {
-    if (location.hash === AllRoutesEnum.SEARCHHASH) {
-      setValue(0);
-    } else if (location.hash === AllRoutesEnum.OVERVIEWHASH) {
-      setValue(1);
-    } else if (location.hash === AllRoutesEnum.QAHASH) {
-      setValue(2);
-    } else if (location.hash === '') {
-      history.push({ hash: AllRoutesEnum.OVERVIEWHASH });
-      setValue(1);
-    }
+    // if (location.hash === AllRoutesEnum.SEARCHHASH) {
+    //   setValue(0);
+    // } else if (location.hash === AllRoutesEnum.OVERVIEWHASH) {
+    //   setValue(1);
+    // } else if (location.hash === AllRoutesEnum.QAHASH) {
+    //   setValue(2);
+    // } else if (location.hash === '') {
+    //   // history.push({ hash: AllRoutesEnum.OVERVIEWHASH });
+    //   setValue(1);
+    // }
   };
 
   useEffect(() => {
@@ -73,17 +71,17 @@ const Carousel: React.FC = () => {
         <Tabs indicatorColor="primary" textColor="primary" value={value} onChange={handleChange}>
           <Tab
             label={<FontAwesomeIcon icon={faSearch} />}
-            onClick={() => history.push({ hash: AllRoutesEnum.SEARCHHASH })}
+            // onClick={() => history.push({ hash: AllRoutesEnum.SEARCHHASH })}
             {...a11yProps(0)}
           />
           <Tab
             label="Overview"
-            onClick={() => history.push({ hash: AllRoutesEnum.OVERVIEWHASH })}
+            // onClick={() => history.push({ hash: AllRoutesEnum.OVERVIEWHASH })}
             {...a11yProps(1)}
           />
           <Tab
             label="Q&A"
-            onClick={() => history.push({ hash: AllRoutesEnum.QAHASH })}
+            // onClick={() => history.push({ hash: AllRoutesEnum.QAHASH })}
             {...a11yProps(2)}
           />
         </Tabs>

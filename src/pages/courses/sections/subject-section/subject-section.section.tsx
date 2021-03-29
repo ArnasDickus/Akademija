@@ -7,10 +7,9 @@ import { CourseSectionType } from 'core/types/categories.types';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import getVideoId from 'get-video-id';
-import { useHistory, useLocation } from 'react-router-dom';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
-import AllRoutesEnum from 'core/enums/allRoutes.enum';
+// import AllRoutesEnum from 'core/enums/allRoutes.enum';
 
 import classes from './subject-section.module.scss';
 
@@ -58,8 +57,8 @@ const SubjectSections: React.FC<Props> = ({
   const [isLessonSelected, selectLesson] = useState(false);
   const [lessonId, setLessonId] = useState('');
   const [testId, setTestId] = useState('');
-  const history = useHistory();
-  const location = useLocation();
+  // const history = useHistory();
+  // const location = useLocation();
 
   const handleInitialLesson = () => {
     tests?.forEach((test) => {
@@ -88,47 +87,51 @@ const SubjectSections: React.FC<Props> = ({
   };
 
   const changeUrlToLesson = (lessonUrl: string) => {
-    const baseurl = location.pathname.replace(new RegExp('(.*/)[^/]+$'), '$1');
+    // eslint-disable-next-line no-console
+    console.log(lessonUrl, 'test id');
+    // const baseurl = location.pathname.replace(new RegExp('(.*/)[^/]+$'), '$1');
 
-    const shortUrl = getVideoId(lessonUrl).id;
+    // const shortUrl = getVideoId(lessonUrl).id;
 
-    if (location.hash === AllRoutesEnum.SEARCHHASH) {
-      history.push({
-        pathname: `${baseurl}${shortUrl}`,
-        hash: AllRoutesEnum.SEARCHHASH,
-      });
-    } else if (location.hash === AllRoutesEnum.OVERVIEWHASH) {
-      history.push({
-        pathname: `${baseurl}${shortUrl}`,
-        hash: AllRoutesEnum.OVERVIEWHASH,
-      });
-    } else if (location.hash === AllRoutesEnum.QAHASH) {
-      history.push({
-        pathname: `${baseurl}${shortUrl}`,
-        hash: AllRoutesEnum.QAHASH,
-      });
-    }
+    // if (location.hash === AllRoutesEnum.SEARCHHASH) {
+    //   history.push({
+    //     pathname: `${baseurl}${shortUrl}`,
+    //     hash: AllRoutesEnum.SEARCHHASH,
+    //   });
+    // } else if (location.hash === AllRoutesEnum.OVERVIEWHASH) {
+    //   history.push({
+    //     pathname: `${baseurl}${shortUrl}`,
+    //     hash: AllRoutesEnum.OVERVIEWHASH,
+    //   });
+    // } else if (location.hash === AllRoutesEnum.QAHASH) {
+    //   history.push({
+    //     pathname: `${baseurl}${shortUrl}`,
+    //     hash: AllRoutesEnum.QAHASH,
+    //   });
+    // }
   };
 
   const changeUrlToTest = (testId: string) => {
-    const baseurl = location.pathname.replace(new RegExp('(.*/)[^/]+$'), '$1');
+    // eslint-disable-next-line no-console
+    console.log(testId, 'test id');
+    // const baseurl = location.pathname.replace(new RegExp('(.*/)[^/]+$'), '$1');
 
-    if (location.hash === AllRoutesEnum.SEARCHHASH) {
-      history.push({
-        pathname: `${baseurl}${testId}`,
-        hash: AllRoutesEnum.SEARCHHASH,
-      });
-    } else if (location.hash === AllRoutesEnum.OVERVIEWHASH) {
-      history.push({
-        pathname: `${baseurl}${testId}`,
-        hash: AllRoutesEnum.OVERVIEWHASH,
-      });
-    } else if (location.hash === AllRoutesEnum.QAHASH) {
-      history.push({
-        pathname: `${baseurl}${testId}`,
-        hash: AllRoutesEnum.QAHASH,
-      });
-    }
+    // if (location.hash === AllRoutesEnum.SEARCHHASH) {
+    //   history.push({
+    //     pathname: `${baseurl}${testId}`,
+    //     hash: AllRoutesEnum.SEARCHHASH,
+    //   });
+    // } else if (location.hash === AllRoutesEnum.OVERVIEWHASH) {
+    //   history.push({
+    //     pathname: `${baseurl}${testId}`,
+    //     hash: AllRoutesEnum.OVERVIEWHASH,
+    //   });
+    // } else if (location.hash === AllRoutesEnum.QAHASH) {
+    //   history.push({
+    //     pathname: `${baseurl}${testId}`,
+    //     hash: AllRoutesEnum.QAHASH,
+    //   });
+    // }
   };
 
   const handleLessonClick = (lessonUrl: string, lessonId: string, currentSectionId: string) => {

@@ -8,8 +8,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { useTranslation } from 'react-i18next';
 import { auth } from 'firebase/firebase.utils';
-import { Link } from 'react-router-dom';
-import AllRoutesEnum from 'core/enums/allRoutes.enum';
+// import AllRoutesEnum from 'core/enums/allRoutes.enum';
 
 import classesScss from './side-menu-list.module.scss';
 
@@ -53,14 +52,14 @@ const SideMenuList: React.FC<Props> = (props) => {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItem className={classes.nested} button>
-            <Link className={classesScss.navLink} to={`/${AllRoutesEnum.PROFILE}`}>
+            {/* <Link className={classesScss.navLink} to={`/${AllRoutesEnum.PROFILE}`}>
               <ListItemText primary="Learner home" />
-            </Link>
+            </Link> */}
           </ListItem>
           <ListItem className={classes.nested} button>
-            <Link className={classesScss.navLink} to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
+            {/* <Link className={classesScss.navLink} to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
               <ListItemText primary="Settings" />
-            </Link>
+            </Link> */}
           </ListItem>
           <ListItem className={classes.nested} button onClick={() => logOut()}>
             <span className={classesScss.navLink}>

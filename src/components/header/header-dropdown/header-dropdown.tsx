@@ -9,8 +9,7 @@ import MenuList from '@material-ui/core/MenuList';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import { auth } from 'firebase/firebase.utils';
-import AllRoutesEnum from 'core/enums/allRoutes.enum';
-import { Link } from 'react-router-dom';
+// import AllRoutesEnum from 'core/enums/allRoutes.enum';
 
 import classesScss from './header-dropdown.module.scss';
 
@@ -86,14 +85,14 @@ const HeaderDropdown: React.FC = () => {
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                     <MenuItem onClick={handleClose}>
-                      <Link className={classesScss.link} to={`/${AllRoutesEnum.PROFILE}`}>
+                      {/* <Link className={classesScss.link} to={`/${AllRoutesEnum.PROFILE}`}>
                         Learner home
-                      </Link>
+                      </Link> */}
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <Link className={classesScss.link} to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
+                      {/* <Link className={classesScss.link} to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
                         Settings
-                      </Link>
+                      </Link> */}
                     </MenuItem>
                     <MenuItem onClick={handleLogOut}>
                       <span className={classesScss.link}>{t('header.logout')}</span>

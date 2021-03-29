@@ -1,27 +1,26 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { Unsubscribe } from 'redux';
 import { FirebaseUserType } from 'redux/user/user.types';
 
 import Header from './components/header/header.component';
-import Home from './pages/home/home.page';
-import Login from './pages/login/login.page';
-import Register from './pages/register/register.page';
+// import Home from './pages/home/home.page';
+// import Login from './pages/login/login.page';
+// import Register from './pages/register/register.page';
 import Footer from './components/footer/footer.component';
-import ForgotPasswordPage from './pages/forgot-password/forgot-password.page';
+// import ForgotPasswordPage from './pages/forgot-password/forgot-password.page';
 import classes from './App.module.scss';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { selectCurrentUser } from './redux/user/user.selector';
 import { setCurrentUser } from './redux/user/user.actions';
-import AllRoutesEnum from './core/enums/allRoutes.enum';
-import CategoriesPage from './pages/courses/pages/categories/categories.page';
-import CoursesPage from './pages/courses/pages/courses/courses.page';
-import SectionPage from './pages/courses/pages/sections/sections.page';
-import SectionRedirectPage from './pages/courses/pages/section-redirect/section-redirect.page';
-import LearnerHome from './pages/learner-home/learner-home';
-import SettingsTemplate from './pages/settings/settings-template';
+// import AllRoutesEnum from './core/enums/allRoutes.enum';
+// import CategoriesPage from './pages/courses/pages/categories/categories.page';
+// import CoursesPage from './pages/courses/pages/courses/courses.page';
+// import SectionPage from './pages/courses/pages/sections/sections.page';
+// import SectionRedirectPage from './pages/courses/pages/section-redirect/section-redirect.page';
+// import LearnerHome from './pages/learner-home/learner-home';
+// import SettingsTemplate from './pages/settings/settings-template';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 class App extends React.Component<any> {
@@ -59,7 +58,7 @@ class App extends React.Component<any> {
       <div className={classes.site}>
         <Header />
         <div className={classes.siteContent}>
-          <Switch>
+          {/* <Switch>
             <Route
               path="/"
               render={() =>
@@ -109,7 +108,7 @@ class App extends React.Component<any> {
               path={`/${AllRoutesEnum.SETTINGS}`}
               render={() => (!this.props.currentUser ? <Redirect to="/" /> : <SettingsTemplate />)}
             />
-          </Switch>
+          </Switch> */}
         </div>
         <Footer />
       </div>

@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from 'redux/user/user.selector';
 import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { ReactComponent as LTSvg } from 'assets/lt.svg';
 import { ReactComponent as GBSvg } from 'assets/gb.svg';
 import LanguagesEnum from 'core/enums/languages.enum';
-import AllRoutesEnum from 'core/enums/allRoutes.enum';
+// import AllRoutesEnum from 'core/enums/allRoutes.enum';
 
 import SideMenuList from '../side-menu-list/side-menu-list';
 
@@ -21,10 +20,12 @@ type Props = {
 };
 
 const SideMenu: React.FC<Props> = (props) => {
-  const { t, i18n } = useTranslation();
+  // const { t, i18n } = useTranslation();
 
   const changeLanguage = (lng: string): void => {
-    i18n.changeLanguage(lng);
+    // eslint-disable-next-line no-console
+    console.log(lng, 'lng');
+    // i18n.changeLanguage(lng);
   };
 
   const closeMenu = () => {
@@ -36,7 +37,7 @@ const SideMenu: React.FC<Props> = (props) => {
     <aside>
       <div className={classes.sideMenu}>
         <div className={classes.card2}>
-          <Link
+          {/* <Link
             className={classes.navLink}
             to={`${AllRoutesEnum.COURSES}`}
             onClick={() => closeMenu()}
@@ -45,7 +46,7 @@ const SideMenu: React.FC<Props> = (props) => {
           </Link>
           <Link className={classes.navLink} to="/" onClick={() => closeMenu()}>
             {t('header.academy')}
-          </Link>
+          </Link> */}
         </div>
 
         {props.currentUser ? (
@@ -54,7 +55,7 @@ const SideMenu: React.FC<Props> = (props) => {
           </div>
         ) : (
           <div className={classes.card}>
-            <Link
+            {/* <Link
               className={classes.navLink}
               to={`/${AllRoutesEnum.LOGIN}`}
               onClick={() => closeMenu()}
@@ -67,7 +68,7 @@ const SideMenu: React.FC<Props> = (props) => {
               onClick={() => closeMenu()}
             >
               {t('header.register')}
-            </Link>
+            </Link> */}
           </div>
         )}
 
