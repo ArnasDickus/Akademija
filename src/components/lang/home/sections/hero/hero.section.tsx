@@ -1,9 +1,9 @@
+import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import Image from 'next/image';
 
-import * as SC from './hero.styled';
 import classes from './hero.module.scss';
+import * as SC from './hero.styled';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();

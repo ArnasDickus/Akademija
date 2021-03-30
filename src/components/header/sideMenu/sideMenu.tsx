@@ -1,15 +1,14 @@
-import React from 'react';
-import { createStructuredSelector } from 'reselect';
-import { selectCurrentUser } from 'redux/user/user.selector';
-import { connect } from 'react-redux';
+import { ReactComponent as GBSvg } from 'assets/gb.svg';
 // import { useTranslation } from 'react-i18next';
 import { ReactComponent as LTSvg } from 'assets/lt.svg';
-import { ReactComponent as GBSvg } from 'assets/gb.svg';
 import LanguagesEnum from 'core/enums/languages.enum';
+import React from 'react';
+import { connect } from 'react-redux';
+import { selectCurrentUser } from 'redux/user/user.selector';
+import { createStructuredSelector } from 'reselect';
+
 // import AllRoutesEnum from 'core/enums/allRoutes.enum';
-
 import SideMenuList from '../side-menu-list/side-menu-list';
-
 import classes from './sideMenu.module.scss';
 
 type Props = {
