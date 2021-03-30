@@ -1,0 +1,69 @@
+@import 'src/baseScss/global/variables';
+@import 'src/baseScss/global/mixins';
+
+.row {
+  display: flex;
+  margin-bottom: 20px;
+
+  @include atSmall() {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.courseCollections {
+  margin-bottom: 50px;
+}
+
+.title {
+  color: $mainBlue;
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.root {
+  width: 100%;
+  height: 100%;
+  margin-right: 20px;
+
+  @include atSmall() {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.actionArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 300px;
+}
+
+.media {
+  width: 100%;
+  height: 130px;
+
+  @include atMedium() {
+    width: 100%;
+    height: 100px;
+  }
+
+  @include atSmall() {
+    width: 100%;
+    height: 100px;
+  }
+}
+
+.content {
+  width: 100%;
+}
+
+.cardLink {
+  color: #000;
+}
