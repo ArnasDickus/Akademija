@@ -23,9 +23,13 @@ const Hamburger: React.FC<Props> = (props) => {
     <div className={classes.hamburger}>
       <span className={classes.title}>{t('header.academy')}</span>
       {props.hamburger ? (
-        <FontAwesomeIcon icon={faTimes} onClick={handleClick} />
+        <>
+          <FontAwesomeIcon icon={faTimes} onClick={handleClick} />
+        </>
       ) : (
-        <FontAwesomeIcon icon={faBars} onClick={handleClick} />
+        <>
+          <FontAwesomeIcon icon={faBars} onClick={handleClick} />
+        </>
       )}
     </div>
   );

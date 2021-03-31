@@ -1,8 +1,35 @@
+import 'styles/global-styles.css';
+
 import { AppProps } from 'next/app';
+import Head from 'next/head';
 import React from 'react';
 
+const fontsLinks = [
+  { from: '/public/fonts/roboto/Roboto-Black.ttf' },
+  { from: '/public/fonts/roboto/Roboto-BlackItalic.ttf' },
+  { from: '/public/fonts/roboto/Roboto-Bold.ttf' },
+  { from: '/public/fonts/roboto/Roboto-BoldItalic.ttf' },
+  { from: '/public/fonts/roboto/Roboto-Italic.ttf' },
+  { from: '/public/fonts/roboto/Roboto-Light.ttf' },
+  { from: '/public/fonts/roboto/Roboto-LightItalic.ttf' },
+  { from: '/public/fonts/roboto/Roboto-Medium.ttf' },
+  { from: '/public/fonts/roboto/Roboto-MediumItalic.ttf' },
+  { from: '/public/fonts/roboto/Roboto-Regular.ttf' },
+  { from: '/public/fonts/roboto/Roboto-Thin.ttf' },
+  { from: '/public/fonts/roboto/Roboto-ThinItalic.ttf' },
+];
+
 export const _app = ({ Component, pageProps }: AppProps): JSX.Element => {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head>
+        {fontsLinks?.map((font) => {
+          return <link key={font?.from} as="font" crossOrigin="" href={font?.from} rel="preload" />;
+        })}
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 };
 
 export default _app;
