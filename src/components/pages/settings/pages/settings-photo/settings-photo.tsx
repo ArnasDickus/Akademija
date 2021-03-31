@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import wrapper from 'baseScss/components/wrapper.module.scss';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import Button from '@material-ui/core/Button';
 import 'react-image-crop/dist/ReactCrop.css';
-import SuccessComponent from 'components/success-message/success-message.component';
+
+import Button from '@material-ui/core/Button';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import wrapper from 'baseScss/components/wrapper.module.scss';
 import CustomButton from 'components/shared/custom-button/custom-button.component';
+import SuccessComponent from 'components/success-message/success-message.component';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import classes from './settings-photo.module.scss';

@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import SearchBar from 'components/ui/search-bar/search-bar.component';
+import Box from '@material-ui/core/Box';
+import Paper from '@material-ui/core/Paper';
+import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
 import CourseOverview from 'components/course-overview/course-overview';
 import CourseQuestionsAnswers from 'components/course-q&a/courseQ&A';
+import SearchBar from 'components/ui/search-bar/search-bar.component';
+import React, { useEffect, useState } from 'react';
 // import AllRoutesEnum from 'core/enums/allRoutes.enum';
 
 type TabPanelProps = {

@@ -1,7 +1,7 @@
 import React from 'react';
+
 // import AllRoutesEnum from 'core/enums/allRoutes.enum';
 // import { useTranslation } from 'react-i18next';
-
 import classes from './settings-navbar.module.scss';
 
 const SettingsNavbar: React.FC = () => {

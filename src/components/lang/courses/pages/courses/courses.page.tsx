@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Categories } from 'core/fake-data/categories';
-import CategoryTitle from 'components/shared/category-title/category-title';
-import CoursesCard from 'components/category-card/category-card';
 import wrapper from 'baseScss/components/wrapper.module.scss';
+import CoursesCard from 'components/category-card/category-card';
+import CategoryTitle from 'components/shared/category-title/category-title';
+import { Categories } from 'core/fake-data/categories';
 import { CoursesType } from 'core/types/categories.types';
+import React, { useEffect, useState } from 'react';
 
 const CoursesPage: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

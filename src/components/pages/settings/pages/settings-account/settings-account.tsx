@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import wrapper from 'baseScss/components/wrapper.module.scss';
-import ButtonLink from 'components/shared/button-link/button-link';
-import * as Yup from 'yup';
-import { useTranslation } from 'react-i18next';
-import { Formik, Form, ErrorMessage } from 'formik';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import wrapper from 'baseScss/components/wrapper.module.scss';
+import ButtonLink from 'components/shared/button-link/button-link';
+import { ErrorMessage, Form, Formik } from 'formik';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import * as Yup from 'yup';
 
 import classes from './settings-account.module.scss';
 

@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { selectCurrentUser } from 'redux/user/user.selector';
-import { ReactComponent as LTSvg } from 'assets/lt.svg';
-import { ReactComponent as GBSvg } from 'assets/gb.svg';
+import wrapper from 'baseScss/components/wrapper.module.scss';
 // import { useTranslation } from 'react-i18next';
 // import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import LanguagesEnum from 'core/enums/languages.enum';
-import wrapper from 'baseScss/components/wrapper.module.scss';
+import Image from 'next/image';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { selectCurrentUser } from 'redux/user/user.selector';
+import { createStructuredSelector } from 'reselect';
 
-import HeaderDropdown from './header-dropdown/header-dropdown';
-import SideMenu from './sideMenu/sideMenu';
 import Hamburger from './hamburger/hamburger.component';
 import classes from './header.module.scss';
+import HeaderDropdown from './header-dropdown/header-dropdown';
+import SideMenu from './sideMenu/sideMenu';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Header: React.FC<any> = (props) => {
@@ -61,19 +60,33 @@ const Header: React.FC<any> = (props) => {
                 </span>
 
                 <span className={classes.paddingR}>
-                  <LTSvg
+                  <Image
+                    alt="LT"
+                    height={20}
+                    src="/assets/lt.svg"
+                    width={40}
+                    onClick={() => changeLanguage(LanguagesEnum.LT)}
+                  />
+                  {/* <LTSvg
                     height="20px"
                     width="40px"
                     onClick={() => changeLanguage(LanguagesEnum.LT)}
-                  />
+                  /> */}
                 </span>
 
                 <span>
-                  <GBSvg
+                  <Image
+                    alt="GB"
+                    height={20}
+                    src="/assets/gb.svg"
+                    width={40}
+                    onClick={() => changeLanguage(LanguagesEnum.EN)}
+                  />
+                  {/* <GBSvg
                     height="20px"
                     width="40px"
                     onClick={() => changeLanguage(LanguagesEnum.EN)}
-                  />
+                  /> */}
                 </span>
               </React.Fragment>
             ) : (
@@ -87,19 +100,33 @@ const Header: React.FC<any> = (props) => {
                 </Link> */}
 
                 <span className={classes.paddingR}>
-                  <LTSvg
+                  <Image
+                    alt="LT"
+                    height={20}
+                    src="/assets/lt.svg"
+                    width={40}
+                    onClick={() => changeLanguage(LanguagesEnum.LT)}
+                  />
+                  {/* <LTSvg
                     height="20px"
                     width="40px"
                     onClick={() => changeLanguage(LanguagesEnum.LT)}
-                  />
+                  /> */}
                 </span>
 
                 <span>
-                  <GBSvg
+                  <Image
+                    alt="GB"
+                    height={20}
+                    src="/assets/gb.svg"
+                    width={40}
+                    onClick={() => changeLanguage(LanguagesEnum.EN)}
+                  />
+                  {/* <GBSvg
                     height="20px"
                     width="40px"
                     onClick={() => changeLanguage(LanguagesEnum.EN)}
-                  />
+                  /> */}
                 </span>
               </React.Fragment>
             )}

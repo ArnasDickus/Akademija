@@ -1,5 +1,5 @@
-import React from 'react';
 import HeroImage from 'assets/hero.jpg';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import classes from './hero.module.scss';

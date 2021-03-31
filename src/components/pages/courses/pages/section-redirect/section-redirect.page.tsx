@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import { Categories } from 'core/fake-data/categories';
 import { CoursesType } from 'core/types/categories.types';
+import React, { useEffect, useState } from 'react';
 // TODO Remove TS-ignore
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

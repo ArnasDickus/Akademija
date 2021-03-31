@@ -1,13 +1,13 @@
-import React from 'react';
-import wrapper from 'baseScss/components/wrapper.module.scss';
-import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
-import { Formik, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { useTranslation } from 'react-i18next';
+import Fade from '@material-ui/core/Fade';
+import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
+import wrapper from 'baseScss/components/wrapper.module.scss';
+import { ErrorMessage, Form, Formik } from 'formik';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import * as Yup from 'yup';
 
 import classes from './settings-close-account.module.scss';
 const CloseAccount: React.FC = () => {

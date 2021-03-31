@@ -1,9 +1,9 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
 import wrapper from 'baseScss/components/wrapper.module.scss';
+import CategoryTitle from 'components/shared/category-title/category-title';
 import { Categories } from 'core/fake-data/categories';
 import { CategoriesType } from 'core/types/categories.types';
-import CategoryTitle from 'components/shared/category-title/category-title';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import CourseCollections from '../../sections/courses-collection/courses-collection.section';
 

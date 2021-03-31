@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import wrapper from 'baseScss/components/wrapper.module.scss';
-import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
-import { useTranslation } from 'react-i18next';
-import CustomButton from 'components/shared/custom-button/custom-button.component';
-import FormInput from 'components/shared/form-input/form-input.component';
-import ErrorComponent from 'components/shared/error-message/error-message.component';
-import SelectComponent from 'components/ui/select/select.component';
-import DatePicker from 'components/ui/date-picker/date-picker.component';
 import TextField from '@material-ui/core/TextField';
+import wrapper from 'baseScss/components/wrapper.module.scss';
+import CustomButton from 'components/shared/custom-button/custom-button.component';
+import ErrorComponent from 'components/shared/error-message/error-message.component';
+import FormInput from 'components/shared/form-input/form-input.component';
 import SuccessComponent from 'components/success-message/success-message.component';
+import DatePicker from 'components/ui/date-picker/date-picker.component';
+import SelectComponent from 'components/ui/select/select.component';
+import { Form, Formik } from 'formik';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import * as Yup from 'yup';
 
 import classes from './settings-profile.module.scss';
 

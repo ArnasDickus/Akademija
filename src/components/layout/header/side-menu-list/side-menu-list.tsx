@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import Collapse from '@material-ui/core/Collapse';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import { useTranslation } from 'react-i18next';
 import { auth } from 'firebase/firebase.utils';
-// import AllRoutesEnum from 'core/enums/allRoutes.enum';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
+// import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import classesScss from './side-menu-list.module.scss';
 
 const useStyles = makeStyles((theme: Theme) =>

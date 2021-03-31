@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import CustomButton from 'components/shared/custom-button/custom-button.component';
-import { auth } from 'firebase/firebase.utils';
-import * as Yup from 'yup';
-import { Form, Formik } from 'formik';
-import FormInput from 'components/shared/form-input/form-input.component';
-import ErrorComponent from 'components/shared/error-message/error-message.component';
-import SuccessComponent from 'components/success-message/success-message.component';
-import { useTranslation } from 'react-i18next';
 import wrapper from 'baseScss/components/wrapper.module.scss';
+import CustomButton from 'components/shared/custom-button/custom-button.component';
+import ErrorComponent from 'components/shared/error-message/error-message.component';
+import FormInput from 'components/shared/form-input/form-input.component';
+import SuccessComponent from 'components/success-message/success-message.component';
+import { auth } from 'firebase/firebase.utils';
+import { Form, Formik } from 'formik';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import * as Yup from 'yup';
 
 import classes from './forgot-password.module.scss';
 

@@ -1,6 +1,6 @@
+import { ErrorMessagesEnum } from 'core/enums/error-messages.enum';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ErrorMessagesEnum } from 'core/enums/error-messages.enum';
 
 import classes from './error-message.module.scss';
 

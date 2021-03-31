@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import YouTube from 'react-youtube';
+import PracticeTests from 'components/practice-tests/practice-tests.component';
 import { Categories } from 'core/fake-data/categories';
 import { CourseSectionType, CoursesType } from 'core/types/categories.types';
-import { Options as YoutubeOptions } from 'react-youtube';
 // TODO Remove TS-ignore
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import getVideoId from 'get-video-id';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import YouTube from 'react-youtube';
+import { Options as YoutubeOptions } from 'react-youtube';
 import { setCurrentOverview } from 'redux/overview/overview.actions';
-import PracticeTests from 'components/practice-tests/practice-tests.component';
 
 import Carousel from '../../sections/carousel/carousel.section';
 import SubjectSections from '../../sections/subject-section/subject-section.section';
-
 import classes from './sections.module.scss';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

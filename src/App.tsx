@@ -1,19 +1,19 @@
 import React from 'react';
-import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { Unsubscribe } from 'redux';
 import { FirebaseUserType } from 'redux/user/user.types';
+import { createStructuredSelector } from 'reselect';
 
-import Header from './components/header/header.component';
+// import ForgotPasswordPage from './pages/forgot-password/forgot-password.page';
+import classes from './App.module.scss';
 // import Home from './pages/home/home.page';
 // import Login from './pages/login/login.page';
 // import Register from './pages/register/register.page';
 import Footer from './components/footer/footer.component';
-// import ForgotPasswordPage from './pages/forgot-password/forgot-password.page';
-import classes from './App.module.scss';
+import Header from './components/header/header.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import { selectCurrentUser } from './redux/user/user.selector';
 import { setCurrentUser } from './redux/user/user.actions';
+import { selectCurrentUser } from './redux/user/user.selector';
 // import AllRoutesEnum from './core/enums/allRoutes.enum';
 // import CategoriesPage from './pages/courses/pages/categories/categories.page';
 // import CoursesPage from './pages/courses/pages/courses/courses.page';

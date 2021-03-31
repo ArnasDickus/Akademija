@@ -1,16 +1,16 @@
-import React from 'react';
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { useTranslation } from 'react-i18next';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { auth } from 'firebase/firebase.utils';
-// import AllRoutesEnum from 'core/enums/allRoutes.enum';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
+// import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import classesScss from './header-dropdown.module.scss';
 
 const useStyles = makeStyles((theme: Theme) =>

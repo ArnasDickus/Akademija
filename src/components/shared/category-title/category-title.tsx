@@ -1,5 +1,5 @@
-import React from 'react';
 import wrapper from 'baseScss/components/wrapper.module.scss';
+import React from 'react';
 
 import classes from './category-title.module.scss';
 

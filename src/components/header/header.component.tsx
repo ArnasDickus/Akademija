@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { selectCurrentUser } from 'redux/user/user.selector';
-import { ReactComponent as LTSvg } from 'assets/lt.svg';
 import { ReactComponent as GBSvg } from 'assets/gb.svg';
+import { ReactComponent as LTSvg } from 'assets/lt.svg';
+import wrapper from 'baseScss/components/wrapper.module.scss';
 // import { useTranslation } from 'react-i18next';
 // import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import LanguagesEnum from 'core/enums/languages.enum';
-import wrapper from 'baseScss/components/wrapper.module.scss';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { selectCurrentUser } from 'redux/user/user.selector';
+import { createStructuredSelector } from 'reselect';
 
-import HeaderDropdown from './header-dropdown/header-dropdown';
-import SideMenu from './sideMenu/sideMenu';
 import Hamburger from './hamburger/hamburger.component';
 import classes from './header.module.scss';
+import HeaderDropdown from './header-dropdown/header-dropdown';
+import SideMenu from './sideMenu/sideMenu';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Header: React.FC<any> = (props) => {

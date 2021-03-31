@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Checkbox from '@material-ui/core/Checkbox';
+import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import { CourseSectionType } from 'core/types/categories.types';
 // TODO Remove TS-ignore
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import getVideoId from 'get-video-id';
-import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
-// import AllRoutesEnum from 'core/enums/allRoutes.enum';
+import React, { useEffect, useState } from 'react';
 
+// import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import classes from './subject-section.module.scss';
 
 type Props = CourseSectionType & {

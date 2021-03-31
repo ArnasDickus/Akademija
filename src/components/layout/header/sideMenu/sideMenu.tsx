@@ -1,15 +1,13 @@
-import React from 'react';
-import { createStructuredSelector } from 'reselect';
-import { selectCurrentUser } from 'redux/user/user.selector';
-import { connect } from 'react-redux';
 // import { useTranslation } from 'react-i18next';
-import { ReactComponent as LTSvg } from 'assets/lt.svg';
-import { ReactComponent as GBSvg } from 'assets/gb.svg';
 import LanguagesEnum from 'core/enums/languages.enum';
+import Image from 'next/image';
+import React from 'react';
+import { connect } from 'react-redux';
+import { selectCurrentUser } from 'redux/user/user.selector';
+import { createStructuredSelector } from 'reselect';
+
 // import AllRoutesEnum from 'core/enums/allRoutes.enum';
-
 import SideMenuList from '../side-menu-list/side-menu-list';
-
 import classes from './sideMenu.module.scss';
 
 type Props = {
@@ -74,11 +72,26 @@ const SideMenu: React.FC<Props> = (props) => {
 
         <div className={classes.svgContainer}>
           <span className={classes.paddingR}>
-            <LTSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.LT)} />
+            <Image
+              alt="LT"
+              height={20}
+              src="/assets/lt.svg"
+              width={40}
+              onClick={() => changeLanguage(LanguagesEnum.LT)}
+            />
+
+            {/* <LTSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.LT)} /> */}
           </span>
 
           <span>
-            <GBSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.EN)} />
+            <Image
+              alt="GB"
+              height={20}
+              src="/assets/gb.svg"
+              width={40}
+              onClick={() => changeLanguage(LanguagesEnum.EN)}
+            />
+            {/* <GBSvg height="20px" width="40px" onClick={() => changeLanguage(LanguagesEnum.EN)} /> */}
           </span>
         </div>
       </div>
