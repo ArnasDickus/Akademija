@@ -1,4 +1,3 @@
-import wrapper from 'baseScss/components/wrapper.module.scss';
 import CustomButton from 'components/shared/custom-button/custom-button.component';
 import ErrorComponent from 'components/shared/error-message/error-message.component';
 import FormInput from 'components/shared/form-input/form-input.component';
@@ -7,20 +6,21 @@ import { auth } from 'firebase/firebase.utils';
 import { Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { AuthWrapper } from 'styles/components/wrapper';
 import * as Yup from 'yup';
 
-import classes from './forgot-password.module.scss';
+import * as S from './forgot-password.styles';
 
 const ForgotPasswordPage: React.FC = () => {
   const [errorType, setErrorType] = useState('');
   const [hasSuccess, setHasSuccess] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
-    <div className={classes.forgotPassword}>
-      <div className={wrapper.authWrapper}>
-        <h2 className={classes.title}>{t('login.forgotPassword')}</h2>
+    <S.Container>
+      <AuthWrapper>
+        <h2 className="title">{t('login.forgotPassword')}</h2>
 
         <Formik
           initialValues={{
@@ -28,8 +28,8 @@ const ForgotPasswordPage: React.FC = () => {
           }}
           validationSchema={Yup.object({
             email: Yup.string()
-              .email(i18n.t('errorMessage.invalidEmail'))
-              .required(i18n.t('errorMessage.required')),
+              .email(t('errorMessage.invalidEmail'))
+              .required(t('errorMessage.required')),
           })}
           onSubmit={async (values) => {
             const { email } = values;
@@ -56,8 +56,8 @@ const ForgotPasswordPage: React.FC = () => {
             <CustomButton type="submit">{t('login.resetPassword')} </CustomButton>
           </Form>
         </Formik>
-      </div>
-    </div>
+      </AuthWrapper>
+    </S.Container>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LearnerHome: React.FC = () => {
+const LearnerHomePage: React.FC = () => {
   return (
     <div>
       <h2>Learner Home</h2>
@@ -8,4 +8,4 @@ const LearnerHome: React.FC = () => {
   );
 };
 
-export default LearnerHome;
+export default LearnerHomePage;
