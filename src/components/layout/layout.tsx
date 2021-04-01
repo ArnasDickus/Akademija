@@ -2,6 +2,7 @@ import React from 'react';
 
 import Footer from './footer/footer.component';
 import Header from './header/header.component';
+import * as S from './layout.styles';
 
 type Props = {
   children: JSX.Element;
@@ -9,11 +10,11 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <div>
+    <S.Site>
       <Header />
-      {children}
+      <div className="site-content">{children}</div>
       <Footer />
-    </div>
+    </S.Site>
   );
 };
 

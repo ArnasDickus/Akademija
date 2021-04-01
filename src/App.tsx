@@ -9,8 +9,6 @@ import classes from './App.module.scss';
 // import Home from './pages/home/home.page';
 // import Login from './pages/login/login.page';
 // import Register from './pages/register/register.page';
-import Footer from './components/footer/footer.component';
-import Header from './components/header/header.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selector';
@@ -56,7 +54,7 @@ class App extends React.Component<any> {
   render() {
     return (
       <div className={classes.site}>
-        <Header />
+        {/* <Header /> */}
         <div className={classes.siteContent}>
           {/* <Switch>
             <Route
@@ -110,7 +108,7 @@ class App extends React.Component<any> {
             />
           </Switch> */}
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }
