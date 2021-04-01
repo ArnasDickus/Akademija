@@ -1,25 +1,26 @@
-// import AllRoutesEnum from 'core/enums/allRoutes.enum';
-import wrapper from 'baseScss/components/wrapper.module.scss';
 import CustomButton from 'components/shared/custom-button/custom-button.component';
 import ErrorComponent from 'components/shared/error-message/error-message.component';
 import FormInput from 'components/shared/form-input/form-input.component';
+import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import { auth, signInWithGoogle } from 'firebase/firebase.utils';
 import { Form, Formik } from 'formik';
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { AuthWrapper } from 'styles/components/wrapper';
 import * as Yup from 'yup';
 
-import classes from './login.module.scss';
+import * as S from './login.styled';
 
 const LoginPage: React.FC = () => {
   const [errorType, setErrorType] = useState('');
   const [hasError, setHasError] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
-    <div className={classes.login}>
-      <div className={wrapper.authWrapper}>
-        <h2 className={classes.title}>{t('login.title')}</h2>
+    <S.Container>
+      <AuthWrapper>
+        <h2 className="title">{t('login.title')}</h2>
         <span>{t('login.subtitle')}</span>
 
         <Formik
@@ -29,11 +30,11 @@ const LoginPage: React.FC = () => {
           }}
           validationSchema={Yup.object({
             password: Yup.string()
-              .min(6, i18n.t('errorMessage.passwordMin'))
-              .required(i18n.t('errorMessage.required')),
+              .min(6, t('errorMessage.passwordMin'))
+              .required(t('errorMessage.required')),
             email: Yup.string()
-              .email(i18n.t('errorMessage.invalidEmail'))
-              .required(i18n.t('errorMessage.required')),
+              .email(t('errorMessage.invalidEmail'))
+              .required(t('errorMessage.required')),
           })}
           onSubmit={async (values) => {
             setHasError(false);
@@ -53,22 +54,22 @@ const LoginPage: React.FC = () => {
 
             {hasError && <ErrorComponent errorType={errorType} />}
 
-            <div className={classes.buttons}>
+            <div className="buttons">
               <CustomButton type="submit"> {t('login.login')} </CustomButton>
               <CustomButton type="button" isGoogleSignIn onClick={signInWithGoogle}>
                 {t('login.loginGoogle')}
               </CustomButton>
             </div>
 
-            <div className={classes.linkContainer}>
-              {/* <Link className={classes.link} to={`${AllRoutesEnum.FORGOT_PASSWORD}`}>
-                {t('login.forgotPassword')}
-              </Link> */}
+            <div className="linkContainer">
+              <Link href={`${AllRoutesEnum.FORGOT_PASSWORD}`}>
+                <span className="link">{t('login.forgotPassword')} </span>
+              </Link>
             </div>
           </Form>
         </Formik>
-      </div>
-    </div>
+      </AuthWrapper>
+    </S.Container>
   );
 };
 
