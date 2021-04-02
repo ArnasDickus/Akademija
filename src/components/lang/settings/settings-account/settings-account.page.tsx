@@ -9,9 +9,9 @@ import * as Yup from 'yup';
 
 import classes from './settings-account.module.scss';
 
-const SettingsAccount: React.FC = () => {
+const SettingsAccountPage: React.FC = () => {
   const [displayEmail, setDisplayEmail] = useState(false);
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const [verificationSent, setVerficationSent] = useState(false);
 
   const openEmail = () => {
@@ -27,16 +27,16 @@ const SettingsAccount: React.FC = () => {
   return (
     <div className={classes.container}>
       <div className={wrapper.profileSettingsWrapper}>
-        <h2 className={classes.title}>{i18n.t('profile.emailAddress')}</h2>
-        <p className={classes.subtitle}>{i18n.t('profile.addRemoveEmail')}</p>
-        <p>{i18n.t('profile.addedEmails')}</p>
+        <h2 className={classes.title}>{t('profile.emailAddress')}</h2>
+        <p className={classes.subtitle}>{t('profile.addRemoveEmail')}</p>
+        <p>{t('profile.addedEmails')}</p>
         <div className={classes.row}>
-          <p className={classes.email}>{i18n.t('profile.emailAddress')}</p>
-          <p className={classes.email}>{i18n.t('profile.primary')}</p>
+          <p className={classes.email}>{t('profile.emailAddress')}</p>
+          <p className={classes.email}>{t('profile.primary')}</p>
         </div>
         {!displayEmail ? (
           <div className={classes.buttonContainer} onClick={() => openEmail()}>
-            <ButtonLink>{i18n.t('profile.addEmail')}</ButtonLink>
+            <ButtonLink>{t('profile.addEmail')}</ButtonLink>
           </div>
         ) : (
           <div>
@@ -46,9 +46,9 @@ const SettingsAccount: React.FC = () => {
               }}
               validationSchema={Yup.object({
                 email: Yup.string()
-                  .email(i18n.t('errorMessage.invalidEmail'))
-                  .required(i18n.t('errorMessage.required')),
-                password: Yup.string().required(i18n.t('errorMessage.required')),
+                  .email(t('errorMessage.invalidEmail'))
+                  .required(t('errorMessage.required')),
+                password: Yup.string().required(t('errorMessage.required')),
               })}
               onSubmit={(values) => {
                 setVerficationSent(true);
@@ -63,15 +63,15 @@ const SettingsAccount: React.FC = () => {
                 <Form className={classes.formContainer}>
                   <TextField
                     className={classes.InputEmail}
-                    label={i18n.t('profile.emailAddress')}
+                    label={t('profile.emailAddress')}
                     name="email"
                     onChange={(event) => setFieldValue('email', event.target.value)}
                   />
                   <ErrorMessage className={classes.invalidFeedback} component="div" name="email" />
-                  <p className={classes.securityWarning}>{i18n.t('profile.securityMsg')}</p>
+                  <p className={classes.securityWarning}>{t('profile.securityMsg')}</p>
                   <TextField
                     className={classes.InputEmail}
-                    label={i18n.t('profile.currentPassword')}
+                    label={t('profile.currentPassword')}
                     name="password"
                     type="password"
                     onChange={(event) => setFieldValue('password', event.target.value)}
@@ -85,7 +85,7 @@ const SettingsAccount: React.FC = () => {
                       variant="contained"
                       onClick={() => toggleEmail(resetForm)}
                     >
-                      {i18n.t('profile.cancel')}
+                      {t('profile.cancel')}
                     </Button>
                     <Button
                       className={classes.submit}
@@ -94,10 +94,10 @@ const SettingsAccount: React.FC = () => {
                       type="submit"
                       variant="contained"
                     >
-                      {i18n.t('profile.sendVerification')}
+                      {t('profile.sendVerification')}
                     </Button>
 
-                    {verificationSent ? <p>{i18n.t('profile.checkEmail')}</p> : ''}
+                    {verificationSent ? <p>{t('profile.checkEmail')}</p> : ''}
                   </div>
                 </Form>
               )}
@@ -109,4 +109,4 @@ const SettingsAccount: React.FC = () => {
   );
 };
 
-export default SettingsAccount;
+export default SettingsAccountPage;
