@@ -1,13 +1,13 @@
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import wrapper from 'baseScss/components/wrapper.module.scss';
 import ButtonLink from 'components/shared/button-link/button-link';
 import { ErrorMessage, Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ProfileSettingsWrapper } from 'styles/components/wrapper';
 import * as Yup from 'yup';
 
-import classes from './settings-account.module.scss';
+import * as S from './settings-account.styles';
 
 const SettingsAccountPage: React.FC = () => {
   const [displayEmail, setDisplayEmail] = useState(false);
@@ -25,21 +25,21 @@ const SettingsAccountPage: React.FC = () => {
   };
 
   return (
-    <div className={classes.container}>
-      <div className={wrapper.profileSettingsWrapper}>
-        <h2 className={classes.title}>{t('profile.emailAddress')}</h2>
-        <p className={classes.subtitle}>{t('profile.addRemoveEmail')}</p>
+    <S.Container>
+      <ProfileSettingsWrapper>
+        <h2 className="title">{t('profile.emailAddress')}</h2>
+        <p className="subtitle">{t('profile.addRemoveEmail')}</p>
         <p>{t('profile.addedEmails')}</p>
-        <div className={classes.row}>
-          <p className={classes.email}>{t('profile.emailAddress')}</p>
-          <p className={classes.email}>{t('profile.primary')}</p>
+        <div className="row">
+          <p className="email">{t('profile.emailAddress')}</p>
+          <p className="email">{t('profile.primary')}</p>
         </div>
         {!displayEmail ? (
-          <div className={classes.buttonContainer} onClick={() => openEmail()}>
+          <div className="buttonContainer" onClick={() => openEmail()}>
             <ButtonLink>{t('profile.addEmail')}</ButtonLink>
           </div>
         ) : (
-          <div>
+          <S.FormContainer>
             <Formik
               initialValues={{
                 email: '',
@@ -60,40 +60,34 @@ const SettingsAccountPage: React.FC = () => {
               }}
             >
               {({ setFieldValue, resetForm, isValid }) => (
-                <Form className={classes.formContainer}>
+                <Form className="formContainer">
                   <TextField
-                    className={classes.InputEmail}
+                    className="InputEmail"
                     label={t('profile.emailAddress')}
                     name="email"
                     onChange={(event) => setFieldValue('email', event.target.value)}
                   />
-                  <ErrorMessage className={classes.invalidFeedback} component="div" name="email" />
-                  <p className={classes.securityWarning}>{t('profile.securityMsg')}</p>
+                  <ErrorMessage className="invalidFeedback" component="div" name="email" />
+                  <p className="securityWarning">{t('profile.securityMsg')}</p>
                   <TextField
-                    className={classes.InputEmail}
+                    className="InputEmail"
                     label={t('profile.currentPassword')}
                     name="password"
                     type="password"
                     onChange={(event) => setFieldValue('password', event.target.value)}
                   />
-                  <ErrorMessage className={classes.invalidFeedback} component="div" name="email" />
+                  <ErrorMessage className="invalidFeedback" component="div" name="email" />
 
-                  <div className={classes.formButtons}>
+                  <div className="formButtons">
                     <Button
-                      className={classes.cancel}
+                      className="cancel"
                       type="button"
                       variant="contained"
                       onClick={() => toggleEmail(resetForm)}
                     >
                       {t('profile.cancel')}
                     </Button>
-                    <Button
-                      className={classes.submit}
-                      color="primary"
-                      disabled={!isValid}
-                      type="submit"
-                      variant="contained"
-                    >
+                    <Button color="primary" disabled={!isValid} type="submit" variant="contained">
                       {t('profile.sendVerification')}
                     </Button>
 
@@ -102,10 +96,10 @@ const SettingsAccountPage: React.FC = () => {
                 </Form>
               )}
             </Formik>
-          </div>
+          </S.FormContainer>
         )}
-      </div>
-    </div>
+      </ProfileSettingsWrapper>
+    </S.Container>
   );
 };
 

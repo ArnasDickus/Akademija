@@ -40,4 +40,5 @@ export const colors = {
   lightDark: '#464646',
   lightBlue: '#0073b1',
   lighterBlue: '#EAF4FE',
+  textColor: '#666666',
 };
