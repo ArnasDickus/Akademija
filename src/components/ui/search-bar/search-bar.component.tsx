@@ -2,11 +2,11 @@ import { InputAdornment, TextField } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import React from 'react';
 
-import classes from './search-bar.module.scss';
+import * as S from './search-bar.styles';
 
 const SearchBar = (): JSX.Element => {
   return (
-    <div className={classes.container}>
+    <S.Container>
       <TextField
         InputProps={{
           startAdornment: (
@@ -17,7 +17,7 @@ const SearchBar = (): JSX.Element => {
         }}
         label="Search"
       />
-    </div>
+    </S.Container>
   );
 };
 

@@ -29,7 +29,9 @@ export const _app = ({ Component, pageProps }: AppProps): JSX.Element => {
           return <link key={font?.from} as="font" crossOrigin="" href={font?.from} rel="preload" />;
         })}
       </Head>
-      <Component {...pageProps} />
+      <React.StrictMode>
+        <Component {...pageProps} />
+      </React.StrictMode>
     </Provider>
   );
 };

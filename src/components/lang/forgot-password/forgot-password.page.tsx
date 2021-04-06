@@ -1,7 +1,7 @@
 import CustomButton from 'components/shared/custom-button/custom-button.component';
 import ErrorComponent from 'components/shared/error-message/error-message.component';
 import FormInput from 'components/shared/form-input/form-input.component';
-import SuccessComponent from 'components/success-message/success-message.component';
+import SuccessComponent from 'components/ui/success-message/success-message.component';
 import { auth } from 'firebase/firebase.utils';
 import { Form, Formik } from 'formik';
 import React, { useState } from 'react';

@@ -3,7 +3,7 @@ import 'react-image-crop/dist/ReactCrop.css';
 import Button from '@material-ui/core/Button';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import CustomButton from 'components/shared/custom-button/custom-button.component';
-import SuccessComponent from 'components/success-message/success-message.component';
+import SuccessComponent from 'components/ui/success-message/success-message.component';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ProfileSettingsWrapper } from 'styles/components/wrapper';
