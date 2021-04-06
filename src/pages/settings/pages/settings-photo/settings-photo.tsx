@@ -4,7 +4,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Button from '@material-ui/core/Button';
 import 'react-image-crop/dist/ReactCrop.css';
 import SuccessComponent from 'components/success-message/success-message.component';
-import CustomButton from 'components/custom-button/custom-button.component';
+import CustomButton from 'components/shared/custom-button/custom-button.component';
 import { useTranslation } from 'react-i18next';
 
 import classes from './settings-photo.module.scss';

@@ -70,7 +70,19 @@
     "profileAccountTitle": "Paskyra",
     "profileAccountDescription": "keisti savo paskyros nustatymus bei slaptažodį galite čia.",
     "profileCloseAccountTitle": "Uždaryti paskyrą",
-    "profileCloseAccountDescription": "Uždaryti paskyrą visam laikui."
+    "profileCloseAccountDescription": "Uždaryti paskyrą visam laikui.",
+    "emailAddress": "El. paštas.",
+    "addRemoveEmail": "Pridėti arba išimti el. paštą",
+    "addedEmails": "Visi pridėti el. paštai.",
+    "primary": "Pirminis",
+    "addEmail": "Pridėti el. paštą",
+    "securityMsg": "Dėl saugumo, prašome įvesti slaptažodį norint atlikti pakeitimą.",
+    "currentPassword": "Dabartinis slaptažodis",
+    "cancel": "Atšaukti",
+    "sendVerification": "Siųsti patvirtinimą.",
+    "checkEmail": "Pasitikrinkite el. paštą",
+    "warning": "Įspėjimas",
+     "warnMsg": "Jeigu uždarysi paskyra prarasi priėjimą amžiams."
   },
 
   "gender": {

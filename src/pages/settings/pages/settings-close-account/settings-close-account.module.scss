@@ -1,0 +1,41 @@
+@import 'src/baseScss/global/variables';
+@import 'src/baseScss/global/mixins';
+
+.container {
+    border: 1px solid $settingsBorder;
+}
+
+.warn {
+    color: #992337;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.modal {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-color: #fff;
+     padding: 20px;
+     width: auto;
+
+     @include atSmall() {
+         width: 100%;
+     }
+}
+
+.formButtons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.title {
+    text-align: center;
+}
+
+.InputEmail {
+    width: 100%;
+}

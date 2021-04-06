@@ -70,7 +70,19 @@
     "profileAccountTitle": "Account",
     "profileAccountDescription": "Edit your account settings and change your password here.",
     "profileCloseAccountTitle": "Close account",
-    "profileCloseAccountDescription": "Close your account permanently."
+    "profileCloseAccountDescription": "Close your account permanently.",
+    "emailAddress": "Email Address",
+    "addRemoveEmail": "Add or remove email adresses on your account",
+    "addedEmails": "Email addresses you added:",
+    "primary": "Primary",
+    "addEmail": "Add Email",
+    "securityMsg": "For your security, enter your password to make this change.",
+    "currentPassword": "Current Password",
+    "cancel": "Cancel",
+    "sendVerification": "Send verfication",
+    "checkEmail": "Check Email",
+    "warning": "Warning",
+    "warnMsg": "If you close your account, you will lose access forever."
   },
 
   "gender": {
