@@ -5,12 +5,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import { auth } from 'firebase/firebase.utils';
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-// import AllRoutesEnum from 'core/enums/allRoutes.enum';
-import classesScss from './side-menu-list.module.scss';
+import * as S from './side-menu-list.styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,31 +45,38 @@ const SideMenuList: React.FC<Props> = (props) => {
   };
 
   return (
-    <List aria-labelledby="nested-list-subheader" className={classes.root} component="nav">
-      <ListItem button onClick={handleClick}>
-        <ListItemText primary="Account name" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem className={classes.nested} button>
-            {/* <Link className={classesScss.navLink} to={`/${AllRoutesEnum.PROFILE}`}>
-              <ListItemText primary="Learner home" />
-            </Link> */}
-          </ListItem>
-          <ListItem className={classes.nested} button>
-            {/* <Link className={classesScss.navLink} to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
-              <ListItemText primary="Settings" />
-            </Link> */}
-          </ListItem>
-          <ListItem className={classes.nested} button onClick={() => logOut()}>
-            <span className={classesScss.navLink}>
-              <ListItemText primary={t('header.logout')} />
-            </span>
-          </ListItem>
-        </List>
-      </Collapse>
-    </List>
+    <S.Container>
+      <List aria-labelledby="nested-list-subheader" className={classes.root} component="nav">
+        <ListItem button onClick={handleClick}>
+          <ListItemText primary="Account name" />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItem>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItem className={classes.nested} button>
+              <Link href={`/${AllRoutesEnum.PROFILE}`}>
+                <span className="navLink">
+                  {' '}
+                  <ListItemText primary="Learner home" />
+                </span>
+              </Link>
+            </ListItem>
+            <ListItem className={classes.nested} button>
+              <Link href={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
+                <span className="navLink">
+                  <ListItemText primary="Settings" />
+                </span>
+              </Link>
+            </ListItem>
+            <ListItem className={classes.nested} button onClick={() => logOut()}>
+              <span className="navLink">
+                <ListItemText primary={t('header.logout')} />
+              </span>
+            </ListItem>
+          </List>
+        </Collapse>
+      </List>
+    </S.Container>
   );
 };
 

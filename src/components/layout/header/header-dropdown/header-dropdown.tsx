@@ -5,27 +5,15 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import { auth } from 'firebase/firebase.utils';
+import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-// import AllRoutesEnum from 'core/enums/allRoutes.enum';
-import classesScss from './header-dropdown.module.scss';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex',
-    },
-    paper: {
-      marginRight: theme.spacing(2),
-    },
-  }),
-);
+import * as S from './header-dropdown.styles';
 
 const HeaderDropdown: React.FC = () => {
-  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
   const { t } = useTranslation();
@@ -65,7 +53,7 @@ const HeaderDropdown: React.FC = () => {
   }, [open]);
 
   return (
-    <div className={classes.root}>
+    <S.Root>
       <div>
         <Button
           ref={anchorRef}
@@ -85,17 +73,17 @@ const HeaderDropdown: React.FC = () => {
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                     <MenuItem onClick={handleClose}>
-                      {/* <Link className={classesScss.link} to={`/${AllRoutesEnum.PROFILE}`}>
-                        Learner home
-                      </Link> */}
+                      <Link href={`/${AllRoutesEnum.PROFILE}`}>
+                        <span className="link">{t('header.learnerHome')}</span>
+                      </Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      {/* <Link className={classesScss.link} to={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
-                        Settings
-                      </Link> */}
+                      <Link href={`/${AllRoutesEnum.SETTINGS_PROFILE}`}>
+                        <span className="link">{t('header.settings')}</span>
+                      </Link>
                     </MenuItem>
                     <MenuItem onClick={handleLogOut}>
-                      <span className={classesScss.link}>{t('header.logout')}</span>
+                      <span className="link">{t('header.logout')}</span>
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
@@ -104,7 +92,7 @@ const HeaderDropdown: React.FC = () => {
           )}
         </Popper>
       </div>
-    </div>
+    </S.Root>
   );
 };
 

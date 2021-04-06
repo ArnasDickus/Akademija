@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import classes from './hamburger.module.scss';
+import * as S from './hamburger.styles';
 
 type Props = {
   menuOpen: () => void;
@@ -20,8 +20,8 @@ const Hamburger: React.FC<Props> = (props) => {
   };
 
   return (
-    <div className={classes.hamburger}>
-      <span className={classes.title}>{t('header.academy')}</span>
+    <S.Hamburger>
+      <span className="title">{t('header.academy')}</span>
       {props.hamburger ? (
         <>
           <FontAwesomeIcon icon={faTimes} onClick={handleClick} />
@@ -31,7 +31,7 @@ const Hamburger: React.FC<Props> = (props) => {
           <FontAwesomeIcon icon={faBars} onClick={handleClick} />
         </>
       )}
-    </div>
+    </S.Hamburger>
   );
 };
 
