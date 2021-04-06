@@ -3,15 +3,15 @@ import Button from '@material-ui/core/Button';
 import Fade from '@material-ui/core/Fade';
 import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
-import wrapper from 'baseScss/components/wrapper.module.scss';
 import { ErrorMessage, Form, Formik } from 'formik';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { ProfileSettingsWrapper } from 'styles/components/wrapper';
 import * as Yup from 'yup';
 
-import classes from './settings-close-account.module.scss';
-const CloseAccount: React.FC = () => {
-  const { i18n } = useTranslation();
+import * as S from './settings-close-account.styles';
+const CloseAccountPage: React.FC = () => {
+  const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -23,16 +23,16 @@ const CloseAccount: React.FC = () => {
   };
 
   return (
-    <div className={classes.container}>
-      <div className={wrapper.profileSettingsWrapper}>
-        <p>{i18n.t('profile.profileCloseAccountTitle')}</p>
+    <S.Container>
+      <ProfileSettingsWrapper>
+        <p>{t('profile.profileCloseAccountTitle')}</p>
         <p>
-          <span className={classes.warn}>{i18n.t('profile.warning')}: </span>
-          {i18n.t('profile.warnMsg')}
+          <span className="warn">{t('profile.warning')}: </span>
+          {t('profile.warnMsg')}
         </p>
         <div onClick={handleOpen}>
           <Button color="secondary" variant="contained">
-            {i18n.t('profile.profileCloseAccountTitle')}
+            {t('profile.profileCloseAccountTitle')}
           </Button>
         </div>
 
@@ -46,13 +46,13 @@ const CloseAccount: React.FC = () => {
           onClose={handleClose}
         >
           <Fade in={open}>
-            <div className={classes.modal}>
+            <div className="modal">
               <Formik
                 initialValues={{
                   password: '',
                 }}
                 validationSchema={Yup.object({
-                  password: Yup.string().required(i18n.t('errorMessage.required')),
+                  password: Yup.string().required(t('errorMessage.required')),
                 })}
                 onSubmit={(values) => {
                   // eslint-disable-next-line no-console
@@ -61,24 +61,20 @@ const CloseAccount: React.FC = () => {
               >
                 {({ setFieldValue, isValid }) => (
                   <Form>
-                    <h2 className={classes.title}>{i18n.t('profile.profileCloseAccountTitle')}</h2>
-                    <p>{i18n.t('profile.securityMsg')}</p>
+                    <h2 className="title">{t('profile.profileCloseAccountTitle')}</h2>
+                    <p>{t('profile.securityMsg')}</p>
                     <TextField
-                      className={classes.InputEmail}
-                      label={i18n.t('profile.currentPassword')}
+                      className="InputEmail"
+                      label={t('profile.currentPassword')}
                       name="password"
                       type="password"
                       onChange={(event) => setFieldValue('password', event.target.value)}
                     />
-                    <ErrorMessage
-                      className={classes.invalidFeedback}
-                      component="div"
-                      name="email"
-                    />
+                    <ErrorMessage className="invalidFeedback" component="div" name="email" />
 
-                    <div className={classes.formButtons}>
+                    <div className="formButtons">
                       <Button type="button" variant="contained" onClick={handleClose}>
-                        {i18n.t('profile.cancel')}
+                        {t('profile.cancel')}
                       </Button>
                       <Button
                         color="secondary"
@@ -86,7 +82,7 @@ const CloseAccount: React.FC = () => {
                         type="submit"
                         variant="contained"
                       >
-                        {i18n.t('profile.profileCloseAccountTitle')}
+                        {t('profile.profileCloseAccountTitle')}
                       </Button>
                     </div>
                   </Form>
@@ -95,9 +91,9 @@ const CloseAccount: React.FC = () => {
             </div>
           </Fade>
         </Modal>
-      </div>
-    </div>
+      </ProfileSettingsWrapper>
+    </S.Container>
   );
 };
 
-export default CloseAccount;
+export default CloseAccountPage;

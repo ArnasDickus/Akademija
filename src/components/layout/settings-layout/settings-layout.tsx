@@ -1,4 +1,4 @@
-import SettingsNavbar from 'components/settings-navbar/settings-navbar';
+import SettingsNavbar from 'components/layout/settings-navbar/settings-navbar';
 import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -27,7 +27,7 @@ const SettingsTemplate: React.FC<Props> = ({ children }) => {
     } else if (router.pathname === `/${AllRoutesEnum.SETTINGS_ACCOUNT}`) {
       setHeaderTitle(t('profile.profileAccountTitle'));
       setHeaderDescription(t('profile.profileAccountDescription'));
-    } else if (router.pathname === `/${AllRoutesEnum.SETTINGS_DELETE}`) {
+    } else if (router.pathname === `/${AllRoutesEnum.SETTINGS_CLOSE_ACCOUNT}`) {
       setHeaderTitle(t('profile.profileCloseAccountTitle'));
       setHeaderDescription(t('profile.profileCloseAccountDescription'));
     }

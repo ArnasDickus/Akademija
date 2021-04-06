@@ -1,3 +1,4 @@
+import SettingsPhoto from 'components/lang/settings/settings-photo/settings-photo.page';
 import Layout from 'components/layout';
 import SettingsLayout from 'components/layout/settings-layout/settings-layout';
 import { NextPage } from 'next';
@@ -24,7 +25,9 @@ const SettingsPhotoHome: NextPage = () => {
         <meta name="og:image" content={pageSeo?.image} />
       </Head>  */}
       <Layout>
-        <SettingsLayout />
+        <SettingsLayout>
+          <SettingsPhoto />
+        </SettingsLayout>
       </Layout>
     </>
   );

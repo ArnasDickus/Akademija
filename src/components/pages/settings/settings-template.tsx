@@ -4,7 +4,7 @@
 // import CloseAccount from 'pages/settings/pages/settings-close-account/settings-close-account';
 // import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import wrapper from 'baseScss/components/wrapper.module.scss';
-import SettingsNavbar from 'components/settings-navbar/settings-navbar';
+import SettingsNavbar from 'components/layout/settings-navbar/settings-navbar';
 import React from 'react';
 
 // import { useTranslation } from 'react-i18next';

@@ -24,6 +24,7 @@ export const colors = {
   formInputSub: '#808080',
 
   errorColor: '#c42420',
+  errorButton: '#992337',
   successColor: '#218838',
 
   bgBlue: '#0A2A66',

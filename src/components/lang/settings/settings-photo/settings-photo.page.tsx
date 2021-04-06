@@ -2,15 +2,15 @@ import 'react-image-crop/dist/ReactCrop.css';
 
 import Button from '@material-ui/core/Button';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import wrapper from 'baseScss/components/wrapper.module.scss';
 import CustomButton from 'components/shared/custom-button/custom-button.component';
 import SuccessComponent from 'components/success-message/success-message.component';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ProfileSettingsWrapper } from 'styles/components/wrapper';
 
-import classes from './settings-photo.module.scss';
+import * as S from './settings-photo.styles';
 
-const SettingsPhoto: React.FC = () => {
+const SettingsPhotoPage: React.FC = () => {
   const { t } = useTranslation();
   const [displayAccountIcon, setDisplayAccountIcon] = useState(true);
 
@@ -25,16 +25,12 @@ const SettingsPhoto: React.FC = () => {
   };
 
   return (
-    <div className={classes.container}>
-      <div className={wrapper.profileSettingsWrapper}>
+    <S.Container>
+      <ProfileSettingsWrapper>
         <p>Image preview</p>
-        <div className={classes.previewContainer}>
-          <div className={classes.imgUpload}>
-            {displayAccountIcon ? (
-              <AccountCircleIcon className={classes.icon} />
-            ) : (
-              <p>Image file</p>
-            )}
+        <div className="previewContainer">
+          <div className="imgUpload">
+            {displayAccountIcon ? <AccountCircleIcon className="icon" /> : <p>Image file</p>}
           </div>
         </div>
         <p>Add / Change image:</p>
@@ -46,9 +42,9 @@ const SettingsPhoto: React.FC = () => {
           <CustomButton type="submit"> {t('profile.saveChanges')} </CustomButton>
         </div>
         <SuccessComponent>{t('profile.successMessage')}</SuccessComponent>
-      </div>
-    </div>
+      </ProfileSettingsWrapper>
+    </S.Container>
   );
 };
 
-export default SettingsPhoto;
+export default SettingsPhotoPage;

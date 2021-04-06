@@ -1,3 +1,4 @@
+import CloseAccountPage from 'components/lang/settings/settings-close-account/settings-close-account.page';
 import Layout from 'components/layout';
 import SettingsLayout from 'components/layout/settings-layout/settings-layout';
 import { NextPage } from 'next';
@@ -24,7 +25,9 @@ const SettingsCloseAccountHome: NextPage = () => {
         <meta name="og:image" content={pageSeo?.image} />
       </Head>  */}
       <Layout>
-        <SettingsLayout />
+        <SettingsLayout>
+          <CloseAccountPage />
+        </SettingsLayout>
       </Layout>
     </>
   );
