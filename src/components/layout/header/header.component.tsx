@@ -1,15 +1,16 @@
-import wrapper from 'baseScss/components/wrapper.module.scss';
-// import { useTranslation } from 'react-i18next';
-// import AllRoutesEnum from 'core/enums/allRoutes.enum';
+import AllRoutesEnum from 'core/enums/allRoutes.enum';
 import LanguagesEnum from 'core/enums/languages.enum';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { selectCurrentUser } from 'redux/user/user.selector';
 import { createStructuredSelector } from 'reselect';
+import { HeaderWrapper } from 'styles/components/wrapper';
 
 import Hamburger from './hamburger/hamburger.component';
-import classes from './header.module.scss';
+import * as S from './header.styles';
 import HeaderDropdown from './header-dropdown/header-dropdown';
 import SideMenu from './sideMenu/sideMenu';
 
@@ -17,7 +18,7 @@ import SideMenu from './sideMenu/sideMenu';
 const Header: React.FC<any> = (props) => {
   const [menu, openMenu] = useState(false);
   const [hamburger, openHamburger] = useState(false);
-  // const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const changeLanguage = (lng: string): void => {
     // eslint-disable-next-line no-console
@@ -26,8 +27,8 @@ const Header: React.FC<any> = (props) => {
   };
 
   return (
-    <div className={classes.header}>
-      <div className={wrapper.headerWrapper}>
+    <S.Header>
+      <HeaderWrapper>
         <Hamburger
           hamburger={hamburger}
           hamburgerOpen={() => openHamburger(!hamburger)}
@@ -39,27 +40,27 @@ const Header: React.FC<any> = (props) => {
           ''
         )}
 
-        <div className={classes.row}>
+        <div className="row">
           <div>
-            {/* <Link className={classes.navLink} to={`/${AllRoutesEnum.COURSES}`}>
-              {t('header.courses')}
-            </Link> */}
+            <Link href={`/${AllRoutesEnum.COURSES}`}>
+              <span className="navLink">{t('header.courses')}</span>
+            </Link>
           </div>
 
           <div>
-            {/* <Link className={classes.navLink} to="/">
-              {t('header.academy')}
-            </Link> */}
+            <Link href="/">
+              <span className="navLink">{t('header.academy')}</span>
+            </Link>
           </div>
 
-          <div className={classes.navLink}>
+          <div className="navLink">
             {props.currentUser ? (
               <React.Fragment>
-                <span className={classes.navLink}>
+                <span className="navLink">
                   <HeaderDropdown />
                 </span>
 
-                <span className={classes.paddingR}>
+                <span className="paddingR">
                   <Image
                     alt="LT"
                     height={20}
@@ -67,11 +68,6 @@ const Header: React.FC<any> = (props) => {
                     width={40}
                     onClick={() => changeLanguage(LanguagesEnum.LT)}
                   />
-                  {/* <LTSvg
-                    height="20px"
-                    width="40px"
-                    onClick={() => changeLanguage(LanguagesEnum.LT)}
-                  /> */}
                 </span>
 
                 <span>
@@ -82,24 +78,19 @@ const Header: React.FC<any> = (props) => {
                     width={40}
                     onClick={() => changeLanguage(LanguagesEnum.EN)}
                   />
-                  {/* <GBSvg
-                    height="20px"
-                    width="40px"
-                    onClick={() => changeLanguage(LanguagesEnum.EN)}
-                  /> */}
                 </span>
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {/* <Link className={classes.navLink} to={`/${AllRoutesEnum.LOGIN}`}>
-                  {t('header.login')}
+                <Link href={`/${AllRoutesEnum.LOGIN}`}>
+                  <span className="navLink">{t('header.login')}</span>
                 </Link>
 
-                <Link className={classes.navLink} to={`/${AllRoutesEnum.REGISTER}`}>
-                  {t('header.register')}
-                </Link> */}
+                <Link href={`/${AllRoutesEnum.REGISTER}`}>
+                  <span className="navLink">{t('header.register')}</span>
+                </Link>
 
-                <span className={classes.paddingR}>
+                <span className="paddingR">
                   <Image
                     alt="LT"
                     height={20}
@@ -107,11 +98,6 @@ const Header: React.FC<any> = (props) => {
                     width={40}
                     onClick={() => changeLanguage(LanguagesEnum.LT)}
                   />
-                  {/* <LTSvg
-                    height="20px"
-                    width="40px"
-                    onClick={() => changeLanguage(LanguagesEnum.LT)}
-                  /> */}
                 </span>
 
                 <span>
@@ -122,18 +108,13 @@ const Header: React.FC<any> = (props) => {
                     width={40}
                     onClick={() => changeLanguage(LanguagesEnum.EN)}
                   />
-                  {/* <GBSvg
-                    height="20px"
-                    width="40px"
-                    onClick={() => changeLanguage(LanguagesEnum.EN)}
-                  /> */}
                 </span>
               </React.Fragment>
             )}
           </div>
         </div>
-      </div>
-    </div>
+      </HeaderWrapper>
+    </S.Header>
   );
 };
 

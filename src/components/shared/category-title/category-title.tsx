@@ -1,7 +1,7 @@
-import wrapper from 'baseScss/components/wrapper.module.scss';
 import React from 'react';
+import { HeaderWrapper } from 'styles/components/wrapper';
 
-import classes from './category-title.module.scss';
+import * as S from './category-title.styles';
 
 type Props = {
   title: string;
@@ -9,11 +9,11 @@ type Props = {
 
 const CategoryTitle: React.FC<Props> = ({ title }) => {
   return (
-    <div className={classes.background}>
-      <div className={wrapper.headerWrapper}>
-        <h2 className={classes.title}>{title}</h2>
-      </div>
-    </div>
+    <S.CategoryTitle>
+      <HeaderWrapper>
+        <h2 className="title">{title}</h2>
+      </HeaderWrapper>
+    </S.CategoryTitle>
   );
 };
 

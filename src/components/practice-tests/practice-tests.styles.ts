@@ -1,38 +1,40 @@
-@import 'src/baseScss/global/variables';
+import styled from 'styled-components';
+import { colors } from 'styles/variables';
 
-.container {
-    min-height: 565px;
-}
-.title {
+export const Container = styled.div`
+  min-height: 565px;
+
+  .title {
     font-size: 24px;
     font-weight: 700;
     line-height: 28px;
     text-align: center;
-    color: $mainBlue;
+    color: ${colors.mainBlue};
     border-bottom: 1px solid #000000;
-    padding-bottom: 10px;;
-}
+    padding-bottom: 10px;
+  }
 
-.row {
+  .row {
     display: flex;
     justify-content: space-around;
     border-top: 1px solid #000000;
     padding-top: 15px;
-}
+  }
 
-.videoButton {
+  .videoButton {
     all: unset;
     cursor: pointer;
-    color: #1865f2;
+    color: ${colors.mainBlue};
     font-size: 14px;
     font-weight: 700;
     padding-left: 10px;
-}
+  }
 
-.problemButton {
+  .problemButton {
     all: unset;
     cursor: pointer;
-    color: #888d93;
+    color: ${colors.darkerColor};
     font-size: 14px;
     font-weight: 400;
-}
+  }
+`;

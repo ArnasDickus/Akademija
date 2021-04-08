@@ -24,11 +24,11 @@ const Hamburger: React.FC<Props> = (props) => {
       <span className="title">{t('header.academy')}</span>
       {props.hamburger ? (
         <>
-          <FontAwesomeIcon icon={faTimes} onClick={handleClick} />
+          <FontAwesomeIcon className="icon" icon={faTimes} onClick={handleClick} />
         </>
       ) : (
         <>
-          <FontAwesomeIcon icon={faBars} onClick={handleClick} />
+          <FontAwesomeIcon className="icon" icon={faBars} onClick={handleClick} />
         </>
       )}
     </S.Hamburger>

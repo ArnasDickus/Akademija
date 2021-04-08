@@ -8,7 +8,6 @@ export const Hamburger = styled.div`
     color: ${colors.mainBlue};
     text-align: right;
     padding-right: 10px;
-    font-size: 20px;
     padding-bottom: 15px;
     display: flex;
     justify-content: space-between;
@@ -17,5 +16,9 @@ export const Hamburger = styled.div`
 
   .title {
     text-align: left;
+  }
+
+  .icon {
+    font-size: 20px;
   }
 `;

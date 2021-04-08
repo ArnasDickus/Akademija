@@ -42,5 +42,6 @@ export const colors = {
   lightBlue: '#0073b1',
   lighterBlue: '#EAF4FE',
   textColor: '#666666',
+  darkerColor: '#888d93',
   darkBlue: '#0a2a66',
 };

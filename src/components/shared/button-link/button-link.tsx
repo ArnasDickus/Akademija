@@ -1,13 +1,13 @@
 import React from 'react';
 
-import classes from './button-link.module.scss';
+import * as S from './button-link.styles';
 
 type Props = {
   children: string;
 };
 
 const ButtonLink: React.FC<Props> = ({ children }) => {
-  return <button className={classes.button}>{children}</button>;
+  return <S.Button>{children}</S.Button>;
 };
 
 export default ButtonLink;

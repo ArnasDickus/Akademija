@@ -1,20 +1,20 @@
-@import 'src/baseScss/global/variables';
-@import 'src/baseScss/global/mixins';
+import styled from 'styled-components';
+import { colors } from 'styles/variables';
 
-.group {
+export const Group = styled.div`
   position: relative;
   margin: 45px 0;
 
   .formInput {
     background: #ffffff none;
-    color: $formInputSub;
+    color: ${colors.formInputSub};
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid $formInputSub;
+    border-bottom: 1px solid ${colors.formInputSub};
     margin: 25px 0;
 
     &:focus {
@@ -22,7 +22,9 @@
     }
 
     &:focus ~ .form-input-label {
-      @include shrinkLabel();
+      top: -14px;
+      font-size: 12px;
+      color: ${colors.formInputMain};
     }
   }
 
@@ -31,7 +33,7 @@
   }
 
   .formInputLabel {
-    color: $formInputSub;
+    color: ${colors.formInputSub};
     font-size: 16px;
     font-weight: normal;
     position: absolute;
@@ -41,12 +43,14 @@
     transition: 300ms ease all;
 
     &.shrink {
-      @include shrinkLabel();
+      top: -14px;
+      font-size: 12px;
+      color: ${colors.formInputMain};
     }
   }
-}
 
-.error {
-  color: $errorColor;
-  font-size: 14px;
-}
+  .error {
+    color: ${colors.errorColor};
+    font-size: 14px;
+  }
+`;
