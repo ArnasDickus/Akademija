@@ -36,7 +36,7 @@ const SideMenu: React.FC<Props> = (props) => {
     <aside>
       <S.SideMenu>
         <div className="card2">
-          <Link href={`${AllRoutesEnum.COURSES}`}>
+          <Link href={`${AllRoutesEnum.CATEGORIES}`}>
             <span className="navLink" onClick={() => closeMenu()}>
               {t('header.courses')}
             </span>
