@@ -1,9 +1,9 @@
-import wrapper from 'baseScss/components/wrapper.module.scss';
-import CoursesCard from 'components/category-card/category-card';
+import CoursesCard from 'components/lang/categories/courses/components/category-card/category-card';
 import CategoryTitle from 'components/shared/category-title/category-title';
 import { Categories } from 'core/fake-data/categories';
 import { CoursesType } from 'core/types/categories.types';
 import React, { useEffect, useState } from 'react';
+import { HeaderWrapper } from 'styles/components/wrapper';
 
 const CoursesPage: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -28,7 +28,7 @@ const CoursesPage: React.FC = () => {
         <div>
           <CategoryTitle title={singleCategory.title} />
 
-          <div className={wrapper.headerWrapper}>
+          <HeaderWrapper>
             {singleCategory.courses?.length &&
               singleCategory.courses.map((course: CoursesType) => (
                 <React.Fragment key={course.id}>
@@ -42,7 +42,7 @@ const CoursesPage: React.FC = () => {
                   />
                 </React.Fragment>
               ))}
-          </div>
+          </HeaderWrapper>
         </div>
       ) : (
         ''

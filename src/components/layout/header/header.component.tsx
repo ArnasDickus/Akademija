@@ -42,7 +42,7 @@ const Header: React.FC<any> = (props) => {
 
         <div className="row">
           <div>
-            <Link href={`/${AllRoutesEnum.COURSES}`}>
+            <Link href={`/${AllRoutesEnum.CATEGORIES}`}>
               <span className="navLink">{t('header.courses')}</span>
             </Link>
           </div>

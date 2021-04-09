@@ -10,8 +10,8 @@ import { CourseSectionType } from 'core/types/categories.types';
 import getVideoId from 'get-video-id';
 import React, { useEffect, useState } from 'react';
 
+import * as S from './subject-section';
 // import AllRoutesEnum from 'core/enums/allRoutes.enum';
-import classes from './subject-section.module.scss';
 
 type Props = CourseSectionType & {
   onLessonUpdate: (url: string, previousSectionId: string) => void;
@@ -155,12 +155,12 @@ const SubjectSections: React.FC<Props> = ({
   };
 
   return (
-    <React.Fragment>
-      <div className={classes.subjectSections} onClick={handleClick}>
-        <div className={classes.row}>
+    <S.Container>
+      <div className="subjectSections" onClick={handleClick}>
+        <div className="row">
           <div>
-            <h5 className={classes.title}>{title}</h5>
-            <p className={classes.subtitles}>3/3 | 7min</p>
+            <h5 className="title">{title}</h5>
+            <p className="subtitles">3/3 | 7min</p>
           </div>
 
           <div>
@@ -173,51 +173,51 @@ const SubjectSections: React.FC<Props> = ({
         ? lessons.map((lesson) => (
             <div
               key={lesson.id}
-              className={`${classes.dropdown} ${
+              className={`dropdown ${
                 isLessonSelected &&
                 lesson.id === lessonId &&
                 (previousSectionId === id || initialLessonLoad)
-                  ? `${classes.activeLesson}`
+                  ? `activeLesson`
                   : ''
               }`}
             >
-              <div className={classes.rowDropdown}>
+              <div className="rowDropdown">
                 <label>
                   <Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} value="checkedA" />
                 </label>
                 <div
-                  className={classes.textContainer}
+                  className="textContainer"
                   onClick={() => handleLessonClick(lesson.url, lesson.id || '', id || '')}
                 >
-                  <p className={classes.listItemTitle}>{lesson.title}</p>
-                  <p className={classes.time}>
-                    <PlayCircleFilledIcon className={classes.icon} /> 2 min
+                  <p className="listItemTitle">{lesson.title}</p>
+                  <p className="time">
+                    <PlayCircleFilledIcon className="icon" /> 2 min
                   </p>
                 </div>
               </div>
             </div>
           ))
         : ''}
-      {menu ? <h5 className={classes.practiceTitle}>Practice</h5> : ''}
+      {menu ? <h5 className="practiceTitle">Practice</h5> : ''}
 
       {menu
         ? tests?.map((test) => (
             <div
               key={test.id}
-              className={`${classes.dropdown} ${
+              className={`dropdown ${
                 !isLessonSelected &&
                 test.id === testId &&
                 (previousSectionId === id || initialTestLoad)
-                  ? `${classes.activeLesson}`
+                  ? `activeLesson`
                   : ''
               }`}
             >
-              <div className={classes.rowDropdown}>
+              <div className="rowDropdown">
                 <label>
                   <Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} value="checkedA" />
                 </label>
                 <div
-                  className={classes.textContainer}
+                  className="textContainer"
                   onClick={() =>
                     handleTestClick(
                       test.id || '',
@@ -228,16 +228,16 @@ const SubjectSections: React.FC<Props> = ({
                     )
                   }
                 >
-                  <p className={classes.listItemTitle}>{test.title}</p>
-                  <p className={classes.time}>
-                    <InsertDriveFileIcon className={classes.icon} />2 min
+                  <p className="listItemTitle">{test.title}</p>
+                  <p className="time">
+                    <InsertDriveFileIcon className="icon" />2 min
                   </p>
                 </div>
               </div>
             </div>
           ))
         : ''}
-    </React.Fragment>
+    </S.Container>
   );
 };
 

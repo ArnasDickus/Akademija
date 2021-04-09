@@ -1,5 +1,6 @@
 enum AllRoutesEnum {
   COURSES = 'courses',
+  CATEGORIES = 'categories',
   LOGIN = 'login',
   REGISTER = 'register',
   FORGOT_PASSWORD = 'forgot-password',

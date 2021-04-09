@@ -1,11 +1,11 @@
-import wrapper from 'baseScss/components/wrapper.module.scss';
 import CategoryTitle from 'components/shared/category-title/category-title';
 import { Categories } from 'core/fake-data/categories';
 import { CategoriesType } from 'core/types/categories.types';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { HeaderWrapper } from 'styles/components/wrapper';
 
-import CourseCollections from '../../sections/courses-collection/courses-collection.section';
+import CourseCollections from './sections/courses-collection/courses-collection.section';
 
 const CategoriesPage: React.FC = () => {
   const { t } = useTranslation();
@@ -13,7 +13,7 @@ const CategoriesPage: React.FC = () => {
   return (
     <React.Fragment>
       <CategoryTitle title={t('courses.allCourses')} />
-      <div className={wrapper.headerWrapper}>
+      <HeaderWrapper>
         <div>
           {Categories.map((category: CategoriesType) => (
             <CourseCollections
@@ -25,7 +25,7 @@ const CategoriesPage: React.FC = () => {
             />
           ))}
         </div>
-      </div>
+      </HeaderWrapper>
     </React.Fragment>
   );
 };
