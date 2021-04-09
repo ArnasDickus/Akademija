@@ -1,6 +1,6 @@
-import { userActionTypes, ReduxCurrentUserType, FirebaseUserType } from "./user.types";
+import { FirebaseUserType, ReduxCurrentUserType, userActionTypes } from './user.types';
 
 export const setCurrentUser = (user: FirebaseUserType): ReduxCurrentUserType => ({
-    type: userActionTypes.SET_CURRENT_USER,
-    payload: user
-})
+  type: userActionTypes.SET_CURRENT_USER,
+  payload: user,
+});

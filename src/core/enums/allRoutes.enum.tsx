@@ -1,5 +1,6 @@
 enum AllRoutesEnum {
   COURSES = 'courses',
+  CATEGORIES = 'categories',
   LOGIN = 'login',
   REGISTER = 'register',
   FORGOT_PASSWORD = 'forgot-password',
@@ -8,10 +9,10 @@ enum AllRoutesEnum {
   QAHASH = '#Q&A',
   PROFILE = 'learner-home',
   SETTINGS = 'settings',
-  SETTINGS_PROFILE = 'settings/profile',
-  SETTINGS_PHOTO = 'settings/photo',
-  SETTINGS_ACCOUNT = 'settings/account',
-  SETTINGS_DELETE = 'settings/delete',
+  SETTINGS_PROFILE = 'profile',
+  SETTINGS_PHOTO = 'photo',
+  SETTINGS_ACCOUNT = 'account',
+  SETTINGS_CLOSE_ACCOUNT = 'close-account',
 }
 
 export default AllRoutesEnum;

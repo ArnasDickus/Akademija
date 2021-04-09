@@ -8,7 +8,9 @@
     "profile": "Profilis",
     "photo": "Nuotrauka",
     "account": "Paskyra",
-    "closeAccount": "Uždaryti paskyra"
+    "closeAccount": "Uždaryti paskyra",
+    "settings": "Nustatymai",
+    "learnerHome": "Profilis"
   },
 
   "heroPage": {

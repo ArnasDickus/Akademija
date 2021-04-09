@@ -1,7 +1,7 @@
 import React from 'react';
-import wrapper from 'baseScss/components/wrapper.module.scss';
+import { TestWrapper } from 'styles/components/wrapper';
 
-import classes from './practice-tests.module.scss';
+import * as S from './practice-tests.styles';
 
 type Props = {
   testData: {
@@ -14,20 +14,20 @@ type Props = {
 
 const PracticeTests: React.FC<Props> = ({ testData }) => {
   return (
-    <div className={classes.container}>
-      <h1 className={classes.title}>{testData.title}</h1>
-      <div className={wrapper.testWrapper}>
+    <S.Container>
+      <h1 className="title">{testData.title}</h1>
+      <TestWrapper>
         <p>description: {testData.description}</p>
         <p>question: {testData.question}</p>
-        <div className={classes.row}>
+        <div className="row">
           <span>
             Stuck?
-            <button className={classes.videoButton}>Watch a video or use a hint</button>
+            <button className="videoButton">Watch a video or use a hint</button>
           </span>
-          <button className={classes.problemButton}>Report a problem</button>
+          <button className="problemButton">Report a problem</button>
         </div>
-      </div>
-    </div>
+      </TestWrapper>
+    </S.Container>
   );
 };
 

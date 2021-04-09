@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './custom-button.module.scss';
+import * as S from './custom-button.styles';
 
 type Props = {
   isGoogleSignIn?: boolean;
@@ -10,14 +10,16 @@ type Props = {
 };
 
 const CustomButton: React.FC<Props> = ({ children, isGoogleSignIn, inverted, ...otherProps }) => (
-  <button
-    className={`${inverted ? `${classes.inverted}` : ''} ${
-      isGoogleSignIn ? `${classes.googleSignIn}` : ''
-    } ${classes.customButton}`}
-    {...otherProps}
-  >
-    {children}
-  </button>
+  <S.Container>
+    <button
+      className={`${inverted ? `inverted` : ''} ${
+        isGoogleSignIn ? `googleSignIn` : ''
+      } customButton`}
+      {...otherProps}
+    >
+      {children}
+    </button>
+  </S.Container>
 );
 
 export default CustomButton;

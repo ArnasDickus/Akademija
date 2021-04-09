@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
 import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-import { useField, FormikProps } from 'formik';
+import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { ProfileSettingsFormValuesEnum } from 'core/enums/profile-form-values.enum';
+import { FormikProps, useField } from 'formik';
+import React, { useEffect } from 'react';
 
 type Props = {
   label: string;
