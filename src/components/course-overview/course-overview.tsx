@@ -1,31 +1,33 @@
 import React from 'react';
-import wrapper from 'baseScss/components/wrapper.module.scss';
-import { selectOverviewData } from "redux/overview/overview.selector";
-import {connect} from 'react-redux';
-import {createStructuredSelector} from "reselect";
+import { connect } from 'react-redux';
+import { selectOverviewData } from 'redux/overview/overview.selector';
+import { createStructuredSelector } from 'reselect';
+import { OverviewWrapper } from 'styles/components/wrapper';
 
-import classes from './course-overview.module.scss';
+import * as S from './course-overview.styles';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CourseOverview: React.FC<any> = (props) => {
-    const {overview} = props;
+  const { overview } = props;
 
-    return (
-        <div className={wrapper.overviewWrapper}>
-            <p className={classes.title}>Course Overview</p>
-            <p>{overview.overview.overviewData.about}</p>
-            <hr />
-            <div className={classes.row}>
-                <p className={classes.descriptionTitle}>Description</p>
-                <p>{overview.overview.overviewData.description}</p>
-            </div>
+  return (
+    <OverviewWrapper>
+      <S.Container>
+        <p className="title">Course Overview</p>
+        <p>{overview.overview.overviewData.about}</p>
+        <hr />
+        <div className="row">
+          <p className="descriptionTitle">Description</p>
+          <p>{overview.overview.overviewData.description}</p>
         </div>
-    )
-}
+      </S.Container>
+    </OverviewWrapper>
+  );
+};
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mapStateToProps = createStructuredSelector<any, any>({
-    overview: selectOverviewData,
-})
+  overview: selectOverviewData,
+});
 
 export default connect(mapStateToProps, null)(CourseOverview);
