@@ -8,7 +8,12 @@
     "prettier",
     "prettier/@typescript-eslint"
   ],
-  "plugins": ["@typescript-eslint", "react-hooks", "header"],
+  "plugins": [
+    "@typescript-eslint", 
+    "react-hooks", 
+    "header", 
+    "simple-import-sort"
+  ],
   "settings": {
     "react": {
       "version": "detect"
@@ -36,12 +41,6 @@
       }
     ],
     "import/no-extraneous-dependencies": "warn",
-    "import/order": [
-      "warn",
-      {
-        "newlines-between": "always"
-      }
-    ],
     "no-case-declarations": "warn",
     "no-console": "warn",
     "no-debugger": "warn",
@@ -116,6 +115,9 @@
     "react/self-closing-comp": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "off",
-    "yoda": "warn"
+    "yoda": "warn",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "no-multi-spaces": ["error"]
   }
 }

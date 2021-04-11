@@ -1,23 +1,24 @@
-import React from 'react';
+import { InputAdornment, TextField } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import {InputAdornment, TextField} from "@material-ui/core";
+import React from 'react';
 
-import classes from './search-bar.module.scss';
+import * as S from './search-bar.styles';
 
 const SearchBar = (): JSX.Element => {
-    return (
-        <div className={classes.container}>
-            <TextField InputProps={{
-                           startAdornment: (
-                               <InputAdornment position="end">
-                                   <SearchIcon/>
-                               </InputAdornment>
-                           ),
-                       }}
-                       label="Search"
-            />
-        </div>
-    )
-}
+  return (
+    <S.Container>
+      <TextField
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="end">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
+        label="Search"
+      />
+    </S.Container>
+  );
+};
 
 export default SearchBar;

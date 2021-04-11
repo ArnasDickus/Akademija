@@ -8,7 +8,9 @@
     "profile": "Profile",
     "photo": "Photo",
     "account": "Account",
-    "closeAccount": "Close account"
+    "closeAccount": "Close account",
+    "settings": "Settings",
+    "learnerHome": "Learner home"
   },
 
   "heroPage": {

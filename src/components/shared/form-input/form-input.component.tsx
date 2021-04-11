@@ -1,7 +1,7 @@
-import React from 'react';
 import { useField } from 'formik';
+import React from 'react';
 
-import classes from './form-input.module.scss';
+import * as S from './form-input.styles';
 
 type Props = {
   label: string;
@@ -13,19 +13,19 @@ const FormInput: React.FC<Props> = ({ label, ...props }) => {
   const [field, meta] = useField(props);
 
   return (
-    <div className={classes.group}>
-      <input className={classes.formInput} {...field} {...props} />
-      {meta.touched && meta.error ? <div className={classes.error}>{meta.error}</div> : null}
+    <S.Group>
+      <input className="formInput" {...field} {...props} />
+      {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
 
       {label ? (
         <label
-          className={`${field.value.length ? `${classes.shrink}` : ''} 
-                ${classes.formInputLabel}`}
+          className={`${field.value.length ? `shrink` : ''} 
+                formInputLabel`}
         >
           {label}
         </label>
       ) : null}
-    </div>
+    </S.Group>
   );
 };
 
